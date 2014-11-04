@@ -15,7 +15,11 @@ public class SessionFactoryCreator implements ComponentFactory<SessionFactory> {
 
 	private SessionFactory sessionFactory;
 
-	@PostConstruct
+	public SessionFactoryCreator() {
+		create();
+	}
+	
+//	@PostConstruct
 	public void create() {
 		sessionFactory = new AnnotationConfiguration().configure()
 				.buildSessionFactory();
