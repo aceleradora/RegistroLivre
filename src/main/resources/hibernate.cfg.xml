@@ -6,23 +6,17 @@
 <hibernate-configuration>
 	<session-factory>
 		<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
-		
+
 		<!-- 
 			<property name="hibernate.connection.username">padrao</property>
 			<property name="hibernate.connection.password">pass@word1</property>
 			<property name="hibernate.connection.url">jdbc:postgresql://localhost/teste</property>
-		 -->
-		
-		<!--
-			<property name="hibernate.connection.username">mezxofwrhzixqp</property>
-			<property name="hibernate.connection.password">U3wNSZNZ7rdOW4BVvw7x2ydYZb</property>
-			<property name="hibernate.connection.url">jdbc:postgres://mezxofwrhzixqp:U3wNSZNZ7rdOW4BVvw7x2ydYZb@ec2-54-243-48-204.compute-1.amazonaws.com:5432/d8eqqlfdu4mols</property>
 		-->
-		
-		<property name="hibernate.connection.username">fzxepdlreskflw</property>
-		<property name="hibernate.connection.password">4jw6qKpSn8PgAOmxfT9_udlC26</property>
-		<property name="hibernate.connection.url">jdbc:postgresql://ec2-54-243-48-204.compute-1.amazonaws.com:5432/d1th67mgolbpsf</property>
-		 		
+
+		<property name="hibernate.connection.username">mezxofwrhzixqp</property>
+		<property name="hibernate.connection.password">U3wNSZNZ7rdOW4BVvw7x2ydYZb</property>
+		<property name="hibernate.connection.url">jdbc:postgresql://ec2-54-243-48-204.compute-1.amazonaws.com:5432/d8eqqlfdu4mols</property>
+
 		<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
 		<property name="hibernate.show_sql">true</property>
 		<property name="hibernate.format_sql">false</property>
