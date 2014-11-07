@@ -1,17 +1,16 @@
 package br.com.aceleradora.RegistroLivre.controller;
 
-import br.com.aceleradora.RegistroLivre.model.Entidade;
-import br.com.aceleradora.RegistroLivre.model.EntidadeDAO;
+import br.com.aceleradora.RegistroLivre.dao.Entidade;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Resource;
 
 @Resource
 public class HomeController {
 	
-	private EntidadeDAO dao;
+//	private EntidadeDAO dao;
 	
-	public HomeController(EntidadeDAO dao){
-		this.dao = dao;
+	public HomeController(/*EntidadeDAO dao*/){
+//		this.dao = dao;
 	}
 	
 	@Get("/")

@@ -1,7 +1,7 @@
 package br.com.aceleradora.RegistroLivre.model;
 
-public class Socio {
-
+public class Socio{
+		
 	String nome;
 	String cpf;
 	boolean situacaoDoSocio;

@@ -1,4 +1,4 @@
-package br.com.aceleradora.RegistroLivre.model;
+package br.com.aceleradora.RegistroLivre.dao;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
