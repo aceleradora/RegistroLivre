@@ -80,7 +80,7 @@
 						<h1>Estrutura Societária</h1>
 					</div>
 					<div class="panel-body">
-						<c:forEach items="${empresa.socioList}" var="socio">
+						<c:forEach items="${empresa.socios}" var="socio">
 							<label class="control-label">Sócio ${socio.id + 1}: </label>
 							<label class="control-label">${socio.nome}</label>
 							<label class="control-label">- CPF: </label>

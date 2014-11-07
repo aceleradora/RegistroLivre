@@ -6,6 +6,7 @@
 	<title>Cadastro de Empresa</title>
 	<link href="assets/css/bootstrap.css" rel="stylesheet">
 	<link href="assets/css/main.css" rel="stylesheet">
+	<script src="validacaoCadastro.js"></script>
 </head>
 	<body>
 		<div class="container">
@@ -19,7 +20,7 @@
 					
 						
 						
-						<form class="form" action="" method="POST">
+						<form class="form" action="" method="POST" onsubmit="return validaCadastro(this);">
 						
 							<div class="panel-body">
 						
