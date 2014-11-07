@@ -23,7 +23,6 @@
 
 		<mapping class="br.com.aceleradora.RegistroLivre.model.Empresa" />
 		<mapping class="br.com.aceleradora.RegistroLivre.model.Socio" />
-
 	</session-factory>
 </hibernate-configuration>
 

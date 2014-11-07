@@ -22,5 +22,10 @@ public class HomeController {
 //		dao.adiciona(entidade);
 //		System.out.println("hello world");
 	}
+	
+	@Get("/visualizacao")
+	public void visualizacao(){
+		
+	}
 
 }
