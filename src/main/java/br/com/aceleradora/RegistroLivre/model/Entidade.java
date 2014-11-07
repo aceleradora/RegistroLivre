@@ -7,7 +7,6 @@ import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass
 public abstract class Entidade {
-	
 	@Id	
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator ="geradorId")	
 	private long id;	
