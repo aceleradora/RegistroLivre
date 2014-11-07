@@ -22,8 +22,13 @@ public class SessionFactoryCreator implements ComponentFactory<SessionFactory> {
 	
 //	@PostConstruct
 	public void create() {
-		sessionFactory = new AnnotationConfiguration().configure()
-				.buildSessionFactory();
+		AnnotationConfiguration configuration = new AnnotationConfiguration();
+		
+		configuration.setProperty("hibernate.connection.url", System.getenv("DB_URL_CONNECTION"));
+		
+		configuration.configure();
+		
+		sessionFactory = configuration.buildSessionFactory();
 	}
 
 	public void destroy() {

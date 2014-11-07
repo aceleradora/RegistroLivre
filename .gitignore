@@ -2,3 +2,7 @@ bin/
 target/
 *.class
 *.jar
+.classpath
+.vraptor
+.project
+.settings/
