@@ -13,7 +13,7 @@ public class CadastroControllerTest {
 	
 	@Before
 	public void SetUp(){
-		cadastroController = new EmpresaController();
+		//cadastroController = new EmpresaController();
 	}
 
 	@Test
