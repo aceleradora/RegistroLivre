@@ -24,4 +24,19 @@ public class SocioTest {
 		assertTrue(result);
 	}
 
+	@Test
+	public void testaSeInativaSocio() throws Exception {
+		
+		boolean result = socio.inativaSocio();
+		
+		assertFalse(result);
+	}
+	
+	@Test
+	public void testaSeSocioInformadoEstaAtivoComoDefault() throws Exception {
+		
+		boolean result = socio.getSocio();
+		
+		assertTrue(result);
+	}
 }

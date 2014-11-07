@@ -12,6 +12,22 @@ public class Socio extends Entidade{
 	String cpf;
 	boolean situacaoDoSocio;
 	
+	public Socio(){
+		this.situacaoDoSocio = true;
+	}
+	
+	public boolean getSocio() {
+		
+		return situacaoDoSocio;
+	}
+	
+	public boolean inativaSocio() {
+		
+		situacaoDoSocio = false;
+		
+		return situacaoDoSocio;
+	}
+	
 	public boolean verificarValidadeCpf(String cpf){
 		
 		char Digito1, Digito2;
@@ -75,6 +91,4 @@ public class Socio extends Entidade{
         	return false;                     
         }
         
-	}
-
-}
+	}}
