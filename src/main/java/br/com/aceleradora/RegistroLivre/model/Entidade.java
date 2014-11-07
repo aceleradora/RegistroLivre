@@ -1,23 +1,14 @@
 package br.com.aceleradora.RegistroLivre.model;
 
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 
-@Entity
-public class Entidade {
+@MappedSuperclass
+public abstract class Entidade {
 	
-	@Id
-	@GeneratedValue
-	
-	private long id;
-	private String nome;
-	
-	public String getNome() {
-		return nome;
-	}
-	
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+	@Id	
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator ="geradorId")	
+	private long id;	
 }
