@@ -27,5 +27,10 @@ public class HomeController {
 	public void visualizacao(){
 		
 	}
+	
+	@Get("/listagem")
+	public void listagem(){
+		
+	}
 
 }
