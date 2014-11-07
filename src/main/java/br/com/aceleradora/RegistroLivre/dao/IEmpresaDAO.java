@@ -9,6 +9,4 @@ public interface IEmpresaDAO {
 	public List<Empresa> getTodas();
 	public Empresa getById(long id);	
 	public void adiciona(Empresa empresa);
-	
-
 }
