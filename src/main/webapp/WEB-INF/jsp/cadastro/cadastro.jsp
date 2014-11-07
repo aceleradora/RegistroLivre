@@ -85,7 +85,7 @@
 								<div class="col-lg-6 col-md-6">
 									<div class="form-group">
 										<label class="control-label">Data de abertura</label>
-										<input class="form-control" name="dataDeAbertura" type="date" value=""/>
+										<input class="form-control" name="dataDeAbertura" type="date" value="" />
 									</div>
 								</div>
 								<div class="col-lg-6 col-md-6">
