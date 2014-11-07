@@ -23,6 +23,11 @@ public class EmpresaController {
 		
 	}
 	
+	@Get("/listagem")
+	public void listagem(){
+		
+	}
+	
 	@Get("/visualizacao")
 	public void visualizacao(){
 		
