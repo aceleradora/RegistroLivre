@@ -1,4 +1,4 @@
-------------------------------------------------------------------READ ME-----------------------------------------------------------------------------
+---------------------READ ME------------------------
 
 	Para fazer o programa funcionar você precisa usar a distribuição Ubuntu do Linux e rodar o arqui vo 'db.sh' para configuar o banco local postgresql e suas variaveis.
 
@@ -7,3 +7,4 @@
 	Para rodar execute o comando no terminal 
 $ mvn jetty:run
 
+----------------------------------------------------
