@@ -8,7 +8,13 @@
 </head>
 	<body>
 		<div class="container">
-			<a href="cadastro">Página de Cadastro</a>
+		<form action="cadastro">
+			<input type="submit" value="Cadastro">
+		</form>
+			
+		<form action="visualizacao">
+			<input type="submit" value="Visualização">
+		</form>
 		</div>
 	</body>
 </html>

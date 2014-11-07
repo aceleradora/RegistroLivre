@@ -25,24 +25,24 @@
 						
 							<div class="form-group">
 								<label class="control-label">CNPJ <abbr title="Preenchimento obrigatório">*</abbr></label>
-								<input class="form-control" type="text" name="cnpj" value="" placeholder="ex: 00.000.000/0000-00" required/>
+								<input class="form-control" type="text" name="cnpj" value="" required/>
 							</div>
 						
 							<div class="form-group">
 								<label class="control-label">Nome fantasia  <abbr title="Preenchimento obrigatório">*</abbr> </label>
-								<input class="form-control" type="text" name="nomeFantasia" value="" placeholder="ex: Jaffari"/>
+								<input class="form-control" type="text" name="nomeFantasia" value="" placeholder=""/>
 							</div>
 						
 							<div class="form-group">
 								<label class="control-label">Razão Social</label>
-								<input class="form-control" type="text" name="razaoSocial" placeholder="ex: Cia Jaffari Comércio e Indústria LTDA" value=""/>
+								<input class="form-control" type="text" name="razaoSocial" value=""/>
 							</div>
 							
 							<div class="row">
 								<div class="col-lg-9">
 									<div class="form-group">
 										<label class="control-label">Endereço</label>
-										<input class="form-control" type="text" name="endereco" placeholder="ex: Av. Ipiranga" value=""/>
+										<input class="form-control" type="text" name="endereco" value=""/>
 									</div>
 								</div>
 								<div class="col-lg-3">
@@ -55,7 +55,7 @@
 						
 							<div class="form-group">
 								<label class="control-label">Complemento</label>
-								<input class="form-control" type="text" name="complemento" value="" placeholder="ex: Bloco A - apartamento 720"/>
+								<input class="form-control" type="text" name="complemento" value=""/>
 							</div>
 						
 							<div class="row">
@@ -78,14 +78,14 @@
 						
 							<div class="form-group">
 								<label class="control-label">CEP</label>
-								<input class="form-control" type="text" value="" placeholder="000000-000"/>
+								<input class="form-control" type="text" value=""/>
 							</div>
 						
 							<div class="row">
 								<div class="col-lg-6 col-md-6">
 									<div class="form-group">
 										<label class="control-label">Data de abertura</label>
-										<input class="form-control" name="dataDeAbertura" type="date" value="" />
+										<input class="form-control" name="dataDeAbertura" type="date" value=""/>
 									</div>
 								</div>
 								<div class="col-lg-6 col-md-6">

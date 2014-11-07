@@ -4,15 +4,52 @@ import java.util.InputMismatchException;
 
 import javax.persistence.Entity;
 import javax.persistence.SequenceGenerator;
+
+import br.com.aceleradora.RegistroLivre.dao.Entidade;
+
 @Entity
 @SequenceGenerator(initialValue=1, allocationSize=1, name="geradorId", sequenceName="socio_sequence")
 public class Socio extends Entidade{
 	
-	String nome;
-	String cpf;
-	boolean situacaoDoSocio;
+	private String nome;
+	private String cpf;
+	private boolean situacaoDoSocio;
 	
-	public boolean verificarValidadeCpf(String cpf){
+	public Socio(String nome, String cpf){
+		this.setNome(nome);
+		this.cpf = cpf;
+		this.situacaoDoSocio = true;
+	}
+	
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	
+	public String getCpf(){
+		return cpf;
+	}
+	
+	public boolean getSituacaoDoSocio() {
+		
+		return situacaoDoSocio;
+	}
+	
+	public void setSituacaoDoSocio(boolean situacaoDoSocio) {
+		this.situacaoDoSocio = situacaoDoSocio;
+	}
+	
+	public boolean inativaSocio() {
+		
+		situacaoDoSocio = false;
+		
+		return situacaoDoSocio;
+	}
+	
+	public boolean verificarSeCpfEValido(String cpf){
 		
 		char Digito1, Digito2;
         int Soma, i, r, Numero, Peso; 
@@ -76,5 +113,8 @@ public class Socio extends Entidade{
         }
         
 	}
+
+
+	
 
 }
