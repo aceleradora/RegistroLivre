@@ -6,6 +6,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.SequenceGenerator;
 
+import br.com.aceleradora.RegistroLivre.dao.Entidade;
+
 @Entity
 @SequenceGenerator(initialValue=1, allocationSize=1, name="geradorId", sequenceName="empresa_sequence")
 public class Empresa extends Entidade{
