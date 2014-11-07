@@ -1,6 +1,7 @@
 package br.com.aceleradora.RegistroLivre.model;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;
@@ -11,7 +12,6 @@ import br.com.caelum.vraptor.ioc.Component;
 import br.com.caelum.vraptor.ioc.ComponentFactory;
 
 @Component
-//@ApplicationScoped
 public class SessionFactoryCreator implements ComponentFactory<SessionFactory> {
 
 	private SessionFactory sessionFactory;
@@ -19,8 +19,7 @@ public class SessionFactoryCreator implements ComponentFactory<SessionFactory> {
 	public SessionFactoryCreator() {
 		create();
 	}
-	
-//	@PostConstruct
+
 	public void create() {
 		AnnotationConfiguration configuration = new AnnotationConfiguration();
 		
@@ -30,7 +29,8 @@ public class SessionFactoryCreator implements ComponentFactory<SessionFactory> {
 		
 		sessionFactory = configuration.buildSessionFactory();
 	}
-
+	
+	@PreDestroy
 	public void destroy() {
 		sessionFactory.close();
 	}

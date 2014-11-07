@@ -16,11 +16,11 @@ public class HomeController {
 	
 	@Get("/")
 	public void home() {
-		Entidade entidade = new Entidade();
-		entidade.setNome("Teste");
-		
-		dao.adiciona(entidade);
-		System.out.println("hello world");
+//		Entidade entidade = new Entidade();
+//		entidade.setNome("Teste");
+//		
+//		dao.adiciona(entidade);
+//		System.out.println("hello world");
 	}
 
 }
