@@ -2,7 +2,6 @@ package br.com.aceleradora.RegistroLivre.model;
 
 import javax.persistence.Entity;
 import javax.persistence.SequenceGenerator;
-
 @Entity
 @SequenceGenerator(initialValue=1, allocationSize=1, name="geradorId", sequenceName="socio_sequence")
 public class Socio extends Entidade{
