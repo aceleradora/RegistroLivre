@@ -28,11 +28,5 @@ public class EmpresaDAO {
 		}catch(Exception e){
 			return null;
 		}
-//		Query query = sessao.createQuery("FROM Empresa where id = :id");
-//		query.setParameter("id", id);
-//		
-//		List list = query.list().get(0);
-//		
-//		return sessao.createQuery("FROM Empresa").list();
 	}
 }
