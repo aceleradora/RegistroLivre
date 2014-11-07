@@ -13,17 +13,31 @@ public class SocioTest {
 	
 	@Before
 	public void setUp(){
-		socio = new Socio();
+		socio = new Socio("Teste", "071.549.456-21 ");
+	}
+	
+	@Test
+	public void testaSeSocioInformadoEstaAtivoComoDefault() throws Exception {
+		
+		boolean result = socio.getSituacaoDoSocio();
+		
+		assertTrue(result);
+	}
+	
+	@Test
+	public void testaSeInativaSocio() throws Exception {
+		
+		boolean result = socio.inativaSocio();
+		
+		assertFalse(result);
 	}
 	
 	@Test
 	public void testaSeCpfEValido() throws Exception {
 		
-		boolean result = socio.verificarValidadeCpf("01779501021");
+		boolean result = socio.verificarSeCpfEValido("071.549.456-21");
 		
-		assertEquals(true, result);
+		assertTrue(result);
 	}
 
-	
-	
 }
