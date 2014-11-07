@@ -19,9 +19,9 @@ public class SocioTest {
 	@Test
 	public void testaSeCpfEValido() throws Exception {
 		
-		boolean result = socio.verificarValidadeCpf("01779501021");
+		boolean result = socio.verificarValidadeCpf("017.795.010-21");
 		
-		assertEquals(true, result);
+		assertTrue(result);
 	}
 
 	
