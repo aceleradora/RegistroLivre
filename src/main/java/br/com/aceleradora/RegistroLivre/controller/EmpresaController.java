@@ -6,7 +6,7 @@ import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Resource;
 
 @Resource
-public class CadastroController {
+public class EmpresaController {
 	
 	//private EmpresaDAO dao;
 
@@ -16,6 +16,11 @@ public class CadastroController {
 	
 	@Get("/cadastro")
 	public void cadastro() {
+		
+	}
+	
+	@Get("/visualizacao")
+	public void visualizacao(){
 		
 	}
 	
