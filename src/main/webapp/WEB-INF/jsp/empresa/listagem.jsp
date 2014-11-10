@@ -36,7 +36,7 @@
 				</div>
 
 				<div class="panel-footer">
-					<h4>Total de Registros: 1</h4>
+					<h4>Total de Registros: </h4>
 					<a href="/">
 						<button class="btn btn-md btn-primary pull-right">Voltar
 						</button>

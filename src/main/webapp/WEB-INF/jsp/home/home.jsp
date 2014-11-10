@@ -15,6 +15,10 @@
 		<form action="visualizacao">
 			<input type="submit" value="Visualização">
 		</form>
+		
+		<form action="listagem">
+			<input type="submit" value="Listagem">
+		</form>
 		</div>
 	</body>
 </html>
