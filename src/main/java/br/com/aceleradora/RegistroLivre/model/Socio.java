@@ -3,7 +3,9 @@ package br.com.aceleradora.RegistroLivre.model;
 import java.util.InputMismatchException;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
 
@@ -16,16 +18,15 @@ public class Socio extends Entidade{
 	private String nome;
 	private String cpf;
 	private boolean situacaoDoSocio;
-	
-	@ManyToMany(mappedBy="socios")
-	private List<Empresa> empresas;
-	
+
 	public Socio(String nome, String cpf){
 		this.setNome(nome);
 		this.cpf = cpf;
 		this.situacaoDoSocio = true;
 	}
 	
+	public Socio() {	}
+
 	public String getNome() {
 		return nome;
 	}
