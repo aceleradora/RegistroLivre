@@ -1,9 +1,15 @@
 package br.com.aceleradora.RegistroLivre.model;
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
 
 import br.com.aceleradora.RegistroLivre.dao.Entidade;
@@ -12,15 +18,30 @@ import br.com.aceleradora.RegistroLivre.dao.Entidade;
 @SequenceGenerator(initialValue=1, allocationSize=1, name="geradorId", sequenceName="empresa_sequence")
 public class Empresa extends Entidade{
 	
+	public List<Socio> getSocios() {
+		return socios;
+	}
+
+	public void setSocios(List<Socio> socios) {
+		this.socios = socios;
+	}
+
 	@Column(nullable = false)
 	private String cnpj;
 	private String razaoSocial;
-	
 	@Column(nullable = false) 
 	private String nomeFantasia;
 	private String endereco;
 	private Date dataCriacao;
 	private Date dataEmissaoDocumento;
+	
+	@ManyToMany
+	@JoinTable(name="empresa_socios", joinColumns={@JoinColumn(name="empresa_id")}, inverseJoinColumns={@JoinColumn(name="socio_id")})
+	private List<Socio> socios;
+	
+	public Empresa(){
+		socios = new ArrayList<Socio>();
+	}
 	
 	public String getCnpj() {
 		return cnpj;
@@ -68,5 +89,9 @@ public class Empresa extends Entidade{
 
 	public void setDataEmissaoDocumento(Date dataEmissaoDocumento) {
 		this.dataEmissaoDocumento = dataEmissaoDocumento;
+	}
+	
+	public void adicionaSocio(Socio socio){
+		socios.add(socio);
 	}
 }

@@ -21,19 +21,16 @@
 					</div>
 
 					<div class="list-group">
-						<a class="a-color-black" href="/visualizacao">
-							<div class="list-group-item">
-								<h4 class="list-group-item-heading">Nome Fantasia:
-									${socio.id + 1}</h4>
-								<p class="list-group-item-text">Endereço: ${socio.id + 1}</p>
-								<p class="list-group-item-text">Numero: ${socio.id + 1}</p>
-								<p class="list-group-item-text">Complemento: ${socio.id + 1}</p>
-								<p class="list-group-item-text">Cidade: ${socio.id + 1}</p>
-								<p class="list-group-item-text">Estado: ${socio.id + 1}</p>
-								<p class="list-group-item-text">Cep: ${socio.id + 1}</p>
-								<p class="list-group-item-text">Emissão do Documento:
-									${socio.id + 1}</p>
-						</a>
+						<c:forEach items="${empresaList}" var="empresa">
+							<a class="a-color-black" href="/visualizacao">
+								<div class="list-group-item">
+									<h4 class="list-group-item-heading">Nome Fantasia:
+										${empresa.nomeFantasia}</h4>
+									<p class="list-group-item-text">Endereço: ${empresa.endereco}</p>
+									<p class="list-group-item-text">Emissão do Documento:
+										${empresa.dataEmissaoDocumento}</p>
+							</a>
+						</c:forEach>
 					</div>
 
 				</div>
