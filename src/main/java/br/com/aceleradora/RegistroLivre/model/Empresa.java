@@ -1,9 +1,11 @@
 package br.com.aceleradora.RegistroLivre.model;
 
 import java.sql.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
 
 import br.com.aceleradora.RegistroLivre.dao.Entidade;
@@ -15,12 +17,14 @@ public class Empresa extends Entidade{
 	@Column(nullable = false)
 	private String cnpj;
 	private String razaoSocial;
-	
 	@Column(nullable = false) 
 	private String nomeFantasia;
 	private String endereco;
 	private Date dataCriacao;
 	private Date dataEmissaoDocumento;
+	
+	@ManyToMany	
+	private List<Socio> socios;
 	
 	public String getCnpj() {
 		return cnpj;
