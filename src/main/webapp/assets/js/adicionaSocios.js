@@ -15,7 +15,7 @@ function adicionaSocio(){
 	'</div>' +
 	'<div class="form-group">' +
 	'<label>' +
-	'<input type="checkbox" name="empresa.socios[' + cont + '].inativo" value="Inativo"> Inativo'
+	'<input type="checkbox" name="empresa.socios[' + cont + '].inativo" > Inativo'
 	'</label>' + 
 	'</div>' +
 	'</li>';

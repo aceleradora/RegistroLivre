@@ -19,12 +19,24 @@ public class Socio extends Entidade{
 	private String cpf;
 	private boolean inativo;
 
-	public Socio(String nome, String cpf){
+	public Socio(String nome, String cpf, boolean inativo){
 		this.setNome(nome);
 		this.cpf = cpf;
-		this.inativo = false;
+		this.inativo = inativo;
 	}
 	
+	public boolean isInativo() {
+		return inativo;
+	}
+
+	public void setInativo(boolean inativo) {
+		this.inativo = inativo;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
 	public Socio() {	}
 
 	public String getNome() {

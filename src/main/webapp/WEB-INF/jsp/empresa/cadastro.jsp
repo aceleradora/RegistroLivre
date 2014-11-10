@@ -142,7 +142,7 @@
 										
 										<div class="form-group">
 											<label>
-												<input type="checkbox" name="empresa.socios[0].inativo" value="Inativo"> Inativo
+												<input type="checkbox" name="empresa.socios[0].inativo" > Inativo
 											</label>
 										</div>
 									</li> <!-- list-group-li  -->
