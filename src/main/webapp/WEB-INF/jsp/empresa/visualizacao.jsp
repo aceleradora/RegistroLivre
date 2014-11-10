@@ -5,14 +5,28 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
-<link href="assets/css/bootstrap.css" rel="stylesheet">
+
+<link href="assets/css/bootstrap/css/bootstrap.css" rel="stylesheet">
 <link href="assets/css/main.css" rel="stylesheet">
+<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="assets/js/visualizacao.js"></script>
+
 </head>
 <body>
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-6 col-lg-offset-3">
+			
+				<c:if test="${mensagem != null}">
+		    			<div class="alert alert-success alert-dismissible" role="alert">
+						  <button type="button" class="close" id="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+						  <strong>Cadastro realizado com sucesso!</strong> 
+						</div>
+		    		</c:if>
+		    		
 				<div class="panel panel-default margin-35-0">
+				
+
 
 					<div class="panel-heading">
 						<h1>Visualização de Empresa</h1>
@@ -105,6 +119,8 @@
 				<!-- col -->
 			</div>
 			<!-- row -->
+		</div>
+		</div>
 		</div>
 		<!-- container -->
 </body>

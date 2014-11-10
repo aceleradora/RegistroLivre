@@ -13,7 +13,7 @@ public class SocioTest {
 	
 	@Before
 	public void setUp(){
-		socio = new Socio("Teste", "071.549.456-21 ");
+		socio = new Socio("Teste", "071.549.456-21", false);
 	}
 	
 	@Test

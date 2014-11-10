@@ -8,6 +8,5 @@ function validacaoPdf(objFileControl){
  }
  else{
    formOK = false;
-   alert("Somente arquivos com a extensão PDF são permitidos!");
- }
+   alert("Somente arquivos com a extensão PDF são permitidos!");}
 }
