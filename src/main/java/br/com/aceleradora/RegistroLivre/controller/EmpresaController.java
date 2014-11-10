@@ -25,7 +25,8 @@ public class EmpresaController {
 	}
 	
 	@Get("/listagem")
-	public List<Empresa> listagem(){
+	public List<Empresa> listagem(Result result){
+		result.include("totalDeRegistros", daoEmpresa.contaQuantidadeDeRegistros());
 		return daoEmpresa.getTodas();
 	}
 	
@@ -37,7 +38,7 @@ public class EmpresaController {
 	public void cadastrar(Empresa empresa, Result result){
 		
 		daoEmpresa.adiciona(empresa);
-		result.include("mensagem", "true");
+		result.include("mensagem", "true");		
 		result.redirectTo(this).visualizacao();		
 	}
 	

@@ -5,6 +5,8 @@ import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Projections;
+import org.hibernate.criterion.Restrictions;
 
 import br.com.aceleradora.RegistroLivre.model.Empresa;
 import br.com.aceleradora.RegistroLivre.model.Socio;
@@ -31,6 +33,10 @@ public class EmpresaDAO implements IEmpresaDAO{
 			System.out.println(e.getMessage());
 			return null;
 		}
+	}
+	
+	public Long contaQuantidadeDeRegistros(){
+		return (Long) sessao.createCriteria(Empresa.class).setProjection(Projections.rowCount()).list().get(0);
 	}
 
 	@Override

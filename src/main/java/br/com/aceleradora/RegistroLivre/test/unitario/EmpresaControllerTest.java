@@ -42,7 +42,7 @@ public class EmpresaControllerTest {
 		EmpresaDAO empresaDAO = new EmpresaDAO(session);
 		EmpresaController empresaController = new EmpresaController(empresaDAO);
 		
-		List<Empresa> listagem = empresaController.listagem();
+		List<Empresa> listagem = empresaController.listagem(result);
 		
 		assertNotNull(listagem);
 		
