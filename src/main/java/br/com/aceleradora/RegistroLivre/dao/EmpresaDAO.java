@@ -36,7 +36,6 @@ public class EmpresaDAO implements IEmpresaDAO{
 	@Override
 	public void adiciona(Empresa empresa) {		
 		Transaction transacao = sessao.beginTransaction();
-		//sessao.save(empresa.getSocios());
 		sessao.save(empresa);
 		transacao.commit();
 	}

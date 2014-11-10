@@ -1,4 +1,4 @@
-var cont = 1;
+var contSocios = 1;
 
 function adicionaSocio(){
 	var htmlSocio = '<li class="list-group-item" id="socio' + cont + '">' +
@@ -19,8 +19,7 @@ function adicionaSocio(){
 	'</label>' + 
 	'</div>' +
 	'</li>';
-	var divSocios = document.getElementById("divSocios");
-	divSocios.innerHTML += htmlSocio;
-	cont++;
-	//alert(htmlSocio);
+
+	$("#divSocios").append(htmlSocio);
+	contSocios++;
 } 
