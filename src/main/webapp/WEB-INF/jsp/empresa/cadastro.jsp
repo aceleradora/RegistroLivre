@@ -40,9 +40,9 @@
 								<span class="glyphicon form-control-feedback"></span>
 							</div>
 						
-							<div class="form-group">
+							<div class="form-group has-feedback" id="nomeFantasia-group">
 								<label class="control-label">Nome fantasia  <abbr title="Preenchimento obrigatório">*</abbr> </label>
-								<input class="form-control" type="text" name="nomeFantasia" value="" placeholder="ex: Jaffari" required/>
+								<input class="form-control" type="text" name="nomeFantasia" id="nomeFantasia" value="" placeholder="ex: Jaffari" required/>
 								<span class="glyphicon form-control-feedback"></span>
 							</div>
 						
