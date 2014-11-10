@@ -21,10 +21,9 @@
 						<div class="panel-heading centralize">
 							<h2>Cadastrar Empresa</h2>
 						</div>
-					
 						
+						<form class="form" name="formulario" action="empresa/cadastrar" method="POST" onsubmit="return validaCadastro(this);">
 						
-						<form class="form" name="formulario" action="" method="POST">
 							<ul class="list-group">
 								
 								<li class="list-group-item">
@@ -32,56 +31,55 @@
 									<div class="list-group-item-heading centralize">
 										<h4>Dados da empresa</h4>
 									</div>
-
 									
 							<div class="form-group has-feedback" id="cnpj-group">
 								<label class="control-label">CNPJ <abbr title="Preenchimento obrigatório">*</abbr></label>
-								<input class="form-control" type="text" name="cnpj" id="cnpj" value="" placeholder="ex: 00.000.000/0000-00" required/>
+								<input class="form-control" type="text" name="empresa.cnpj" id="cnpj" value="" placeholder="ex: 00.000.000/0000-00" required/>
 								<span class="glyphicon form-control-feedback"></span>
 							</div>
 						
 							<div class="form-group has-feedback" id="nomeFantasia-group">
 								<label class="control-label">Nome fantasia  <abbr title="Preenchimento obrigatório">*</abbr> </label>
-								<input class="form-control" type="text" name="nomeFantasia" id="nomeFantasia" value="" placeholder="ex: Jaffari" required/>
+								<input class="form-control" type="text" name="empresa.nomeFantasia" id="nomeFantasia" value="" placeholder="ex: Jaffari" required/>
 								<span class="glyphicon form-control-feedback"></span>
 							</div>
 						
 							<div class="form-group">
 								<label class="control-label">Razão Social</label>
-								<input class="form-control" type="text" name="razaoSocial" placeholder="ex: Cia Jaffari Comércio e Indústria LTDA" value=""/>
+								<input class="form-control" type="text" name="empresa.razaoSocial" placeholder="ex: Cia Jaffari Comércio e Indústria LTDA" value=""/>
 							</div>
 							
 							<div class="row">
 								<div class="col-lg-9">
 											<div class="form-group">
 												<label class="control-label">Endereço</label>
-												<input class="form-control" type="text" name="endereco" placeholder="ex: Av. Ipiranga" value=""/>
+												<input class="form-control" type="text" name="empresa.endereco" placeholder="ex: Av. Ipiranga" value=""/>
 											</div>
 										</div>
 										<div class="col-lg-3">
 											<div class="form-group">
 												<label class="control-label">Número</label>
-												<input class="form-control" type="text" name="numero" value=""/>
+												<input class="form-control" type="text" name="empresa.numero" value=""/>
 											</div>
 										</div>
 									</div>
 								
 									<div class="form-group">
 										<label class="control-label">Complemento</label>
-										<input class="form-control" type="text" name="complemento" value="" placeholder="ex: Bloco A - apartamento 720"/>
+										<input class="form-control" type="text" name="empresa.complemento" value="" placeholder="ex: Bloco A - apartamento 720"/>
 									</div>
 								
 									<div class="row">
 										<div class="col-lg-9">
 											<div class="form-group">
 												<label class="control-label">Cidade</label>
-												<input class="form-control" type="text" name="cidade" value=""/>
+												<input class="form-control" type="text" name="empresa.cidade" value=""/>
 											</div>
 										</div>
 										<div class="col-lg-3">
 											<div class="form-group">
 												<label class="control-label">Estado</label>			
-												<select name="estado" class="form-control">
+												<select name="empresa.estado" class="form-control">
 													<option value="">RS</option>
 													<option value="">SP</option>
 												</select>
@@ -98,16 +96,28 @@
 										<div class="col-lg-6 col-md-6">
 											<div class="form-group">
 												<label class="control-label">Data de abertura</label>
-												<input class="form-control" name="dataDeAbertura" type="date" value="" />
+												<input class="form-control" name="empresa.dataDeAbertura" type="date" value="" />
 											</div>
 										</div>
 										<div class="col-lg-6 col-md-6">
 											<div class="form-group">
 												<label class="control-label">Emissão de documento</label>
-												<input class="form-control" name="emissaoDoDocumento" type="date" value=""/>
+												<input class="form-control" name="empresa.emissaoDoDocumento" type="date" value=""/>
 											</div>
 										</div>
+										<div class="row">
+											<div class="col-lg-9">
+												<div class="form-group">
+													<label class="control-label col-lg-6">Upload de arquivo:</label>
+													<form action="UploadServlet"  method="post" enctype="multipart/form-data">
+														<input id="file" class="form-group" type="file" name="file" value="Upload" accept=".pdf" />
+													</form>
+										</div>
+											</div>
+												</div>				
+																	
 									</div>
+									
 								
 								</li> <!-- list-group-item  -->
 								
@@ -120,17 +130,17 @@
 								
 									<div class="form-group">
 										<label>Nome do sócio</label>
-										<input class="form-control" name="nome" value="">
+										<input class="form-control" name="socio.nome" value="">
 									</div>
 									
 									<div class="form-group">
 										<label>CPF</label>
-										<input class="form-control" name="cpf" value="">
+										<input class="form-control" name="socio.cpf" value="">
 									</div>
 									
 									<div class="form-group">
 										<label>
-											<input type="checkbox" name="invalido" value="Invalido"> Invalidos
+											<input type="checkbox" name="socio.invalido" value="Inativo"> Inativo
 										</label>
 									</div>
 									

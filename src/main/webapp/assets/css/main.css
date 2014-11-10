@@ -17,8 +17,14 @@
 	color: #000;
 }
 
+<<<<<<< HEAD
 .a-color-black:hover{ text-decoration: none}
 
 h4 { font-weight: bold}
 
 
+=======
+h4 {
+	font-weight: bold;
+}
+>>>>>>> 4a1dadaebd702901211a93d8391f39f7a1e5d9e9
