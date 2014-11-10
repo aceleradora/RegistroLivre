@@ -4,9 +4,13 @@
 <html>
 <head>
 	<title>Cadastro de Empresa</title>
-	<link href="assets/css/bootstrap.css" rel="stylesheet">
-	<link href="assets/css/main.css" rel="stylesheet">
-	<script src="validacaoCadastro.js"></script>
+	<link href="assets/css/bootstrap/css/bootstrap.css" rel="stylesheet">
+	<!--  <link href="assets/css/main.css" rel="stylesheet"> -->
+	<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="assets/js/validacaoCadastro.js"></script>
+	<script src="assets/js/jquery.mask.min.js"></script>
+	<script src="assets/js/main.js"></script>
+	
 </head>
 	<body>
 		<div class="container">
@@ -20,18 +24,20 @@
 					
 						
 						
-						<form class="form" action="" method="POST" onsubmit="return validaCadastro(this);">
+						<form class="form" name="formulario" action="" method="POST">
 						
 							<div class="panel-body">
 						
-							<div class="form-group">
+							<div class="form-group has-feedback" id="cnpj-group">
 								<label class="control-label">CNPJ <abbr title="Preenchimento obrigatório">*</abbr></label>
-								<input class="form-control" type="text" name="cnpj" value="" placeholder="ex: 00.000.000/0000-00" required/>
+								<input class="form-control" type="text" name="cnpj" id="cnpj" value="" placeholder="ex: 00.000.000/0000-00" required/>
+								<span class="glyphicon form-control-feedback"></span>
 							</div>
 						
 							<div class="form-group">
 								<label class="control-label">Nome fantasia  <abbr title="Preenchimento obrigatório">*</abbr> </label>
-								<input class="form-control" type="text" name="nomeFantasia" value="" placeholder="ex: Jaffari"/>
+								<input class="form-control" type="text" name="nomeFantasia" value="" placeholder="ex: Jaffari" required/>
+								<span class="glyphicon form-control-feedback"></span>
 							</div>
 						
 							<div class="form-group">
@@ -100,7 +106,7 @@
 						</div>
 						
 							<div class="panel-footer">
-									<input type="submit" class="btn btn-lg btn-primary pull-right margin-0-6" value="Enviar"/>
+									<input type="submit" class="btn btn-lg btn-primary pull-right margin-0-6" value="Enviar" onclick="return validaCadastro();"/>
 									<input type="reset" value="Limpar" class="btn btn-default btn-lg pull-right margin-0-6"/>
 								<div style="clear:both"></div>
 							</div>
