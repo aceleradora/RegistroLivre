@@ -1,5 +1,7 @@
 package br.com.aceleradora.RegistroLivre.controller;
 
+import java.util.List;
+
 import br.com.aceleradora.RegistroLivre.dao.EmpresaDAO;
 import br.com.aceleradora.RegistroLivre.model.Empresa;
 import br.com.caelum.vraptor.Get;
@@ -10,11 +12,9 @@ import br.com.caelum.vraptor.Result;
 public class EmpresaController {
 	
 	private EmpresaDAO daoEmpresa;
-	private Result result;
 	
-	public EmpresaController(EmpresaDAO dao, Result result){
+	public EmpresaController(EmpresaDAO dao){
 		
-		this.result = result;
 		this.daoEmpresa = dao;
 	}
 	
@@ -24,8 +24,8 @@ public class EmpresaController {
 	}
 	
 	@Get("/listagem")
-	public void listagem(){
-		
+	public List<Empresa> listagem(){
+		return daoEmpresa.getTodas();
 	}
 	
 	@Get("/visualizacao")
