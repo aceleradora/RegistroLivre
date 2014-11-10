@@ -23,7 +23,7 @@
 							<h2>Cadastrar Empresa</h2>
 						</div>
 						
-						<form class="form" name="formulario" action="${pageContext.request.contextPath}empresa/cadastrar" method="POST" onsubmit="return validaCadastro();">
+						<form class="form" name="formulario" action="empresa/cadastrar" method="POST" onsubmit="return validaCadastro();">
 						
 							<ul class="list-group">
 								
