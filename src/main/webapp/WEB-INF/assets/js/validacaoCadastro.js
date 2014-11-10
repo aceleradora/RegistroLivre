@@ -81,4 +81,16 @@ function IsNum(v){
       }
    return IsNumber;
    
+   function TestFileType( fileName, fileTypes ) {
+	   if (!fileName) return;
+
+	   dots = fileName.split(".")
+	 
+	   fileType = "." + dots[dots.length-1];
+
+	   return (fileTypes.join(".").indexOf(fileType) != -1) ?
+	   alert('O Arquivo está ok!') : 
+	   alert("Por favor faça upload de arquivos que terminem em: \n\n" + (fileTypes.join(" .")) + "\n\nSelecione um novo arquivo e tente novamente!");
+	   }
+   
 }
