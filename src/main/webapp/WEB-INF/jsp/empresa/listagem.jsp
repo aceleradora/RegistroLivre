@@ -5,7 +5,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<link href="assets/css/bootstrap.css" rel="stylesheet">
+<link href="assets/css/bootstrap/css/bootstrap.css" rel="stylesheet">
 <link href="assets/css/main.css" rel="stylesheet">
 </head>
 <body>
@@ -22,27 +22,28 @@
 
 					<div class="list-group">
 						<c:forEach items="${empresaList}" var="empresa">
-							<a class="a-color-black" href="/visualizacao">
-								<div class="list-group-item">
-									<h4 class="list-group-item-heading">Nome Fantasia:
-										${empresa.nomeFantasia}</h4>
-									<p class="list-group-item-text">Endereço: ${empresa.endereco}</p>
-									<p class="list-group-item-text">Emissão do Documento:
-										${empresa.dataEmissaoDocumento}</p>
-							</a>
+							<div class="list-group-item">
+								<a class="a-color-black" href="/visualizacao">
+									<h4 class="list-group-item-heading" title="Nome fantasia">${empresa.nomeFantasia}</h4>
+								</a>
+								<p class="list-group-item-text">Endereço: ${empresa.endereco}</p>
+								<p class="list-group-item-text">Emissão do Documento: ${empresa.dataEmissaoDocumento}</p>
+							</div>
 						</c:forEach>
+					</div>
+
+					<div class="panel-footer">
+						<h4>Total de Registros: </h4>
+						<a href="/">
+							<button class="btn btn-md btn-primary pull-right">Voltar
+							</button>
+						</a>
+						<div style="clear: both"></div>
 					</div>
 
 				</div>
 
-				<div class="panel-footer">
-					<h4>Total de Registros: </h4>
-					<a href="/">
-						<button class="btn btn-md btn-primary pull-right">Voltar
-						</button>
-					</a>
-					<div style="clear: both"></div>
-				</div>
+
 
 
 				<!-- col -->
