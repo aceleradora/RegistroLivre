@@ -121,22 +121,18 @@
 								<div id="divSocios">
 									<li class="list-group-item" id="socio0">
 									
-										<div class="list-group-item-heading centralize">
-											<h4>Dados dos sócios</h4>
-										</div>
-								
 									<div class="list-group-item-heading centralize">
 										<h4>Dados dos sócios</h4>
 									</div>
 								
 									<div class="form-group">
 										<label class="control-label">Nome do sócio</label>
-										<input class="form-control" name="empresa.socios[0].nome" id="nome-socio" value="">
+										<input class="form-control" name="empresa.socios[0].nome" id="nome-socio">
 									</div>
 									
 									<div class="form-group has-feedback" id="cpf-group">
 										<label class="control-label">CPF </label>
-										<input class="form-control" type="text" name="empresa.socios[0].cpf" id="cpf" value="" placeholder="ex: 000.000.000-00"/>
+										<input class="form-control" type="text" name="empresa.socios[0].cpf" id="cpf" placeholder="ex: 000.000.000-00"/>
 										<span class="glyphicon form-control-feedback"></span>
 									</div>
 										
