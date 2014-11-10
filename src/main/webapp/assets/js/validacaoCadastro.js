@@ -1,4 +1,48 @@
-function validaCadastro(form) {
+function validaCadastro() {
+
+	if (!validarCNPJ(formulario.cnpj.value)) {
+		alert("Preencha o CNPJ corretamente.");
+		formulario.cnpj.focus();
+		return false;
+	}
+
+	if (formulario.nomeFantasia.value == "") {
+		alert("Preencha o nome fantasia corretamente.");
+		formulario.nomeFantasia.focus();
+		return false;
+	}
+
+	if (formulario.cpf.value != "") {
+		alert("Preencha o CPF do sócio " + formulario.nome-socio.value + " corretamente.");
+		formulario.nomeFantasia.focus();
+		return false;
+	}
+}
+
+function validaCNPJTempoReal(cnpj){
+	if(validarCNPJ(cnpj)){
+		$("#cnpj-group").addClass("has-success has-feedback");		
+		$("#cnpj-group").removeClass("has-error");
+		
+		$("#cnpj-group span").addClass("glyphicon-ok");
+		$("#cnpj-group span").removeClass("glyphicon-remove");
+		
+	}else{		
+		$("#cnpj-group").addClass("has-error");
+		$("#cnpj-group").removeClass("has-success");
+		
+		$("#cnpj-group span").removeClass("glyphicon-ok");
+		$("#cnpj-group span").addClass("glyphicon-remove");
+	}
+}
+
+function validarCpf(cpf){
+	
+}
+
+function validarCNPJ(cnpj) {
+
+	cnpj = cnpj.replace(/[^\d]+/g, '');
 	
 	if (!validarCNPJ(form.cnpj.value)) {
 		alert("Preencha o CNPJ corretamente.");
@@ -64,23 +108,4 @@ function validarCNPJ(cnpj) {
           return false;
            
     return true;    
-}
-
-function IsNum(v){
-	
-   var ValidChars = "0123456789";
-   var IsNumber=true;
-   var Char;
-
- 
-   for (i = 0; i < v.length && IsNumber == true; i++) 
-      { 
-      Char = v.charAt(i); 
-      if (ValidChars.indexOf(Char) == -1) 
-         {
-         IsNumber = false;
-         }
-      }
-   return IsNumber;
-   
 }

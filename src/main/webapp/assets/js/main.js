@@ -1,12 +1,15 @@
 $(document).ready(function() {
-	// validacao por plugin
+		
 	$('#cnpj').mask('00.000.000/0000-00', {
 		onKeyPress : function() {
 			validaCNPJTempoReal($('#cnpj').val());
 		}
 	});
+	
+	
 
 	$('#nomeFantasia').keypress(function() {
+		
 		if ($('#nomeFantasia').val().length > 0) {
 			$("#nomeFantasia-group").addClass("has-success has-feedback");
 			$("#nomeFantasia-group").removeClass("has-error");
@@ -35,6 +38,8 @@ $(document).ready(function() {
 	});	
 
 	$('#nomeFantasia').focusout(function() {
+		$('#nomeFantasia').val($.trim($('#nomeFantasia').val()));
+		
 		if ($('#nomeFantasia').val() == '') {
 			$("#nomeFantasia-group").removeClass("has-success");
 			$("#nomeFantasia-group").addClass("has-error");
