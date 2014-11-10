@@ -104,8 +104,7 @@
 												<div class="form-group">
 													<label class="control-label col-lg-6">Upload de arquivo:</label>
 													<form action="UploadServlet"  method="post" enctype="multipart/form-data">
-														<input class="form-group" type="file" name="file" value="Upload" accept=".pdf" 
-														 onClick="TestFileType(this.form.uploadfile.value,['pdf']);"/>
+														<input id="file" class="form-group" type="file" name="file" value="Upload" accept=".pdf" />
 													</form>
 										</div>
 											</div>
