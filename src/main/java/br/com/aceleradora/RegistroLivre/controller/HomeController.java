@@ -24,9 +24,5 @@ public class HomeController {
 		// System.out.println("hello world");
 	}
 	
-	@Get("/listagem")
-	public void listagem(){
-		
-	}
 
 }
