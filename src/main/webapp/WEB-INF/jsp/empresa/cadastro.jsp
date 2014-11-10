@@ -8,10 +8,10 @@
 	<link href="assets/css/main.css" rel="stylesheet"> 
 	<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 	<script src="assets/js/validacaoCadastro.js"></script>
-	<script src="assets/js/validacaoPdf.js"></script>	
+	<script src="assets/js/validacaoPdf.js"></script>
+	<script src="assets/js/adicionaSocios.js"></script>	
 	<script src="assets/js/jquery.mask.min.js"></script>
 	<script src="assets/js/main.js"></script>
-	
 </head>
 	<body>
 		<div class="container">
@@ -105,7 +105,8 @@
 												<label class="control-label">Emissão de documento</label>
 												<input class="form-control" name="empresa.emissaoDoDocumento" type="date" value=""/>
 											</div>
-										</div>		
+										</div>
+
 																	
 									</div>
 									
@@ -116,51 +117,51 @@
 								
 								</li> <!-- list-group-item  -->
 								
-
+								<div id="divSocios">
+									<li class="list-group-item" id="socio0">
+									
+										<div class="list-group-item-heading centralize">
+											<h4>Dados dos sócios</h4>
+										</div>
+									
+										<div class="form-group">
+											<label>Nome do sócio</label>
+											<input class="form-control" name="empresa.socios[0].nome" value="">
+										</div>
+										
+										<div class="form-group">
+											<label>CPF</label>
+											<input class="form-control" name="empresa.socios[0].cpf" value="">
+										</div>
+										
+										<div class="form-group">
+											<label>
+												<input type="checkbox" name="empresa.socios[0].inativo" value="Inativo"> Inativo
+											</label>
+										</div>
+									</li> <!-- list-group-li  -->
+								</div>
+								
 								<li class="list-group-item">
-								
-									<div class="list-group-item-heading centralize">
-										<h4>Dados dos sócios</h4>
-									</div>
-								
 									<div class="form-group">
-										<label>Nome do sócio</label>
-										<input class="form-control" name="socio.nome" value="">
-									</div>
-									
-									<div class="form-group">
-										<label>CPF</label>
-										<input class="form-control" name="socio.cpf" value="">
-									</div>
-									
-									<div class="form-group">
-										<label>
-											<input type="checkbox" name="socio.invalido" value="Inativo"> Inativo
-										</label>
-									</div>
-									
-								</li> <!-- list-group-li  -->
-
-
+										
+										<button type="button" class="btn btn-success pull-right margin-0-6" onclick="adicionaSocio()"><span class="glyphicon glyphicon-plus-sign"></span> Teste</button>
+										<br>
+									</div>								
+								</li>
 
 							</ul> <!-- list-group -->
 						
 							
-						
 							<div class="panel-footer">
 									<input type="submit" class="btn btn-lg btn-primary pull-right margin-0-6" value="Enviar" onclick="return validaCadastro();"/>
 									<input type="reset" value="Limpar" class="btn btn-default btn-lg pull-right margin-0-6"/>
 								<div style="clear:both"></div>
-							</div>
-					
+							</div>			
 						</form>
-						
-
 					</div> <!-- panel -->
 				</div> <!-- col -->
 			</div> <!-- row -->
 		</div> <!-- container -->
-
-
 	</body>
 </html>
