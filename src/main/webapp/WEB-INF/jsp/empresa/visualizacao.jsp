@@ -9,10 +9,16 @@
 <link href="assets/css/main.css" rel="stylesheet">
 </head>
 <body>
-	<div class="container">
-		<div class="row">
+	<div class="container">	    
+		<div class="row">			
 			<div class="col-lg-6 col-lg-offset-3">
 				<div class="panel panel-default margin-35-0">
+					<c:if test="${mensagem != null}">
+						<div class="alert alert-success">
+						    <button type="button" class="close" data-dismiss="alert">×</button>
+						    <strong>Cadastro realizado com sucesso!</strong> 
+		    			</div>
+		    		</c:if>
 
 					<div class="panel-heading">
 						<h1>Visualização de Empresa</h1>
