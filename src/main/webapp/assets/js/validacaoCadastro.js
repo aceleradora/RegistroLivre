@@ -94,3 +94,4 @@ function IsNum(v) {
 	}
 	return true;
 }
+

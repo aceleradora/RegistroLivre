@@ -23,7 +23,7 @@
 							<h2>Cadastrar Empresa</h2>
 						</div>
 						
-						<form class="form" name="formulario" action="${pageContext.request.contextPath}empresa/cadastrar" method="POST" onsubmit="return validaCadastro(this);">
+						<form class="form" name="formulario" action="${pageContext.request.contextPath}empresa/cadastrar" method="POST" onsubmit="return validaCadastro();">
 						
 							<ul class="list-group">
 								
@@ -111,8 +111,9 @@
 									
 									<div class="form-group">
 										<label class="control-label">Upload de arquivo:</label>
-										<input id="file" class="form-group" type="file" name="file" value="Upload" onchange="validacaoPdf(this)"/>
+										<input id="file" class="form-group" type="file" name="file" value="Upload" onchange="validacaoPdf(this)" required/>
 									</div>		
+									
 								
 								</li> <!-- list-group-item  -->
 								
