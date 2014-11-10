@@ -1,8 +1,12 @@
 package br.com.aceleradora.RegistroLivre.model;
 
 import java.util.InputMismatchException;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
 
 import br.com.aceleradora.RegistroLivre.dao.Entidade;
@@ -14,13 +18,15 @@ public class Socio extends Entidade{
 	private String nome;
 	private String cpf;
 	private boolean situacaoDoSocio;
-	
+
 	public Socio(String nome, String cpf){
 		this.setNome(nome);
 		this.cpf = cpf;
 		this.situacaoDoSocio = true;
 	}
 	
+	public Socio() {	}
+
 	public String getNome() {
 		return nome;
 	}

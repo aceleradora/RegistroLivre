@@ -5,6 +5,7 @@ import java.util.List;
 import br.com.aceleradora.RegistroLivre.dao.EmpresaDAO;
 import br.com.aceleradora.RegistroLivre.model.Empresa;
 import br.com.caelum.vraptor.Get;
+import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 
@@ -33,8 +34,10 @@ public class EmpresaController {
 		
 	}
 	
-	public void cadastrar(Empresa empresa){
+	public void cadastrar(Empresa empresa, Result result){
+		
 		daoEmpresa.adiciona(empresa);
+		result.redirectTo(this).visualizacao();
 	}
 	
 }
