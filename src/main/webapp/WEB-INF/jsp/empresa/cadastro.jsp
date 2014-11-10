@@ -8,6 +8,7 @@
 	<link href="assets/css/main.css" rel="stylesheet"> 
 	<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 	<script src="assets/js/validacaoCadastro.js"></script>
+	<script src="assets/js/validacaoPdf.js"></script>	
 	<script src="assets/js/jquery.mask.min.js"></script>
 	<script src="assets/js/main.js"></script>
 	
@@ -104,20 +105,14 @@
 												<label class="control-label">Emissão de documento</label>
 												<input class="form-control" name="empresa.emissaoDoDocumento" type="date" value=""/>
 											</div>
-										</div>
-										<div class="row">
-											<div class="col-lg-9">
-												<div class="form-group">
-													<label class="control-label col-lg-6">Upload de arquivo:</label>
-													<form action="UploadServlet"  method="post" enctype="multipart/form-data">
-														<input id="file" class="form-group" type="file" name="file" value="Upload" accept=".pdf" />
-													</form>
-										</div>
-											</div>
-												</div>				
+										</div>		
 																	
 									</div>
 									
+									<div class="form-group">
+										<label class="control-label">Upload de arquivo:</label>
+										<input id="file" class="form-group" type="file" name="file" value="Upload" onchange="validacaoPdf(this)"/>
+									</div>		
 								
 								</li> <!-- list-group-item  -->
 								
