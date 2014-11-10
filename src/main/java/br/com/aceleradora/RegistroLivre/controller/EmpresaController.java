@@ -3,6 +3,7 @@ package br.com.aceleradora.RegistroLivre.controller;
 import br.com.aceleradora.RegistroLivre.dao.EmpresaDAO;
 import br.com.aceleradora.RegistroLivre.model.Empresa;
 import br.com.caelum.vraptor.Get;
+import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 
@@ -10,11 +11,9 @@ import br.com.caelum.vraptor.Result;
 public class EmpresaController {
 	
 	private EmpresaDAO daoEmpresa;
-	private Result result;
 	
-	public EmpresaController(EmpresaDAO dao, Result result){
-		
-		this.result = result;
+	public EmpresaController(EmpresaDAO dao){
+	
 		this.daoEmpresa = dao;
 	}
 	
@@ -33,8 +32,10 @@ public class EmpresaController {
 		
 	}
 	
-	public void cadastrar(Empresa empresa){
+	public void cadastrar(Empresa empresa, Result result){
+		
 		daoEmpresa.adiciona(empresa);
+		result.redirectTo(this).visualizacao();
 	}
 	
 }
