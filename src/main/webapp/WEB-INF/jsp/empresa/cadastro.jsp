@@ -17,8 +17,6 @@
 						<div class="panel-heading centralize">
 							<h2>Cadastrar Empresa</h2>
 						</div>
-					
-						
 						
 						<form class="form" action="empresa/cadastrar" method="POST" onsubmit="return validaCadastro(this);">
 						
@@ -101,7 +99,19 @@
 												<input class="form-control" name="empresa.emissaoDoDocumento" type="date" value=""/>
 											</div>
 										</div>
+										<div class="row">
+											<div class="col-lg-9">
+												<div class="form-group">
+													<label class="control-label col-lg-6">Upload de arquivo:</label>
+													<form action="UploadServlet"  method="post" enctype="multipart/form-data">
+														<input id="file" class="form-group" type="file" name="file" value="Upload" accept=".pdf" />
+													</form>
+										</div>
+											</div>
+												</div>				
+																	
 									</div>
+									
 								
 								</li> <!-- list-group-item  -->
 								

@@ -21,47 +21,37 @@
 					</div>
 
 					<div class="list-group">
-
-						<div class="list-group-item">
-							<h4 class="list-group-item-heading">Nome Fantasia:
-								${socio.id + 1}</h4>
-							<p class="list-group-item-text">Endereço: ${socio.id + 1}</p>
-							<p class="list-group-item-text">Numero: ${socio.id + 1}</p>
-							<p class="list-group-item-text">Complemento: ${socio.id + 1}</p>
-							<p class="list-group-item-text">Cidade: ${socio.id + 1}</p>
-							<p class="list-group-item-text">Estado: ${socio.id + 1}</p>
-							<p class="list-group-item-text">Cep: ${socio.id + 1}</p>
-							<p class="list-group-item-text">Emissão do Documento:
-								${socio.id + 1}</p>
-
-						</div>
-
-						<div class="list-group-item">
-							<h4 class="list-group-item-heading">Nome Fantasia:
-								${socio.id + 1}</h4>
-							<p class="list-group-item-text">Endereço: ${socio.id + 1}</p>
-							<p class="list-group-item-text">Numero: ${socio.id + 1}</p>
-							<p class="list-group-item-text">Complemento: ${socio.id + 1}</p>
-							<p class="list-group-item-text">Cidade: ${socio.id + 1}</p>
-							<p class="list-group-item-text">Estado: ${socio.id + 1}</p>
-							<p class="list-group-item-text">Cep: ${socio.id + 1}</p>
-							<p class="list-group-item-text">Emissão do Documento:
-								${socio.id + 1}</p>
-
-						</div>
-
+						<a class="a-color-black" href="/visualizacao">
+							<div class="list-group-item">
+								<h4 class="list-group-item-heading">Nome Fantasia:
+									${socio.id + 1}</h4>
+								<p class="list-group-item-text">Endereço: ${socio.id + 1}</p>
+								<p class="list-group-item-text">Numero: ${socio.id + 1}</p>
+								<p class="list-group-item-text">Complemento: ${socio.id + 1}</p>
+								<p class="list-group-item-text">Cidade: ${socio.id + 1}</p>
+								<p class="list-group-item-text">Estado: ${socio.id + 1}</p>
+								<p class="list-group-item-text">Cep: ${socio.id + 1}</p>
+								<p class="list-group-item-text">Emissão do Documento:
+									${socio.id + 1}</p>
+						</a>
 					</div>
 
-					<div class="panel-footer">
-						<h4>Total de Registros: 2</h4>
-						<div style="clear: both"></div>
-					</div>
-
-
-					<!-- col -->
 				</div>
-				<!-- row -->
+
+				<div class="panel-footer">
+					<h4>Total de Registros: 1</h4>
+					<a href="/">
+						<button class="btn btn-md btn-primary pull-right">Voltar
+						</button>
+					</a>
+					<div style="clear: both"></div>
+				</div>
+
+
+				<!-- col -->
 			</div>
-			<!-- container -->
+			<!-- row -->
+		</div>
+		<!-- container -->
 </body>
 </html>
