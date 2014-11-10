@@ -112,8 +112,9 @@
 									
 									<div class="form-group">
 										<label class="control-label">Upload de arquivo:</label>
-										<input id="file" class="form-group" type="file" name="file" value="Upload" onchange="validacaoPdf(this)"/>
+										<input id="file" class="form-group" type="file" name="file" value="Upload" onchange="validacaoPdf(this)" required/>
 									</div>		
+									
 								
 								</li> <!-- list-group-item  -->
 
@@ -141,7 +142,7 @@
 										
 										<div class="form-group">
 											<label>
-												<input type="checkbox" name="empresa.socios[0].inativo" value="Inativo"> Inativo
+												<input type="checkbox" name="empresa.socios[0].inativo" > Inativo
 											</label>
 										</div>
 									</li> <!-- list-group-li  -->

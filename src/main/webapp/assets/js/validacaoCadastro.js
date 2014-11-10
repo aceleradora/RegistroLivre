@@ -109,3 +109,4 @@ function validarCNPJ(cnpj) {
            
     return true;    
 }
+
