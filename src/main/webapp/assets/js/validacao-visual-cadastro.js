@@ -4,10 +4,20 @@ $(document).ready(function() {
 		onKeyPress : function() {
 			validaCNPJTempoReal($('#cnpj').val());
 		}
-	});
+	});	
+	$('.cpf').mask('000.000.000-00');
 	
 	
+	$('#cnpj').focusout(function() {
+		if ($('#cnpj').val() == '') {
+			$("#cnpj-group").removeClass("has-success");
+			$("#cnpj-group").addClass("has-error");
 
+			$("#cnpj-group span").removeClass("glyphicon-ok");
+			$("#cnpj-group span").addClass("glyphicon-remove");
+		}
+	});
+		
 	$('#nomeFantasia').keypress(function() {
 		
 		if ($('#nomeFantasia').val().length > 0) {
@@ -24,18 +34,7 @@ $(document).ready(function() {
 			$("#nomeFantasia-group span").removeClass("glyphicon-ok");
 			$("#nomeFantasia-group span").addClass("glyphicon-remove");
 		}
-	});
-
-	$('#cnpj').focusout(function() {
-		if ($('#cnpj').val() == '') {
-			$("#cnpj-group").removeClass("has-success");
-			$("#cnpj-group").addClass("has-error");
-
-			$("#cnpj-group span").removeClass("glyphicon-ok");
-			$("#cnpj-group span").addClass("glyphicon-remove");
-
-		}
-	});	
+	});		
 
 	$('#nomeFantasia').focusout(function() {
 		$('#nomeFantasia').val($.trim($('#nomeFantasia').val()));
