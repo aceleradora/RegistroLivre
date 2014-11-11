@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	
-	function validarCNPJTempoReal(cnpj) {
+	var validarCNPJTempoReal= function (cnpj) {
 		if (validarCNPJ(cnpj)) {
 			$("#cnpj-group").addClass("has-success has-feedback");
 			$("#cnpj-group").removeClass("has-error");
@@ -30,6 +30,8 @@ $(document).ready(function() {
 		validarCpf($('.cpf').val());
 	});
 	
+	$('#cep').mask('00000-000');
+	$('#numero').mask('00000000000');
 	
 	
 	

@@ -11,6 +11,11 @@ function validarCadastro() {
 		formulario.nomeFantasia.focus();
 		return false;
 	}
+		
+	if (!validarPdf(formulario.file)) {
+		alert("Arquivo inexistente ou com a extensão inválida. (Somente PDF's são permitidos!)");
+		return false;
+	}
 	
 	console.log("Aqui é o CPF: " + validarCpf(formulario.cpf.value));
 
@@ -21,10 +26,6 @@ function validarCadastro() {
 		return false;
 	}
 
-	if (!validarPdf(formulario.file)) {
-		alert("Arquivo inexistente ou com a extensão inválida. (Somente PDF's são permitidos!)");
-		return false;
-	}
 }
 
 function validarPdf(objFileControl) {
@@ -44,8 +45,14 @@ function validarCpf(cpfDigitado) {
 	exp = /\.|\-/g;
 	var cpf = cpfDigitado.toString().replace(exp, "");
 	
-	if (cpf == "00000000000" || cpf.length != 11){
-		return false;}
+	if (cpf == "00000000000" || cpf == "11111111111"
+			|| cpf == "22222222222" || cpf == "33333333333"
+            || cpf == "44444444444" || cpf == "55555555555"
+            || cpf == "66666666666" || cpf == "77777777777"
+            || cpf == "88888888888" || cpf == "99999999999"
+            || cpf.length != 11){
+		
+        return false;}
 	
 	var digitoDigitado = eval(cpf.charAt(9) + cpf.charAt(10));
 	var soma1 = 0, soma2 = 0;
@@ -61,16 +68,7 @@ function validarCpf(cpfDigitado) {
 
 	var digitoGerado = (soma1 * 10) + soma2;
 	
-	return !(digitoGerado != digitoDigitado);
-
-//	if (digitoGerado != digitoDigitado) {
-//		alert('CPF Inválido!!');
-//		return false;
-//	} else {
-//		alert('CPF Válido!');
-//		return true;
-//	}
-
+	return (digitoGerado == digitoDigitado);
 }
 
 function validarCNPJ(cnpj) {

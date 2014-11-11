@@ -17,7 +17,7 @@
 							<h2>Cadastrar Empresa</h2>
 						</div>
 						
-						<form class="form" name="formulario" action="empresa/cadastrar" method="POST" onsubmit="return validaCadastro();" enctype="multipart/form-data">
+						<form class="form" name="formulario" action="empresa/cadastrar" method="POST" onsubmit="return validarCadastro();" enctype="multipart/form-data">
 						
 							<ul class="list-group">
 								
@@ -54,7 +54,7 @@
 										<div class="col-lg-3">
 											<div class="form-group">
 												<label class="control-label">Número</label>
-												<input class="form-control" type="text" name="empresa.endereco.numero" value=""/>
+												<input id="numero" class="form-control" type="text" name="empresa.endereco.numero" value=""/>
 											</div>
 										</div>
 									</div>
@@ -84,7 +84,7 @@
 								
 									<div class="form-group">
 										<label class="control-label">CEP</label>
-										<input class="form-control" name="empresa.endereco.cep" type="text" value="" placeholder="000000-000"/>
+										<input id="cep" class="form-control" name="empresa.endereco.cep" type="text" value="" placeholder="000000-000"/>
 									</div>
 								
 									<div class="row">
@@ -106,8 +106,7 @@
 									
 									<div class="form-group">
 										<label class="control-label">Upload de arquivo:</label>
-
-										<input id="file" class="form-group" type="file" name="file" onchange="validacaoPdf(this)" required/>
+										<input id="file" class="form-group" type="file" name="file" required/>
 									</div>		
 									
 								
