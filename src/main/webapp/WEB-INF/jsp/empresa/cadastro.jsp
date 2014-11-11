@@ -54,35 +54,35 @@
 								<div class="col-lg-9">
 											<div class="form-group">
 												<label class="control-label">Endereço</label>
-												<input class="form-control" type="text" name="empresa.endereco" placeholder="ex: Av. Ipiranga" value=""/>
+												<input class="form-control" type="text" name="empresa.endereco.logradouro" placeholder="ex: Av. Ipiranga" value=""/>
 											</div>
 										</div>
 										<div class="col-lg-3">
 											<div class="form-group">
 												<label class="control-label">Número</label>
-												<input class="form-control" type="text" name="empresa.numero" value=""/>
+												<input class="form-control" type="text" name="empresa.endereco.numero" value=""/>
 											</div>
 										</div>
 									</div>
 								
 									<div class="form-group">
 										<label class="control-label">Complemento</label>
-										<input class="form-control" type="text" name="empresa.complemento" value="" placeholder="ex: Bloco A - apartamento 720"/>
+										<input class="form-control" type="text" name="empresa.endereco.complemento" value="" placeholder="ex: Bloco A - apartamento 720"/>
 									</div>
 								
 									<div class="row">
 										<div class="col-lg-9">
 											<div class="form-group">
 												<label class="control-label">Cidade</label>
-												<input class="form-control" type="text" name="empresa.cidade" value=""/>
+												<input class="form-control" type="text" name="empresa.endereco.cidade" value=""/>
 											</div>
 										</div>
 										<div class="col-lg-3">
 											<div class="form-group">
 												<label class="control-label">Estado</label>			
-												<select name="empresa.estado" class="form-control">
-													<option value="">RS</option>
-													<option value="">SP</option>
+												<select name="empresa.endereco.uf" class="form-control">
+													<option value="RS">RS</option>
+													<option value="SP">SP</option>
 												</select>
 											</div>
 										</div>
@@ -90,7 +90,7 @@
 								
 									<div class="form-group">
 										<label class="control-label">CEP</label>
-										<input class="form-control" type="text" value="" placeholder="000000-000"/>
+										<input class="form-control" name="empresa.endereco.cep" type="text" value="" placeholder="000000-000"/>
 									</div>
 								
 									<div class="row">

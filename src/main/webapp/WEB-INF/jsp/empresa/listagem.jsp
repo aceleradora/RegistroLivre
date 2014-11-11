@@ -23,10 +23,10 @@
 					<div class="list-group">
 						<c:forEach items="${empresaList}" var="empresa">
 							<div class="list-group-item">
-								<a class="a-color-black" href="/visualizacao">
+								<a class="a-color-black" href="/visualizacao/${empresa.id}">
 									<h4 class="list-group-item-heading" title="Nome fantasia">${empresa.nomeFantasia}</h4>
 								</a>
-								<p class="list-group-item-text">Endereço: ${empresa.endereco}</p>
+								<p class="list-group-item-text">Endereço: ${empresa.endereco.logradouro}</p>
 								<p class="list-group-item-text">Emissão do Documento: ${empresa.dataEmissaoDocumento}</p>
 							</div>
 						</c:forEach>

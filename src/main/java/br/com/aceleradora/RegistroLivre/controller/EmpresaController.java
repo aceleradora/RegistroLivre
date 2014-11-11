@@ -29,16 +29,15 @@ public class EmpresaController {
 		return daoEmpresa.getTodas();
 	}
 	
-	@Get("/visualizacao")
-	public void visualizacao(){
-		
+	@Get("/visualizacao/{empresa.id}")
+	public Empresa visualizacao(Empresa empresa){
+		return daoEmpresa.getById(empresa.getId());
 	}
 	
 	public void cadastrar(Empresa empresa, Result result){
-		System.out.println(empresa.getSocios());
 		daoEmpresa.adiciona(empresa);
 		result.include("mensagem", "true");		
-		result.redirectTo(this).visualizacao();		
+		result.redirectTo(this).visualizacao(empresa);		
 	}
 	
 }

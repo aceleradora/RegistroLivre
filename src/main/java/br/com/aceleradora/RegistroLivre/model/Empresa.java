@@ -6,11 +6,15 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
+
+
 
 
 
@@ -26,7 +30,10 @@ public class Empresa extends Entidade{
 	private String razaoSocial;
 	@Column(nullable = false) 
 	private String nomeFantasia;
-	private String endereco;
+
+	@Embedded
+	private Endereco endereco;
+	
 	private Date dataCriacao;
 	private Date dataEmissaoDocumento;
 	
@@ -62,11 +69,11 @@ public class Empresa extends Entidade{
 		this.nomeFantasia = nomeFantasia;
 	}
 
-	public String getEndereco() {
+	public Endereco getEndereco() {
 		return endereco;
 	}
 
-	public void setEndereco(String endereco) {
+	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
 	}
 

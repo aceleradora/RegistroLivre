@@ -12,7 +12,7 @@
 			<input type="submit" value="Cadastro">
 		</form>
 			
-		<form action="visualizacao">
+		<form action="visualizacao/0">
 			<input type="submit" value="Visualização">
 		</form>
 		

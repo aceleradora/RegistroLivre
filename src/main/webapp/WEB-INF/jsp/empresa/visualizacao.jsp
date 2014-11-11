@@ -6,10 +6,10 @@
 <html lang="en">
 <head>
 
-<link href="assets/css/bootstrap/css/bootstrap.css" rel="stylesheet">
-<link href="assets/css/main.css" rel="stylesheet">
+<link href="../assets/css/bootstrap/css/bootstrap.css" rel="stylesheet">
+<link href="../assets/css/main.css" rel="stylesheet">
 <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script src="assets/js/visualizacao.js"></script>
+<script src="../assets/js/visualizacao.js"></script>
 
 </head>
 <body>
@@ -49,65 +49,67 @@
 
 						<div class="form-group">
 							<label class="control-label">Endereço:</label> <label
-								class="control-label">${empresa.endereco}</label>
+								class="control-label">${empresa.endereco.logradouro}</label>
 						</div>
 
 						<div class="form-group">
 							<label class="control-label">Número:</label> <label
-								class="control-label">${empresa.numero}</label>
+								class="control-label">${empresa.endereco.numero}</label>
 						</div>
 
 						<div class="form-group">
 							<label class="control-label">Complemento:</label> <label
-								class="control-label">${empresa.complemento}</label>
+								class="control-label">${empresa.endereco.complemento}</label>
 						</div>
 
 						<div class="form-group">
 							<label class="control-label">Cidade:</label> <label
-								class="control-label">${empresa.cidade}</label>
+								class="control-label">${empresa.endereco.cidade}</label>
 						</div>
 
 						<div class="form-group">
 							<label class="control-label">Estado:</label> <label
-								class="control-label">${empresa.estado}</label>
+								class="control-label">${empresa.endereco.uf}</label>
 						</div>
 
 						<div class="form-group">
 							<label class="control-label">CEP:</label> <label
-								class="control-label">${empresa.cep}</label>
+								class="control-label">${empresa.endereco.cep}</label>
 						</div>
 
 						<div class="form-group">
 							<label class="control-label">Data de abertura:</label> <label
-								class="control-label">${empresa.dataAbertura}</label>
+								class="control-label">${empresa.dataCriacao}</label>
 						</div>
 
 						<div class="form-group">
 							<label class="control-label">Emissão de documento:</label> <label
-								class="control-label">${empresa.emissaoDocumento}</label>
+								class="control-label">${empresa.dataEmissaoDocumento}</label>
 						</div>
 
 					</div>
 					<div class="panel-heading">
 						<h1>Estrutura Societária</h1>
 					</div>
-					<div class="panel-body">
-						<c:forEach items="${empresa.socios}" var="socio">
-							<label class="control-label">Sócio ${socio.id + 1}: </label>
-							<label class="control-label">${socio.nome}</label>
-							<label class="control-label">- CPF: </label>
-							<label class="control-label">${socio.cpf}</label>
-							<c:if test="${socio.situacaoDoSocio == true}">
-								<span class="label label-success">Ativo</span>
-							</c:if>
-							<c:if test="${socio.situacaoDoSocio == false}">
-								<span class="label label-important">Inativo</span>
-							</c:if>
-						</c:forEach>
+					<div class="panel-body">					
+						<c:if test="${empresa.socios[0].nome != null}">
+							<c:forEach items="${empresa.socios}" var="socio">
+								<label class="control-label">Nome: </label>
+								<label class="control-label">${socio.nome}</label>
+								<label class="control-label">- CPF: </label>
+								<label class="control-label">${socio.cpf}</label>
+								<c:if test="${socio.situacaoDoSocio == true}">
+									<span class="label label-success">Ativo</span>
+								</c:if>
+								<c:if test="${socio.situacaoDoSocio == false}">
+									<span class="label label-important">Inativo</span>
+								</c:if>
+							</c:forEach>
+		    			</c:if>
 					</div>
 
 					<div class="panel-footer">
-						<form action="###">
+						<form action="/listagem">
 							<input type="submit"
 								class="btn btn-lg btn-primary pull-right margin-0-6"
 								value="Voltar" />
