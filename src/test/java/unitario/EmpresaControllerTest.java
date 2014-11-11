@@ -1,4 +1,5 @@
-package br.com.aceleradora.RegistroLivre.test.unitario;
+package unitario;
+
 
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
