@@ -17,11 +17,7 @@
 							<h2>Cadastrar Empresa</h2>
 						</div>
 						
-<<<<<<< HEAD
-						<form class="form" name="formulario" action="empresa/cadastrar" method="POST" onsubmit="return validarCadastro();">
-=======
 						<form class="form" name="formulario" action="empresa/cadastrar" method="POST" onsubmit="return validaCadastro();" enctype="multipart/form-data">
->>>>>>> #3 - <Jordani/Rangel> - Retirada dependencias nao utilizadas
 						
 							<ul class="list-group">
 								
