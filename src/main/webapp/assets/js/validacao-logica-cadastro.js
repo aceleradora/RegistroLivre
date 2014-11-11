@@ -11,18 +11,20 @@ function validarCadastro() {
 		formulario.nomeFantasia.focus();
 		return false;
 	}
+	
+	console.log("Aqui é o CPF: " + validarCpf(formulario.cpf.value));
 
-	if (formulario.cpf.value != "") {
-		alert("Preencha o CPF do sócio " + formulario.nome - socio.value
-				+ " corretamente.");
-		formulario.nomeFantasia.focus();
+	if (!validarCpf(formulario.cpf.value)) {
+		alert("Preencha o CPF do socio corretamente!");
+
+		formulario.cpf.focus();
 		return false;
 	}
 
 	if (!validarPdf(formulario.file)) {
 		alert("Arquivo inexistente ou com a extensão inválida. (Somente PDF's são permitidos!)");
 		return false;
-	}	
+	}
 }
 
 function validarPdf(objFileControl) {
@@ -34,7 +36,40 @@ function validarPdf(objFileControl) {
 	return ext.toUpperCase() == ".PDF";
 }
 
-function validarCpf(cpf) {
+function validarCpf(cpfDigitado) {
+	
+	if(cpfDigitado == '')
+		return true;
+
+	exp = /\.|\-/g;
+	var cpf = cpfDigitado.toString().replace(exp, "");
+	
+	if (cpf == "00000000000" || cpf.length != 11){
+		return false;}
+	
+	var digitoDigitado = eval(cpf.charAt(9) + cpf.charAt(10));
+	var soma1 = 0, soma2 = 0;
+	var vlr = 11;
+
+	for (i = 0; i < 9; i++) {
+		soma1 += eval(cpf.charAt(i) * (vlr - 1));
+		soma2 += eval(cpf.charAt(i) * vlr);
+		vlr--;
+	}
+	soma1 = (((soma1 * 10) % 11) == 10 ? 0 : ((soma1 * 10) % 11));
+	soma2 = (((soma2 + (2 * soma1)) * 10) % 11);
+
+	var digitoGerado = (soma1 * 10) + soma2;
+	
+	return !(digitoGerado != digitoDigitado);
+
+//	if (digitoGerado != digitoDigitado) {
+//		alert('CPF Inválido!!');
+//		return false;
+//	} else {
+//		alert('CPF Válido!');
+//		return true;
+//	}
 
 }
 
