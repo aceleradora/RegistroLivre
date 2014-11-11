@@ -113,7 +113,7 @@
 					</div>
 
 					<div class="panel-footer">
-						<a class="btn btn-default" href="#back">Voltar</a>
+						<a class="btn btn-default" href="/listagem">Voltar</a>
 						<div style="clear: both"></div>
 					</div>
 					<!-- panel -->
