@@ -35,7 +35,6 @@ public class EmpresaController {
 	}
 	
 	public void cadastrar(Empresa empresa, Result result){
-		System.out.println(empresa.getSocios());
 		daoEmpresa.adiciona(empresa);
 		result.include("mensagem", "true");		
 		result.redirectTo(this).visualizacao();		

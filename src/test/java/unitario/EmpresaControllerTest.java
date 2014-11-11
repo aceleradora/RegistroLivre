@@ -1,44 +1,46 @@
 package unitario;
 
 
-import static org.junit.Assert.*;
-import static org.hamcrest.CoreMatchers.*;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
+import java.util.List;
 
 import org.hibernate.Session;
 import org.junit.Ignore;
 import org.junit.Test;
-import org.mockito.Mock;
-
-import java.util.List;
 
 import br.com.aceleradora.RegistroLivre.controller.EmpresaController;
 import br.com.aceleradora.RegistroLivre.dao.EmpresaDAO;
 import br.com.aceleradora.RegistroLivre.model.Empresa;
 import br.com.caelum.vraptor.util.test.MockResult;
-
 public class EmpresaControllerTest {
 
-	@Mock
 	Session session;
+	EmpresaDAO empresaDAO;
+	MockResult result; 
 	
 	private void setup() {
-		
-	}
-	
-	@Test
-	public void testeTeste() throws Exception {
-		assertTrue(true);
-	}
-	
-	@Test
-	public void testeTeste2() throws Exception {
-		assertThat(1+1, is(2));
+		result = new MockResult();
 	}
 	
 	@Ignore
 	@Test
-	public void quandoChamaOMetodoListagemRetornaTodasEmpresas() throws Exception {
-		MockResult result = new MockResult();
+	public void quandoChamaOMetodoCadastrarRedirecionaParaVisualizacao() throws Exception {
+		Empresa empresa = new Empresa();
+		empresa.setRazaoSocial("blablabla");
+		empresa.setCnpj("212321");
+		EmpresaController empresaController = new EmpresaController(empresaDAO);
+		
+		empresaController.cadastrar(empresa, result);
+		
+		assertTrue(result.included().containsKey("Visualização de Empresa"));
+	}
+
+	
+	@Ignore
+	@Test
+	public void quandoooChamaOMetodoListagemRetornaTodasEmpresas() throws Exception {
 		
 		EmpresaDAO empresaDAO = new EmpresaDAO(session);
 		EmpresaController empresaController = new EmpresaController(empresaDAO);
