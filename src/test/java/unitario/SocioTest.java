@@ -1,4 +1,5 @@
-package br.com.aceleradora.RegistroLivre.test;
+package unitario;
+
 
 import static org.junit.Assert.*;
 
