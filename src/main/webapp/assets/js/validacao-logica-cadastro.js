@@ -1,4 +1,4 @@
-function validaCadastro() {
+function validarCadastro() {
 
 	if (!validarCNPJ(formulario.cnpj.value)) {
 		alert("Preencha o CNPJ corretamente.");
@@ -19,15 +19,13 @@ function validaCadastro() {
 		return false;
 	}
 
-	if (!validacaoPdf(formulario.file)) {
-		alert("Somente arquivos com a extensão PDF são permitidos!");
+	if (!validarPdf(formulario.file)) {
+		alert("Arquivo inexistente ou com a extensão inválida. (Somente PDF's são permitidos!)");
 		return false;
-	}
-	
-	
+	}	
 }
 
-function validacaoPdf(objFileControl) {
+function validarPdf(objFileControl) {
 
 	var file = objFileControl.value;
 	var len = file.length;
@@ -36,44 +34,8 @@ function validacaoPdf(objFileControl) {
 	return ext.toUpperCase() == ".PDF";
 }
 
-function validaCNPJTempoReal(cnpj) {
-	if (validarCNPJ(cnpj)) {
-		$("#cnpj-group").addClass("has-success has-feedback");
-		$("#cnpj-group").removeClass("has-error");
-
-		$("#cnpj-group span").addClass("glyphicon-ok");
-		$("#cnpj-group span").removeClass("glyphicon-remove");
-
-	} else {
-		$("#cnpj-group").addClass("has-error");
-		$("#cnpj-group").removeClass("has-success");
-
-		$("#cnpj-group span").removeClass("glyphicon-ok");
-		$("#cnpj-group span").addClass("glyphicon-remove");
-	}
-}
-
 function validarCpf(cpf) {
 
-}
-
-function validarCNPJ(cnpj) {
-
-	cnpj = cnpj.replace(/[^\d]+/g, '');
-
-	if (!validarCNPJ(form.cnpj.value)) {
-		alert("Preencha o CNPJ corretamente.");
-		form.cnpj.focus();
-		return false;
-	}
-
-	if (form.nomeFantasia.value == "") {
-		alert("Preencha o nome fantasia corretamente.");
-		form.nomeFantasia.focus();
-		return false;
-	}
-
-	return true;
 }
 
 function validarCNPJ(cnpj) {

@@ -1,8 +1,25 @@
 $(document).ready(function() {
+	
+	function validarCNPJTempoReal(cnpj) {
+		if (validarCNPJ(cnpj)) {
+			$("#cnpj-group").addClass("has-success has-feedback");
+			$("#cnpj-group").removeClass("has-error");
+
+			$("#cnpj-group span").addClass("glyphicon-ok");
+			$("#cnpj-group span").removeClass("glyphicon-remove");
+
+		} else {
+			$("#cnpj-group").addClass("has-error");
+			$("#cnpj-group").removeClass("has-success");
+
+			$("#cnpj-group span").removeClass("glyphicon-ok");
+			$("#cnpj-group span").addClass("glyphicon-remove");
+		}
+	}
 		
 	$('#cnpj').mask('00.000.000/0000-00', {
 		onKeyPress : function() {
-			validaCNPJTempoReal($('#cnpj').val());
+			validarCNPJTempoReal($('#cnpj').val());
 		}
 	});	
 	$('.cpf').mask('000.000.000-00');
