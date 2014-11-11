@@ -17,7 +17,6 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-6 col-lg-offset-3">
-			
 				<c:if test="${mensagem != null}">
 	    			<div class="alert alert-success alert-dismissible" role="alert">
 					  	<button type="button" class="close" id="close" data-dismiss="alert">
@@ -29,7 +28,7 @@
 		    		
 				<div class="panel panel-default margin-35-0">
 					<div class="panel-heading centralize">
-						<h1>Visualização de Empresa</h1>
+						<h4>Visualização de Empresa</h4>
 					</div>
 					<div class="panel-body">
 						<div class="row">
@@ -51,7 +50,6 @@
 							<div class="col-lg-4">
 								<div class="icon pdf">PDF</div>
 							</div>
-
 
 						</div>
 
@@ -90,25 +88,27 @@
 						<dl>
 							<dt>Emissão de documento:</dt>
 							<dd>${empresa.emissaoDocumento}</dd>
-						</dl>
-
+						</dl>					
 					
-					
-						<h1 class="centralize">Estrutura Societária</h1>
-					
+						<h4 class="centralize panel-divider padding-6-0 margin-30-0">Estrutura Societária</h4>
 					
 						<c:forEach items="${empresa.socios}" var="socio">
-							<label class="control-label">Sócio ${socio.id + 1}: </label>
-							<label class="control-label">${socio.nome}</label>
-							<label class="control-label">- CPF: </label>
-							<label class="control-label">${socio.cpf}</label>
-							<c:if test="${socio.situacaoDoSocio == true}">
-								<span class="label label-success">Ativo</span>
-							</c:if>
-							<c:if test="${socio.situacaoDoSocio == false}">
-								<span class="label label-important">Inativo</span>
-							</c:if>
-						</c:forEach>
+							<dl>
+								<dt>Sócio:</dt>
+								<dd>${socio.id + 1}: </dd>
+								<dd>${socio.nome}</dd>
+								<dd>CPF:</dd>
+								<dd>${socio.cpf}</dd>
+								<dd>
+									<c:if test="${socio.situacaoDoSocio == true}">
+										<span class="label label-success">Ativo</span>
+									</c:if>
+									<c:if test="${socio.situacaoDoSocio == false}">
+										<span class="label label-important">Inativo</span>
+									</c:if>
+									</c:forEach>
+								</dd>
+							</dl>
 					</div>
 
 					<div class="panel-footer">
