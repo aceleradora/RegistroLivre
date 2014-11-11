@@ -17,7 +17,7 @@
 							<h2>Cadastrar Empresa</h2>
 						</div>
 						
-						<form class="form" name="formulario" action="empresa/cadastrar" method="POST" onsubmit="return validaCadastro();">
+						<form class="form" name="formulario" action="empresa/cadastrar" method="POST" onsubmit="return validarCadastro();">
 						
 							<ul class="list-group">
 								
@@ -150,7 +150,7 @@
 						
 							
 							<div class="panel-footer">
-									<input type="submit" class="btn btn-lg btn-primary pull-right margin-0-6" value="Enviar" onclick="return validaCadastro();"/>
+									<input type="submit" class="btn btn-lg btn-primary pull-right margin-0-6" value="Enviar" onclick="return validarCadastro();"/>
 									<input type="reset" value="Limpar" class="btn btn-default btn-lg pull-right margin-0-6"/>
 								<div style="clear:both"></div>
 							</div>			
