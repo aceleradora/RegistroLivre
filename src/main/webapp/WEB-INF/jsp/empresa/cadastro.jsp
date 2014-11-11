@@ -5,12 +5,7 @@
 <head>
 	<title>Cadastro de Empresa</title>
 	<link href="assets/css/bootstrap/css/bootstrap.css" rel="stylesheet">
-	<link href="assets/css/main.css" rel="stylesheet"> 
-	<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
-	<script src="assets/js/validacaoCadastro.js"></script>
-	<script src="assets/js/adicionaSocios.js"></script>	
-	<script src="assets/js/jquery.mask.min.js"></script>
-	<script src="assets/js/main.js"></script>
+	<link href="assets/css/main.css" rel="stylesheet">		
 </head>
 	<body>
 		<div class="container">
@@ -164,5 +159,13 @@
 				</div> <!-- col -->
 			</div> <!-- row -->
 		</div> <!-- container -->
+		
+	<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="assets/js/jquery.mask.min.js"></script>
+		
+	<script src="assets/js/validacao-logica-cadastro.js"></script>
+	<script src="assets/js/adiciona-socios.js"></script>	
+	<script src="assets/js/validacao-visual-cadastro.js"></script>
+		
 	</body>
 </html>
