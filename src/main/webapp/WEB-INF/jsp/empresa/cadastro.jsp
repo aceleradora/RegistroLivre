@@ -141,7 +141,7 @@
 								<li class="list-group-item">
 									<div class="form-group">
 										
-										<button type="button" class="btn btn-success pull-right margin-0-6" onclick="adicionaSocio()"><span class="glyphicon glyphicon-plus-sign"></span> Teste</button>
+										<button type="button" class="btn btn-success pull-right margin-0-6" onclick="adicionaSocio()"><span class="glyphicon glyphicon-plus-sign"></span> Adicionar Sócio</button>
 										<br>
 									</div>								
 								</li>
