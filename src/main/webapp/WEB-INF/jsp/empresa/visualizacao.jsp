@@ -56,39 +56,39 @@
 
 						<dl>
 							<dt>Endereço:</dt> 
-							<dd>${empresa.endereco}</dd>
+							<dd>${empresa.endereco.logradouro}</dd>
 						</dl>
 						<dl>
 							<dt>Número:</dt>
-							<dd>${empresa.numero}</dd>
+							<dd>${empresa.endereco.numero}</dd>
 						</dl>
 						<dl>
 							<dt>Complemento:</dt>
-							<dd>${empresa.complemento}</dd>
+							<dd>${empresa.endereco.complemento}</dd>
 						</dl>
 
 						<dl>
 							<dt>Cidade:</dt>
-							<dd>${empresa.cidade}</dd>
+							<dd>${empresa.endereco.cidade}</dd>
 						</dl>
 						<dl>
 							<dt>Estado:</dt> 
-							<dd>${empresa.estado}</dd>
+							<dd>${empresa.endereco.uf}</dd>
 						</dl>
 
 						<dl>
 							<dt>CEP:</dt>
-							<dd>${empresa.cep}</dd>
+							<dd>${empresa.endereco.cep}</dd>
 						</dl>
 
 						<dl>
 							<dt>Data de abertura:</dt> 
-							<dd>${empresa.dataAbertura}</dd>
+							<dd>${empresa.dataCriacao}</dd>
 						</dl>
 
 						<dl>
 							<dt>Emissão de documento:</dt>
-							<dd>${empresa.emissaoDocumento}</dd>
+							<dd>${empresa.dataEmissaoDocumento}</dd>
 						</dl>					
 					
 						<h4 class="centralize panel-divider padding-6-0 margin-30-0">Estrutura Societária</h4>
@@ -96,7 +96,7 @@
 						<c:forEach items="${empresa.socios}" var="socio">
 							<dl>
 								<dt>Sócio:</dt>
-								<dd>${socio.id + 1}: </dd>
+								<dd>Nome: </dd>
 								<dd>${socio.nome}</dd>
 								<dd>CPF:</dd>
 								<dd>${socio.cpf}</dd>
