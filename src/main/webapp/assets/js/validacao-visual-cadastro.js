@@ -25,9 +25,20 @@ $(document).ready(function() {
 	
 	$('.cpf').mask('000.000.000-00');
 	
-	$('.cpf').focusout(function(){
-		
-		validarCpf($('.cpf').val());
+	$('.cpf').focusout(function(){		
+		if(validarCpf($('.cpf').val())){
+			$('#cpf-group').addClass('has-success');
+			$('#cpf-group').removeClass('has-error');
+			
+			$('#cpf-group span').addClass('glyphicon-ok');
+			$('#cpf-group span').removeClass('glyphicon-remove');
+		}else{			
+			$('#cpf-group').removeClass('has-success');
+			$('#cpf-group').addClass('has-error');
+			
+			$('#cpf-group span').removeClass('glyphicon-ok');
+			$('#cpf-group span').addClass('glyphicon-remove');			
+		}
 	});
 	
 	$('#cep').mask('00000-000');
