@@ -11,7 +11,7 @@ function adicionaSocio(){
 	'</div>' +
 	'<div class="form-group">' +
 	'<label>CPF</label>' +
-	'<input class="form-control" name="empresa.socios[' + contSocios + '].cpf">' +
+	'<input class="form-control cpf" name="empresa.socios[' + contSocios + '].cpf">' +
 	'</div>' +
 	'<div class="form-group">' +
 	'<label>' +
@@ -21,5 +21,6 @@ function adicionaSocio(){
 	'</li>';
 
 	$("#divSocios").append(htmlSocio);
+	$('.cpf').mask('000.000.000-00');
 	contSocios++;
 } 
