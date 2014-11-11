@@ -7,6 +7,7 @@
 <head>
 
 <link href="assets/css/bootstrap/css/bootstrap.css" rel="stylesheet">
+<link href="assets/css/botao-pdf.css" rel="stylesheet">
 <link href="assets/css/main.css" rel="stylesheet">
 <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="assets/js/visualizacao.js"></script>
@@ -18,80 +19,84 @@
 			<div class="col-lg-6 col-lg-offset-3">
 			
 				<c:if test="${mensagem != null}">
-		    			<div class="alert alert-success alert-dismissible" role="alert">
-						  <button type="button" class="close" id="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-						  <strong>Cadastro realizado com sucesso!</strong> 
-						</div>
-		    		</c:if>
+	    			<div class="alert alert-success alert-dismissible" role="alert">
+					  	<button type="button" class="close" id="close" data-dismiss="alert">
+				  			<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+				  		</button>
+					  	<strong>Cadastro realizado com sucesso!</strong> 
+					</div>
+	    		</c:if>
 		    		
 				<div class="panel panel-default margin-35-0">
-				
-
-
-					<div class="panel-heading">
+					<div class="panel-heading centralize">
 						<h1>Visualização de Empresa</h1>
-
-					<div class="panel-body">
-						<div class="form-group">
-							<label class="control-label">CNPJ:</label> <label
-								class="control-label">${empresa.cnpj}</label>
-						</div>
-
-						<div class="form-group">
-							<label class="control-label">Nome fantasia:</label> <label
-								class="control-label">${empresa.nomeFantasia}</label>
-						</div>
-
-						<div class="form-group">
-							<label class="control-label">Razão Social:</label> <label
-								class="control-label">${empresa.razaoSocial}</label>
-						</div>
-
-						<div class="form-group">
-							<label class="control-label">Endereço:</label> <label
-								class="control-label">${empresa.endereco}</label>
-						</div>
-
-						<div class="form-group">
-							<label class="control-label">Número:</label> <label
-								class="control-label">${empresa.numero}</label>
-						</div>
-
-						<div class="form-group">
-							<label class="control-label">Complemento:</label> <label
-								class="control-label">${empresa.complemento}</label>
-						</div>
-
-						<div class="form-group">
-							<label class="control-label">Cidade:</label> <label
-								class="control-label">${empresa.cidade}</label>
-						</div>
-
-						<div class="form-group">
-							<label class="control-label">Estado:</label> <label
-								class="control-label">${empresa.estado}</label>
-						</div>
-
-						<div class="form-group">
-							<label class="control-label">CEP:</label> <label
-								class="control-label">${empresa.cep}</label>
-						</div>
-
-						<div class="form-group">
-							<label class="control-label">Data de abertura:</label> <label
-								class="control-label">${empresa.dataAbertura}</label>
-						</div>
-
-						<div class="form-group">
-							<label class="control-label">Emissão de documento:</label> <label
-								class="control-label">${empresa.emissaoDocumento}</label>
-						</div>
-
-					</div>
-					<div class="panel-heading">
-						<h1>Estrutura Societária</h1>
 					</div>
 					<div class="panel-body">
+						<div class="row">
+							<div class="col-lg-8">
+								<dl>
+									<dt>CNPJ:</dt>
+									<dd>${empresa.cnpj}</dd>
+								</dl>
+								<dl>
+									<dt>Nome fantasia:</dt> 
+									<dd>${empresa.nomeFantasia}</label>
+								</dl>
+								<dl>
+									<dt>Razão Social:</dt> 
+									<dd>${empresa.razaoSocial}</dd>
+								</dl>
+							</div>
+						
+							<div class="col-lg-4">
+								<div class="icon pdf">PDF</div>
+							</div>
+
+
+						</div>
+
+						<dl>
+							<dt>Endereço:</dt> 
+							<dd>${empresa.endereco}</dd>
+						</dl>
+						<dl>
+							<dt>Número:</dt>
+							<dd>${empresa.numero}</dd>
+						</dl>
+						<dl>
+							<dt>Complemento:</dt>
+							<dd>${empresa.complemento}</dd>
+						</dl>
+
+						<dl>
+							<dt>Cidade:</dt>
+							<dd>${empresa.cidade}</dd>
+						</dl>
+						<dl>
+							<dt>Estado:</dt> 
+							<dd>${empresa.estado}</dd>
+						</dl>
+
+						<dl>
+							<dt>CEP:</dt>
+							<dd>${empresa.cep}</dd>
+						</dl>
+
+						<dl>
+							<dt>Data de abertura:</dt> 
+							<dd>${empresa.dataAbertura}</dd>
+						</dl>
+
+						<dl>
+							<dt>Emissão de documento:</dt>
+							<dd>${empresa.emissaoDocumento}</dd>
+						</dl>
+
+					
+					
+						<h1 class="centralize">Estrutura Societária</h1>
+					
+					
 						<c:forEach items="${empresa.socios}" var="socio">
 							<label class="control-label">Sócio ${socio.id + 1}: </label>
 							<label class="control-label">${socio.nome}</label>
@@ -107,11 +112,7 @@
 					</div>
 
 					<div class="panel-footer">
-						<form action="###">
-							<input type="submit"
-								class="btn btn-lg btn-primary pull-right margin-0-6"
-								value="Voltar" />
-						</form>
+						<a class="btn btn-default" href="#back">Voltar</a>
 						<div style="clear: both"></div>
 					</div>
 					<!-- panel -->
