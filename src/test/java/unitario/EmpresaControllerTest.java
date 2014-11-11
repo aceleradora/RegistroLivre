@@ -30,9 +30,9 @@ public class EmpresaControllerTest {
 		Empresa empresa = new Empresa();
 		empresa.setRazaoSocial("blablabla");
 		empresa.setCnpj("212321");
-		EmpresaController empresaController = new EmpresaController(empresaDAO);
+		EmpresaController empresaController = new EmpresaController(empresaDAO, result);
 		
-		empresaController.cadastrar(empresa, result);
+		empresaController.cadastrar(empresa);
 		
 		assertTrue(result.included().containsKey("Visualização de Empresa"));
 	}
@@ -43,9 +43,9 @@ public class EmpresaControllerTest {
 	public void quandoooChamaOMetodoListagemRetornaTodasEmpresas() throws Exception {
 		
 		EmpresaDAO empresaDAO = new EmpresaDAO(session);
-		EmpresaController empresaController = new EmpresaController(empresaDAO);
+		EmpresaController empresaController = new EmpresaController(empresaDAO, result);
 		
-		List<Empresa> listagem = empresaController.listagem(result);
+		List<Empresa> listagem = empresaController.listagem();
 		
 		assertNotNull(listagem);
 		

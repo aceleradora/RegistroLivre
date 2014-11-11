@@ -12,10 +12,11 @@ import br.com.caelum.vraptor.Result;
 public class EmpresaController {
 	
 	private EmpresaDAO daoEmpresa;
+	private Result result;
 	
-	public EmpresaController(EmpresaDAO dao){
-		
+	public EmpresaController(EmpresaDAO dao, Result result){
 		this.daoEmpresa = dao;
+		this.result = result;
 	}
 	
 	@Get("/cadastro")
@@ -24,7 +25,7 @@ public class EmpresaController {
 	}
 	
 	@Get("/listagem")
-	public List<Empresa> listagem(Result result){
+	public List<Empresa> listagem(){
 		result.include("totalDeRegistros", daoEmpresa.contaQuantidadeDeRegistros());
 		return daoEmpresa.getTodas();
 	}
@@ -34,10 +35,9 @@ public class EmpresaController {
 		return daoEmpresa.getById(empresa.getId());
 	}
 	
-	public void cadastrar(Empresa empresa, Result result){
+	public void cadastrar(Empresa empresa){
 		daoEmpresa.adiciona(empresa);
-		result.include("mensagem", "true");		
-		result.redirectTo(this).visualizacao(empresa);		
+		result.include("mensagem", "true");
+		result.redirectTo(this).visualizacao(empresa);
 	}
-	
 }

@@ -22,7 +22,15 @@ $(document).ready(function() {
 			validarCNPJTempoReal($('#cnpj').val());
 		}
 	});	
+	
 	$('.cpf').mask('000.000.000-00');
+	
+	$('.cpf').focusout(function(){
+		
+		validarCpf($('.cpf').val());
+	});
+	
+	
 	
 	
 	$('#cnpj').focusout(function() {
