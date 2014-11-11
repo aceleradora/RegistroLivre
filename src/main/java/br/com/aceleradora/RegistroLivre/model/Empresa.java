@@ -94,8 +94,4 @@ public class Empresa extends Entidade{
 	public void setSocios(List<Socio> socios) {
 		this.socios = socios;
 	}
-	
-	public void adicionaSocio(Socio socio){
-		socios.add(socio);
-	}
 }

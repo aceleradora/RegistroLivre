@@ -1,13 +1,11 @@
 package br.com.aceleradora.RegistroLivre.dao;
 
-import javax.annotation.PostConstruct;
+
 import javax.annotation.PreDestroy;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;
-import org.hibernate.cfg.Configuration;
 
-import br.com.caelum.vraptor.ioc.ApplicationScoped;
 import br.com.caelum.vraptor.ioc.Component;
 import br.com.caelum.vraptor.ioc.ComponentFactory;
 

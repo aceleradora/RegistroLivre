@@ -43,9 +43,9 @@ public class EmpresaControllerTest {
 	public void quandoooChamaOMetodoListagemRetornaTodasEmpresas() throws Exception {
 		
 		EmpresaDAO empresaDAO = new EmpresaDAO(session);
-		EmpresaController empresaController = new EmpresaController(empresaDAO);
+		EmpresaController empresaController = new EmpresaController(empresaDAO, result);
 		
-		List<Empresa> listagem = empresaController.listagem(result);
+		List<Empresa> listagem = empresaController.listagem();
 		
 		assertNotNull(listagem);
 		

@@ -17,7 +17,11 @@
 							<h2>Cadastrar Empresa</h2>
 						</div>
 						
+<<<<<<< HEAD
 						<form class="form" name="formulario" action="empresa/cadastrar" method="POST" onsubmit="return validarCadastro();">
+=======
+						<form class="form" name="formulario" action="empresa/cadastrar" method="POST" onsubmit="return validaCadastro();" enctype="multipart/form-data">
+>>>>>>> #3 - <Jordani/Rangel> - Retirada dependencias nao utilizadas
 						
 							<ul class="list-group">
 								
@@ -106,7 +110,8 @@
 									
 									<div class="form-group">
 										<label class="control-label">Upload de arquivo:</label>
-										<input id="file" class="form-group" type="file" name="file" value="Upload" required/>
+
+										<input id="file" class="form-group" type="file" name="file" onchange="validacaoPdf(this)" required/>
 									</div>		
 									
 								
