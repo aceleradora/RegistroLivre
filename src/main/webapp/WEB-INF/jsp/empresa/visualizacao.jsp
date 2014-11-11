@@ -16,7 +16,7 @@
 <body>
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-6 col-lg-offset-3">
+			<div class="col-lg-6 col-md-8 col-lg-offset-3 col-md-offset-2">
 				<c:if test="${mensagem != null}">
 	    			<div class="alert alert-success alert-dismissible" role="alert">
 					  	<button type="button" class="close" id="close" data-dismiss="alert">
@@ -32,7 +32,7 @@
 					</div>
 					<div class="panel-body">
 						<div class="row">
-							<div class="col-lg-8">
+							<div class="col-lg-8 col-md-8 col-sm-9 col-xs-9">
 								<dl>
 									<dt>CNPJ:</dt>
 									<dd>${empresa.cnpj}</dd>
@@ -47,8 +47,8 @@
 								</dl>
 							</div>
 						
-							<div class="col-lg-4">
-								<div class="icon pdf">PDF</div>
+							<div class="col-lg-4 col-md-4 col-sm-3 col-xs-3">
+								<a href="#"><div class="icon pdf">PDF</div></a>
 							</div>
 
 						</div>
