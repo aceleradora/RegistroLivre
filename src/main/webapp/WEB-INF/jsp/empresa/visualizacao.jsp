@@ -8,6 +8,7 @@
 
 <link href="../assets/css/bootstrap/css/bootstrap.css" rel="stylesheet">
 <link href="../assets/css/main.css" rel="stylesheet">
+<link href="../assets/css/botao-pdf.css" rel="stylesheet">
 <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="../assets/js/visualizacao.js"></script>
 
@@ -15,105 +16,104 @@
 <body>
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-6 col-lg-offset-3">
-			
+			<div class="col-lg-6 col-md-8 col-lg-offset-3 col-md-offset-2">
 				<c:if test="${mensagem != null}">
-		    			<div class="alert alert-success alert-dismissible" role="alert">
-						  <button type="button" class="close" id="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-						  <strong>Cadastro realizado com sucesso!</strong> 
-						</div>
-		    		</c:if>
+	    			<div class="alert alert-success alert-dismissible" role="alert">
+					  	<button type="button" class="close" id="close" data-dismiss="alert">
+				  			<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+				  		</button>
+					  	<strong>Cadastro realizado com sucesso!</strong> 
+					</div>
+	    		</c:if>
 		    		
 				<div class="panel panel-default margin-35-0">
-				
-
-
-					<div class="panel-heading">
-						<h1>Visualização de Empresa</h1>
-
+					<div class="panel-heading centralize">
+						<h4>Visualização de Empresa</h4>
+					</div>
 					<div class="panel-body">
-						<div class="form-group">
-							<label class="control-label">CNPJ:</label> <label
-								class="control-label">${empresa.cnpj}</label>
+
+						<div class="row">
+							<div class="col-lg-8 col-md-8 col-sm-9 col-xs-9">
+								<dl>
+									<dt>CNPJ:</dt>
+									<dd>${empresa.cnpj}</dd>
+								</dl>
+								<dl>
+									<dt>Nome fantasia:</dt> 
+									<dd>${empresa.nomeFantasia}</label>
+								</dl>
+								<dl>
+									<dt>Razão Social:</dt> 
+									<dd>${empresa.razaoSocial}</dd>
+								</dl>
+							</div>
+						
+							<div class="col-lg-4 col-md-4 col-sm-3 col-xs-3">
+								<a href="#"><div class="icon pdf">PDF</div></a>
+							</div>
+
 						</div>
 
-						<div class="form-group">
-							<label class="control-label">Nome fantasia:</label> <label
-								class="control-label">${empresa.nomeFantasia}</label>
-						</div>
+						<dl>
+							<dt>Endereço:</dt> 
+							<dd>${empresa.endereco}</dd>
+						</dl>
+						<dl>
+							<dt>Número:</dt>
+							<dd>${empresa.numero}</dd>
+						</dl>
+						<dl>
+							<dt>Complemento:</dt>
+							<dd>${empresa.complemento}</dd>
+						</dl>
 
-						<div class="form-group">
-							<label class="control-label">Razão Social:</label> <label
-								class="control-label">${empresa.razaoSocial}</label>
-						</div>
+						<dl>
+							<dt>Cidade:</dt>
+							<dd>${empresa.cidade}</dd>
+						</dl>
+						<dl>
+							<dt>Estado:</dt> 
+							<dd>${empresa.estado}</dd>
+						</dl>
 
-						<div class="form-group">
-							<label class="control-label">Endereço:</label> <label
-								class="control-label">${empresa.endereco.logradouro}</label>
-						</div>
+						<dl>
+							<dt>CEP:</dt>
+							<dd>${empresa.cep}</dd>
+						</dl>
 
-						<div class="form-group">
-							<label class="control-label">Número:</label> <label
-								class="control-label">${empresa.endereco.numero}</label>
-						</div>
+						<dl>
+							<dt>Data de abertura:</dt> 
+							<dd>${empresa.dataAbertura}</dd>
+						</dl>
 
-						<div class="form-group">
-							<label class="control-label">Complemento:</label> <label
-								class="control-label">${empresa.endereco.complemento}</label>
-						</div>
-
-						<div class="form-group">
-							<label class="control-label">Cidade:</label> <label
-								class="control-label">${empresa.endereco.cidade}</label>
-						</div>
-
-						<div class="form-group">
-							<label class="control-label">Estado:</label> <label
-								class="control-label">${empresa.endereco.uf}</label>
-						</div>
-
-						<div class="form-group">
-							<label class="control-label">CEP:</label> <label
-								class="control-label">${empresa.endereco.cep}</label>
-						</div>
-
-						<div class="form-group">
-							<label class="control-label">Data de abertura:</label> <label
-								class="control-label">${empresa.dataCriacao}</label>
-						</div>
-
-						<div class="form-group">
-							<label class="control-label">Emissão de documento:</label> <label
-								class="control-label">${empresa.dataEmissaoDocumento}</label>
-						</div>
-
-					</div>
-					<div class="panel-heading">
-						<h1>Estrutura Societária</h1>
-					</div>
-					<div class="panel-body">					
-						<c:if test="${empresa.socios[0].nome != null}">
-							<c:forEach items="${empresa.socios}" var="socio">
-								<label class="control-label">Nome: </label>
-								<label class="control-label">${socio.nome}</label>
-								<label class="control-label">- CPF: </label>
-								<label class="control-label">${socio.cpf}</label>
-								<c:if test="${socio.situacaoDoSocio == true}">
-									<span class="label label-success">Ativo</span>
-								</c:if>
-								<c:if test="${socio.situacaoDoSocio == false}">
-									<span class="label label-important">Inativo</span>
-								</c:if>
-							</c:forEach>
-		    			</c:if>
+						<dl>
+							<dt>Emissão de documento:</dt>
+							<dd>${empresa.emissaoDocumento}</dd>
+						</dl>					
+					
+						<h4 class="centralize panel-divider padding-6-0 margin-30-0">Estrutura Societária</h4>
+					
+						<c:forEach items="${empresa.socios}" var="socio">
+							<dl>
+								<dt>Sócio:</dt>
+								<dd>${socio.id + 1}: </dd>
+								<dd>${socio.nome}</dd>
+								<dd>CPF:</dd>
+								<dd>${socio.cpf}</dd>
+								<dd>
+									<c:if test="${socio.situacaoDoSocio == true}">
+										<span class="label label-success">Ativo</span>
+									</c:if>
+									<c:if test="${socio.situacaoDoSocio == false}">
+										<span class="label label-important">Inativo</span>
+									</c:if>
+									</c:forEach>
+								</dd>
+							</dl>
 					</div>
 
 					<div class="panel-footer">
-						<form action="/listagem">
-							<input type="submit"
-								class="btn btn-lg btn-primary pull-right margin-0-6"
-								value="Voltar" />
-						</form>
+						<a class="btn btn-default" href="#back">Voltar</a>
 						<div style="clear: both"></div>
 					</div>
 					<!-- panel -->

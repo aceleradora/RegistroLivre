@@ -11,13 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
-
-
-
-
-
 
 import br.com.aceleradora.RegistroLivre.dao.Entidade;
 

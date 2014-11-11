@@ -1,0 +1,69 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:800);
+
+/* you simply need to change the color of the background of each div - these are at the bottom of the css */
+
+.icon {
+  background: none repeat scroll 0 0 #000;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  float: right;
+  font-family: "Open Sans",sans-serif;
+  font-size: 16px;
+  height: 95px;
+  line-height: 130px;
+  padding-left: 20px;
+  text-shadow: 3px 1px 1px rgba(0, 0, 0, 0.4);
+  transform-style: preserve-3d;
+  transition: all 300ms ease-in-out 0s;
+  width: 70px;
+  transform-style: preserve-3d;
+  transition: all 300ms ease-in-out 0s;
+  -webkit-transition:all 300ms ease-in-out;
+  -moz-transition:all 300ms ease-in-out;
+  -ms-transition:all 300ms ease-in-out;
+  -o-transition:all 300ms ease-in-out;
+  transition:all 300ms ease-in-out;
+  -webkit-transform-style:preserve-3d;
+  transform-style:preserve-3d; 
+  -webkit-perspective:600;
+  perspective:600;
+    -webkit-transform: perspective(600);
+  -moz-transform: perspective(600);
+  -ms-transform: perspective(600);
+  -o-transform: perspective(600);
+  transform: perspective(600);
+}
+.icon:before {
+  background-image: linear-gradient(to left bottom, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0.4) 50%);
+  border-radius: 0 0 0 6px;
+  content: "";
+  float: right;
+  height: 25px;
+  width: 26px;
+}
+.icon:after {
+  background-image: linear-gradient(to left bottom, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0) 50%);
+  content: "";
+  float: right;
+  height: 20px;
+  left: 0;
+  position: relative;
+  top: -130px;
+  width: 25px;
+}
+.icon:hover {
+  -webkit-transform:translateZ(200px);
+  -moz-transform:scale(1.1);
+  transform:scale(1.1);
+}
+/* just need to change the backgrounds */
+.pdf {
+  background:#c7211d;
+}
+.doc {
+  background:#4766b3;
+}
+.xls {
+  background:#63b345;
+}

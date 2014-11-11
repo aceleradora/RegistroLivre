@@ -5,13 +5,7 @@
 <head>
 	<title>Cadastro de Empresa</title>
 	<link href="assets/css/bootstrap/css/bootstrap.css" rel="stylesheet">
-	<link href="assets/css/main.css" rel="stylesheet"> 
-	<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
-	<script src="assets/js/validacaoCadastro.js"></script>
-	<script src="assets/js/validacaoPdf.js"></script>
-	<script src="assets/js/adicionaSocios.js"></script>	
-	<script src="assets/js/jquery.mask.min.js"></script>
-	<script src="assets/js/main.js"></script>
+	<link href="assets/css/main.css" rel="stylesheet">		
 </head>
 	<body>
 		<div class="container">
@@ -23,7 +17,7 @@
 							<h2>Cadastrar Empresa</h2>
 						</div>
 						
-						<form class="form" name="formulario" action="empresa/cadastrar" method="POST" onsubmit="return validaCadastro();">
+						<form class="form" name="formulario" action="empresa/cadastrar" method="POST" onsubmit="return validarCadastro();">
 						
 							<ul class="list-group">
 								
@@ -112,7 +106,7 @@
 									
 									<div class="form-group">
 										<label class="control-label">Upload de arquivo:</label>
-										<input id="file" class="form-group" type="file" name="file" value="Upload" onchange="validacaoPdf(this)" required/>
+										<input id="file" class="form-group" type="file" name="file" value="Upload" required/>
 									</div>		
 									
 								
@@ -132,7 +126,7 @@
 									
 									<div class="form-group has-feedback" id="cpf-group">
 										<label class="control-label">CPF </label>
-										<input class="form-control" type="text" name="empresa.socios[0].cpf" id="cpf" placeholder="ex: 000.000.000-00"/>
+										<input class="form-control cpf" type="text" name="empresa.socios[0].cpf" id="cpf" placeholder="ex: 000.000.000-00"/>
 										<span class="glyphicon form-control-feedback"></span>
 									</div>
 										
@@ -156,7 +150,7 @@
 						
 							
 							<div class="panel-footer">
-									<input type="submit" class="btn btn-lg btn-primary pull-right margin-0-6" value="Enviar" onclick="return validaCadastro();"/>
+									<input type="submit" class="btn btn-lg btn-primary pull-right margin-0-6" value="Enviar" onclick="return validarCadastro();"/>
 									<input type="reset" value="Limpar" class="btn btn-default btn-lg pull-right margin-0-6"/>
 								<div style="clear:both"></div>
 							</div>			
@@ -165,5 +159,13 @@
 				</div> <!-- col -->
 			</div> <!-- row -->
 		</div> <!-- container -->
+		
+	<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="assets/js/jquery.mask.min.js"></script>
+		
+	<script src="assets/js/validacao-logica-cadastro.js"></script>
+	<script src="assets/js/adiciona-socios.js"></script>	
+	<script src="assets/js/validacao-visual-cadastro.js"></script>
+		
 	</body>
 </html>
