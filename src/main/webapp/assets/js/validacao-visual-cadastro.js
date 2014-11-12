@@ -25,19 +25,19 @@ $(document).ready(function() {
 	
 	$('.cpf').mask('000.000.000-00');
 	
-	$('.cpf').focusout(function(){		
-		if(validarCpf($('.cpf').val())){
-			$('#cpf-group').addClass('has-success');
-			$('#cpf-group').removeClass('has-error');
+	$('#divSocios').on('focusout', '.cpf', function(){		
+		if(validarCpf($(this).val())){
+			$(this).parents('.cpf-group').addClass('has-success');
+			$(this).parents('.cpf-group').removeClass('has-error');
 			
-			$('#cpf-group span').addClass('glyphicon-ok');
-			$('#cpf-group span').removeClass('glyphicon-remove');
+			$(this).parents('.cpf-group').find('span').addClass('glyphicon-ok');
+			$(this).parents('.cpf-group').find('span').removeClass('glyphicon-remove');
 		}else{			
-			$('#cpf-group').removeClass('has-success');
-			$('#cpf-group').addClass('has-error');
+			$(this).parents('.cpf-group').removeClass('has-success');
+			$(this).parents('.cpf-group').addClass('has-error');
 			
-			$('#cpf-group span').removeClass('glyphicon-ok');
-			$('#cpf-group span').addClass('glyphicon-remove');			
+			$(this).parents('.cpf-group').find('span').removeClass('glyphicon-ok');
+			$(this).parents('.cpf-group').find('span').addClass('glyphicon-remove');			
 		}
 	});
 	
