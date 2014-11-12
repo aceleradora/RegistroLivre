@@ -17,12 +17,6 @@ public class HomeController {
 	@Get("/")
 	public void home() {
 		
-		// System.out.println(dao.getEmpresaById(1).getCnpj());
-		// Entidade entidade = new Entidade();
-		// entidade.setNome("Teste");
-		//
-		// dao.adiciona(entidade);
-		// System.out.println("hello world");
 	}
 	
 
