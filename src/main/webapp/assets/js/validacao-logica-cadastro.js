@@ -36,37 +36,75 @@ function validarPdf(objFileControl) {
 }
 
 function validarCpf(cpfDigitado) {
-	
-	if(cpfDigitado == '')
-		return true;
 
-	exp = /\.|\-/g;
-	var cpf = cpfDigitado.toString().replace(exp, "");
-	
-	if (cpf == "00000000000" || cpf == "11111111111"
-			|| cpf == "22222222222" || cpf == "33333333333"
-            || cpf == "44444444444" || cpf == "55555555555"
-            || cpf == "66666666666" || cpf == "77777777777"
-            || cpf == "88888888888" || cpf == "99999999999"
-            || cpf.length != 11){
-		
-        return false;}
-	
-	var digitoDigitado = eval(cpf.charAt(9) + cpf.charAt(10));
-	var soma1 = 0, soma2 = 0;
-	var vlr = 11;
-
-	for (i = 0; i < 9; i++) {
-		soma1 += eval(cpf.charAt(i) * (vlr - 1));
-		soma2 += eval(cpf.charAt(i) * vlr);
-		vlr--;
-	}
-	soma1 = (((soma1 * 10) % 11) == 10 ? 0 : ((soma1 * 10) % 11));
-	soma2 = (((soma2 + (2 * soma1)) * 10) % 11);
-
-	var digitoGerado = (soma1 * 10) + soma2;
-	
-	return (digitoGerado == digitoDigitado);
+        CPF = cpfDigitado;
+        if(!CPF){ return false;}
+        erro  = new String;
+        cpfv  = CPF;
+        if(cpfv.length == 14 || cpfv.length == 11){
+            cpfv = cpfv.replace('.', '');
+            cpfv = cpfv.replace('.', '');
+            cpfv = cpfv.replace('-', '');
+  
+            var nonNumbers = /\D/;
+    
+            if(nonNumbers.test(cpfv)){
+                erro = "A verificacao de CPF suporta apenas números!";
+            }else{
+                if (cpfv == "00000000000" ||
+                    cpfv == "11111111111" ||
+                    cpfv == "22222222222" ||
+                    cpfv == "33333333333" ||
+                    cpfv == "44444444444" ||
+                    cpfv == "55555555555" ||
+                    cpfv == "66666666666" ||
+                    cpfv == "77777777777" ||
+                    cpfv == "88888888888" ||
+                    cpfv == "99999999999") {
+                            
+                    erro = "Número de CPF inválido!"
+                }
+                var a = [];
+                var b = new Number;
+                var c = 11;
+  
+                for(i=0; i<11; i++){
+                    a[i] = cpfv.charAt(i);
+                    if (i < 9) b += (a[i] * --c);
+                }
+                if((x = b % 11) < 2){
+                    a[9] = 0
+                }else{
+                    a[9] = 11-x
+                }
+                b = 0;
+                c = 11;
+                for (y=0; y<10; y++) b += (a[y] * c--);
+    
+                if((x = b % 11) < 2){
+                    a[10] = 0;
+                }else{
+                    a[10] = 11-x;
+                }
+                if((cpfv.charAt(9) != a[9]) || (cpfv.charAt(10) != a[10])){
+                    erro = "Número de CPF inválido.";
+                }
+            }
+        }else{
+            if(cpfv.length == 0){
+                return false;
+            }else{
+                erro = "Número de CPF inválido.";
+            }
+        }
+        if (erro.length > 0){
+            $(this).val('');
+            alert(erro);
+            setTimeout(function(){$(this).focus();},100);
+            return false;
+        }
+        return $(this);
+	  
 }
 
 function validarCNPJ(cnpj) {
@@ -115,6 +153,3 @@ function validarCNPJ(cnpj) {
 
 	return true;
 }
-
-
-
