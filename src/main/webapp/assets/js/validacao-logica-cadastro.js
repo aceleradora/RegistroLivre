@@ -17,8 +17,6 @@ function validarCadastro() {
 		return false;
 	}
 	
-	console.log("Aqui é o CPF: " + validarCpf(formulario.cpf.value));
-
 	if (!validarCpf(formulario.cpf.value)) {
 		alert("Preencha o CPF do socio corretamente!");
 
@@ -117,3 +115,6 @@ function validarCNPJ(cnpj) {
 
 	return true;
 }
+
+
+

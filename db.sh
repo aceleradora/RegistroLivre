@@ -5,23 +5,19 @@ sudo apt-get install postgresql postgresql-contrib
 
 sudo apt-get install maven
 
-#se a variavel estiver vazia
-if [ -z $DB_CONNECTION_USUARIO ]; then
-	echo 'Digite login do banco'
-	read usuario
-	echo "export DB_CONNECTION_USUARIO=$usuario" >> ~/.bashrc
-else
-	$usuario = $DB_CONNECTION_USUARIO
-fi
+echo 'Digite login do banco'
+read usuario
 
-if [ -z $DB_CONNECTION_SENHA ]; then
-	echo 'Digite senha do banco'
-	read senha
-	echo "export DB_CONNECTION_SENHA=$senha" >> ~/.bashrc	
-else
-	$senha = $DB_CONNECTION_SENHA
-fi
+unset DB_CONNECTION_USUARIO
+echo "export DB_CONNECTION_USUARIO=$usuario" >> ~/.bashrc
 
+
+echo 'Digite senha do banco'
+read senha
+unset DB_CONNECTION_SENHA
+echo "export DB_CONNECTION_SENHA=$senha" >> ~/.bashrc	
+
+unset DB_CONNECTION_URL
 echo 'export DB_CONNECTION_URL="jdbc:postgresql://localhost/registro_livre"' >> ~/.bashrc
 
 sudo -u postgres psql -c "CREATE DATABASE registro_livre"

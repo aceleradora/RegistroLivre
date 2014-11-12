@@ -1,16 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page isELIgnored="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 	<title>Cadastro de Empresa</title>
 	<link href="assets/css/bootstrap/css/bootstrap.css" rel="stylesheet">
-	<link href="assets/css/main.css" rel="stylesheet">		
+	<link href="assets/css/main.css" rel="stylesheet">
 </head>
 	<body>
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6 col-md-6 col-lg-offset-3 col-md-offset-3">
+				<c:if test="${mensagem != null}">
+	    			<div class="alert alert-danger alert-dismissible" role="alert">
+					  	<strong>${mensagem} Inválido!</strong> 
+					</div>
+	    		</c:if>
 					<div class="panel panel-default margin-35-0">
 						
 						<div class="panel-heading centralize">
@@ -124,9 +131,9 @@
 										<input class="form-control" name="empresa.socios[0].nome" id="nome-socio">
 									</div>
 									
-									<div class="form-group has-feedback" id="cpf-group">
+									<div class="form-group has-feedback cpf-group">
 										<label class="control-label">CPF </label>
-										<input class="form-control cpf" type="text" name="empresa.socios[0].cpf" id="cpf" placeholder="ex: 000.000.000-00"/>
+										<input class="form-control cpf" type="text" name="empresa.socios[0].cpf" id="cpf" placeholder="ex: 000.000.000-00" value=""/>
 										<span class="glyphicon form-control-feedback"></span>
 									</div>
 										
@@ -150,7 +157,7 @@
 						
 							
 							<div class="panel-footer">
-									<input type="submit" class="btn btn-lg btn-primary pull-right margin-0-6" value="Enviar" onclick="return validarCadastro();"/>
+									<input type="submit" class="btn btn-lg btn-primary pull-right margin-0-6" value="Enviar"/>
 									<input type="reset" value="Limpar" class="btn btn-default btn-lg pull-right margin-0-6"/>
 								<div style="clear:both"></div>
 							</div>			
