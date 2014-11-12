@@ -50,20 +50,6 @@ public class ValidadorTest {
 	}
 
 	@Test
-	public void retornaVerdadeSeTodosOsSociosTiveremCpfValido() {
-		List<Socio> socios = new ArrayList<Socio>();
-		Socio pessoa = new Socio("joao", "071.549.456-21", true);
-		Socio pessoa2 = new Socio("maria", "848.817.120-04", true);
-		socios.add(pessoa);
-		socios.add(pessoa2);
-
-		boolean result = validador.verificaCpfListaSocio(socios);
-
-		assertTrue(result);
-
-	}
-
-	@Test
 	public void retornaFalsoSeAlgumSocioTivereCpfInvalido() {
 		List<Socio> socios = new ArrayList<Socio>();
 		Socio pessoa = new Socio("joao", "071.549.456-21", true);
@@ -89,6 +75,20 @@ public class ValidadorTest {
 
 		assertTrue(result);
 
+	}
+	
+	@Test
+	public void retornaVerdadeSeTodosOsSociosTiveremCpfValido(){
+		List<Socio> socios = new ArrayList<Socio>();
+		Socio pessoa = new Socio("joao", "071.549.456-21", true);
+		Socio pessoa2 = new Socio("maria", "848.817.120-04", true);
+		socios.add(pessoa);
+		socios.add(pessoa2);
+		
+		boolean result = validador.verificaCpfListaSocio(socios);
+		
+		assertTrue(result);
+		
 	}
 
 }

@@ -7,7 +7,7 @@ import br.com.caelum.vraptor.ioc.Component;
 
 @Component
 public class Validador {
-
+	
 	public static boolean verificaCpfListaSocio(List<Socio> socios) {
 		for (Socio socio : socios) {
 			if (socio.getCpf()!=null) {
@@ -18,7 +18,7 @@ public class Validador {
 		}
 		return true;
 	}
-
+	
 	public static boolean verificaCpf(String cpf) {
 
 		char Digito1, Digito2;
