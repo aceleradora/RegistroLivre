@@ -1,16 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page isELIgnored="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 	<title>Cadastro de Empresa</title>
 	<link href="assets/css/bootstrap/css/bootstrap.css" rel="stylesheet">
-	<link href="assets/css/main.css" rel="stylesheet">		
+	<link href="assets/css/main.css" rel="stylesheet">
+	<script src="assets/js/visualizacao.js"></script>		
 </head>
 	<body>
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6 col-md-6 col-lg-offset-3 col-md-offset-3">
+				<c:if test="${mensagem != null}">
+	    			<div class="alert alert-error alert-dismissible" role="alert">
+					  	<button type="button" class="close" id="close" data-dismiss="alert">
+				  			<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+				  		</button>
+					  	<strong>${mensagem} Inválido!</strong> 
+					</div>
+	    		</c:if>
 					<div class="panel panel-default margin-35-0">
 						
 						<div class="panel-heading centralize">
