@@ -46,6 +46,7 @@ public class EmpresaController {
 			result.redirectTo(this).cadastro();
 		} else {
 			daoEmpresa.adiciona(empresa);
+			result.include("mensagem", "true");
 			result.redirectTo(this).visualizacao(empresa);
 		}
 	}

@@ -10,7 +10,7 @@ public class Validador {
 
 	public static boolean verificaCpfListaSocio(List<Socio> socios) {
 		for (Socio socio : socios) {
-			if (!socio.getCpf().equals("")) {
+			if (socio.getCpf()!=null) {
 				if (!verificaCpf(socio.getCpf())) {
 					return false;
 				}

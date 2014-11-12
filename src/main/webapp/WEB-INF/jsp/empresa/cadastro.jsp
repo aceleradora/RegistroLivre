@@ -137,7 +137,7 @@
 									
 									<div class="form-group has-feedback" id="cpf-group">
 										<label class="control-label">CPF </label>
-										<input class="form-control cpf" type="text" name="empresa.socios[0].cpf" id="cpf" placeholder="ex: 000.000.000-00"/>
+										<input class="form-control cpf" type="text" name="empresa.socios[0].cpf" id="cpf" placeholder="ex: 000.000.000-00" value=""/>
 										<span class="glyphicon form-control-feedback"></span>
 									</div>
 										
