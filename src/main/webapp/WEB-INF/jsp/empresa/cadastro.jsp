@@ -135,7 +135,7 @@
 										<input class="form-control" name="empresa.socios[0].nome" id="nome-socio">
 									</div>
 									
-									<div class="form-group has-feedback" id="cpf-group">
+									<div class="form-group has-feedback cpf-group">
 										<label class="control-label">CPF </label>
 										<input class="form-control cpf" type="text" name="empresa.socios[0].cpf" id="cpf" placeholder="ex: 000.000.000-00" value=""/>
 										<span class="glyphicon form-control-feedback"></span>
@@ -161,7 +161,7 @@
 						
 							
 							<div class="panel-footer">
-									<input type="submit" class="btn btn-lg btn-primary pull-right margin-0-6" value="Enviar" onclick="return validarCadastro();"/>
+									<input type="submit" class="btn btn-lg btn-primary pull-right margin-0-6" value="Enviar"/>
 									<input type="reset" value="Limpar" class="btn btn-default btn-lg pull-right margin-0-6"/>
 								<div style="clear:both"></div>
 							</div>			
