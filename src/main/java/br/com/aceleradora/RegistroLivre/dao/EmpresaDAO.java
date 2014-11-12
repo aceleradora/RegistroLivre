@@ -1,5 +1,6 @@
 package br.com.aceleradora.RegistroLivre.dao;
 
+
 import java.util.List;
 
 import org.hibernate.Query;

@@ -3,6 +3,7 @@ package br.com.aceleradora.RegistroLivre.controller;
 import java.util.List;
 
 import br.com.aceleradora.RegistroLivre.dao.EmpresaDAO;
+import br.com.aceleradora.RegistroLivre.dao.SocioDAO;
 import br.com.aceleradora.RegistroLivre.model.Empresa;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Resource;
@@ -36,8 +37,10 @@ public class EmpresaController {
 	}
 	
 	public void cadastrar(Empresa empresa){
+		
 		daoEmpresa.adiciona(empresa);
 		result.include("mensagem", "true");
 		result.redirectTo(this).visualizacao(empresa);
 	}
+		
 }

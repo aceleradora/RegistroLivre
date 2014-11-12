@@ -19,8 +19,10 @@ public class Socio extends Entidade{
 	private String cpf;
 	private boolean inativo;
 
+	public Socio() { }
+	
 	public Socio(String nome, String cpf, boolean inativo){
-		this.setNome(nome);
+		this.nome = nome;
 		this.cpf = cpf;
 		this.inativo = inativo;
 	}
@@ -36,8 +38,6 @@ public class Socio extends Entidade{
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
-
-	public Socio() {	}
 
 	public String getNome() {
 		return nome;
