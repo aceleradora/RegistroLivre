@@ -29,26 +29,35 @@ public class EmpresaControllerTest {
 	
 	@Mock
 	EmpresaDAO empresaDAO; 
-
+	EmpresaController empresaController;
+	Empresa empresa;
+	List<Empresa> listaDeEmpresas;
 	
 	@Before
 	public void setup() {
 		result = new MockResult();
+		empresaController = new EmpresaController(empresaDAO, result);
+		empresa = new Empresa();
+		listaDeEmpresas = new ArrayList<Empresa>();
+		listaDeEmpresas.add(empresa);
+		when(empresaDAO.getTodas()).thenReturn(listaDeEmpresas);		
 
 	}
 		
 	@Test
 	public void quandoChamaOMetodoListagemRetornaOMetodoGetTodasDoDAO() throws Exception {
-		EmpresaController empresaController = new EmpresaController(empresaDAO, result);
-		Empresa empresa = new Empresa();
-		List<Empresa> listaDeEmpresas = new ArrayList<Empresa>();
-		listaDeEmpresas.add(empresa);
-		when(empresaDAO.getTodas()).thenReturn(listaDeEmpresas);		
 		
 		empresaController.listagem();
 		
 		verify(empresaDAO).getTodas();
-
-	}	
+	}
+	
+	@Test
+	public void quandoChamaOMetodoVisualizacaoRetornaOMetodoGetByIdDoDAO() throws Exception {
+		empresa.setId(1);
+		empresaController.visualizacao(empresa);	
+		
+		verify(empresaDAO).getById(empresa.getId());		
+	}
 	
 }
