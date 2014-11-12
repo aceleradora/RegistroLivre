@@ -8,17 +8,13 @@
 	<title>Cadastro de Empresa</title>
 	<link href="assets/css/bootstrap/css/bootstrap.css" rel="stylesheet">
 	<link href="assets/css/main.css" rel="stylesheet">
-	<script src="assets/js/visualizacao.js"></script>		
 </head>
 	<body>
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6 col-md-6 col-lg-offset-3 col-md-offset-3">
 				<c:if test="${mensagem != null}">
-	    			<div class="alert alert-error alert-dismissible" role="alert">
-					  	<button type="button" class="close" id="close" data-dismiss="alert">
-				  			<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
-				  		</button>
+	    			<div class="alert alert-danger alert-dismissible" role="alert">
 					  	<strong>${mensagem} Inválido!</strong> 
 					</div>
 	    		</c:if>

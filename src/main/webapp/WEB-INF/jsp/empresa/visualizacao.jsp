@@ -101,11 +101,11 @@
 								<dd>CPF:</dd>
 								<dd>${socio.cpf}</dd>
 								<dd>
-									<c:if test="${socio.situacaoDoSocio == true}">
+									<c:if test="${socio.inativo == false}">
 										<span class="label label-success">Ativo</span>
 									</c:if>
-									<c:if test="${socio.situacaoDoSocio == false}">
-										<span class="label label-important">Inativo</span>
+									<c:if test="${socio.inativo == true}">
+										<span class="label label-danger">Inativo</span>
 									</c:if>
 									</c:forEach>
 								</dd>

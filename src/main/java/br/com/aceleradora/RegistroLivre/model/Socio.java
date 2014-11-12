@@ -37,7 +37,9 @@ public class Socio extends Entidade{
 		this.cpf = cpf;
 	}
 
-	public Socio() {	}
+	public Socio() {
+		
+	}
 
 	public String getNome() {
 		return nome;
