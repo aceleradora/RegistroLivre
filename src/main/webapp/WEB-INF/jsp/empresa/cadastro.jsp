@@ -120,15 +120,16 @@
 								</li> <!-- list-group-item  -->
 
 								<div id="divSocios">
-									<li class="list-group-item" id="socio0">
+									<li class="list-group-item socio-group" id="socio0">
 									
 									<div class="list-group-item-heading centralize">
 										<h4>Dados dos sócios</h4>
 									</div>
 								
-									<div class="form-group">
+									<div class="form-group has-feeedback nome-socio">
 										<label class="control-label">Nome do sócio</label>
-										<input class="form-control" name="empresa.socios[0].nome" id="nome-socio">
+										<input class="form-control nome-socio"  name="empresa.socios[0].nome" >
+										<span class="glyphicon form-control-feedback"></span>
 									</div>
 									
 									<div class="form-group has-feedback cpf-group">

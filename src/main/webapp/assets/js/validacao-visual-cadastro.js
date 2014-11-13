@@ -90,6 +90,34 @@ var validarCPFTempoReal = function(){
 }	
 
 
+var validarNomeSocioTempoReal = function(){
+	$('#divSocios').on('focusout', '.cpf', function(){
+		if (($(this).parents('.socio-group').find('.nome-socio').val().length <= 0) && ($(this).val().length > 0)){
+			alert("Erro!");
+			$("#btn-submit").prop('disabled', true);
+			$(".msg-alert").show();
+			
+			$(this).parents('.socio-group').find('.nome-socio').removeClass('has-success');
+			$(this).parents('.socio-group').find('.nome-socio').addClass('has-error');
+			
+			$(this).parents('.socio-group').find('.nome-socio').find('span').removeClass('glyphicon-ok');
+			$(this).parents('.socio-group').find('.nome-socio').find('span').addClass('glyphicon-remove');
+			
+			
+		}else{
+			alert("Acerto!");
+			$("#btn-submit").prop('disabled', false);
+			$(".msg-alert").hide();
+				
+			$(this).parents('.socio-group').find('.nome-socio').removeClass('has-success');
+			$(this).parents('.socio-group').find('.nome-socio').addClass('has-error');
+				
+			$(this).parents('.socio-group').find('.nome-socio').find('span').addClass('glyphicon-ok');
+			$(this).parents('.socio-group').find('.nome-socio').find('span').removeClass('glyphicon-remove');
+	}
+	});
+}	
+
 var colocaMascaraCNPJ = function(){
 	$('#cnpj').mask('00.000.000/0000-00', {
 		onKeyPress : function() {
@@ -122,14 +150,14 @@ var removeSocio = function(){
 	
 $(document).ready(function() {	
 	
-	validarCPFTempoReal();
 	validarCNPJVazio();
 	validarNomeFantasiaVazio();
 	colocaMascaraCNPJ();
 	colocaMascaraCPF();
 	colocaMascaraCEP();
 	colocaMascaraNumero();
+	validarCPFTempoReal();
+	validarNomeSocioTempoReal();
 	removeSocio();
-	
 	
 });
