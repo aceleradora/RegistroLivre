@@ -27,12 +27,18 @@ $(document).ready(function() {
 	
 	$('#divSocios').on('focusout', '.cpf', function(){		
 		if(validarCpf($(this).val())){
+			$("#btn-submit").prop('disabled', false);
+			$(".msg-alert").hide();
+			
 			$(this).parents('.cpf-group').addClass('has-success');
 			$(this).parents('.cpf-group').removeClass('has-error');
 			
 			$(this).parents('.cpf-group').find('span').addClass('glyphicon-ok');
 			$(this).parents('.cpf-group').find('span').removeClass('glyphicon-remove');
-		}else{			
+		}else{	
+			$("#btn-submit").prop('disabled', true);
+			$(".msg-alert").show();
+			
 			$(this).parents('.cpf-group').removeClass('has-success');
 			$(this).parents('.cpf-group').addClass('has-error');
 			

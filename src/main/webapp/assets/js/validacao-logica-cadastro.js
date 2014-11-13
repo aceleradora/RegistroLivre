@@ -99,7 +99,6 @@ function validarCpf(cpfDigitado) {
         }
         if (erro.length > 0){
             $(this).val('');
-            alert(erro);
             setTimeout(function(){$(this).focus();},100);
             return false;
         }
