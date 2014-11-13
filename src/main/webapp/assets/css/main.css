@@ -1,3 +1,8 @@
+#registrolivre{
+	font-size: 50px;
+	font-family: arial;
+}
+
 .margin-0-30 {
 	margin: 0 30px;
 }
@@ -24,6 +29,10 @@
 
 .margin-35-0 {
 	margin: 35px 0;
+}
+
+.margin-250-0 {
+	margin: 250px 0;
 }
 
 .padding-15-0 {
@@ -64,4 +73,16 @@ h4 {
 
 .msg-alert{
 	display:none;
+}
+
+.transparente{
+	opacity: 0.7;
+	
+}
+
+.img-background{
+		background-image: url("/assets/img/1.jpg");
+		background-size: 1500px 1000px;
+		background-repeat: no-repeat; 
+			font-weight: bold;	
 }
