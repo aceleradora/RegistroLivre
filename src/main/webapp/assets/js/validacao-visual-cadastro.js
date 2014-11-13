@@ -90,5 +90,9 @@ $(document).ready(function() {
 			$("#nomeFantasia-group span").removeClass("glyphicon-ok");
 			$("#nomeFantasia-group span").addClass("glyphicon-remove");
 		}
-	});	
+	});
+	
+	$('#divSocios').on('click', '.close', function(){
+		$(this).parents('.list-group-item').remove();
+	});
 });
