@@ -1,5 +1,4 @@
 
-	
 var validarCNPJTempoReal= function (cnpj) {
 	if (validarCNPJ(cnpj)) {
 		$("#cnpj-group").addClass("has-success has-feedback");

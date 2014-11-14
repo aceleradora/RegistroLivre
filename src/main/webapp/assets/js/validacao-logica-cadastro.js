@@ -13,7 +13,7 @@ function validarCadastro() {
 	}
 		
 	if (!validarPdf(formulario.file)) {
-		alert("Arquivo inexistente ou com a extensão inválida. (Somente PDF's são permitidos!)");
+		alert("Arquivo inexistente ou com a extensão inválida. (Somente PDF's são permitidos.)");
 		return false;
 	}
 	
