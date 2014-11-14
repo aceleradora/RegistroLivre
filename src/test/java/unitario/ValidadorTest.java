@@ -1,7 +1,6 @@
 package unitario;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -60,7 +59,6 @@ public class ValidadorTest {
 		boolean result = validador.verificaCpfListaSocio(socios);
 
 		assertFalse(result);
-
 	}
 
 	@Test
@@ -74,7 +72,6 @@ public class ValidadorTest {
 		boolean result = validador.verificaCpfListaSocio(socios);
 
 		assertTrue(result);
-
 	}
 	
 	@Test
@@ -87,8 +84,51 @@ public class ValidadorTest {
 		
 		boolean result = validador.verificaCpfListaSocio(socios);
 		
-		assertTrue(result);
+		assertTrue(result);		
+	}
+	
+	@Test
+	public void retornaVerdadeSeONomeFantasiaTiverMaisQueUmCaracter(){
+		boolean result = validador.verificaNomeFantasia("aaa");
 		
+		assertTrue(result);		
+	}
+	
+	@Test
+	public void retornaFalsoSeONomeFantasiaTiverMenosQueDoisCaracter(){
+		boolean result = validador.verificaNomeFantasia("a");
+		
+		assertFalse(result);		
+	}
+	
+	@Test
+	public void retornaFalsoSeONomeFantasiaForNulo(){
+		boolean result = validador.verificaNomeFantasia(null);
+		
+		assertFalse(result);
+	}
+	
+	@Test
+	public void retornaVerdadeSeONomeFantasiaTiverDoisCaracteres(){
+		boolean result = validador.verificaNomeFantasia("aa");
+		
+		assertTrue(result);		
+	}
+	
+	@Test
+	public void retornaUmaListaVaziaQuandoMandarUmaListaDeSociosSemNomesESemCpfs(){
+		List<Socio> socios = new ArrayList<Socio>();
+		Socio pessoa = new Socio(null, "071.549.456-21", true);
+		Socio pessoa2 = new Socio("", "848.817.120-04", true);
+		Socio pessoa3 = new Socio("joao", "", true);
+		Socio pessoa4 = new Socio("maria", null, true);
+		socios.add(pessoa);
+		socios.add(pessoa2);
+		socios.add(pessoa3);
+		socios.add(pessoa4);
+		List<Socio> result = validador.retiraSociosNulos(socios);
+		
+		assertEquals(result.size(), 0);		
 	}
 
 }

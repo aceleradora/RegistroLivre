@@ -1,5 +1,6 @@
 package br.com.aceleradora.RegistroLivre.model;
 
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
 
@@ -9,7 +10,7 @@ import br.com.caelum.vraptor.ioc.Component;
 public class Validador {
 	
 	public List<Socio> retiraSociosNulos(List<Socio> socios){
-		return socios;
+		return (new ArrayList<Socio>());
 	}
 	
 	public static boolean verificaCpfListaSocio(List<Socio> socios) {
@@ -153,7 +154,12 @@ public class Validador {
 	}
 
 	public static boolean verificaNomeFantasia(String nomeFantasia) {
-		// TODO Auto-generated method stub
+		if(nomeFantasia==null)
+			return false;
+		
+		if(nomeFantasia.length()<=1)
+			return false;
+		
 		return true;
 	}
 }
