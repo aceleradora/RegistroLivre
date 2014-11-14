@@ -17,22 +17,22 @@ public class Socio extends Entidade{
 	
 	private String nome;
 	private String cpf;
-	private boolean inativo;
+	private boolean ativo;
 
 	public Socio() { }
 	
-	public Socio(String nome, String cpf, boolean inativo){
+	public Socio(String nome, String cpf, boolean ativo){
 		this.nome = nome;
 		this.cpf = cpf;
-		this.inativo = inativo;
+		this.ativo = ativo;
 	}
 	
-	public boolean isInativo() {
-		return inativo;
+	public boolean isAtivo() {
+		return ativo;
 	}
 
-	public void setInativo(boolean inativo) {
-		this.inativo = inativo;
+	public void setAtivo(boolean ativo) {
+		this.ativo = ativo;
 	}
 
 	public void setCpf(String cpf) {
@@ -53,18 +53,18 @@ public class Socio extends Entidade{
 	
 	public boolean getSituacaoDoSocio() {
 		
-		return inativo;
+		return ativo;
 	}
 	
 	public void setSituacaoDoSocio(boolean situacaoDoSocio) {
-		this.inativo = situacaoDoSocio;
+		this.ativo = situacaoDoSocio;
 	}
 	
 	public boolean inativaSocio() {
 		
-		inativo = false;
+		ativo = false;
 		
-		return inativo;
+		return ativo;
 	}
 
 }
