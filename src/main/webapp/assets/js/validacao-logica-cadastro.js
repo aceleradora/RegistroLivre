@@ -13,7 +13,7 @@ function validarCadastro() {
 	}
 		
 	if (!validarPdf(formulario.file)) {
-		alert("Arquivo inexistente ou com a extensão inválida. (Somente PDF's são permitidos!)");
+		alert("Arquivo inexistente ou com a extensão inválida. (Somente PDF's são permitidos.)");
 		return false;
 	}
 	
@@ -38,7 +38,7 @@ function validarPdf(objFileControl) {
 function validarCpf(cpfDigitado) {
 
         CPF = cpfDigitado;
-        if(!CPF){ return false;}
+        if(!CPF){ return true;}
         erro  = new String;
         cpfv  = CPF;
         if(cpfv.length == 14 || cpfv.length == 11){
@@ -151,4 +151,19 @@ function validarCNPJ(cnpj) {
 		return false;
 
 	return true;
+}
+
+function verificaCPFTodosSocios(){
+	var correto = true;
+	$('#divSocios .cpf-group').each(function(){
+		if ($(this).hasClass('has-error')){			
+			correto = false;
+		}
+	});		
+	
+	if (correto) {
+		return true;
+	}
+	else return false;
+
 }
