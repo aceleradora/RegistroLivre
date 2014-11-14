@@ -6,18 +6,20 @@
 <html>
 <head>
 	<title>Cadastro de Empresa</title>
-	<link href="assets/css/bootstrap/css/bootstrap.css" rel="stylesheet">
-	<link href="assets/css/main.css" rel="stylesheet">
+	<link href="/assets/css/bootstrap/css/bootstrap.css" rel="stylesheet">
+	<link href="/assets/css/main.css" rel="stylesheet">
 </head>
 	<body>
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6 col-md-6 col-lg-offset-3 col-md-offset-3">
-				<c:if test="${mensagem != null}">
+				
+				<c:forEach items="${errors}" var="error">
 	    			<div class="alert alert-danger alert-dismissible" role="alert">
-					  	<strong>${mensagem} Inválido!</strong> 
+  						${error.message}
 					</div>
-	    		</c:if>
+				</c:forEach>
+	    		
 					<div class="panel panel-default margin-35-0">
 						
 						<div class="panel-heading centralize">
@@ -36,46 +38,46 @@
 									
 							<div class="form-group has-feedback" id="cnpj-group">
 								<label class="control-label">CNPJ <abbr title="Preenchimento obrigatório">*</abbr></label>
-								<input class="form-control" type="text" name="empresa.cnpj" id="cnpj" value="" placeholder="ex: 00.000.000/0000-00" required/>
+								<input class="form-control" type="text" name="empresa.cnpj" id="cnpj" value="${empresa.cnpj}" placeholder="ex: 00.000.000/0000-00" required/>
 								<span class="glyphicon form-control-feedback"></span>
 							</div>
 						
 							<div class="form-group has-feedback" id="nomeFantasia-group">
 								<label class="control-label">Nome fantasia  <abbr title="Preenchimento obrigatório">*</abbr> </label>
-								<input class="form-control" type="text" name="empresa.nomeFantasia" id="nomeFantasia" value="" placeholder="ex: Jaffari" required/>
+								<input class="form-control" type="text" name="empresa.nomeFantasia" id="nomeFantasia" value="${empresa.nomeFantasia}" placeholder="ex: Jaffari" required/>
 								<span class="glyphicon form-control-feedback"></span>
 							</div>
 						
 							<div class="form-group">
 								<label class="control-label">Razão Social</label>
-								<input class="form-control" type="text" name="empresa.razaoSocial" placeholder="ex: Cia Jaffari Comércio e Indústria LTDA" value=""/>
+								<input class="form-control" type="text" name="empresa.razaoSocial"placeholder="ex: Cia Jaffari Comércio e Indústria LTDA" value="${empresa.razaoSocial}"/>
 							</div>
 							
 							<div class="row">
 								<div class="col-lg-9">
 											<div class="form-group">
 												<label class="control-label">Endereço</label>
-												<input class="form-control" type="text" name="empresa.endereco.logradouro" placeholder="ex: Av. Ipiranga" value=""/>
+												<input class="form-control" type="text" name="empresa.endereco.logradouro" placeholder="ex: Av. Ipiranga" value="${empresa.endereco.logradouro}"/>
 											</div>
 										</div>
 										<div class="col-lg-3">
 											<div class="form-group">
 												<label class="control-label">Número</label>
-												<input id="numero" class="form-control" type="text" name="empresa.endereco.numero" value=""/>
+												<input id="numero" class="form-control" type="text" name="empresa.endereco.numero" value="${empresa.endereco.numero}"/>
 											</div>
 										</div>
 									</div>
 								
 									<div class="form-group">
 										<label class="control-label">Complemento</label>
-										<input class="form-control" type="text" name="empresa.endereco.complemento" value="" placeholder="ex: Bloco A - apartamento 720"/>
+										<input class="form-control" type="text" name="empresa.endereco.complemento" value="${empresa.endereco.complemento}" placeholder="ex: Bloco A - apartamento 720"/>
 									</div>
 								
 									<div class="row">
 										<div class="col-lg-9">
 											<div class="form-group">
 												<label class="control-label">Cidade</label>
-												<input class="form-control" type="text" name="empresa.endereco.cidade" value=""/>
+												<input class="form-control" type="text" name="empresa.endereco.cidade" value="${empresa.endereco.cidade}"/>
 											</div>
 										</div>
 										<div class="col-lg-3">
@@ -91,20 +93,20 @@
 								
 									<div class="form-group">
 										<label class="control-label">CEP</label>
-										<input id="cep" class="form-control" name="empresa.endereco.cep" type="text" value="" placeholder="000000-000"/>
+										<input id="cep" class="form-control" name="empresa.endereco.cep" type="text" value="${empresa.endereco.cep}" placeholder="000000-000"/>
 									</div>
 								
 									<div class="row">
 										<div class="col-lg-6 col-md-6">
 											<div class="form-group">
 												<label class="control-label">Data de abertura</label>
-												<input class="form-control" name="empresa.dataDeAbertura" type="date" value="" />
+												<input class="form-control" name="empresa.dataCriacao" type="date" value="${empresa.dataCriacao}" />
 											</div>
 										</div>
 										<div class="col-lg-6 col-md-6">
 											<div class="form-group">
 												<label class="control-label">Emissão de documento</label>
-												<input class="form-control" name="empresa.emissaoDoDocumento" type="date" value=""/>
+												<input class="form-control" name="empresa.dataEmissaoDocumento" type="date" value="${empresa.dataEmissaoDocumento}"/>
 											</div>
 										</div>
 
@@ -128,13 +130,13 @@
 								
 									<div class="form-group has-feeedback nome-socio">
 										<label class="control-label">Nome do sócio</label>
-										<input class="form-control nome-socio"  name="empresa.socios[0].nome" >
+										<input class="form-control nome-socio" name="empresa.socios[0].nome" id="nome-socio" value="${empresa.socios[0].nome}">
 										<span class="glyphicon form-control-feedback"></span>
 									</div>
 									
 									<div class="form-group has-feedback cpf-group">
 										<label class="control-label">CPF </label>
-										<input class="form-control cpf" type="text" name="empresa.socios[0].cpf" id="cpf" placeholder="ex: 000.000.000-00" value=""/>
+										<input class="form-control cpf" type="text" name="empresa.socios[0].cpf" id="cpf" placeholder="ex: 000.000.000-00" value="${empresa.socios[0].cpf}"/>
 										<span class="glyphicon form-control-feedback"></span>
 									</div>
 										

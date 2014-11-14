@@ -16,41 +16,41 @@ import javax.persistence.SequenceGenerator;
 import br.com.aceleradora.RegistroLivre.dao.Entidade;
 
 @Entity
-@SequenceGenerator(initialValue=1, allocationSize=1, name="geradorId", sequenceName="empresa_sequence")
-public class Empresa extends Entidade{
-	
+@SequenceGenerator(initialValue = 1, allocationSize = 1, name = "geradorId", sequenceName = "empresa_sequence")
+public class Empresa extends Entidade {
+
 	@Column(nullable = false)
 	private String cnpj;
 	private String razaoSocial;
-	@Column(nullable = false) 
+	@Column(nullable = false)
 	private String nomeFantasia;
 
 	@Embedded
 	private Endereco endereco;
-	
+
 	private Date dataCriacao;
 	private Date dataEmissaoDocumento;
-	
-	@ManyToMany(cascade=CascadeType.ALL)
-	@JoinTable(name="empresa_socios", joinColumns={@JoinColumn(name="empresa_id")}, inverseJoinColumns={@JoinColumn(name="socio_id")})
+
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "empresa_socios", joinColumns = { @JoinColumn(name = "empresa_id") }, inverseJoinColumns = { @JoinColumn(name = "socio_id") })
 	private List<Socio> socios;
-	
-	public Empresa(){
+
+	public Empresa() {
 		socios = new ArrayList<Socio>();
 	}
-	
+
 	public String getCnpj() {
 		return cnpj;
 	}
-	
+
 	public void setCnpj(String cnpj) {
 		this.cnpj = cnpj;
 	}
-	
+
 	public String getRazaoSocial() {
 		return razaoSocial;
 	}
-	
+
 	public void setRazaoSocial(String razaoSocial) {
 		this.razaoSocial = razaoSocial;
 	}
@@ -86,15 +86,12 @@ public class Empresa extends Entidade{
 	public void setDataEmissaoDocumento(Date dataEmissaoDocumento) {
 		this.dataEmissaoDocumento = dataEmissaoDocumento;
 	}
-	
+
 	public List<Socio> getSocios() {
 		return socios;
 	}
 
 	public void setSocios(List<Socio> socios) {
-		for(int i = 0; i < socios.size(); i++) {
-			if(socios.get(i).getNome() != null)
-				this.socios.add(socios.get(i));
-		}
+		this.socios = socios;
 	}
 }

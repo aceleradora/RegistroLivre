@@ -1,6 +1,7 @@
 package unitario;
 
 
+import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -17,30 +18,38 @@ import org.mockito.runners.MockitoJUnitRunner;
 import br.com.aceleradora.RegistroLivre.controller.EmpresaController;
 import br.com.aceleradora.RegistroLivre.dao.EmpresaDAO;
 import br.com.aceleradora.RegistroLivre.model.Empresa;
-import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.util.test.MockResult;
+import br.com.caelum.vraptor.util.test.MockValidator;
 
 @RunWith(MockitoJUnitRunner.class)
 public class EmpresaControllerTest {
 
-	MockResult result;
-		
+	MockResult result;	
 	@Mock
-	EmpresaDAO empresaDAO; 
+	EmpresaDAO empresaDAO;
 	EmpresaController empresaController;
 	Empresa empresa;
 	List<Empresa> listaDeEmpresas;
-	Result resultRedirect;
 	
+	MockValidator validator;
+	
+	
+//	@Mock
+//	Result resultRedirect;
+//	
+	@Mock
+	EmpresaController empresaControllerMock;
+
 	@Before
 	public void setup() {
-		result = new MockResult();
-		empresaController = new EmpresaController(empresaDAO, result);
+		result = spy(new MockResult());
+		validator = spy(new MockValidator());
+		
+		empresaController = new EmpresaController(empresaDAO, result, validator);
 		empresa = new Empresa();
 		listaDeEmpresas = new ArrayList<Empresa>();
 		listaDeEmpresas.add(empresa);
 		when(empresaDAO.getTodas()).thenReturn(listaDeEmpresas);		
-
 	}
 		
 	@Test
@@ -61,11 +70,16 @@ public class EmpresaControllerTest {
 	
 	@Ignore
 	@Test	
-	public void quandoChamaOMetodoCadastrarDeveRetornarParaPaginaDeVisualizacaoDeEmpresa() throws Exception {
-		empresaDAO.adiciona(empresa);
+	public void quandoChamaOMetodoCadastrarEPassaUmCnpjInvalidoDeveRetornarParaPaginaDeVisualizacaoDeEmpresa() throws Exception {
+		empresa.setCnpj("47960950/0449-27");
+	
+		empresaController.cadastrar(empresa);
+		
+		
+		//when(result.redirectTo(empresaController)).thenReturn(empresaController);
+		String teste = "/teste";
+		verify(result).redirectTo(teste);
 
-		when(resultRedirect.redirectTo(EmpresaController.class)).thenReturn(empresaController);		
-		verify(resultRedirect).redirectTo(EmpresaController.class);
 	}
 	
 }
