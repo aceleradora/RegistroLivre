@@ -152,3 +152,18 @@ function validarCNPJ(cnpj) {
 
 	return true;
 }
+
+function verificaCPFTodosSocios(){
+	var correto = true;
+	$('#divSocios .cpf-group').each(function(){
+		if ($(this).hasClass('has-error')){			
+			correto = false;
+		}
+	});		
+	
+	if (correto) {
+		return true;
+	}
+	else return false;
+
+}
