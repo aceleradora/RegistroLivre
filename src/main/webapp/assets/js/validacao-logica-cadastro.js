@@ -38,7 +38,7 @@ function validarPdf(objFileControl) {
 function validarCpf(cpfDigitado) {
 
         CPF = cpfDigitado;
-        if(!CPF){ return false;}
+        if(!CPF){ return true;}
         erro  = new String;
         cpfv  = CPF;
         if(cpfv.length == 14 || cpfv.length == 11){
