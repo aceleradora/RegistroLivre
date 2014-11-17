@@ -106,7 +106,7 @@
 										<div class="col-lg-6 col-md-6">
 											<div class="form-group">
 												<label class="control-label">Emissão de documento</label>
-												<input class="form-control" name="empresa.dataEmissaoDocumento" type="date" value="${empresa.dataEmissaoDocumento}"/>
+												<input class="form-control" name="empresa.dataEmissaoDocumento" id="dataEmissao" type="date" value="${empresa.dataEmissaoDocumento}"/>
 											</div>
 										</div>
 
@@ -136,7 +136,7 @@
 							</ul> <!-- list-group -->
 						
 							
-							<div class="panel-footer">
+							<div class="panel-footer">									
 									<span class="pull-left msg-alert color-red margin-15-0">Preencha os campos corretamente para enviar.</span>
 									<input type="submit" id="btn-submit" class="btn btn-lg btn-primary pull-right margin-0-6" value="Enviar"/>
 									<input type="reset" value="Limpar" class="btn btn-default btn-lg pull-right margin-0-6"/>

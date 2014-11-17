@@ -1,6 +1,7 @@
 package br.com.aceleradora.RegistroLivre.model;
 
-import java.sql.Date;
+import java.util.Date;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,6 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Transient;
 
 import br.com.aceleradora.RegistroLivre.dao.Entidade;
 
@@ -30,6 +32,10 @@ public class Empresa extends Entidade {
 
 	private Date dataCriacao;
 	private Date dataEmissaoDocumento;
+	@Transient
+	private SimpleDateFormat sdfIn;
+	@Transient
+	private SimpleDateFormat sdfOut;
 
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "empresa_socios", joinColumns = { @JoinColumn(name = "empresa_id") }, inverseJoinColumns = { @JoinColumn(name = "socio_id") })
@@ -37,6 +43,8 @@ public class Empresa extends Entidade {
 
 	public Empresa() {
 		socios = new ArrayList<Socio>();
+		sdfIn= new SimpleDateFormat("yyyy-MM-dd");
+		sdfOut = new SimpleDateFormat("dd/MM/yyyy");
 	}
 
 	public String getCnpj() {
@@ -71,20 +79,36 @@ public class Empresa extends Entidade {
 		this.endereco = endereco;
 	}
 
-	public Date getDataCriacao() {
-		return dataCriacao;
+	public String getDataCriacao() {		
+		try {
+			return sdfOut.format(dataCriacao);
+		} catch (Exception e) {
+			return "";
+		}		
 	}
 
-	public void setDataCriacao(Date dataCriacao) {
-		this.dataCriacao = dataCriacao;
+	public void setDataCriacao(String dataCriacao){		
+		try {
+			this.dataCriacao = sdfIn.parse(dataCriacao); 
+		} catch (Exception e) {
+			this.dataCriacao = null;
+		}		
 	}
 
-	public Date getDataEmissaoDocumento() {
-		return dataEmissaoDocumento;
+	public String getDataEmissaoDocumento() {		
+		try {
+			return sdfOut.format(dataEmissaoDocumento);
+		} catch (Exception e) {
+			return "";
+		}				
 	}
 
-	public void setDataEmissaoDocumento(Date dataEmissaoDocumento) {
-		this.dataEmissaoDocumento = dataEmissaoDocumento;
+	public void setDataEmissaoDocumento(String dataEmissaoDocumento){		
+		try {
+			this.dataEmissaoDocumento = sdfIn.parse(dataEmissaoDocumento); 
+		} catch (Exception e) {
+			this.dataEmissaoDocumento = null;
+		}		
 	}
 
 	public List<Socio> getSocios() {
