@@ -1,7 +1,6 @@
 package unitario;
 
 
-import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -19,38 +18,38 @@ import org.mockito.runners.MockitoJUnitRunner;
 import br.com.aceleradora.RegistroLivre.controller.EmpresaController;
 import br.com.aceleradora.RegistroLivre.dao.EmpresaDAO;
 import br.com.aceleradora.RegistroLivre.model.Empresa;
-import br.com.caelum.vraptor.util.test.MockResult;
+import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.Validator;
 import br.com.caelum.vraptor.util.test.MockValidator;
+import br.com.caelum.vraptor.validator.ValidationException;
 
 @RunWith(MockitoJUnitRunner.class)
 public class EmpresaControllerTest {
 
-	MockResult result;	
+	@Mock
+	Result result;	
 	@Mock
 	EmpresaDAO empresaDAO;
 	EmpresaController empresaController;	
 	List<Empresa> listaDeEmpresas;
+	@Mock
+	Empresa empresa;
+	@Mock
+	Validator validator;
 	
-	MockValidator validator;
-	
-	
-//	@Mock
-//	Result resultRedirect;
-//	
 	@Mock
 	EmpresaController empresaControllerMock;
 
 	@Before
 	public void setup() {
-		result = spy(new MockResult());
-		validator = spy(new MockValidator());
-		
+		result = mock(Result.class);
+		validator = mock(Validator.class);
+		empresa = mock(Empresa.class);
 		empresaController = new EmpresaController(empresaDAO, result, validator);			
 	}
 		
 	@Test
 	public void quandoChamaOMetodoListagemRetornaOMetodoGetTodasDoDAO() throws Exception {
-		Empresa empresa = new Empresa();
 		listaDeEmpresas = new ArrayList<Empresa>();
 		listaDeEmpresas.add(empresa);
 		
@@ -63,8 +62,7 @@ public class EmpresaControllerTest {
 	
 	@Test
 	public void quandoChamaOMetodoVisualizacaoRetornaOMetodoGetByIdDoDAO() throws Exception {
-		Empresa empresa = new Empresa();
-		
+		when(empresa.getId()).thenReturn(1L);
 		empresa.setId(1);
 		empresaController.visualizacao(empresa);	
 		
@@ -72,35 +70,6 @@ public class EmpresaControllerTest {
 	}
 	
 	
-	@Test	
-	public void quandoChamaOMetodoCadastrarEPassaUmCnpjENomeFantasiaValidosDeveRetornarParaPaginaDeVisualizacaoDeEmpresa() throws Exception {
-		Empresa empresa = new Empresa();
-		
-		empresa.setCnpj("47960950/0449-27");
-		empresa.setNomeFantasia("Teste");
-			
-		EmpresaController empresaControllerMock = mock(EmpresaController.class);
-		when(result.redirectTo(empresaController)).thenReturn(empresaControllerMock);
-		
-		empresaController.cadastrar(empresa);
-		
-		verify(empresaControllerMock).visualizacao(empresa);
-	}
-	
-	@Ignore
-	@Test
-	public void quandoChamaOMetodoCadastrarEPassaUmaEmpresaInvalidaDeveRetornarAPaginaCadastro(){
-		Empresa empresa = new Empresa();
-		empresa.setCnpj("47960950/0449-27");
-		empresa.setNomeFantasia("Teste");
-			
-		EmpresaController empresaControllerMock = mock(EmpresaController.class);
-		when(validator.onErrorUsePageOf(empresaController)).thenReturn(empresaControllerMock);
-		
-		empresaController.cadastrar(empresa);
-	
-		verify(empresaControllerMock).cadastro();
-	}
 	
 	
 }

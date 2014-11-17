@@ -41,6 +41,10 @@ public class EmpresaController {
 	}
 
 	public void cadastrar(final Empresa empresa) {	
+
+		
+		empresa.setSocios(Validador.retiraSociosNulos(empresa.getSocios()));
+		
 		validator.checking(new Validations() {
 			{
 				that(Validador.verificaCnpj(empresa.getCnpj()), "empresa.cnpj",
