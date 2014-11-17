@@ -9,7 +9,7 @@ import br.com.caelum.vraptor.ioc.Component;
 @Component
 public class Validador {
 	
-	public List<Socio> retiraSociosNulos(List<Socio> socios){
+	public static List<Socio> retiraSociosNulos(List<Socio> socios){
 		for(int i=0; i<socios.size(); i++){
 			if(socios.get(i).getNome() == null && socios.get(i).getCpf() == null){
 				socios.remove(i);	

@@ -40,7 +40,9 @@ public class EmpresaController {
 		return daoEmpresa.getById(empresa.getId());
 	}
 
-	public void cadastrar(final Empresa empresa) {
+
+	public void cadastrar(final Empresa empresa) {	
+		empresa.setSocios(Validador.retiraSociosNulos(empresa.getSocios()));
 		validator.checking(new Validations() {
 			{
 				that(Validador.verificaCnpj(empresa.getCnpj()), "empresa.cnpj",
