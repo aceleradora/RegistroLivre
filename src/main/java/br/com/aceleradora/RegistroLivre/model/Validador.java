@@ -10,7 +10,13 @@ import br.com.caelum.vraptor.ioc.Component;
 public class Validador {
 	
 	public List<Socio> retiraSociosNulos(List<Socio> socios){
-		return (new ArrayList<Socio>());
+		for(int i=0; i<socios.size(); i++){
+			if(socios.get(i).getNome() == null && socios.get(i).getCpf() == null){
+				socios.remove(i);	
+				i = 0;
+			}			
+		}		
+		return socios;
 	}
 	
 	public static boolean verificaCpfListaSocio(List<Socio> socios) {

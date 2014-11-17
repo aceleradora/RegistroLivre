@@ -2,6 +2,7 @@ package unitario;
 
 import static org.junit.Assert.*;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -116,19 +117,25 @@ public class ValidadorTest {
 	}
 	
 	@Test
-	public void retornaUmaListaVaziaQuandoMandarUmaListaDeSociosSemNomesESemCpfs(){
+	public void retornaUmaListaComDoisObjetosQuandoMandarUmaListaDeSociosComDoisObjetosValidosETresNulos(){
 		List<Socio> socios = new ArrayList<Socio>();
-		Socio pessoa = new Socio(null, "071.549.456-21", true);
-		Socio pessoa2 = new Socio("", "848.817.120-04", true);
-		Socio pessoa3 = new Socio("joao", "", true);
-		Socio pessoa4 = new Socio("maria", null, true);
+		Socio pessoa = new Socio("nome", "071.549.456-21", true);	
+		Socio pessoa2 = new Socio(null, null, true);
+		Socio pessoa3 = new Socio ("nome", "848.817.120-04", true);
+		Socio pessoa4 = new Socio(null, null, true);
+		Socio pessoa5 = new Socio(null, null, true);
+		
 		socios.add(pessoa);
 		socios.add(pessoa2);
 		socios.add(pessoa3);
 		socios.add(pessoa4);
+		socios.add(pessoa5);
+
 		List<Socio> result = validador.retiraSociosNulos(socios);
 		
-		assertEquals(result.size(), 0);		
+		System.out.println();
+		
+		assertEquals(result.size(), 2);
 	}
 
 }

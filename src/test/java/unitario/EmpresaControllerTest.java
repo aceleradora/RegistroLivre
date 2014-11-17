@@ -87,6 +87,7 @@ public class EmpresaControllerTest {
 		verify(empresaControllerMock).visualizacao(empresa);
 	}
 	
+	@Ignore
 	@Test
 	public void quandoChamaOMetodoCadastrarEPassaUmaEmpresaInvalidaDeveRetornarAPaginaCadastro(){
 		Empresa empresa = new Empresa();
