@@ -26,7 +26,7 @@
 							<h2>Cadastrar Empresa</h2>
 						</div>
 						
-						<form class="form" name="formulario" action="/empresa/cadastrar" method="POST" onsubmit="return validarCadastro();" enctype="multipart/form-data">
+						<form class="form" name="formulario" action="/empresa/cadastrar" method="POST" onsubmit="return validarCadastro();">
 						
 							<ul class="list-group">
 								
