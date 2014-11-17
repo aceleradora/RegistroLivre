@@ -8,16 +8,16 @@ function adicionaSocio(){
 			'</div>' +
 			'<div class="form-group">' +
 				'<label>Nome do sócio</label>' +
-				'<input class="form-control" name="empresa.socios[' + contSocios + '].nome">' +
+				'<input class="form-control" name="empresa.socios[' + contSocios + '].nome" required>' +
 			'</div>' +
 			'<div class="form-group has-feedback cpf-group">' +
 				'<label>CPF</label>' +
-				'<input class="form-control cpf" name="empresa.socios[' + contSocios + '].cpf" placeholder="ex: 000.000.000-00">' +
-				'<span class="glyphicon form-control-feedback"></span>'
+				'<input class="form-control cpf" name="empresa.socios[' + contSocios + '].cpf" placeholder="ex: 000.000.000-00" required>' +
+				'<span class="glyphicon form-control-feedback"></span>' +
 			'</div>' +
 			'<div class="form-group">' +
 				'<label>' +
-					'<input type="checkbox" name="empresa.socios[' + contSocios + '].inativo"> Inativo'
+					'<input type="checkbox" name="empresa.socios[' + contSocios + '].ativo" checked> Ativo' +
 				'</label>' + 
 			'</div>' +
 		'</li>';

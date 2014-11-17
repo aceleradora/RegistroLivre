@@ -122,13 +122,13 @@
 								</li> <!-- list-group-item  -->
 
 								<div id="divSocios">
-									<li class="list-group-item socio-group" id="socio0">
+								<!--	<li class="list-group-item socio-group" id="socio0">
 									
 									<div class="list-group-item-heading centralize">
 										<h4>Dados dos sócios</h4>
 									</div>
 								
-									<div class="form-group has-feeedback nome-socio">
+									<div class="form-group has-feeedback nome-socio-group">
 										<label class="control-label">Nome do sócio</label>
 										<input class="form-control nome-socio" name="empresa.socios[0].nome" id="nome-socio" value="${empresa.socios[0].nome}">
 										<span class="glyphicon form-control-feedback"></span>
@@ -142,7 +142,7 @@
 										
 										<div class="form-group">
 											<label>
-												<input type="checkbox" name="empresa.socios[0].inativo" > Inativo
+												<input type="checkbox" name="empresa.socios[0].Ativo" > ativo
 											</label>
 										</div>
 									</li> <!-- list-group-li  -->
