@@ -54,7 +54,7 @@
 			<artifactId>mockito-all</artifactId>
 			<version>1.10.8</version>
 		</dependency>
-		<dependency>
+		<!--   <dependency>
 			<groupId>org.fluentlenium</groupId>
 			<artifactId>fluentlenium-core</artifactId>
 			<version>0.10.2</version>
@@ -71,7 +71,7 @@
 			<artifactId>htmlunit</artifactId>
 			<version>2.13</version>
 			<scope>test</scope>
-		</dependency>
+		</dependency>-->
 	</dependencies>
 	<build>
 		<outputDirectory>src/main/webapp/WEB-INF/classes/</outputDirectory>
@@ -83,7 +83,7 @@
 				<version>9.2.3.v20140905</version>
 			</plugin>
 
-			<!-- <plugin>
+			 <plugin>
 
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -93,7 +93,7 @@
 					<target>1.7</target>
 					<encoding>UTF-8</encoding>
 				</configuration>
-			</plugin>-->
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
@@ -126,7 +126,7 @@
 					</filesets>
 				</configuration>
 			</plugin>
-			<!--   <plugin>
+			   <plugin>
 				<artifactId>maven-dependency-plugin</artifactId>
 				<executions>
 					<execution>
@@ -139,7 +139,7 @@
 						</configuration>
 					</execution>
 				</executions>
-			</plugin> --> 
+			</plugin> 
 
 		</plugins>
 	</build>
