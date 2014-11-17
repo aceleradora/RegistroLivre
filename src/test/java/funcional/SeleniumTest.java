@@ -29,7 +29,7 @@ public class SeleniumTest extends FluentTest {
 	public WebDriver getDefaultDriver() {
 		return driver;
 	}
-	
+	@Ignore
 	@Test
 	public void deveTestarOIndex(){
 		
