@@ -1,5 +1,5 @@
 #!/bin/bash
-# Script de instalação
+## Script de instalação
 sudo apt-get update
 sudo apt-get install postgresql postgresql-contrib
 
