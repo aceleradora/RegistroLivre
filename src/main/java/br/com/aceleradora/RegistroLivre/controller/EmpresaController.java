@@ -45,6 +45,9 @@ public class EmpresaController {
 		empresa.setSocios(Validador.retiraSociosNulos(empresa.getSocios()));
 		validator.checking(new Validations() {
 			{
+				that(Validador.verificaNumeroEndereco(empresa.getEndereco().getNumero()), 
+						"empresa.endereco.numero", "numero.invalido");
+				
 				that(Validador.verificaCnpj(empresa.getCnpj()), "empresa.cnpj",
 						"cnpj.invalido");
 
@@ -56,7 +59,7 @@ public class EmpresaController {
 			}
 		});
 		validator.onErrorUsePageOf(this).cadastro();
-		daoEmpresa.adiciona(empresa);
+		//daoEmpresa.adiciona(empresa);
 		result.include("mensagem", "true");
 		result.redirectTo(this).visualizacao(empresa);
 	}

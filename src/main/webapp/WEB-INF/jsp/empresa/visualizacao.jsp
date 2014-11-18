@@ -108,9 +108,9 @@
 									<c:if test="${socio.ativo == false}">
 										<span class="label label-danger">Inativo</span>
 									</c:if>
-									</c:forEach>
 								</dd>
 							</dl>
+						</c:forEach>
 					</div>
 
 					<div class="panel-footer">

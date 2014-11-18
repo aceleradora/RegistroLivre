@@ -132,10 +132,21 @@ public class ValidadorTest {
 		socios.add(pessoa5);
 
 		List<Socio> result = validador.retiraSociosNulos(socios);
-		
-		System.out.println();
-		
+				
 		assertEquals(result.size(), 2);
 	}
 
+	@Test
+	public void retornaVerdadeSeONumeroDoEnderecoForNumero(){
+		boolean result = validador.verificaNumeroEndereco("555");
+		
+		assertTrue(result);
+	}
+
+	@Test
+	public void retornaFalsoSeONumeroDoEnderecoNaoForNumero(){
+		boolean result = validador.verificaNumeroEndereco("sss");
+		
+		assertFalse(result);
+	}
 }

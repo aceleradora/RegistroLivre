@@ -1,6 +1,5 @@
 package br.com.aceleradora.RegistroLivre.model;
 
-import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
 
@@ -34,7 +33,7 @@ public class Validador {
 
 		char Digito1, Digito2;
 		int Soma, i, r, Numero, Peso;
-
+		
 		String cpfSemCaracteresEspeciais = cpf.replaceAll("[.-]", "");
 
 		if (cpfSemCaracteresEspeciais.equals("00000000000")
@@ -104,6 +103,9 @@ public class Validador {
 
 	public static boolean verificaCnpj(String cnpj) {
 
+		if (cnpj == null)
+			return false;
+
 		cnpj = cnpj.replaceAll("[./-]", "");
 
 		if (cnpj == "")
@@ -167,5 +169,9 @@ public class Validador {
 			return false;
 		
 		return true;
+	}
+
+	public static boolean verificaNumeroEndereco(String numero) {		
+		return numero.matches("[0-9]+");
 	}
 }
