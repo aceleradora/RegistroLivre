@@ -149,4 +149,11 @@ public class ValidadorTest {
 		
 		assertFalse(result);
 	}
+
+	@Test
+	public void retornaVerdadeSeONumeroDoEnderecoForNull(){
+		boolean result = validador.verificaNumeroEndereco(null);
+		
+		assertTrue(result);
+	}
 }

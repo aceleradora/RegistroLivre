@@ -171,7 +171,9 @@ public class Validador {
 		return true;
 	}
 
-	public static boolean verificaNumeroEndereco(String numero) {		
-		return numero.matches("[0-9]+");
+	public static boolean verificaNumeroEndereco(String numero) {
+		if(numero!=null)
+			return numero.matches("[0-9]+");
+		return true;
 	}
 }

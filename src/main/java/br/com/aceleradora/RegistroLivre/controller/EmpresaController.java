@@ -59,7 +59,7 @@ public class EmpresaController {
 			}
 		});
 		validator.onErrorUsePageOf(this).cadastro();
-		//daoEmpresa.adiciona(empresa);
+		daoEmpresa.adiciona(empresa);
 		result.include("mensagem", "true");
 		result.redirectTo(this).visualizacao(empresa);
 	}
