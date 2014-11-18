@@ -96,8 +96,7 @@ var validarNomeSocioTempoReal = function(){
 	$('#divSocios').on('focusout', '.cpf', function(){
 		if (($(this).parents('.socio-group').find('.nome-socio').val().length <= 0) && ($(this).val().length > 0)){
 		
-			$("#btn-submit").prop('disabled', true);
-			$(".msg-alert").show();
+			BotaoSubmit.desabilitar();
 			
 			$(this).parents('.socio-group').find('.nome-socio').removeClass('has-success');
 			$(this).parents('.socio-group').find('.nome-socio').addClass('has-error');
@@ -108,8 +107,7 @@ var validarNomeSocioTempoReal = function(){
 			
 		}else{
 			
-			$("#btn-submit").prop('disabled', false);
-			$(".msg-alert").hide();
+			BotaoSubmit.habilitar();
 				
 			$(this).parents('.socio-group').find('.nome-socio').removeClass('has-success');
 			$(this).parents('.socio-group').find('.nome-socio').addClass('has-error');
@@ -143,23 +141,36 @@ var colocaMascaraNumero = function(){
 	$('#numero').mask('00000000000');
 }
 
+var colocarMascaraDatas = function(){
+	$('.date').each(function(){
+		$(this).mask('00/00/0000');
+	});
+}
+
 
 var removeSocio = function(){
 	$('#divSocios').on('click', '.close', function(){
 		$(this).parents('.list-group-item').remove();
+		if(verificaCPFTodosSocios()){
+			BotaoSubmit.habilitar();
+		}
+		else{
+			BotaoSubmit.desabilitar();
+		}
+			
 	});	
 }
 
 var BotaoSubmit = {
-		habilitar: function(){
-			$("#btn-submit").prop('disabled', false);
-			$(".msg-alert").hide();	
-		},
-		desabilitar: function(){
-			$("#btn-submit").prop('disabled', true);
-			$(".msg-alert").show();			
-		}
+	habilitar: function(){
+		$("#btn-submit").prop('disabled', false);
+		$(".msg-alert").hide();	
+	},
+	desabilitar: function(){
+		$("#btn-submit").prop('disabled', true);
+		$(".msg-alert").show();			
 	}
+}
 	
 $(document).ready(function() {	
 	
@@ -169,6 +180,7 @@ $(document).ready(function() {
 	colocaMascaraCPF();
 	colocaMascaraCEP();
 	colocaMascaraNumero();
+	colocarMascaraDatas();
 	validarCPFTempoReal();
 	validarNomeSocioTempoReal();
 	removeSocio();

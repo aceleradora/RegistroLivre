@@ -100,13 +100,13 @@
 										<div class="col-lg-6 col-md-6">
 											<div class="form-group">
 												<label class="control-label">Data de abertura</label>
-												<input class="form-control" name="empresa.dataCriacao" type="date" value="${empresa.dataCriacao}" />
+												<input class="form-control date" name="empresa.dataCriacao" type="text" value="${empresa.dataCriacao}" />
 											</div>
 										</div>
 										<div class="col-lg-6 col-md-6">
 											<div class="form-group">
 												<label class="control-label">Emissão de documento</label>
-												<input class="form-control" name="empresa.dataEmissaoDocumento" id="dataEmissao" type="date" value="${empresa.dataEmissaoDocumento}"/>
+												<input class="form-control date" name="empresa.dataEmissaoDocumento" id="dataEmissao" type="text" value="${empresa.dataEmissaoDocumento}"/>
 											</div>
 										</div>
 

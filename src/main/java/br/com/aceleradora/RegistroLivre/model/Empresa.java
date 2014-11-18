@@ -43,7 +43,7 @@ public class Empresa extends Entidade {
 
 	public Empresa() {
 		socios = new ArrayList<Socio>();
-		sdfIn= new SimpleDateFormat("yyyy-MM-dd");
+		sdfIn= new SimpleDateFormat("dd/MM/yyyy");
 		sdfOut = new SimpleDateFormat("dd/MM/yyyy");
 	}
 
