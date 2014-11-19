@@ -36,6 +36,7 @@ public class Empresa extends Entidade {
 	private SimpleDateFormat sdfIn;
 	@Transient
 	private SimpleDateFormat sdfOut;
+	private String url;
 
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "empresa_socios", joinColumns = { @JoinColumn(name = "empresa_id") }, inverseJoinColumns = { @JoinColumn(name = "socio_id") })
@@ -117,5 +118,14 @@ public class Empresa extends Entidade {
 
 	public void setSocios(List<Socio> socios) {
 		this.socios = socios;
+	}
+	
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
 	}
 }
