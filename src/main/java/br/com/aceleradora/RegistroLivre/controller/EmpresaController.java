@@ -43,7 +43,7 @@ public class EmpresaController {
 		return daoEmpresa.getById(empresa.getId());
 	}
 
-	public void cadastrar(final Empresa empresa, UploadedFile arquivo) {
+	public void cadastrar(final Empresa empresa, final UploadedFile arquivo) {
 		empresa.setSocios(Validador.retiraSociosNulos(empresa.getSocios()));
 		validator.checking(new Validations() {
 			{
@@ -59,6 +59,9 @@ public class EmpresaController {
 
 				that(Validador.verificaCpfListaSocio(empresa.getSocios()),
 						"empresa.socios", "cpf.invalido");
+
+				that(Validador.verificaExtensaoArquivo(arquivo.getFileName()),
+						"arquivo.filename", "extensao.invalida");
 			}
 		});
 		validator.onErrorUsePageOf(this).cadastro();

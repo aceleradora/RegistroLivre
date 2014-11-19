@@ -147,11 +147,11 @@
 		</div> <!-- container -->
 		
 	<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
-	<script src="assets/js/jquery.mask.min.js"></script>
+	<script src="/assets/js/jquery.mask.min.js"></script>
 		
-	<script src="assets/js/validacao-logica-cadastro.js"></script>
-	<script src="assets/js/adiciona-socios.js"></script>	
-	<script src="assets/js/validacao-visual-cadastro.js"></script>
+	<script src="/assets/js/validacao-logica-cadastro.js"></script>
+	<script src="/assets/js/adiciona-socios.js"></script>	
+	<script src="/assets/js/validacao-visual-cadastro.js"></script>
 		
 	</body>
 </html>
