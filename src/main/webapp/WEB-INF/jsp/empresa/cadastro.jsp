@@ -26,7 +26,7 @@
 							<h2>Cadastrar Empresa</h2>
 						</div>
 						
-						<form class="form" name="formulario" action="/empresa/cadastrar" method="POST" onsubmit="return validarCadastro();">
+						<form class="form" name="formulario" action="/empresa/cadastrar" method="POST" onsubmit="return validarCadastro();" enctype="multipart/form-data">
 						
 							<ul class="list-group">
 								
@@ -115,10 +115,8 @@
 									
 									<div class="form-group">
 										<label class="control-label">Upload de arquivo:</label>
-										<input id="file" class="form-group" type="file" name="file" required/>
+										<input id="file" class="form-group" type="file" name="arquivo" required/>
 									</div>		
-									
-								
 								</li> <!-- list-group-item  -->
 
 								<div id="divSocios">
