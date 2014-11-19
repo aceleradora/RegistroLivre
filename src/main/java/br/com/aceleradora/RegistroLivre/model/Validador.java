@@ -176,4 +176,14 @@ public class Validador {
 			return numero.matches("[0-9]+");
 		return true;
 	}
+
+	public static boolean verificaExtensaoArquivo(String nomeArquivo) {
+		if(nomeArquivo == null){
+			return false;
+		}
+		if(!nomeArquivo.contains(".pdf")){
+			return false;
+		}
+		return true;
+	}
 }

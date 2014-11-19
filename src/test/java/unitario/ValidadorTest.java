@@ -156,4 +156,25 @@ public class ValidadorTest {
 		
 		assertTrue(result);
 	}
+	
+	@Test
+	public void retornaVerdadeSeContemPDFNaString(){
+		boolean result = validador.verificaExtensaoArquivo("balbalbla.pdf");
+		
+		assertTrue(result);
+	}
+	
+	@Test
+	public void retornaFalseSeNaoContemPDFNaString(){
+		boolean result = validador.verificaExtensaoArquivo("balbalbla");
+		
+		assertFalse(result);
+	}
+	
+	@Test
+	public void retornaFalseSeStringForNull(){
+		boolean result = validador.verificaExtensaoArquivo(null);
+		
+		assertFalse(result);
+	}
 }

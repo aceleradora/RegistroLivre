@@ -49,7 +49,7 @@
 							</div>
 						
 							<div class="col-lg-4 col-md-4 col-sm-3 col-xs-3">
-								<a href="${empresa.url}" download><div class="icon pdf">PDF</div></a>
+								<a href="${empresa.url}" download="${empresa.cnpj }"><div class="icon pdf">PDF</div></a>
 							</div>
 
 						</div>

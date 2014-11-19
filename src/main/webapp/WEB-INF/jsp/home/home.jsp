@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<title>Registro Livre - A verdade está lá fora!</title>
+	<title>Registro Livre - A verdade está lá fora teste!</title>
 	<link href="assets/css/bootstrap/css/bootstrap.css" rel="stylesheet">
 	<link href="assets/css/bootstrap/css/bootstrap-theme.css" rel="stylesheet">
 	<link href="assets/css/main.css" rel="stylesheet">
