@@ -1,8 +1,10 @@
 package unitario;
 
+import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import static org.hamcrest.CoreMatchers.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,17 +25,14 @@ import br.com.caelum.vraptor.Validator;
 public class EmpresaControllerTest {
 	@Mock private Result result;	
 	@Mock private EmpresaDAO empresaDAO;
-	@Mock private EmpresaController empresaControllerMock;
-	@Mock private Empresa empresa;
+	private Empresa empresa;
 	@Mock private Validator validator;
 	private EmpresaController empresaController;	
 	private List<Empresa> listaDeEmpresas;
 
 	@Before
 	public void setup() {
-		result = mock(Result.class);
-		validator = mock(Validator.class);
-		empresa = mock(Empresa.class);
+		empresa = new Empresa();
 		empresaController = new EmpresaController(empresaDAO, result, validator);			
 	}
 		
@@ -44,14 +43,24 @@ public class EmpresaControllerTest {
 		
 		when(empresaDAO.getTodas()).thenReturn(listaDeEmpresas);	
 		
-		empresaController.listagem();
+		List<Empresa> listagem = empresaController.listagem();
 		
 		verify(empresaDAO).getTodas();
+		assertThat(listagem, is(listaDeEmpresas));
+	}
+	
+	@Test
+	public void quandoChamaOMetodoListagemChamaOIncludeDoResult() throws Exception {
+		Long quantidadeRegistros = 5L;
+		when(empresaDAO.contaQuantidadeDeRegistros()).thenReturn(quantidadeRegistros);
+		
+		empresaController.listagem();
+		
+		verify(result).include("totalDeRegistros", quantidadeRegistros);
 	}
 	
 	@Test
 	public void quandoChamaOMetodoVisualizacaoRetornaOMetodoGetByIdDoDAO() throws Exception {
-		when(empresa.getId()).thenReturn(1L);
 		empresa.setId(1);
 		empresaController.visualizacao(empresa);	
 		

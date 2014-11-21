@@ -36,6 +36,7 @@ public class EmpresaController {
 	public List<Empresa> listagem() {
 		result.include("totalDeRegistros",
 				daoEmpresa.contaQuantidadeDeRegistros());
+		
 		return daoEmpresa.getTodas();
 	}
 
