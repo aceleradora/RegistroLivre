@@ -60,7 +60,7 @@ public class EmpresaController {
 				that(Validador.verificaCpfListaSocio(empresa.getSocios()),
 						"empresa.socios", "cpf.invalido");
 
-				that(Validador.verificaExtensaoArquivo(arquivo.getFileName()),
+				that(Validador.verificaExtensaoArquivo(arquivo),
 						"arquivo.filename", "extensao.invalida");
 			}
 		});
