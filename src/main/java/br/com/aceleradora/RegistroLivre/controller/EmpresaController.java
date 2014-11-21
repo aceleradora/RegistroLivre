@@ -1,6 +1,7 @@
 package br.com.aceleradora.RegistroLivre.controller;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 import br.com.aceleradora.RegistroLivre.dao.EmpresaDAO;
@@ -77,8 +78,11 @@ public class EmpresaController {
 			result.include("mensagem", "true");
 			result.redirectTo(this).visualizacao(empresa);
 		} catch (Exception e) {
-			System.out.println("ERRO Cadastrar: " + e.getMessage());
-			e.printStackTrace();
+			ArrayList<String> listaErros = new ArrayList<String>();
+			listaErros.add("Erro ao cadastrar, por favor tente novamente!");
+			
+			result.include(listaErros);
+			result.redirectTo(this).cadastro();
 		}
 	}
 

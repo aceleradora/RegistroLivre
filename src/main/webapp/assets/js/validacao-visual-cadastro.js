@@ -75,13 +75,13 @@ var validarCPFTempoReal = function(){
 			$(this).parents('.cpf-group').find('span').removeClass('glyphicon-remove');
 			
 			if (verificaCPFTodosSocios()){					
-				BotaoSubmit.habilitar();
+				botaoSubmit.habilitar();
 			}
 			else
-				BotaoSubmit.desabilitar();
+				botaoSubmit.desabilitar();
 		}
 		else{	
-			BotaoSubmit.desabilitar();
+			botaoSubmit.desabilitar();
 			$(this).parents('.cpf-group').removeClass('has-success');
 			$(this).parents('.cpf-group').addClass('has-error');
 			
@@ -96,7 +96,7 @@ var validarNomeSocioTempoReal = function(){
 	$('#divSocios').on('focusout', '.cpf', function(){
 		if (($(this).parents('.socio-group').find('.nome-socio').val().length <= 0) && ($(this).val().length > 0)){
 		
-			BotaoSubmit.desabilitar();
+			botaoSubmit.desabilitar();
 			
 			$(this).parents('.socio-group').find('.nome-socio').removeClass('has-success');
 			$(this).parents('.socio-group').find('.nome-socio').addClass('has-error');
@@ -107,7 +107,7 @@ var validarNomeSocioTempoReal = function(){
 			
 		}else{
 			
-			BotaoSubmit.habilitar();
+			botaoSubmit.habilitar();
 				
 			$(this).parents('.socio-group').find('.nome-socio').removeClass('has-success');
 			$(this).parents('.socio-group').find('.nome-socio').addClass('has-error');
@@ -152,16 +152,16 @@ var removeSocio = function(){
 	$('#divSocios').on('click', '.close', function(){
 		$(this).parents('.list-group-item').remove();
 		if(verificaCPFTodosSocios()){
-			BotaoSubmit.habilitar();
+			botaoSubmit.habilitar();
 		}
 		else{
-			BotaoSubmit.desabilitar();
+			botaoSubmit.desabilitar();
 		}
 			
 	});	
 }
 
-var BotaoSubmit = {
+var botaoSubmit = {
 	habilitar: function(){
 		$("#btn-submit").prop('disabled', false);
 		$(".msg-alert").hide();	
@@ -170,6 +170,17 @@ var BotaoSubmit = {
 		$("#btn-submit").prop('disabled', true);
 		$(".msg-alert").show();			
 	}
+}
+
+var validarTamanhoPdf = function(){
+	$('#file').change(function(){
+		var arquivo = document.getElementById("file");
+	    if (arquivo.files[0].size > 2000000) {
+	            BotaoSubmit.desabilitar();
+	    } else {
+	        BotaoSubmit.habilitar();
+	    }
+	});
 }
 	
 $(document).ready(function() {	
@@ -184,5 +195,6 @@ $(document).ready(function() {
 	validarCPFTempoReal();
 	validarNomeSocioTempoReal();
 	removeSocio();
+	validarTamanhoPdf();
 	
 });
