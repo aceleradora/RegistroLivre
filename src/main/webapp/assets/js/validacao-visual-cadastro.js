@@ -175,16 +175,15 @@ var botaoSubmit = {
 var validarTamanhoPdf = function(){
 	$('#file').change(function(){
 		var arquivo = document.getElementById("file");
-	    if (arquivo.files[0].size > 2000000) {
-	            BotaoSubmit.desabilitar();
+	    if (arquivo.files[0].size > 5000000) {
+	    	botaoSubmit.desabilitar();
 	    } else {
-	        BotaoSubmit.habilitar();
+	        botaoSubmit.habilitar();
 	    }
 	});
 }
 	
 $(document).ready(function() {	
-	
 	validarCNPJVazio();
 	validarNomeFantasiaVazio();
 	colocaMascaraCNPJ();
