@@ -11,12 +11,12 @@ function validarCadastro() {
 		formulario.nomeFantasia.focus();
 		return false;
 	}
-		
+
 	if (!validarPdf(formulario.file)) {
 		alert("Arquivo inexistente ou com a extensão inválida. (Somente PDF's são permitidos.)");
 		return false;
 	}
-	
+
 	if (!validarCpf(formulario.cpf.value)) {
 		alert("Preencha o CPF do socio corretamente!");
 
@@ -37,73 +37,50 @@ function validarPdf(objFileControl) {
 
 function validarCpf(cpfDigitado) {
 
-        CPF = cpfDigitado;
-        if(!CPF){ return true;}
-        erro  = new String;
-        cpfv  = CPF;
-        if(cpfv.length == 14 || cpfv.length == 11){
-            cpfv = cpfv.replace('.', '');
-            cpfv = cpfv.replace('.', '');
-            cpfv = cpfv.replace('-', '');
-  
-            var nonNumbers = /\D/;
-    
-            if(nonNumbers.test(cpfv)){
-                erro = "A verificacao de CPF suporta apenas números!";
-            }else{
-                if (cpfv == "00000000000" ||
-                    cpfv == "11111111111" ||
-                    cpfv == "22222222222" ||
-                    cpfv == "33333333333" ||
-                    cpfv == "44444444444" ||
-                    cpfv == "55555555555" ||
-                    cpfv == "66666666666" ||
-                    cpfv == "77777777777" ||
-                    cpfv == "88888888888" ||
-                    cpfv == "99999999999") {
-                            
-                    erro = "Número de CPF inválido!"
-                }
-                var a = [];
-                var b = new Number;
-                var c = 11;
-  
-                for(i=0; i<11; i++){
-                    a[i] = cpfv.charAt(i);
-                    if (i < 9) b += (a[i] * --c);
-                }
-                if((x = b % 11) < 2){
-                    a[9] = 0
-                }else{
-                    a[9] = 11-x
-                }
-                b = 0;
-                c = 11;
-                for (y=0; y<10; y++) b += (a[y] * c--);
-    
-                if((x = b % 11) < 2){
-                    a[10] = 0;
-                }else{
-                    a[10] = 11-x;
-                }
-                if((cpfv.charAt(9) != a[9]) || (cpfv.charAt(10) != a[10])){
-                    erro = "Número de CPF inválido.";
-                }
-            }
-        }else{
-            if(cpfv.length == 0){
-                return false;
-            }else{
-                erro = "Número de CPF inválido.";
-            }
-        }
-        if (erro.length > 0){
-            $(this).val('');
-            setTimeout(function(){$(this).focus();},100);
-            return false;
-        }
-        return $(this);
-	  
+	var cpf = cpfDigitado.replace(/[.\-]/g, '');
+	
+	erro = new String;		
+
+	if (cpf == "00000000000" || cpf == "11111111111" || cpf == "22222222222"
+			|| cpf == "33333333333" || cpf == "44444444444"
+			|| cpf == "55555555555" || cpf == "66666666666"
+			|| cpf == "77777777777" || cpf == "88888888888"
+			|| cpf == "99999999999") {
+
+		return false;
+	}
+
+	var digitosCpf = cpf.split('');
+	var acumuladorDigitos = 0;
+	var peso = 11;
+	
+	var primeiroDigitoVerificador = digitosCpf[9];
+	var segundoDigitoVerificador  = digitosCpf[10];
+	
+	var primeiroDigitoVerificadorCalculado = 0;
+	var segundoDigitoVerificadorCalculado  = 0;
+
+	for (var i = 0; i < 9; i++) {				
+		acumuladorDigitos += (digitosCpf[i] * --peso);
+	}
+
+	var resto = acumuladorDigitos % 11; 
+	
+	primeiroDigitoVerificadorCalculado = (resto < 2)? 0 : 11 - resto;
+		
+	acumuladorDigitos = 0;	
+	peso = 11;
+	
+	for (var i = 0; i < 10; i++){
+		acumuladorDigitos += (digitosCpf[i] * peso--);
+	}
+
+	resto = acumuladorDigitos % 11;
+		
+	segundoDigitoVerificadorCalculado = (resto < 2)? 0 : 11 - resto;	
+	
+	return !(primeiroDigitoVerificador != primeiroDigitoVerificadorCalculado ||
+			 segundoDigitoVerificador  != segundoDigitoVerificadorCalculado);		
 }
 
 function validarCNPJ(cnpj) {
@@ -153,17 +130,17 @@ function validarCNPJ(cnpj) {
 	return true;
 }
 
-function verificaCPFTodosSocios(){
+function verificaCPFTodosSocios() {
 	var correto = true;
-	$('#divSocios .cpf-group').each(function(){
-		if ($(this).hasClass('has-error')){			
+	$('#divSocios .cpf-group').each(function() {
+		if ($(this).hasClass('has-error')) {
 			correto = false;
 		}
-	});		
-	
+	});
+
 	if (correto) {
 		return true;
-	}
-	else return false;
+	} else
+		return false;
 
 }
