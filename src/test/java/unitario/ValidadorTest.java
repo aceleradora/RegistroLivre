@@ -1,50 +1,58 @@
 package unitario;
 
 import static org.junit.Assert.*;
-
+import static org.hamcrest.CoreMatchers.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.meta.When;
+
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
+import static org.mockito.Mockito.when;
 
 import br.com.aceleradora.RegistroLivre.model.Socio;
 import br.com.aceleradora.RegistroLivre.model.Validador;
+import br.com.caelum.vraptor.interceptor.multipart.UploadedFile;
 
+@RunWith(MockitoJUnitRunner.class)
 public class ValidadorTest {
-
-	Validador validador;
+	
+	@Mock UploadedFile arquivo;
 
 	@Before
 	public void setUp() {
-		validador = new Validador();
+		
 	}
 
 	@Test
 	public void retornaVerdadeSeCpfEValido() throws Exception {
-		boolean result = validador.verificaCpf("071.549.456-21");
+		boolean result = Validador.verificaCpf("071.549.456-21");
 
 		assertTrue(result);
 	}
 
 	@Test
 	public void retornaFalsoSeCpfForInvalido() throws Exception {
-		boolean result = validador.verificaCpf("111.111.111-11");
+		boolean result = Validador.verificaCpf("111.111.111-11");
 
 		assertFalse(result);
 	}
 
 	@Test
 	public void retornaVerdadeSeCnpjEValido() throws Exception {
-		boolean result = validador.verificaCnpj("47960950/0449-27");
+		boolean result = Validador.verificaCnpj("47960950/0449-27");
 
 		assertTrue(result);
 	}
 
 	@Test
 	public void retornaFalsoSeCnpjForInvalido() throws Exception {
-		boolean result = validador.verificaCnpj("11111111/1111-11");
+		boolean result = Validador.verificaCnpj("11111111/1111-11");
 
 		assertFalse(result);
 	}
@@ -57,7 +65,7 @@ public class ValidadorTest {
 		socios.add(pessoa);
 		socios.add(pessoa2);
 
-		boolean result = validador.verificaCpfListaSocio(socios);
+		boolean result = Validador.verificaCpfListaSocio(socios);
 
 		assertFalse(result);
 	}
@@ -70,7 +78,7 @@ public class ValidadorTest {
 		socios.add(pessoa);
 		socios.add(pessoa2);
 
-		boolean result = validador.verificaCpfListaSocio(socios);
+		boolean result = Validador.verificaCpfListaSocio(socios);
 
 		assertTrue(result);
 	}
@@ -83,35 +91,35 @@ public class ValidadorTest {
 		socios.add(pessoa);
 		socios.add(pessoa2);
 		
-		boolean result = validador.verificaCpfListaSocio(socios);
+		boolean result = Validador.verificaCpfListaSocio(socios);
 		
 		assertTrue(result);		
 	}
 	
 	@Test
 	public void retornaVerdadeSeONomeFantasiaTiverMaisQueUmCaracter(){
-		boolean result = validador.verificaNomeFantasia("aaa");
+		boolean result = Validador.verificaNomeFantasia("aaa");
 		
 		assertTrue(result);		
 	}
 	
 	@Test
 	public void retornaFalsoSeONomeFantasiaTiverMenosQueDoisCaracter(){
-		boolean result = validador.verificaNomeFantasia("a");
+		boolean result = Validador.verificaNomeFantasia("a");
 		
 		assertFalse(result);		
 	}
 	
 	@Test
 	public void retornaFalsoSeONomeFantasiaForNulo(){
-		boolean result = validador.verificaNomeFantasia(null);
+		boolean result = Validador.verificaNomeFantasia(null);
 		
 		assertFalse(result);
 	}
 	
 	@Test
 	public void retornaVerdadeSeONomeFantasiaTiverDoisCaracteres(){
-		boolean result = validador.verificaNomeFantasia("aa");
+		boolean result = Validador.verificaNomeFantasia("aa");
 		
 		assertTrue(result);		
 	}
@@ -131,50 +139,88 @@ public class ValidadorTest {
 		socios.add(pessoa4);
 		socios.add(pessoa5);
 
-		List<Socio> result = validador.retiraSociosNulos(socios);
+		List<Socio> result = Validador.retiraSociosNulos(socios);
 				
 		assertEquals(result.size(), 2);
 	}
 
 	@Test
 	public void retornaVerdadeSeONumeroDoEnderecoForNumero(){
-		boolean result = validador.verificaNumeroEndereco("555");
+		boolean result = Validador.verificaNumeroEndereco("555");
 		
 		assertTrue(result);
 	}
 
 	@Test
 	public void retornaFalsoSeONumeroDoEnderecoNaoForNumero(){
-		boolean result = validador.verificaNumeroEndereco("sss");
+		boolean result = Validador.verificaNumeroEndereco("sss");
 		
 		assertFalse(result);
 	}
 
 	@Test
 	public void retornaVerdadeSeONumeroDoEnderecoForNull(){
-		boolean result = validador.verificaNumeroEndereco(null);
+		boolean result = Validador.verificaNumeroEndereco(null);
 		
 		assertTrue(result);
 	}
 	
 	@Test
 	public void retornaVerdadeSeContemPDFNaString(){
-		boolean result = validador.verificaExtensaoArquivo("balbalbla.pdf");
+		when(arquivo.getFileName()).thenReturn("blablabla.pdf");
+		
+		boolean result = Validador.verificaExtensaoArquivo(arquivo);
 		
 		assertTrue(result);
 	}
 	
 	@Test
 	public void retornaFalseSeNaoContemPDFNaString(){
-		boolean result = validador.verificaExtensaoArquivo("balbalbla");
+		when(arquivo.getFileName()).thenReturn("blablabla");
+		boolean result = Validador.verificaExtensaoArquivo(arquivo);
 		
 		assertFalse(result);
 	}
 	
 	@Test
 	public void retornaFalseSeStringForNull(){
-		boolean result = validador.verificaExtensaoArquivo(null);
+		boolean result = Validador.verificaExtensaoArquivo(null);
 		
 		assertFalse(result);
+	}
+	
+	@Test
+	public void retornaVerdadeSeOtamanhoDoArquivoForMenorQue2MB(){
+		when(arquivo.getSize()).thenReturn(1000000L);
+		
+		boolean result = Validador.verificaTamanhoArquivo(arquivo);
+		
+		assertTrue(result);
+	}
+	
+	@Test
+	public void retornaFalsoQuandoOTamanhoDoArquivoEMaiorQue2MB() throws Exception {
+		when(arquivo.getSize()).thenReturn(3000000L);
+		
+		boolean result = Validador.verificaTamanhoArquivo(arquivo);
+		
+		assertThat(result, is(false));
+	}
+	
+	@Test
+	public void retornaFalsoQuandoTamanhoDoArquivoEhIgualA2MB() throws Exception {
+		when(arquivo.getSize()).thenReturn(2000000L);
+		
+		boolean result = Validador.verificaTamanhoArquivo(arquivo);
+		
+		assertThat(result, is(false));
+	}
+	
+	@Test
+	
+	public void retornaFalsoQuandoOTamanhoDoArquivoEhNulo() throws Exception {
+		boolean result = Validador.verificaTamanhoArquivo(null);
+		
+		assertThat(result, is(false));
 	}
 }
