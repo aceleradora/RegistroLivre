@@ -1,28 +1,32 @@
 package unitario;
 
-import static org.junit.Assert.*;
-import static org.hamcrest.CoreMatchers.*;
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.annotation.meta.When;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
-import static org.mockito.Mockito.when;
 
+import br.com.aceleradora.RegistroLivre.model.Empresa;
+import br.com.aceleradora.RegistroLivre.model.Endereco;
 import br.com.aceleradora.RegistroLivre.model.Socio;
 import br.com.aceleradora.RegistroLivre.model.Validador;
 import br.com.caelum.vraptor.interceptor.multipart.UploadedFile;
 
 @RunWith(MockitoJUnitRunner.class)
 public class ValidadorTest {
-	
+
 	@Mock UploadedFile arquivo;
+	@Mock Empresa empresa;
 
 	@Before
 	public void setUp() {
@@ -146,21 +150,31 @@ public class ValidadorTest {
 
 	@Test
 	public void retornaVerdadeSeONumeroDoEnderecoForNumero(){
-		boolean result = Validador.verificaNumeroEndereco("555");
+		Endereco endereco = new Endereco();
+		endereco.setNumero("555");
+		when(empresa.getEndereco()).thenReturn(endereco);
+		
+		boolean result = Validador.verificaNumeroEndereco(empresa);
 		
 		assertTrue(result);
 	}
 
 	@Test
 	public void retornaFalsoSeONumeroDoEnderecoNaoForNumero(){
-		boolean result = Validador.verificaNumeroEndereco("sss");
+		Endereco endereco = new Endereco();
+		endereco.setNumero("sss");
+		when(empresa.getEndereco()).thenReturn(endereco);
+		
+		boolean result = Validador.verificaNumeroEndereco(empresa);
 		
 		assertFalse(result);
 	}
 
 	@Test
 	public void retornaVerdadeSeONumeroDoEnderecoForNull(){
-		boolean result = Validador.verificaNumeroEndereco(null);
+		when(empresa.getEndereco()).thenReturn(null);
+		
+		boolean result = Validador.verificaNumeroEndereco(empresa);
 		
 		assertTrue(result);
 	}
@@ -187,40 +201,5 @@ public class ValidadorTest {
 		boolean result = Validador.verificaExtensaoArquivo(null);
 		
 		assertFalse(result);
-	}
-	
-	@Test
-	public void retornaVerdadeSeOtamanhoDoArquivoForMenorQue2MB(){
-		when(arquivo.getSize()).thenReturn(1000000L);
-		
-		boolean result = Validador.verificaTamanhoArquivo(arquivo);
-		
-		assertTrue(result);
-	}
-	
-	@Test
-	public void retornaFalsoQuandoOTamanhoDoArquivoEMaiorQue2MB() throws Exception {
-		when(arquivo.getSize()).thenReturn(3000000L);
-		
-		boolean result = Validador.verificaTamanhoArquivo(arquivo);
-		
-		assertThat(result, is(false));
-	}
-	
-	@Test
-	public void retornaFalsoQuandoTamanhoDoArquivoEhIgualA2MB() throws Exception {
-		when(arquivo.getSize()).thenReturn(2000000L);
-		
-		boolean result = Validador.verificaTamanhoArquivo(arquivo);
-		
-		assertThat(result, is(false));
-	}
-	
-	@Test
-	
-	public void retornaFalsoQuandoOTamanhoDoArquivoEhNulo() throws Exception {
-		boolean result = Validador.verificaTamanhoArquivo(null);
-		
-		assertThat(result, is(false));
 	}
 }

@@ -47,12 +47,11 @@ public class EmpresaController {
 		empresa.setSocios(Validador.retiraSociosNulos(empresa.getSocios()));
 		validator.checking(new Validations() {
 			{
-				that(Validador.verificaNumeroEndereco(empresa.getEndereco()
-						.getNumero()), "empresa.endereco.numero",
-						"numero.invalido");
-
 				that(Validador.verificaCnpj(empresa.getCnpj()), "empresa.cnpj",
 						"cnpj.invalido");
+				
+				that(Validador.verificaNumeroEndereco(empresa), "empresa.endereco.numero",
+						"numero.invalido");
 
 				that(Validador.verificaNomeFantasia(empresa.getNomeFantasia()),
 						"empresa.nomeFantasia", "nomeFantasia.obrigatorio");
@@ -62,9 +61,6 @@ public class EmpresaController {
 
 				that(Validador.verificaExtensaoArquivo(arquivo), "arquivo",
 						"extensao.invalida");
-
-				that(Validador.verificaTamanhoArquivo(arquivo), "arquivo",
-						"tamanho.invalido");
 			}
 		});
 		validator.onErrorUsePageOf(this).cadastro();

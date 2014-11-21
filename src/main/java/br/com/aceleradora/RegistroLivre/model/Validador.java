@@ -172,9 +172,9 @@ public class Validador {
 		return true;
 	}
 
-	public static boolean verificaNumeroEndereco(String numero) {
-		if(numero!=null)
-			return numero.matches("[0-9]+");
+	public static boolean verificaNumeroEndereco(Empresa empresa) {
+		if(empresa.getEndereco() != null && empresa.getEndereco().getNumero() != null)
+			return empresa.getEndereco().getNumero().matches("[0-9]+");
 		return true;
 	}
 
@@ -185,18 +185,6 @@ public class Validador {
 		if(!arquivo.getFileName().contains(".pdf")){
 			return false;
 		}
-		return true;
-	}
-
-	public static boolean verificaTamanhoArquivo(UploadedFile arquivo) {
-		if(arquivo == null){
-			return false;
-		}
-		
-		if(arquivo.getSize() >= 2000000){
-			return false;
-		}
-		
 		return true;
 	}
 }
