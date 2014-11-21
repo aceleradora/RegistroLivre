@@ -2,6 +2,7 @@ package br.com.aceleradora.RegistroLivre.model;
 
 import java.util.List;
 
+import br.com.caelum.vraptor.interceptor.multipart.UploadedFile;
 import br.com.caelum.vraptor.ioc.Component;
 
 @Component
@@ -184,15 +185,26 @@ public class Validador {
 		return true;
 	}
 
-	public static boolean verificaExtensaoArquivo(String nomeArquivo) {
-		if (nomeArquivo == null) {
+	public static boolean verificaExtensaoArquivo(UploadedFile arquivo) {
+		if(arquivo == null){
+			return false;
+		}
+		if(!arquivo.getFileName().contains(".pdf")){
 			return false;
 		}
 
-		if (!nomeArquivo.contains(".pdf")) {
+		return true;
+	}
+
+	public static boolean verificaTamanhoArquivo(UploadedFile arquivo) {
+		if(arquivo == null){
 			return false;
 		}
-
+		
+		if(arquivo.getSize() >= 2000000){
+			return false;
+		}
+		
 		return true;
 	}
 }

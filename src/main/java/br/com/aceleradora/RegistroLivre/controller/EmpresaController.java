@@ -61,8 +61,11 @@ public class EmpresaController {
 				that(Validador.verificaCpfListaSocio(empresa.getSocios()),
 						"empresa.socios", "cpf.invalido");
 
-				that(Validador.verificaExtensaoArquivo(arquivo.getFileName()),
-						"arquivo.filename", "extensao.invalida");
+				that(Validador.verificaExtensaoArquivo(arquivo), "arquivo",
+						"extensao.invalida");
+
+				that(Validador.verificaTamanhoArquivo(arquivo), "arquivo",
+						"tamanho.invalido");
 			}
 		});
 		validator.onErrorUsePageOf(this).cadastro();
