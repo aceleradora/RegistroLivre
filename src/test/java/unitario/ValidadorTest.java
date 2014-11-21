@@ -221,6 +221,6 @@ public class ValidadorTest {
 	public void retornaFalsoQuandoOTamanhoDoArquivoEhNulo() throws Exception {
 		boolean result = Validador.verificaTamanhoArquivo(null);
 		
-		
+		assertThat(result, is(false));
 	}
 }
