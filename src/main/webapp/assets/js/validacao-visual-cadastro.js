@@ -171,6 +171,17 @@ var BotaoSubmit = {
 		$(".msg-alert").show();			
 	}
 }
+
+var validarTamanhoPdf = function(){
+	$('#file').change(function(){
+		var arquivo = document.getElementById("file");
+	    if (arquivo.files[0].size > 2000000) {
+	            BotaoSubmit.desabilitar();
+	    } else {
+	        BotaoSubmit.habilitar();
+	    }
+	});
+}
 	
 $(document).ready(function() {	
 	
@@ -184,5 +195,6 @@ $(document).ready(function() {
 	validarCPFTempoReal();
 	validarNomeSocioTempoReal();
 	removeSocio();
+	validarTamanhoPdf();
 	
 });

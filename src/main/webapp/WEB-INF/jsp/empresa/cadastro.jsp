@@ -116,6 +116,7 @@
 									<div class="form-group">
 										<label class="control-label">Upload de arquivo:</label>
 										<input id="file" class="form-group" type="file" name="arquivo" required/>
+										<span class="msg-alert color-red">Tamanho máximo do arquivo: 2MB.</span>
 									</div>		
 								</li> <!-- list-group-item  -->
 
