@@ -20,31 +20,27 @@ import br.com.aceleradora.RegistroLivre.dao.Entidade;
 @Entity
 @SequenceGenerator(initialValue = 1, allocationSize = 1, name = "geradorId", sequenceName = "empresa_sequence")
 public class Empresa extends Entidade {
-
 	@Column(nullable = false)
 	private String cnpj;
 	private String razaoSocial;
 	@Column(nullable = false)
 	private String nomeFantasia;
-
-	@Embedded
-	private Endereco endereco;
-
 	private Date dataCriacao;
 	private Date dataEmissaoDocumento;
+	private String url;
+	@Embedded
+	private Endereco endereco;
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "empresa_socios", joinColumns = { @JoinColumn(name = "empresa_id") }, inverseJoinColumns = { @JoinColumn(name = "socio_id") })
+	private List<Socio> socios;
 	@Transient
 	private SimpleDateFormat sdfIn;
 	@Transient
 	private SimpleDateFormat sdfOut;
-	private String url;
-
-	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "empresa_socios", joinColumns = { @JoinColumn(name = "empresa_id") }, inverseJoinColumns = { @JoinColumn(name = "socio_id") })
-	private List<Socio> socios;
-
+	
 	public Empresa() {
 		socios = new ArrayList<Socio>();
-		sdfIn= new SimpleDateFormat("dd/MM/yyyy");
+		sdfIn = new SimpleDateFormat("dd/MM/yyyy");
 		sdfOut = new SimpleDateFormat("dd/MM/yyyy");
 	}
 
@@ -80,36 +76,36 @@ public class Empresa extends Entidade {
 		this.endereco = endereco;
 	}
 
-	public String getDataCriacao() {		
+	public String getDataCriacao() {
 		try {
 			return sdfOut.format(dataCriacao);
 		} catch (Exception e) {
 			return "";
-		}		
+		}
 	}
 
-	public void setDataCriacao(String dataCriacao){		
+	public void setDataCriacao(String dataCriacao) {
 		try {
-			this.dataCriacao = sdfIn.parse(dataCriacao); 
+			this.dataCriacao = sdfIn.parse(dataCriacao);
 		} catch (Exception e) {
 			this.dataCriacao = null;
-		}		
+		}
 	}
 
-	public String getDataEmissaoDocumento() {		
+	public String getDataEmissaoDocumento() {
 		try {
 			return sdfOut.format(dataEmissaoDocumento);
 		} catch (Exception e) {
 			return "";
-		}				
+		}
 	}
 
-	public void setDataEmissaoDocumento(String dataEmissaoDocumento){		
+	public void setDataEmissaoDocumento(String dataEmissaoDocumento) {
 		try {
-			this.dataEmissaoDocumento = sdfIn.parse(dataEmissaoDocumento); 
+			this.dataEmissaoDocumento = sdfIn.parse(dataEmissaoDocumento);
 		} catch (Exception e) {
 			this.dataEmissaoDocumento = null;
-		}		
+		}
 	}
 
 	public List<Socio> getSocios() {
@@ -119,7 +115,6 @@ public class Empresa extends Entidade {
 	public void setSocios(List<Socio> socios) {
 		this.socios = socios;
 	}
-	
 
 	public String getUrl() {
 		return url;

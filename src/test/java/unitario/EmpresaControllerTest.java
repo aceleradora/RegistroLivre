@@ -1,6 +1,5 @@
 package unitario;
 
-
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -9,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -20,25 +18,16 @@ import br.com.aceleradora.RegistroLivre.dao.EmpresaDAO;
 import br.com.aceleradora.RegistroLivre.model.Empresa;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.Validator;
-import br.com.caelum.vraptor.util.test.MockValidator;
-import br.com.caelum.vraptor.validator.ValidationException;
 
 @RunWith(MockitoJUnitRunner.class)
 public class EmpresaControllerTest {
-
-	@Mock
-	Result result;	
-	@Mock
-	EmpresaDAO empresaDAO;
-	EmpresaController empresaController;	
-	List<Empresa> listaDeEmpresas;
-	@Mock
-	Empresa empresa;
-	@Mock
-	Validator validator;
-	
-	@Mock
-	EmpresaController empresaControllerMock;
+	@Mock private Result result;	
+	@Mock private EmpresaDAO empresaDAO;
+	@Mock private EmpresaController empresaControllerMock;
+	@Mock private Empresa empresa;
+	@Mock private Validator validator;
+	private EmpresaController empresaController;	
+	private List<Empresa> listaDeEmpresas;
 
 	@Before
 	public void setup() {
