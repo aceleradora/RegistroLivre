@@ -23,7 +23,8 @@ public class EmpresaDAO implements IEmpresaDAO {
 	}
 
 	public Empresa getById(long id) {
-		Empresa empresa = (Empresa) sessao.get(Empresa.class, id);
+		Empresa empresa = (Empresa) sessao.get(Empresa.class, id);		
+		
 		return empresa;
 	}
 

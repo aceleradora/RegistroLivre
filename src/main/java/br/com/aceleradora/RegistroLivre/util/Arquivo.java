@@ -5,12 +5,21 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.Arrays;
 import java.util.Map;
 
 import com.cloudinary.Cloudinary;
 import com.cloudinary.SingletonManager;
 
 public class Arquivo {
+	
+	private static String cloudName = System.getenv("CLOUD_NAME");
+	private static String apiKey = System.getenv("API_KEY");
+	private static String apiSecret = System.getenv("API_SECRET");
+	
+	private static Cloudinary cloudinary = new Cloudinary(Cloudinary.asMap("cloud_name",
+			cloudName, "api_key", apiKey, "api_secret", apiSecret));
+	
 	public static File inputStreamParaFile(InputStream inputStream, String nome) {
 		try {
 			File arquivo = new File("/tmp/" + nome.replaceAll("[.\\-/]", "")
@@ -30,13 +39,6 @@ public class Arquivo {
 	}
 
 	public static String uploadReturnUrl(File file) throws IOException {
-		String cloudName = System.getenv("CLOUD_NAME");
-		String apiKey = System.getenv("API_KEY");
-		String apiSecret = System.getenv("API_SECRET");
-
-		Cloudinary cloudinary = new Cloudinary(Cloudinary.asMap("cloud_name",
-				cloudName, "api_key", apiKey, "api_secret", apiSecret));
-
 		SingletonManager manager = new SingletonManager();
 		manager.setCloudinary(cloudinary);
 		manager.init();
@@ -55,4 +57,28 @@ public class Arquivo {
 		}
 
 	}
+	
+	/*public static String atualizarArquivo(String url, File novoArquivo){
+		
+		return Arquivo.uploadReturnUrl(novoArquivo);
+	}*/
+	
+	private static String getIdArquivo(String url){
+		String [] urlCortada = url.split("/");
+		return urlCortada[urlCortada.length - 1].replace(".pdf", "");
+	}
+	
+	public static void excluirArquivo(String url){
+		SingletonManager manager = new SingletonManager();
+		manager.setCloudinary(cloudinary);
+		manager.init();
+		try {
+			
+			cloudinary.api().deleteResourcesByPrefix(getIdArquivo(url), Cloudinary.emptyMap());			
+			
+		} catch (Exception e) {
+			System.out.println("Erro ao deletar arquivo no cloudinary: " + e.getMessage());
+			e.printStackTrace();
+		}
+	}	
 }
