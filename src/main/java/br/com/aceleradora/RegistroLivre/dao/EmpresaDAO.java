@@ -23,7 +23,8 @@ public class EmpresaDAO implements IEmpresaDAO {
 	}
 
 	public Empresa getById(long id) {
-		Empresa empresa = (Empresa) sessao.get(Empresa.class, id);
+		Empresa empresa = (Empresa) sessao.get(Empresa.class, id);		
+		
 		return empresa;
 	}
 
@@ -38,4 +39,12 @@ public class EmpresaDAO implements IEmpresaDAO {
 		sessao.save(empresa);
 		transacao.commit();
 	}
+	
+	@Override
+	public void atualiza(Empresa empresa) {
+		Transaction transacao = sessao.beginTransaction();
+		sessao.update(empresa);
+		transacao.commit();
+	}
+	
 }

@@ -31,23 +31,21 @@ public class EmpresaController {
 	@Get("/cadastro")
 	public void cadastro() {
 	}
-
+	
 	@Get("/atualizar/{empresa.id}")
 	public Empresa cadastro(Empresa empresa) {
-		
 		return daoEmpresa.getById(empresa.getId());
 	}
-
+	
 	@Get("/listagem")
 	public List<Empresa> listagem() {
-		result.include("totalDeRegistros",
-				daoEmpresa.contaQuantidadeDeRegistros());
-		
+		result.include("totalDeRegistros", daoEmpresa.contaQuantidadeDeRegistros());
 		return daoEmpresa.getTodas();
 	}
 
 	@Get("/visualizacao/{empresa.id}")
 	public Empresa visualizacao(Empresa empresa) {
+		
 		return daoEmpresa.getById(empresa.getId());
 	}
 
@@ -93,6 +91,4 @@ public class EmpresaController {
 			result.redirectTo(this).cadastro();
 		}
 	}
-	
-
 }
