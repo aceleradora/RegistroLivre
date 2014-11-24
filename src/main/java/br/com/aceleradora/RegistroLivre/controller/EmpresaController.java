@@ -83,7 +83,7 @@ public class EmpresaController {
 			empresa.setUrl(url);
 
 			daoEmpresa.adiciona(empresa);
-			result.include("mensagem", "true");
+			result.include("mensagem", "Cadastro realizado com sucesso!");
 			result.redirectTo(this).visualizacao(empresa);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
@@ -114,6 +114,7 @@ public class EmpresaController {
 		validator.onErrorUsePageOf(this).cadastro();
 
 		daoEmpresa.atualiza(empresa);
+		result.include("mensagem", "Atualização realizada com sucesso!");
 		result.redirectTo(this).visualizacao(empresa);
 	}
 
@@ -142,6 +143,7 @@ public class EmpresaController {
 		empresa.setUrl(url);
 		
 		daoEmpresa.atualiza(empresa);
+		result.include("mensagem", "Atualização realizada com sucesso!");
 		result.redirectTo(this).visualizacao(empresa);
 	}	
 	
