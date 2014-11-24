@@ -9,6 +9,7 @@ import br.com.aceleradora.RegistroLivre.model.Empresa;
 import br.com.aceleradora.RegistroLivre.model.Validador;
 import br.com.aceleradora.RegistroLivre.util.Arquivo;
 import br.com.caelum.vraptor.Get;
+import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.Validator;
@@ -34,6 +35,7 @@ public class EmpresaController {
 	
 	@Get("/atualizar/{empresa.id}")
 	public Empresa cadastro(Empresa empresa) {
+		result.include("editar", true);
 		return daoEmpresa.getById(empresa.getId());
 	}
 	
@@ -49,6 +51,7 @@ public class EmpresaController {
 		return daoEmpresa.getById(empresa.getId());
 	}
 
+	@Post("/empresa/cadastrar/")
 	public void cadastrar(final Empresa empresa, final UploadedFile arquivo) {
 		empresa.setSocios(Validador.retiraSociosNulos(empresa.getSocios()));
 		validator.checking(new Validations() {

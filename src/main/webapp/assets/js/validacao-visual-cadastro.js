@@ -94,7 +94,7 @@ var validarCPFTempoReal = function(){
 
 var validarNomeSocioTempoReal = function(){
 	$('#divSocios').on('focusout', '.cpf', function(){
-		if (($(this).parents('.socio-group').find('.nome-socio').val().length <= 0) && ($(this).val().length > 0)){
+		if (($(this).parents('.socio-group').find('.nome-socio').length <= 0) && ($(this).length > 0)){
 		
 			botaoSubmit.desabilitar();
 			

@@ -28,7 +28,7 @@
 							<h2>Cadastrar Empresa</h2>
 						</div>
 						
-						<form class="form" name="formulario" action="/empresa/cadastrar" method="POST" onsubmit="return validarCadastro();" enctype="multipart/form-data">
+						<form class="form" name="formulario" action="/empresa/cadastrar/${empresa.id}" method="POST" onsubmit="return validarCadastro('${editar}');" enctype="multipart/form-data">
 						
 							<ul class="list-group">
 								
@@ -117,7 +117,17 @@
 									
 									<div class="form-group">
 										<label class="control-label">Upload de arquivo:</label>
-										<input id="file" class="form-group" type="file" name="arquivo" value="${empresa.url}" required/>
+										<c:choose>
+											<c:when test="${editar != null}">
+												<input name="empresa.url" type="text" value="${empresa.url}" hidden/>
+												<br />
+												<a class="form-group" href="${empresa.url}">Antigo Arquivo</a>
+												<input id="file" class="form-group" type="file" name="arquivo"/>
+											</c:when>
+											<c:otherwise>
+												<input id="file" class="form-group" type="file" name="arquivo" required/>
+											</c:otherwise>
+										</c:choose>										
 										<span class="msg-alert color-red">Tamanho máximo do arquivo: 5MB.</span>
 									</div>		
 								</li> <!-- list-group-item  -->
