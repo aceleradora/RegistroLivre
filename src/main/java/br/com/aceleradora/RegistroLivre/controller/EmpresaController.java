@@ -83,7 +83,7 @@ public class EmpresaController {
 			empresa.setUrl(url);
 
 			daoEmpresa.adiciona(empresa);
-			result.include("mensagem", "true");
+			result.include("mensagem", "Cadastro realizado com sucesso!");
 			result.redirectTo(this).visualizacao(empresa);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
