@@ -25,10 +25,17 @@ public class HomeControllerTest {
 	@Mock private EmpresaDAO empresaDAO;
 	@Mock private Result result;
 	HomeController homeController;
-	
+	Empresa empresa;
+	List<Empresa> listaDeEmpresas;
 	@Before
 	public void setup(){
 		 homeController = new HomeController(empresaDAO, result);
+		 empresa = new Empresa();
+		 empresa.setId(1);
+		 empresa.setCnpj("65.174.387/0001-48");
+		 listaDeEmpresas = new ArrayList<Empresa>();
+		 listaDeEmpresas.add(empresa);
+		 when(empresaDAO.getTodas()).thenReturn(listaDeEmpresas);
 	}
 	
 	@Test
@@ -43,16 +50,27 @@ public class HomeControllerTest {
 	@Test
 	public void quandoChamaOMetodoBuscaPorCnpjEEncontraAlgoRetornaUmaListaDeEmpresas() throws Exception {
 		String cnpjRequerido = "65.174.387/0001-48";
-		Empresa empresa = new Empresa();
-		empresa.setId(1);
-		empresa.setCnpj("65.174.387/0001-48");
-		List<Empresa> listaDeEmpresas = new ArrayList<Empresa>();
-		listaDeEmpresas.add(empresa);
-		when(empresaDAO.getTodas()).thenReturn(listaDeEmpresas);
+
 		
 		homeController.buscaPorCnpj(cnpjRequerido);
 		
 		verify(result).include(listaDeEmpresas);
 		
 	}
+	
+	@Test
+	public void quandoNaoEncontraNada() throws Exception {
+		Empresa novaEmpresa = new Empresa();
+		novaEmpresa.setCnpj("29.882.673/0001-02");
+		listaDeEmpresas.add(novaEmpresa);
+		Long quantidadeDeRegistros = 0L;
+		
+		homeController.buscaPorCnpj("29.882.673/0001-02");
+		
+		verify(result).include("quantidadeDeRegistros", quantidadeDeRegistros);
+		
+		
+	}
+	
+	
 }
