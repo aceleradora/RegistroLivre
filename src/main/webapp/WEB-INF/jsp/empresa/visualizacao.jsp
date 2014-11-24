@@ -22,7 +22,7 @@
 					  	<button type="button" class="close" id="close" data-dismiss="alert">
 				  			<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
 				  		</button>
-					  	<strong>Cadastro realizado com sucesso!</strong> 
+					  	<strong>${mensagem}</strong> 
 					</div>
 	    		</c:if>
 				<div class="panel panel-default margin-35-0">
