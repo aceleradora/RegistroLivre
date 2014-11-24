@@ -27,9 +27,9 @@
 						<div class="panel-heading centralize">
 							<h2>Cadastrar Empresa</h2>
 						</div>
-						
+
 						<form class="form" name="formulario" action="/empresa/cadastrar/${empresa.id}" method="POST" onsubmit="return validarCadastro('${editar}');" enctype="multipart/form-data">
-						
+
 							<ul class="list-group">
 								
 								<li class="list-group-item">
