@@ -1,6 +1,10 @@
 package br.com.aceleradora.RegistroLivre.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import br.com.aceleradora.RegistroLivre.dao.EmpresaDAO;
+import br.com.aceleradora.RegistroLivre.model.Empresa;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
@@ -21,8 +25,11 @@ public class HomeController {
 	}
 	
 	public void buscaPorCnpj(String cnpj) {
-
-		daoEmpresa.getTodas();
 		
+		List<Empresa> listaDeEmpresas = new ArrayList<>();
+		listaDeEmpresas = daoEmpresa.getTodas();
+		
+		result.include(listaDeEmpresas);
+//		result.redirectTo(this).home();
 	}
 }
