@@ -38,14 +38,14 @@ public class Arquivo {
 		}
 	}
 
-	public static String uploadReturnUrl(File file) throws IOException {
+	public static String uploadReturnUrl(File file){
 		SingletonManager manager = new SingletonManager();
 		manager.setCloudinary(cloudinary);
 		manager.init();
 
-		cloudinary.uploader().upload(file, cloudinary.emptyMap());
-
 		try {
+			cloudinary.uploader().upload(file, cloudinary.emptyMap());
+			
 			Map uploadResult = cloudinary.uploader().upload(file,
 					Cloudinary.emptyMap());
 
@@ -58,23 +58,28 @@ public class Arquivo {
 
 	}
 	
-	/*public static String atualizarArquivo(String url, File novoArquivo){
+	public static String atualiza(String urlAntiga, File novoArquivo){
+		String idArquivo = getIdArquivo(urlAntiga);
+		String urlArquivoNovo;
 		
-		return Arquivo.uploadReturnUrl(novoArquivo);
-	}*/
+		excluir(idArquivo);
+		urlArquivoNovo = Arquivo.uploadReturnUrl(novoArquivo);
+		
+		return urlArquivoNovo;
+	}
 	
 	private static String getIdArquivo(String url){
 		String [] urlCortada = url.split("/");
 		return urlCortada[urlCortada.length - 1].replace(".pdf", "");
 	}
 	
-	public static void excluirArquivo(String url){
+	public static void excluir(String idArquivo){
 		SingletonManager manager = new SingletonManager();
 		manager.setCloudinary(cloudinary);
 		manager.init();
 		try {
 			
-			cloudinary.api().deleteResourcesByPrefix(getIdArquivo(url), Cloudinary.emptyMap());			
+			cloudinary.api().deleteResourcesByPrefix(getIdArquivo(idArquivo), Cloudinary.emptyMap());			
 			
 		} catch (Exception e) {
 			System.out.println("Erro ao deletar arquivo no cloudinary: " + e.getMessage());
