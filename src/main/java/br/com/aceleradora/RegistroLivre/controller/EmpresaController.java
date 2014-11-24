@@ -46,10 +46,6 @@ public class EmpresaController {
 	@Get("/visualizacao/{empresa.id}")
 	public Empresa visualizacao(Empresa empresa) {
 		
-		Empresa empresaCompleta = daoEmpresa.getById(empresa.getId());
-		
-		Arquivo.excluirArquivo(empresaCompleta.getUrl());
-		
 		return daoEmpresa.getById(empresa.getId());
 	}
 
