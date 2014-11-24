@@ -32,6 +32,12 @@ public class EmpresaController {
 	public void cadastro() {
 	}
 
+	@Get("/atualizar/{empresa.id}")
+	public Empresa cadastro(Empresa empresa) {
+		
+		return daoEmpresa.getById(empresa.getId());
+	}
+
 	@Get("/listagem")
 	public List<Empresa> listagem() {
 		result.include("totalDeRegistros",
@@ -79,6 +85,7 @@ public class EmpresaController {
 			result.include("mensagem", "true");
 			result.redirectTo(this).visualizacao(empresa);
 		} catch (Exception e) {
+			System.out.println(e.getMessage());
 			ArrayList<String> listaErros = new ArrayList<String>();
 			listaErros.add("Erro ao cadastrar, por favor tente novamente!");
 			
@@ -86,5 +93,6 @@ public class EmpresaController {
 			result.redirectTo(this).cadastro();
 		}
 	}
+	
 
 }

@@ -25,7 +25,6 @@
 					  	<strong>Cadastro realizado com sucesso!</strong> 
 					</div>
 	    		</c:if>
-		    		
 				<div class="panel panel-default margin-35-0">
 					<div class="panel-heading centralize">
 						<h4>Visualização de Empresa</h4>
@@ -115,6 +114,7 @@
 
 					<div class="panel-footer">
 						<a class="btn btn-default" href="/listagem">Voltar</a>
+						<a href="/atualizar/${empresa.id}" id="btn-submit" class="btn btn-primary pull-right margin-0-6" >Editar</a>
 						<div style="clear: both"></div>
 					</div>
 					<!-- panel -->
@@ -122,7 +122,6 @@
 				<!-- col -->
 			</div>
 			<!-- row -->
-		</div>
 		</div>
 		</div>
 		<!-- container -->
