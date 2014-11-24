@@ -32,22 +32,22 @@ public class EmpresaController {
 	@Get("/cadastro")
 	public void cadastro() {
 	}
-	
+
 	@Get("/atualizar/{empresa.id}")
 	public Empresa cadastro(Empresa empresa) {
 		result.include("editar", true);
 		return daoEmpresa.getById(empresa.getId());
 	}
-	
+
 	@Get("/listagem")
 	public List<Empresa> listagem() {
-		result.include("totalDeRegistros", daoEmpresa.contaQuantidadeDeRegistros());
+		result.include("totalDeRegistros",
+				daoEmpresa.contaQuantidadeDeRegistros());
 		return daoEmpresa.getTodas();
 	}
 
 	@Get("/visualizacao/{empresa.id}")
 	public Empresa visualizacao(Empresa empresa) {
-		
 		return daoEmpresa.getById(empresa.getId());
 	}
 
@@ -58,9 +58,9 @@ public class EmpresaController {
 			{
 				that(Validador.verificaCnpj(empresa.getCnpj()), "empresa.cnpj",
 						"cnpj.invalido");
-				
-				that(Validador.verificaNumeroEndereco(empresa), "empresa.endereco.numero",
-						"numero.invalido");
+
+				that(Validador.verificaNumeroEndereco(empresa),
+						"empresa.endereco.numero", "numero.invalido");
 
 				that(Validador.verificaNomeFantasia(empresa.getNomeFantasia()),
 						"empresa.nomeFantasia", "nomeFantasia.obrigatorio");
@@ -89,9 +89,68 @@ public class EmpresaController {
 			System.out.println(e.getMessage());
 			ArrayList<String> listaErros = new ArrayList<String>();
 			listaErros.add("Erro ao cadastrar, por favor tente novamente!");
-			
+
 			result.include(listaErros);
 			result.redirectTo(this).cadastro();
+		}
+	}
+	
+	public void atualizar(final Empresa empresa) {
+		empresa.setSocios(Validador.retiraSociosNulos(empresa.getSocios()));
+		validator.checking(new Validations() {
+			{
+				that(Validador.verificaCnpj(empresa.getCnpj()), "empresa.cnpj",
+						"cnpj.invalido");
+
+				that(Validador.verificaNumeroEndereco(empresa),
+						"empresa.endereco.numero", "numero.invalido");
+				that(Validador.verificaNomeFantasia(empresa.getNomeFantasia()),
+						"empresa.nomeFantasia", "nomeFantasia.obrigatorio");
+				that(Validador.verificaCpfListaSocio(empresa.getSocios()),
+						"empresa.socios", "cpf.invalido");
+
+			}
+		});
+		validator.onErrorUsePageOf(this).cadastro();
+
+		daoEmpresa.atualiza(empresa);
+		result.redirectTo(this).visualizacao(empresa);
+	}
+
+	public void atualizar(final Empresa empresa, final UploadedFile arquivo){
+		empresa.setSocios(Validador.retiraSociosNulos(empresa.getSocios()));
+		validator.checking(new Validations() {
+			{
+				that(Validador.verificaCnpj(empresa.getCnpj()), "empresa.cnpj",
+						"cnpj.invalido");
+
+				that(Validador.verificaNumeroEndereco(empresa),
+						"empresa.endereco.numero", "numero.invalido");
+				that(Validador.verificaNomeFantasia(empresa.getNomeFantasia()),
+						"empresa.nomeFantasia", "nomeFantasia.obrigatorio");
+				that(Validador.verificaCpfListaSocio(empresa.getSocios()),
+						"empresa.socios", "cpf.invalido");
+				that(Validador.verificaExtensaoArquivo(arquivo), "arquivo",
+						"extensao.invalida");
+			}
+		});
+		validator.onErrorUsePageOf(this).cadastro();
+			
+		File novoArquivo = Arquivo.inputStreamParaFile(arquivo.getFile(), empresa.getCnpj());
+		String url = Arquivo.atualiza(empresa.getUrl(), novoArquivo);
+		
+		empresa.setUrl(url);
+		
+		daoEmpresa.atualiza(empresa);
+		result.redirectTo(this).visualizacao(empresa);
+	}	
+	
+	@Post("/empresa/cadastrar/{empresa.id}")
+	public void atualizaTeste(Empresa empresa, UploadedFile arquivo){
+		if (arquivo != null){
+			atualizar(empresa, arquivo);
+		} else {
+			atualizar(empresa);
 		}
 	}
 }
