@@ -11,25 +11,28 @@ import br.com.caelum.vraptor.Result;
 
 @Resource
 public class HomeController {
-	
+
 	EmpresaDAO daoEmpresa;
 	Result result;
-	
+
 	public HomeController(EmpresaDAO daoEmpresa, Result result) {
 		this.daoEmpresa = daoEmpresa;
 		this.result = result;
 	}
-	
-	@Get("/")	
+
+	@Get("/")
 	public void home() {
 	}
-	
-	public void buscaPorCnpj(String cnpj) {
-		
+
+	public List<Empresa> buscaPorCnpj(String cnpj) {
 		List<Empresa> listaDeEmpresas = new ArrayList<>();
-		listaDeEmpresas = daoEmpresa.getTodas();
-		
-		result.include(listaDeEmpresas);
-//		result.redirectTo(this).home();
+
+		for (Empresa empresa : daoEmpresa.getTodas()) {
+			if (empresa.getCnpj().equals(cnpj)) {
+				listaDeEmpresas.add(empresa);
+			}
+		}
+
+		return listaDeEmpresas;
 	}
 }
