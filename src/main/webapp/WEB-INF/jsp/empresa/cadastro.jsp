@@ -8,6 +8,8 @@
 	<title>Cadastro de Empresa</title>
 	<link href="/assets/css/bootstrap/css/bootstrap.css" rel="stylesheet">
 	<link href="/assets/css/main.css" rel="stylesheet">
+	<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="/assets/js/adiciona-socios.js"></script>
 </head>
 	<body>
 		<div class="container">
@@ -25,9 +27,9 @@
 						<div class="panel-heading centralize">
 							<h2>Cadastrar Empresa</h2>
 						</div>
-						
-						<form class="form" name="formulario" action="/empresa/cadastrar" method="POST" onsubmit="return validarCadastro();" enctype="multipart/form-data">
-						
+
+						<form class="form" name="formulario" action="/empresa/cadastrar/${empresa.id}" method="POST" onsubmit="return validarCadastro('${editar}');" enctype="multipart/form-data">
+
 							<ul class="list-group">
 								
 								<li class="list-group-item">
@@ -115,13 +117,25 @@
 									
 									<div class="form-group">
 										<label class="control-label">Upload de arquivo:</label>
-										<input id="file" class="form-group" type="file" name="arquivo" required/>
+										<c:choose>
+											<c:when test="${editar != null}">
+												<input name="empresa.url" type="text" value="${empresa.url}" hidden/>
+												<br />
+												<a class="form-group" href="${empresa.url}">Antigo Arquivo</a>
+												<input id="file" class="form-group" type="file" name="arquivo"/>
+											</c:when>
+											<c:otherwise>
+												<input id="file" class="form-group" type="file" name="arquivo" required/>
+											</c:otherwise>
+										</c:choose>										
 										<span class="msg-alert color-red">Tamanho máximo do arquivo: 5MB.</span>
 									</div>		
 								</li> <!-- list-group-item  -->
 
 								<div id="divSocios">
-
+									<c:forEach items="${empresa.socios}" var="socio">
+										<script> document.onLoad(adicionaSociosCadastrados("${socio.nome}", "${socio.cpf}", "${socio.ativo}")); </script>
+									</c:forEach>								
 								</div>
 								
 								<li class="list-group-item">
@@ -147,11 +161,8 @@
 			</div> <!-- row -->
 		</div> <!-- container -->
 		
-	<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
-	<script src="/assets/js/jquery.mask.min.js"></script>
-		
-	<script src="/assets/js/validacao-logica-cadastro.js"></script>
-	<script src="/assets/js/adiciona-socios.js"></script>	
+	<script src="/assets/js/jquery.mask.min.js"></script>		
+	<script src="/assets/js/validacao-logica-cadastro.js"></script>		
 	<script src="/assets/js/validacao-visual-cadastro.js"></script>
 		
 	</body>

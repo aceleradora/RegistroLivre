@@ -1,4 +1,4 @@
-function validarCadastro() {
+function validarCadastro(editar) {
 
 	if (!validarCNPJ(formulario.cnpj.value)) {
 		alert("Preencha o CNPJ corretamente.");
@@ -12,21 +12,37 @@ function validarCadastro() {
 		return false;
 	}
 
-	if (!validarPdf(formulario.file)) {
-		alert("Arquivo inexistente ou com a extensão inválida. (Somente PDF's são permitidos.)");
+	if (!editar) {
+		if (!validarExistePdf(formulario.file)) {
+			alert("Arquivo PDF inexistente.");
+			return false;
+		}
+	}
+
+	if (validarExistePdf(formulario.file) && !validarExtensaoPdf(formulario.file)) {
+		alert("Arquivo com a extensão inválida. (Somente PDF's são permitidos.)");
 		return false;
 	}
 
-	if (!validarCpf(formulario.cpf.value)) {
-		alert("Preencha o CPF do socio corretamente!");
+	if (formulario.cpf != null) {
+		if (!validarCpf(formulario.cpf.value)) {
+			alert("Preencha o CPF do socio corretamente!");
 
-		formulario.cpf.focus();
-		return false;
+			formulario.cpf.focus();
+			return false;
+		}
 	}
 
 }
 
-function validarPdf(objFileControl) {
+function validarExistePdf(objFileControl) {
+
+	var file = objFileControl.value;
+
+	return file != "";
+}
+
+function validarExtensaoPdf(objFileControl) {
 
 	var file = objFileControl.value;
 	var len = file.length;
@@ -38,8 +54,8 @@ function validarPdf(objFileControl) {
 function validarCpf(cpfDigitado) {
 
 	var cpf = cpfDigitado.replace(/[.\-]/g, '');
-	
-	erro = new String;		
+
+	erro = new String;
 
 	if (cpf == "00000000000" || cpf == "11111111111" || cpf == "22222222222"
 			|| cpf == "33333333333" || cpf == "44444444444"
@@ -53,34 +69,33 @@ function validarCpf(cpfDigitado) {
 	var digitosCpf = cpf.split('');
 	var acumuladorDigitos = 0;
 	var peso = 11;
-	
-	var primeiroDigitoVerificador = digitosCpf[9];
-	var segundoDigitoVerificador  = digitosCpf[10];
-	
-	var primeiroDigitoVerificadorCalculado = 0;
-	var segundoDigitoVerificadorCalculado  = 0;
 
-	for (var i = 0; i < 9; i++) {				
+	var primeiroDigitoVerificador = digitosCpf[9];
+	var segundoDigitoVerificador = digitosCpf[10];
+
+	var primeiroDigitoVerificadorCalculado = 0;
+	var segundoDigitoVerificadorCalculado = 0;
+
+	for (var i = 0; i < 9; i++) {
 		acumuladorDigitos += (digitosCpf[i] * --peso);
 	}
 
-	var resto = acumuladorDigitos % 11; 
-	
-	primeiroDigitoVerificadorCalculado = (resto < 2)? 0 : 11 - resto;
-		
-	acumuladorDigitos = 0;	
+	var resto = acumuladorDigitos % 11;
+
+	primeiroDigitoVerificadorCalculado = (resto < 2) ? 0 : 11 - resto;
+
+	acumuladorDigitos = 0;
 	peso = 11;
-	
-	for (var i = 0; i < 10; i++){
+
+	for (var i = 0; i < 10; i++) {
 		acumuladorDigitos += (digitosCpf[i] * peso--);
 	}
 
 	resto = acumuladorDigitos % 11;
-		
-	segundoDigitoVerificadorCalculado = (resto < 2)? 0 : 11 - resto;	
-	
-	return !(primeiroDigitoVerificador != primeiroDigitoVerificadorCalculado ||
-			 segundoDigitoVerificador  != segundoDigitoVerificadorCalculado);		
+
+	segundoDigitoVerificadorCalculado = (resto < 2) ? 0 : 11 - resto;
+
+	return !(primeiroDigitoVerificador != primeiroDigitoVerificadorCalculado || segundoDigitoVerificador != segundoDigitoVerificadorCalculado);
 }
 
 function validarCNPJ(cnpj) {

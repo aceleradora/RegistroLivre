@@ -1,10 +1,9 @@
 package unitario;
 
-import static org.junit.Assert.*;
-import static org.mockito.Mockito.mock;
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import static org.hamcrest.CoreMatchers.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,4 +66,19 @@ public class EmpresaControllerTest {
 		verify(empresaDAO).getById(empresa.getId());		
 	}
 	
+	@Test
+	public void quandoChamaOMetodoCadastroRetornaOMetodoGetByIdDoDAO() throws Exception {
+		empresa.setId(1);
+		empresaController.cadastro(empresa);
+		
+		verify(empresaDAO).getById(empresa.getId());	
+	}
+	
+	@Test
+	public void quandoChamaOMetodoCadastroIncluiEditarNoResult() throws Exception {
+		empresa.setId(1);
+		empresaController.cadastro(empresa);
+		
+		verify(result).include("editar", true);
+	}
 }
