@@ -2,6 +2,7 @@ package br.com.aceleradora.RegistroLivre.dao;
 
 import java.util.List;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Projections;
@@ -26,6 +27,12 @@ public class EmpresaDAO implements IEmpresaDAO {
 		Empresa empresa = (Empresa) sessao.get(Empresa.class, id);		
 		
 		return empresa;
+	}
+	
+	public List<Empresa> pesquisaPorCnpj(String cnpj) {
+		Query query = sessao.createQuery("FROM Empresa WHERE cnpj LIKE :cnpj");
+		query.setParameter("cnpj", cnpj);
+		return query.list();
 	}
 
 	public Long contaQuantidadeDeRegistros() {
