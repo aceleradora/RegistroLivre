@@ -73,7 +73,7 @@ public class Arquivo {
 		return urlCortada[urlCortada.length - 1].replace(".pdf", "");
 	}
 	
-	public static void excluir(String idArquivo){
+	private static void excluir(String idArquivo){
 		SingletonManager manager = new SingletonManager();
 		manager.setCloudinary(cloudinary);
 		manager.init();
