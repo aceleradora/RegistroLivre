@@ -64,13 +64,10 @@ public class HomeControllerTest {
 	@Test
 	public void quandoNaoEncontraNenhumaEmpresaRetornaUmaListaVazia()
 			throws Exception {
-		String cnpjRequerido = "73.144.566/0001-60";
-		String cnpjBuscado = "65.174.387/0001-48";
-		empresa.setCnpj(cnpjRequerido);
+		String cnpjRequerido = "73.144.566/0001-60";	
 		when(empresaDAO.pesquisaPorCnpj(cnpjRequerido)).thenReturn(listaDeEmpresas);
-		listaDeEmpresas.add(empresa);
 
-		listaDeEmpresasResultado = homeController.buscaPorCnpj(cnpjBuscado);
+		listaDeEmpresasResultado = homeController.buscaPorCnpj(cnpjRequerido);
 
 		assertFalse(listaDeEmpresasResultado.contains(empresa));
 	}
@@ -100,5 +97,28 @@ public class HomeControllerTest {
 		
 		assertEquals(nomeFantasiaRequerido, listaDeEmpresasResultado.get(0).getNomeFantasia());
 	}
-
+	
+	@Test
+	public void quandoNaoEncontraEmpresaComONomeFantasiaRetornaUmaListaVazia() throws Exception {
+		String nomeFantasiaRequerido = "Jaffari";
+		when(empresaDAO.pesquisaPorNomeFantasia(nomeFantasiaRequerido)).thenReturn(listaDeEmpresas);
+		
+		listaDeEmpresasResultado = homeController.buscaPorNomeFantasia(nomeFantasiaRequerido);
+		
+		assertFalse(listaDeEmpresasResultado.contains(empresa));
+	}
+	
+	@Test
+	public void QuandoEncontraDuasEmpresasComOMesmoNomeFantasiaRetornaUmaListaDeSize2() throws Exception {
+		String nomeFantasiaRequerido = "Jaffari";
+		empresa.setNomeFantasia(nomeFantasiaRequerido);
+		listaDeEmpresas.add(empresa);
+		listaDeEmpresas.add(empresa);
+		when(empresaDAO.pesquisaPorNomeFantasia(nomeFantasiaRequerido)).thenReturn(listaDeEmpresas);
+		
+		listaDeEmpresasResultado = homeController.buscaPorNomeFantasia(nomeFantasiaRequerido);
+		
+		assertThat(listaDeEmpresas.size(), is(2));
+	
+	}
 }
