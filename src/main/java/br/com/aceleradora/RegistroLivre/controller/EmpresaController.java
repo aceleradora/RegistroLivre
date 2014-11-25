@@ -86,7 +86,7 @@ public class EmpresaController {
 			result.include("mensagem", "Cadastro realizado com sucesso!");
 			result.redirectTo(this).visualizacao(empresa);
 		} catch (Exception e) {
-			System.out.println(e.getMessage());
+			System.out.println(e.getMessage());			
 			ArrayList<String> listaErros = new ArrayList<String>();
 			listaErros.add("Erro ao cadastrar, por favor tente novamente!");
 
