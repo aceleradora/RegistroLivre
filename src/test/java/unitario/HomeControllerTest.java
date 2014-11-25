@@ -1,7 +1,7 @@
 package unitario;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.*;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -9,13 +9,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
-import static org.hamcrest.CoreMatchers.*;
-import static org.junit.Assert.*;
 
 import br.com.aceleradora.RegistroLivre.controller.HomeController;
 import br.com.aceleradora.RegistroLivre.dao.EmpresaDAO;
@@ -24,11 +21,8 @@ import br.com.caelum.vraptor.Result;
 
 @RunWith(MockitoJUnitRunner.class)
 public class HomeControllerTest {
-
-	@Mock
-	private EmpresaDAO empresaDAO;
-	@Mock
-	private Result result;
+	@Mock private EmpresaDAO empresaDAO;
+	@Mock private Result result;
 	HomeController homeController;
 	Empresa empresa;
 	List<Empresa> listaDeEmpresas;
@@ -70,13 +64,10 @@ public class HomeControllerTest {
 	@Test
 	public void quandoNaoEncontraNenhumaEmpresaRetornaUmaListaVazia()
 			throws Exception {
-		String cnpjRequerido = "73.144.566/0001-60";
-		String cnpjBuscado = "65.174.387/0001-48";
-		empresa.setCnpj(cnpjRequerido);
+		String cnpjRequerido = "73.144.566/0001-60";	
 		when(empresaDAO.pesquisaPorCnpj(cnpjRequerido)).thenReturn(listaDeEmpresas);
-		listaDeEmpresas.add(empresa);
 
-		listaDeEmpresasResultado = homeController.buscaPorCnpj(cnpjBuscado);
+		listaDeEmpresasResultado = homeController.buscaPorCnpj(cnpjRequerido);
 
 		assertFalse(listaDeEmpresasResultado.contains(empresa));
 	}
@@ -94,5 +85,40 @@ public class HomeControllerTest {
 
 		assertThat(listaDeEmpresasResultado.size(), is(2));
 	}
-
+	
+	@Test
+	public void quandoEncontraEmpresaComNomeFantasiaCorretoRetornaUmaList() throws Exception {
+		String nomeFantasiaRequerido = "Jaffari";
+		empresa.setNomeFantasia(nomeFantasiaRequerido);
+		when(empresaDAO.pesquisaPorNomeFantasia(nomeFantasiaRequerido)).thenReturn(listaDeEmpresas);
+		listaDeEmpresas.add(empresa);
+		
+		listaDeEmpresasResultado = homeController.buscaPorNomeFantasia(nomeFantasiaRequerido);
+		
+		assertEquals(nomeFantasiaRequerido, listaDeEmpresasResultado.get(0).getNomeFantasia());
+	}
+	
+	@Test
+	public void quandoNaoEncontraEmpresaComONomeFantasiaRetornaUmaListaVazia() throws Exception {
+		String nomeFantasiaRequerido = "Jaffari";
+		when(empresaDAO.pesquisaPorNomeFantasia(nomeFantasiaRequerido)).thenReturn(listaDeEmpresas);
+		
+		listaDeEmpresasResultado = homeController.buscaPorNomeFantasia(nomeFantasiaRequerido);
+		
+		assertFalse(listaDeEmpresasResultado.contains(empresa));
+	}
+	
+	@Test
+	public void QuandoEncontraDuasEmpresasComOMesmoNomeFantasiaRetornaUmaListaDeSize2() throws Exception {
+		String nomeFantasiaRequerido = "Jaffari";
+		empresa.setNomeFantasia(nomeFantasiaRequerido);
+		listaDeEmpresas.add(empresa);
+		listaDeEmpresas.add(empresa);
+		when(empresaDAO.pesquisaPorNomeFantasia(nomeFantasiaRequerido)).thenReturn(listaDeEmpresas);
+		
+		listaDeEmpresasResultado = homeController.buscaPorNomeFantasia(nomeFantasiaRequerido);
+		
+		assertThat(listaDeEmpresas.size(), is(2));
+	
+	}
 }
