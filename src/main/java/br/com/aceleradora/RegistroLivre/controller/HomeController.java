@@ -22,12 +22,13 @@ public class HomeController {
 
 	@Get("/")
 	public void home() {
+		System.out.println(daoEmpresa.pesquisaPorCnpj("61.304.622/0001-06"));
 	}
 
 	public List<Empresa> buscaPorCnpj(String cnpj) {
 		List<Empresa> listaDeEmpresas = new ArrayList<>();
 
-		for (Empresa empresa : daoEmpresa.getTodas()) {
+		for (Empresa empresa : daoEmpresa.pesquisaPorCnpj(cnpj)) {
 			if (empresa.getCnpj().equals(cnpj)) {
 				listaDeEmpresas.add(empresa);
 			}

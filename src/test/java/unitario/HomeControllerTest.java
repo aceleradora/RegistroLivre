@@ -38,25 +38,27 @@ public class HomeControllerTest {
 	public void setup() {
 		homeController = new HomeController(empresaDAO, result);
 		listaDeEmpresas = new ArrayList<Empresa>();
-		//listaDeEmpresasResultado = new ArrayList<Empresa>();
 		empresa = new Empresa();
-		
-		when(empresaDAO.getTodas()).thenReturn(listaDeEmpresas);
 	}
 
 	@Test
-	public void quandoChamOMetodoBuscaPorCnpjOMetodoGetTodasDoDaoEmpresaEhChamado()
+	public void quandoChamaOMetodoBuscaPorCnpjOMetodoPesquisaPorCnpjDoDaoEmpresaEhChamado()
 			throws Exception {
 		String cnpj = "65.174.387/0001-48";
+		when(empresaDAO.pesquisaPorCnpj(cnpj)).thenReturn(listaDeEmpresas);
 
 		homeController.buscaPorCnpj(cnpj);
 
-		verify(empresaDAO).getTodas();
+		verify(empresaDAO).pesquisaPorCnpj(cnpj);
 	}
 
 	@Test
-	public void quandoEncontraEmpresaComCnpjCorretoRetornaUmaLista() throws Exception {
+	public void quandoEncontraEmpresaComCnpjCorretoRetornaUmaLista()
+			throws Exception {
 		String cnpjRequerido = "73.144.566/0001-60";
+		when(empresaDAO.pesquisaPorCnpj(cnpjRequerido)).thenReturn(
+				listaDeEmpresas);
+
 		empresa.setCnpj("73.144.566/0001-60");
 		listaDeEmpresas.add(empresa);
 
@@ -64,25 +66,33 @@ public class HomeControllerTest {
 
 		assertEquals(cnpjRequerido, listaDeEmpresasResultado.get(0).getCnpj());
 	}
-	
+
 	@Test
-	public void quandoNaoEncontraNenhumaEmpresaRetornaUmaListaVazia() throws Exception {
-		listaDeEmpresasResultado = homeController.buscaPorCnpj("73.144.566/0001-60");
-		
-		assertTrue(listaDeEmpresasResultado.isEmpty());
+	public void quandoNaoEncontraNenhumaEmpresaRetornaUmaListaVazia()
+			throws Exception {
+		String cnpjRequerido = "73.144.566/0001-60";
+		String cnpjBuscado = "65.174.387/0001-48";
+		empresa.setCnpj(cnpjRequerido);
+		when(empresaDAO.pesquisaPorCnpj(cnpjRequerido)).thenReturn(listaDeEmpresas);
+		listaDeEmpresas.add(empresa);
+
+		listaDeEmpresasResultado = homeController.buscaPorCnpj(cnpjBuscado);
+
+		assertFalse(listaDeEmpresasResultado.contains(empresa));
 	}
-	
+
 	@Test
-	public void quandoEncontraDuasOcorrenciasDaMesmaEmpresaRetornaUmaListaCom2Itens() throws Exception {
-		String cnpj = "73.144.566/0001-60";
-		empresa.setCnpj(cnpj);
+	public void quandoEncontraDuasOcorrenciasDaMesmaEmpresaRetornaUmaListaCom2Itens()
+			throws Exception {
+		String cnpjRequerido = "73.144.566/0001-60";
+		empresa.setCnpj(cnpjRequerido);
+		when(empresaDAO.pesquisaPorCnpj(cnpjRequerido)).thenReturn(listaDeEmpresas);
 		listaDeEmpresas.add(empresa);
 		listaDeEmpresas.add(empresa);
-		
-		listaDeEmpresasResultado = homeController.buscaPorCnpj(cnpj);
-		
+
+		listaDeEmpresasResultado = homeController.buscaPorCnpj(cnpjRequerido);
+
 		assertThat(listaDeEmpresasResultado.size(), is(2));
 	}
-	
-	
+
 }
