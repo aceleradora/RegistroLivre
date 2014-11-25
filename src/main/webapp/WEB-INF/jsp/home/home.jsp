@@ -28,6 +28,7 @@
 				<li ><a href="cadastro">Cadastrar Empresa</a></li>
 				<li><a href="visualizacao/0">Visualizar Empresa</a></li>
 				<li><a href="listagem">Listar Empresas</a></li>
+			</ul>
 		</div>
 	</div>
 	</nav>
