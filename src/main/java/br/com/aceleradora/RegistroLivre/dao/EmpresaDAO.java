@@ -2,7 +2,12 @@ package br.com.aceleradora.RegistroLivre.dao;
 
 import java.util.List;
 
+<<<<<<< HEAD
 import org.hibernate.Query;
+=======
+import javax.annotation.PreDestroy;
+
+>>>>>>> #00: <Alexandre, Yasser> - Consertando o gerenciamento de sessões hibernate
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Projections;
@@ -24,7 +29,7 @@ public class EmpresaDAO implements IEmpresaDAO {
 	}
 
 	public Empresa getById(long id) {
-		Empresa empresa = (Empresa) sessao.get(Empresa.class, id);		
+		Empresa empresa = (Empresa) sessao.get(Empresa.class, id);	
 		
 		return empresa;
 	}
@@ -36,8 +41,12 @@ public class EmpresaDAO implements IEmpresaDAO {
 	}
 
 	public Long contaQuantidadeDeRegistros() {
-		return (Long) sessao.createCriteria(Empresa.class)
+		long quantidadeDeRegistros = (Long) sessao.createCriteria(Empresa.class)
 				.setProjection(Projections.rowCount()).list().get(0);
+		
+		
+		return quantidadeDeRegistros;
+		
 	}
 
 	@Override
@@ -45,6 +54,7 @@ public class EmpresaDAO implements IEmpresaDAO {
 		Transaction transacao = sessao.beginTransaction();
 		sessao.save(empresa);
 		transacao.commit();
+		
 	}
 	
 	@Override

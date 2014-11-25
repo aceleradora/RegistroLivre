@@ -4,6 +4,8 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.PreDestroy;
+
 import br.com.aceleradora.RegistroLivre.dao.EmpresaDAO;
 import br.com.aceleradora.RegistroLivre.model.Empresa;
 import br.com.aceleradora.RegistroLivre.model.Validador;
@@ -24,6 +26,7 @@ public class EmpresaController {
 	private Validator validator;
 
 	public EmpresaController(EmpresaDAO dao, Result result, Validator validator) {
+		System.out.println("Controller");
 		this.daoEmpresa = dao;
 		this.result = result;
 		this.validator = validator;
@@ -154,5 +157,5 @@ public class EmpresaController {
 		} else {
 			atualizar(empresa);
 		}
-	}
+	}	
 }

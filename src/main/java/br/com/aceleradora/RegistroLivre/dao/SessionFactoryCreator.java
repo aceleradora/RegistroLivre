@@ -6,10 +6,12 @@ import javax.annotation.PreDestroy;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;
 
+import br.com.caelum.vraptor.ioc.ApplicationScoped;
 import br.com.caelum.vraptor.ioc.Component;
 import br.com.caelum.vraptor.ioc.ComponentFactory;
 
 @Component
+@ApplicationScoped
 public class SessionFactoryCreator implements ComponentFactory<SessionFactory> {
 
 	private SessionFactory sessionFactory;
@@ -31,8 +33,9 @@ public class SessionFactoryCreator implements ComponentFactory<SessionFactory> {
 	}
 	
 	@PreDestroy
-	public void destroy() {
+	public void destroy() {		
 		sessionFactory.close();
+		System.out.println("SESSION FACTORY CREATOR DESTROY");
 	}
 
 	@Override
