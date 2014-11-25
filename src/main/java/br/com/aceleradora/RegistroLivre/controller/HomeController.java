@@ -36,4 +36,17 @@ public class HomeController {
 
 		return listaDeEmpresas;
 	}
+
+	public List<Empresa> buscaPorNomeFantasia(String nomeFantasiaRequerido) {
+		
+		List<Empresa> listaDeEmpresas = new ArrayList<Empresa>();
+		
+		for (Empresa empresa : daoEmpresa.pesquisaPorNomeFantasia(nomeFantasiaRequerido)) {
+			if(empresa.getNomeFantasia().equals(nomeFantasiaRequerido)){
+				listaDeEmpresas.add(empresa);
+			}
+		}
+		
+		return listaDeEmpresas;
+	}
 }

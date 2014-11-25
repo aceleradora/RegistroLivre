@@ -53,5 +53,9 @@ public class EmpresaDAO implements IEmpresaDAO {
 		sessao.update(empresa);
 		transacao.commit();
 	}
+
+	public List<Empresa> pesquisaPorNomeFantasia(String nomeFantasia) {
+		return null;
+	}
 	
 }
