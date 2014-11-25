@@ -24,9 +24,8 @@
 		</div>
 		<div class="collapse navbar-collapse"
 			id="bs-example-navbar-collapse-1">
-			<ul class="nav navbar-nav">
-				<li ><a href="cadastro">Cadastrar Empresa <span
-						class="sr-only">(current)</span></a></li>
+			<ul class="nav navbar-nav btn-borders-navbar">
+				<li ><a href="cadastro">Cadastrar Empresa</a></li>
 				<li><a href="visualizacao/0">Visualizar Empresa</a></li>
 				<li><a href="listagem">Listar Empresas</a></li>
 		</div>

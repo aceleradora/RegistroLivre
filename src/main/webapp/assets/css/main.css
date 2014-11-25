@@ -90,3 +90,11 @@ h4 {
 		background-repeat: no-repeat; 
 			font-weight: bold;	
 }
+
+.btn-borders-navbar li{
+	border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.btn-borders-navbar li:first-child{
+	border-left: 1px solid rgba(0, 0, 0, 0.1);
+}
