@@ -3,6 +3,12 @@
 	font-family: arial;
 }
 
+#divSocios .list-group-item{
+    border-radius: 0;
+    border-width: 1px 0 0;
+    margin: 0 -15px 20px;
+}
+
 .margin-100-0-0-0{
 	margin: 100px 0 0 0;
 }
