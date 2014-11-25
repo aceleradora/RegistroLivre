@@ -31,6 +31,7 @@ public class Arquivo {
 			while ((read = inputStream.read(bytes)) != -1) {
 				outputStream.write(bytes, 0, read);
 			}
+			outputStream.close();
 			return arquivo;
 		} catch (IOException e) {
 			return null;
@@ -43,7 +44,7 @@ public class Arquivo {
 		manager.init();
 
 		try {
-			cloudinary.uploader().upload(file, cloudinary.emptyMap());
+			cloudinary.uploader().upload(file, Cloudinary.emptyMap());
 			
 			Map uploadResult = cloudinary.uploader().upload(file,
 					Cloudinary.emptyMap());

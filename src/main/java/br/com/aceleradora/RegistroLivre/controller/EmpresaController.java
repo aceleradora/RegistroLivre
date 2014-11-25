@@ -53,7 +53,6 @@ public class EmpresaController {
 
 	@Post("/empresa/cadastrar/")
 	public void cadastrar(final Empresa empresa, final UploadedFile arquivo) {
-		System.out.println("cadastra");
 		empresa.setSocios(Validador.retiraSociosNulos(empresa.getSocios()));
 		validator.checking(new Validations() {
 			{
@@ -120,7 +119,6 @@ public class EmpresaController {
 	}
 
 	public void atualizar(final Empresa empresa, final UploadedFile arquivo){
-		System.out.println("atualiza");
 		empresa.setSocios(Validador.retiraSociosNulos(empresa.getSocios()));
 		validator.checking(new Validations() {
 			{
