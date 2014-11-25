@@ -32,7 +32,7 @@ fi
 if [ -z  "$API_KEY" ]; then
 	echo '[DIGITE O API KEY DO CLODUINARY]:'
 	read api_key
-	echo "export API_SECRET=$api_key" >> ~/.bashrc
+	echo "export API_KEY=$api_key" >> ~/.bashrc
 fi
 
 if [ -z "$CLOUD_NAME" ]; then

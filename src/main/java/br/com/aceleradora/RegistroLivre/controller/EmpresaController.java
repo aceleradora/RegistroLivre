@@ -53,6 +53,7 @@ public class EmpresaController {
 
 	@Post("/empresa/cadastrar/")
 	public void cadastrar(final Empresa empresa, final UploadedFile arquivo) {
+		System.out.println("cadastra");
 		empresa.setSocios(Validador.retiraSociosNulos(empresa.getSocios()));
 		validator.checking(new Validations() {
 			{
@@ -86,7 +87,7 @@ public class EmpresaController {
 			result.include("mensagem", "Cadastro realizado com sucesso!");
 			result.redirectTo(this).visualizacao(empresa);
 		} catch (Exception e) {
-			System.out.println(e.getMessage());
+			System.out.println(e.getMessage());			
 			ArrayList<String> listaErros = new ArrayList<String>();
 			listaErros.add("Erro ao cadastrar, por favor tente novamente!");
 
@@ -119,6 +120,7 @@ public class EmpresaController {
 	}
 
 	public void atualizar(final Empresa empresa, final UploadedFile arquivo){
+		System.out.println("atualiza");
 		empresa.setSocios(Validador.retiraSociosNulos(empresa.getSocios()));
 		validator.checking(new Validations() {
 			{
