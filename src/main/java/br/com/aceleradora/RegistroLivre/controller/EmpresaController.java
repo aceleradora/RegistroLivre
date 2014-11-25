@@ -4,8 +4,6 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.annotation.PreDestroy;
-
 import br.com.aceleradora.RegistroLivre.dao.EmpresaDAO;
 import br.com.aceleradora.RegistroLivre.model.Empresa;
 import br.com.aceleradora.RegistroLivre.model.Validador;

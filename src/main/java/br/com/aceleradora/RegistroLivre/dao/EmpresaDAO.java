@@ -2,12 +2,7 @@ package br.com.aceleradora.RegistroLivre.dao;
 
 import java.util.List;
 
-<<<<<<< HEAD
 import org.hibernate.Query;
-=======
-import javax.annotation.PreDestroy;
-
->>>>>>> #00: <Alexandre, Yasser> - Consertando o gerenciamento de sessões hibernate
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Projections;
