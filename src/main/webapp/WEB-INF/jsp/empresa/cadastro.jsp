@@ -21,11 +21,24 @@
   						${error.message}
 					</div>
 				</c:forEach>
+				
+				<c:forEach items="${listaErros}" var="erro">
+	    			<div class="alert alert-danger alert-dismissible" role="alert">
+  						${erro}
+					</div>
+				</c:forEach>
 	    		
 					<div class="panel panel-default margin-35-0">
 						
 						<div class="panel-heading centralize">
-							<h2>Cadastrar Empresa</h2>
+							<c:choose>
+								<c:when test="${editar != null}">
+									<h2>Editar Empresa</h2>
+								</c:when>
+								<c:otherwise>
+									<h2>Cadastrar Empresa</h2>
+								</c:otherwise>
+							</c:choose>										
 						</div>
 
 						<form class="form" name="formulario" action="/empresa/cadastrar/${empresa.id}" method="POST" onsubmit="return validarCadastro('${editar}');" enctype="multipart/form-data">
