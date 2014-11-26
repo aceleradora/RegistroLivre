@@ -4,7 +4,7 @@ package br.com.aceleradora.RegistroLivre.dao;
 import javax.annotation.PreDestroy;
 
 import org.hibernate.SessionFactory;
-import org.hibernate.cfg.AnnotationConfiguration;
+import org.hibernate.cfg.Configuration;
 
 import br.com.caelum.vraptor.ioc.ApplicationScoped;
 import br.com.caelum.vraptor.ioc.Component;
@@ -22,7 +22,7 @@ public class SessionFactoryCreator implements ComponentFactory<SessionFactory> {
 	}
 
 	public void create() {
-		AnnotationConfiguration configuration = new AnnotationConfiguration();
+		Configuration configuration = new Configuration();
 		
 		configuration.setProperty("hibernate.connection.url", System.getenv("DB_CONNECTION_URL"));
 		configuration.setProperty("hibernate.connection.username", System.getenv("DB_CONNECTION_USUARIO"));

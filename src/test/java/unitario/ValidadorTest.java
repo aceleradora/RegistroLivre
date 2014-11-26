@@ -118,13 +118,7 @@ public class ValidadorTest {
 		
 		assertFalse(result);
 	}
-	
-	@Test
-	public void retornaVerdadeSeONomeFantasiaTiverDoisCaracteres(){
-		boolean result = Validador.verificaNomeFantasia("aa");
-		
-		assertTrue(result);		
-	}
+
 	
 	@Test
 	public void retornaUmaListaComDoisObjetosQuandoMandarUmaListaDeSociosComDoisObjetosValidosETresNulos(){
