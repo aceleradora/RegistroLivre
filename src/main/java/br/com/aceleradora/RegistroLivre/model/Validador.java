@@ -13,7 +13,7 @@ public class Validador {
 		List<Socio> sociosNaoNulos = new ArrayList<Socio>();
 		
 		for (int i = 0; i < socios.size(); i++) {
-			if (!(socios.get(i).getNome() == null) && !(socios.get(i).getCpf() == null)) {
+			if (!(socios.get(i).getNome() == null)) {
 				sociosNaoNulos.add(socios.get(i));
 			}
 		}
