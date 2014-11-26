@@ -1,5 +1,6 @@
 package br.com.aceleradora.RegistroLivre.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import br.com.caelum.vraptor.interceptor.multipart.UploadedFile;
@@ -9,15 +10,14 @@ import br.com.caelum.vraptor.ioc.Component;
 public class Validador {
 
 	public static List<Socio> retiraSociosNulos(List<Socio> socios) {
+		List<Socio> sociosNaoNulos = new ArrayList<Socio>();
+		
 		for (int i = 0; i < socios.size(); i++) {
-			if (socios.get(i).getNome() == null
-					&& socios.get(i).getCpf() == null) {
-
-				socios.remove(i);
-				i = 0;
+			if (!(socios.get(i).getNome() == null) && !(socios.get(i).getCpf() == null)) {
+				sociosNaoNulos.add(socios.get(i));
 			}
 		}
-		return socios;
+		return sociosNaoNulos;
 	}
 
 	public static boolean verificaCpfListaSocio(List<Socio> socios) {
