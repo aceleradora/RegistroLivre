@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=iso-8859-1"
+	pageEncoding="iso-8859-1"%>
 <%@ page isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html lang="en">
+<html lang="pt-br">
 <head>
-
+<meta charset="iso-8859-1" />
 <link href="../assets/css/bootstrap/css/bootstrap.css" rel="stylesheet">
 <link href="../assets/css/main.css" rel="stylesheet">
 <link href="../assets/css/botao-pdf.css" rel="stylesheet">
@@ -29,7 +29,7 @@
 	    		</c:if>
 				<div class="panel panel-default margin-35-0">
 					<div class="panel-heading centralize">
-						<h4>VisualizaÃ§Ã£o de Empresa</h4>
+						<h4>Visualização de Empresa</h4>
 					</div>
 					<div class="panel-body">
 
@@ -44,7 +44,7 @@
 									<dd>${empresa.nomeFantasia}</label>
 								</dl>
 								<dl>
-									<dt>RazÃ£o Social:</dt> 
+									<dt>Razão Social:</dt> 
 									<dd>${empresa.razaoSocial}</dd>
 								</dl>
 							</div>
@@ -57,11 +57,11 @@
 						</div>
 
 						<dl>
-							<dt>EndereÃ§o:</dt> 
+							<dt>Endereço:</dt> 
 							<dd>${empresa.endereco.logradouro}</dd>
 						</dl>
 						<dl>
-							<dt>NÃºmero:</dt>
+							<dt>Número:</dt>
 							<dd>${empresa.endereco.numero}</dd>
 						</dl>
 						<dl>
@@ -89,15 +89,15 @@
 						</dl>
 
 						<dl>
-							<dt>EmissÃ£o de documento:</dt>
+							<dt>Emissão de documento:</dt>
 							<dd>${empresa.dataEmissaoDocumento}</dd>
 						</dl>					
 					
-						<h4 class="centralize panel-divider padding-6-0 margin-30-0">Estrutura SocietÃ¡ria</h4>
+						<h4 class="centralize panel-divider padding-6-0 margin-30-0">Estrutura Societária</h4>
 					
 						<c:forEach items="${empresa.socios}" var="socio">
 							<dl>
-							
+								<dt>Sócio:</dt>
 								<dd>Nome: </dd>
 								<dd>${socio.nome}</dd>
 								<dd>CPF:</dd>
