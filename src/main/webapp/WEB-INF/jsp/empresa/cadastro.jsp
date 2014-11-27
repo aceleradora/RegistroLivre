@@ -151,7 +151,7 @@
 								</div>
 									
 								<div class="form-group">
-									<label class="control-label">Upload de arquivo:</label>
+									<label class="control-label">Upload de arquivo <abbr title="Preenchimento obrigatório">*</abbr></label>
 									<c:choose>
 										<c:when test="${editar != null}">
 											<input name="empresa.url" type="text" value="${empresa.url}" hidden/>
