@@ -118,7 +118,6 @@
 						<c:forEach items="${empresa.socios}" var="socio">
 							<dl>
 							
-								<dt>Sócio:</dt>
 								<dd>Nome: </dd>
 								<dd>${socio.nome}</dd>
 								<dd>CPF:</dd>
