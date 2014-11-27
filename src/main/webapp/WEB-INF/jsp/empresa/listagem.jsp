@@ -1,10 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=iso-8859-1"
+	pageEncoding="iso-8859-1"%>
 <%@ page isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html lang="pt-br">
 <head>
+<meta charset="iso-8859-1" />
 <link href="assets/css/bootstrap/css/bootstrap.css" rel="stylesheet">
 <link href="assets/css/main.css" rel="stylesheet">
 </head>
@@ -26,8 +27,8 @@
 								<a class="a-color-black" href="/visualizacao/${empresa.id}">
 									<h4 class="list-group-item-heading" title="Nome fantasia">${empresa.nomeFantasia}</h4>
 								</a>
-								<p class="list-group-item-text">EndereÃ§o: ${empresa.endereco.logradouro}</p>
-								<p class="list-group-item-text">EmissÃ£o do Documento: ${empresa.dataEmissaoDocumento}</p>
+								<p class="list-group-item-text">Endereço: ${empresa.endereco.logradouro}</p>
+								<p class="list-group-item-text">Emissão do Documento: ${empresa.dataEmissaoDocumento}</p>
 							</div>
 						</c:forEach>
 					</div>

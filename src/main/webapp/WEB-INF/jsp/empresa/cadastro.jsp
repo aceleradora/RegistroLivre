@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=iso-8859-1"
+    pageEncoding="iso-8859-1"%>
 <%@ page isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html lang="pt-br">
 <head>
-	<meta charset="UTF-8" />
+	<meta charset="iso-8859-1" />
 	<title>Cadastro de Empresa</title>
 	<link href="/assets/css/bootstrap/css/bootstrap.css" rel="stylesheet">
 	<link href="/assets/css/main.css" rel="stylesheet">
@@ -53,32 +53,32 @@
 								</div>
 										
 								<div class="form-group has-feedback" id="cnpj-group">
-									<label class="control-label">CNPJ <abbr title="Preenchimento obrigat√≥rio">*</abbr></label>
+									<label class="control-label">CNPJ <abbr title="Preenchimento obrigatÛrio">*</abbr></label>
 									<input class="form-control" type="text" name="empresa.cnpj" id="cnpj" value="${empresa.cnpj}" placeholder="ex: 00.000.000/0000-00" required/>
 									<span class="glyphicon form-control-feedback"></span>
 								</div>
 							
 								<div class="form-group has-feedback" id="nomeFantasia-group">
-									<label class="control-label">Nome fantasia  <abbr title="Preenchimento obrigat√≥rio">*</abbr> </label>
+									<label class="control-label">Nome fantasia  <abbr title="Preenchimento obrigatÛrio">*</abbr> </label>
 									<input class="form-control" type="text" name="empresa.nomeFantasia" id="nomeFantasia" value="${empresa.nomeFantasia}" placeholder="ex: Larah Instrumentos Musicais" required/>
 									<span class="glyphicon form-control-feedback"></span>
 								</div>
 							
 								<div class="form-group">
-									<label class="control-label">Raz√£o Social</label>
+									<label class="control-label">Raz„o Social</label>
 									<input class="form-control" type="text" name="empresa.razaoSocial"placeholder="ex: Cia Larah Instrumentos Musicais LTDA" value="${empresa.razaoSocial}"/>
 								</div>
 							
 								<div class="row">
 									<div class="col-lg-9">
 										<div class="form-group">
-											<label class="control-label">Endere√ßo</label>
+											<label class="control-label">EndereÁo</label>
 											<input class="form-control" type="text" name="empresa.endereco.logradouro" placeholder="ex: Av. Ipiranga" value="${empresa.endereco.logradouro}"/>
 										</div>
 									</div>
 									<div class="col-lg-3">
 										<div class="form-group">
-											<label class="control-label">N√∫mero</label>
+											<label class="control-label">N˙mero</label>
 											<input id="numero" class="form-control" type="text" name="empresa.endereco.numero" value="${empresa.endereco.numero}"/>
 										</div>
 									</div>
@@ -121,7 +121,7 @@
 									</div>
 									<div class="col-lg-6 col-md-6">
 										<div class="form-group">
-											<label class="control-label">Emiss√£o de documento</label>
+											<label class="control-label">Emiss„o de documento</label>
 											<input class="form-control date" name="empresa.dataEmissaoDocumento" id="dataEmissao" type="text" value="${empresa.dataEmissaoDocumento}"/>
 										</div>
 									</div>
@@ -142,7 +142,7 @@
 											<input id="file" class="form-group" type="file" name="arquivo" required/>
 										</c:otherwise>
 									</c:choose>										
-									<span class="msg-alert color-red" id="file-alert">Tamanho m√°ximo do arquivo: 5MB.</span>
+									<span class="msg-alert color-red" id="file-alert">Tamanho m·ximo do arquivo: 5MB.</span>
 								</div>		
 								
 
@@ -155,7 +155,7 @@
 								
 								<div class="form-group">
 									
-									<button type="button" class="btn btn-success pull-right margin-0-6" onclick="adicionaSocio()"><span class="glyphicon glyphicon-plus-sign"></span> Adicionar S√≥cio</button>
+									<button type="button" class="btn btn-success pull-right margin-0-6" onclick="adicionaSocio()"><span class="glyphicon glyphicon-plus-sign"></span> Adicionar SÛcio</button>
 									<br>
 								</div>								
 								
