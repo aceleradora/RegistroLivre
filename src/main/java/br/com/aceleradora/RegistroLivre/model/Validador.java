@@ -7,8 +7,7 @@ import br.com.caelum.vraptor.ioc.Component;
 
 @Component
 public class Validador {
-
-
+	
 	public static boolean verificaCpfListaSocio(List<Socio> socios) {
 		for (Socio socio : socios) {
 			if (socio.getCpf() != null) {
@@ -26,7 +25,7 @@ public class Validador {
 
 		String cpfSemCaracteresEspeciais = cpf.replaceAll("[.-]", "");
 
-		if ((verificaNumerosIguaisCpf(cpfSemCaracteresEspeciais)) == 11){
+		if ((verificaNumerosIguaisCpf(cpfSemCaracteresEspeciais)) == 11) {
 			return false;
 		}
 
@@ -88,11 +87,10 @@ public class Validador {
 			return false;
 		}
 
-		
-		if ((verificaNumerosIguaisCnpj(cnpj))==14){
+		if ((verificaNumerosIguaisCnpj(cnpj)) == 14) {
 			return false;
 		}
-		
+
 		int tamanho = cnpj.length() - 2;
 		String numeros = cnpj.substring(0, tamanho);
 		String digitos = cnpj.substring(tamanho);
@@ -154,36 +152,39 @@ public class Validador {
 	}
 
 	public static boolean verificaNumeroEndereco(Empresa empresa) {
-		if(empresa.getEndereco() != null && empresa.getEndereco().getNumero() != null)
+		if (empresa.getEndereco() != null
+				&& empresa.getEndereco().getNumero() != null)
 			return empresa.getEndereco().getNumero().matches("[0-9]+");
 		return true;
 	}
 
 	public static boolean verificaExtensaoArquivo(UploadedFile arquivo) {
-		if(arquivo == null){
+		if (arquivo == null) {
 			return false;
 		}
-		if(!arquivo.getFileName().contains(".pdf")){
+		String extensaoArquivo = arquivo.getFileName().substring(
+				arquivo.getFileName().length() - 4);
+		if (!extensaoArquivo.toLowerCase().equals(".pdf")) {
 			return false;
 		}
 
 		return true;
 	}
-	
-	public static int verificaNumerosIguaisCnpj(String cnpj){
+
+	public static int verificaNumerosIguaisCnpj(String cnpj) {
 		int quantidadeDeNumerosIguaisCnpj = 1;
-		for (int i=0; i < cnpj.length()-1; i++){
-			if (cnpj.charAt(i) == cnpj.charAt(i+1)){
+		for (int i = 0; i < cnpj.length() - 1; i++) {
+			if (cnpj.charAt(i) == cnpj.charAt(i + 1)) {
 				quantidadeDeNumerosIguaisCnpj++;
 			}
 		}
 		return quantidadeDeNumerosIguaisCnpj;
 	}
-	
-	public static int verificaNumerosIguaisCpf(String cpf){
+
+	public static int verificaNumerosIguaisCpf(String cpf) {
 		int quantidadeDeNumerosIguaisCpf = 1;
-		for (int i=0; i < cpf.length()-1; i++){
-			if (cpf.charAt(i) == cpf.charAt(i+1)){
+		for (int i = 0; i < cpf.length() - 1; i++) {
+			if (cpf.charAt(i) == cpf.charAt(i + 1)) {
 				quantidadeDeNumerosIguaisCpf++;
 			}
 		}

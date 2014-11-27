@@ -9,7 +9,7 @@ import br.com.aceleradora.RegistroLivre.model.Validador;
 import br.com.aceleradora.RegistroLivre.util.Arquivo;
 import br.com.aceleradora.RegistroLivre.util.ClienteCloudinary;
 import br.com.caelum.vraptor.Get;
-import br.com.caelum.vraptor.Post;
+import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.Validator;
@@ -51,7 +51,7 @@ public class EmpresaController {
 		return daoEmpresa.getById(empresa.getId());
 	}
 
-	@Post("/empresa/cadastrar/")
+	@Path("/empresa/cadastrar/")
 	public void cadastrar(final Empresa empresa, final UploadedFile arquivo) {
 		validator.checking(new Validations() {
 			{
@@ -154,7 +154,7 @@ public class EmpresaController {
 		}
 	}
 
-	@Post("/empresa/cadastrar/{empresa.id}")
+	@Path("/empresa/cadastrar/{empresa.id}")
 	public void atualizaTeste(Empresa empresa, UploadedFile arquivo) {
 		if (arquivo != null) {
 			atualizar(empresa, arquivo);
