@@ -12,8 +12,7 @@ import br.com.aceleradora.RegistroLivre.model.Empresa;
 
 public class EmpresaTest {
 	
-	private Empresa empresa;
-	private SimpleDateFormat sdf;
+	private Empresa empresa;	
 
 	@Before
 	public void setup() {
