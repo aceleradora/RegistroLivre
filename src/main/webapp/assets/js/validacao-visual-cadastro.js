@@ -66,8 +66,8 @@ var validarNomeFantasiaVazio = function(){
 
 var validarCPFTempoReal = function(){
 	$('#divSocios').on('keypress', '.cpf', function(){		
-		if(validarCpf($(this).val())){
-			
+		if(validarCpf($(this).val()) && ($(this).parents('.socio-group').find('.nome-socio').val().length > 0)){
+	
 			$(this).parents('.cpf-group').addClass('has-success');
 			$(this).parents('.cpf-group').removeClass('has-error');
 			
@@ -77,8 +77,9 @@ var validarCPFTempoReal = function(){
 			if (verificaCPFTodosSocios()){					
 				botaoSubmit.habilitar();
 			}
-			else
+			else{
 				botaoSubmit.desabilitar();
+			}
 		}
 		else{	
 			botaoSubmit.desabilitar();
@@ -93,27 +94,27 @@ var validarCPFTempoReal = function(){
 
 
 var validarNomeSocioTempoReal = function(){
-	$('#divSocios').on('focusout', '.cpf', function(){
-		if (($(this).parents('.socio-group').find('.nome-socio').length <= 0) && ($(this).length > 0)){
+	$('#divSocios').on('focusout', '.nome-socio', function(){
+		if (($(this).length <= 0) && ($(this).parents('.socio-group').find('.cpf').length > 0)){
 		
 			botaoSubmit.desabilitar();
 			
-			$(this).parents('.socio-group').find('.nome-socio').removeClass('has-success');
-			$(this).parents('.socio-group').find('.nome-socio').addClass('has-error');
+			$(this).removeClass('has-success');
+			$(this).addClass('has-error');
 			
-			$(this).parents('.socio-group').find('.nome-socio').find('span').removeClass('glyphicon-ok');
-			$(this).parents('.socio-group').find('.nome-socio').find('span').addClass('glyphicon-remove');
+			$(this).find('span').removeClass('glyphicon-ok');
+			$(this).find('span').addClass('glyphicon-remove');
 			
 			
 		}else{
 			
 			botaoSubmit.habilitar();
 				
-			$(this).parents('.socio-group').find('.nome-socio').removeClass('has-success');
-			$(this).parents('.socio-group').find('.nome-socio').addClass('has-error');
+			$(this).removeClass('has-success');
+			$(this).addClass('has-error');
 				
-			$(this).parents('.socio-group').find('.nome-socio').find('span').addClass('glyphicon-ok');
-			$(this).parents('.socio-group').find('.nome-socio').find('span').removeClass('glyphicon-remove');
+			$(this).find('span').addClass('glyphicon-ok');
+			$(this).find('span').removeClass('glyphicon-remove');
 		}
 	});
 }	
@@ -164,11 +165,11 @@ var removeSocio = function(){
 var botaoSubmit = {
 	habilitar: function(){
 		$("#btn-submit").prop('disabled', false);
-		$(".msg-alert").hide();	
+		$("#form-alert").hide();	
 	},
 	desabilitar: function(){
 		$("#btn-submit").prop('disabled', true);
-		$(".msg-alert").show();			
+		$("#form-alert").show();			
 	}
 }
 
@@ -177,8 +178,10 @@ var validarTamanhoPdf = function(){
 		var arquivo = document.getElementById("file");
 	    if (arquivo.files[0].size > 5000000) {
 	    	botaoSubmit.desabilitar();
+	    	$('#file-alert').show();
 	    } else {
 	        botaoSubmit.habilitar();
+	        $('#file-alert').hide();
 	    }
 	});
 }
