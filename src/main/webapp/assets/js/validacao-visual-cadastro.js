@@ -1,189 +1,162 @@
+var cnpjGroup = $("#cnpj-group");
+var cnpjGroupIcon = $("#cnpj-group span");
+var nomeFantasiaGroup = $("#nomeFantasia-group");
+var nomeFantasiaIcon = $("#nomeFantasia-group span");
 
-var validarCNPJTempoReal= function (cnpj) {
+var validarCNPJTempoReal = function(cnpj) {
 	if (validarCNPJ(cnpj)) {
-		$("#cnpj-group").addClass("has-success has-feedback");
-		$("#cnpj-group").removeClass("has-error");
-
-		$("#cnpj-group span").addClass("glyphicon-ok");
-		$("#cnpj-group span").removeClass("glyphicon-remove");
-
+		input.validado(cnpjGroup, cnpjGroupIcon);
 	} else {
-		$("#cnpj-group").addClass("has-error");
-		$("#cnpj-group").removeClass("has-success");
-
-		$("#cnpj-group span").removeClass("glyphicon-ok");
-		$("#cnpj-group span").addClass("glyphicon-remove");
+		input.invalidado(cnpjGroup, cnpjGroupIcon);
 	}
 }
 
-
-var validarCNPJVazio = function(){
+var validarCNPJVazio = function() {
 	$('#cnpj').focusout(function() {
 		if ($('#cnpj').val() == '') {
-			$("#cnpj-group").removeClass("has-success");
-			$("#cnpj-group").addClass("has-error");
-
-			$("#cnpj-group span").removeClass("glyphicon-ok");
-			$("#cnpj-group span").addClass("glyphicon-remove");
+			input.invalidado(cnpjGroup, cnpjGroupIcon);
 		}
-	});	
+	});
 }
 
-
-var validarNomeFantasiaVazio = function(){
+var validarNomeFantasiaVazio = function() {
 	$('#nomeFantasia').keypress(function() {
-		
+
 		if ($('#nomeFantasia').val().length > 0) {
-			$("#nomeFantasia-group").addClass("has-success has-feedback");
-			$("#nomeFantasia-group").removeClass("has-error");
-
-			$("#nomeFantasia-group span").addClass("glyphicon-ok");
-			$("#nomeFantasia-group span").removeClass("glyphicon-remove");
-
+			input.validado(nomeFantasiaGroup, nomeFantasiaIcon);
 		} else {
-			$("#nomeFantasia-group").removeClass("has-success");
-			$("#nomeFantasia-group").addClass("has-error");
-
-			$("#nomeFantasia-group span").removeClass("glyphicon-ok");
-			$("#nomeFantasia-group span").addClass("glyphicon-remove");
+			input.invalidado(nomeFantasiaGroup, nomeFantasiaIcon);
 		}
-	});		
-	
-	
+	});
+
 	$('#nomeFantasia').focusout(function() {
 		$('#nomeFantasia').val($.trim($('#nomeFantasia').val()));
-		
-		if ($('#nomeFantasia').val() == '') {
-			$("#nomeFantasia-group").removeClass("has-success");
-			$("#nomeFantasia-group").addClass("has-error");
 
-			$("#nomeFantasia-group span").removeClass("glyphicon-ok");
-			$("#nomeFantasia-group span").addClass("glyphicon-remove");
+		if ($('#nomeFantasia').val() == '') {
+			input.invalidado(nomeFantasiaGroup, nomeFantasiaIcon);
 		}
-	});	
+	});
 }
 
+var validarCPFTempoReal = function() {
+	$('#divSocios').on('focusout', '.cpf', function() {
+		var cpf = $(this);
+		var cpfGroup = cpf.parents('.cpf-group');
+		var cpfGroupIcon = cpf.parents('.cpf-group').find('span');
+		var nomeSocio = cpf.parents('.socio-group').find('.nome-socio');
 
-var validarCPFTempoReal = function(){
-	$('#divSocios').on('keypress', '.cpf', function(){		
-		if(validarCpf($(this).val())){
-			
-			$(this).parents('.cpf-group').addClass('has-success');
-			$(this).parents('.cpf-group').removeClass('has-error');
-			
-			$(this).parents('.cpf-group').find('span').addClass('glyphicon-ok');
-			$(this).parents('.cpf-group').find('span').removeClass('glyphicon-remove');
-			
-			if (verificaCPFTodosSocios()){					
+		if (validarCpf(cpf.val()) && (nomeSocio.val().length > 0)) {
+			input.validado(cpfGroup, cpfGroupIcon);
+
+			if (verificaCPFTodosSocios()) {
 				botaoSubmit.habilitar();
-			}
-			else
+			} else {
 				botaoSubmit.desabilitar();
-		}
-		else{	
+			}
+		} else {
 			botaoSubmit.desabilitar();
-			$(this).parents('.cpf-group').removeClass('has-success');
-			$(this).parents('.cpf-group').addClass('has-error');
-			
-			$(this).parents('.cpf-group').find('span').removeClass('glyphicon-ok');
-			$(this).parents('.cpf-group').find('span').addClass('glyphicon-remove');			
+			input.invalidado(cpfGroup, cpfGroupIcon);
 		}
 	});
-}	
+}
 
+var validarNomeSocioTempoReal = function() {
+	$('#divSocios').on('focusout', '.nome-socio', function() {
+		var nomeSocio = $(this);
+		var nomeSocioIcon = $(this).find('span');
+		var cpfSocio = $(this).parents('.socio-group').find('.cpf');
 
-var validarNomeSocioTempoReal = function(){
-	$('#divSocios').on('focusout', '.cpf', function(){
-		if (($(this).parents('.socio-group').find('.nome-socio').length <= 0) && ($(this).length > 0)){
-		
+		if ((nomeSocio.length <= 0) && (cpfSocio.length > 0)) {
 			botaoSubmit.desabilitar();
-			
-			$(this).parents('.socio-group').find('.nome-socio').removeClass('has-success');
-			$(this).parents('.socio-group').find('.nome-socio').addClass('has-error');
-			
-			$(this).parents('.socio-group').find('.nome-socio').find('span').removeClass('glyphicon-ok');
-			$(this).parents('.socio-group').find('.nome-socio').find('span').addClass('glyphicon-remove');
-			
-			
-		}else{
-			
+			input.invalidado(nomeSocio, nomeSocioIcon);
+		} else {
+
 			botaoSubmit.habilitar();
-				
-			$(this).parents('.socio-group').find('.nome-socio').removeClass('has-success');
-			$(this).parents('.socio-group').find('.nome-socio').addClass('has-error');
-				
-			$(this).parents('.socio-group').find('.nome-socio').find('span').addClass('glyphicon-ok');
-			$(this).parents('.socio-group').find('.nome-socio').find('span').removeClass('glyphicon-remove');
+			input.validado(nomeSocio, nomeSocioIcon);
 		}
 	});
-}	
+}
 
-var colocaMascaraCNPJ = function(){
+var colocaMascaraCNPJ = function() {
 	$('#cnpj').mask('00.000.000/0000-00', {
 		onKeyPress : function() {
 			validarCNPJTempoReal($('#cnpj').val());
 		}
-	});		
+	});
 }
 
-
-var colocaMascaraCPF = function(){
-	$('.cpf').mask('000.000.000-00');	
+var colocaMascaraCPF = function() {
+	$('.cpf').mask('000.000.000-00');
 }
 
-
-var colocaMascaraCEP = function(){
-	$('#cep').mask('00000-000');	
+var colocaMascaraCEP = function() {
+	$('#cep').mask('00000-000');
 }
 
-
-var colocaMascaraNumero = function(){
+var colocaMascaraNumero = function() {
 	$('#numero').mask('00000000000');
 }
 
-var colocarMascaraDatas = function(){
-	$('.date').each(function(){
+var colocarMascaraDatas = function() {
+	$('.date').each(function() {
 		$(this).mask('00/00/0000');
 	});
 }
 
-
-var removeSocio = function(){
-	$('#divSocios').on('click', '.close', function(){
+var removeSocio = function() {
+	$('#divSocios').on('click', '.close', function() {
 		$(this).parents('.list-group-item').remove();
-		if(verificaCPFTodosSocios()){
+		if (verificaCPFTodosSocios()) {
 			botaoSubmit.habilitar();
-		}
-		else{
+		} else {
 			botaoSubmit.desabilitar();
 		}
-			
-	});	
+
+	});
 }
 
 var botaoSubmit = {
-	habilitar: function(){
+	habilitar : function() {
 		$("#btn-submit").prop('disabled', false);
-		$(".msg-alert").hide();	
+		$("#form-alert").hide();
 	},
-	desabilitar: function(){
+	desabilitar : function() {
 		$("#btn-submit").prop('disabled', true);
-		$(".msg-alert").show();			
+		$("#form-alert").show();
 	}
 }
 
-var validarTamanhoPdf = function(){
-	$('#file').change(function(){
+var input = {
+	validado : function(input, icon) {
+		input.addClass("has-success has-feedback");
+		input.removeClass("has-error");
+
+		icon.addClass("glyphicon-ok");
+		icon.removeClass("glyphicon-remove");
+	},
+	invalidado : function(input, icon) {
+		input.addClass("has-error");
+		input.removeClass("has-success");
+
+		icon.removeClass("glyphicon-ok");
+		icon.addClass("glyphicon-remove");
+	}
+}
+
+var validarTamanhoPdf = function() {
+	$('#file').change(function() {
 		var arquivo = document.getElementById("file");
-	    if (arquivo.files[0].size > 5000000) {
-	    	botaoSubmit.desabilitar();
-	    } else {
-	        botaoSubmit.habilitar();
-	    }
+		if (arquivo.files[0].size > 5000000) {
+			botaoSubmit.desabilitar();
+			$('#file-alert').show();
+		} else {
+			botaoSubmit.habilitar();
+			$('#file-alert').hide();
+		}
 	});
 }
-	
-$(document).ready(function() {	
+
+$(document).ready(function() {
 	validarCNPJVazio();
 	validarNomeFantasiaVazio();
 	colocaMascaraCNPJ();
@@ -195,5 +168,5 @@ $(document).ready(function() {
 	validarNomeSocioTempoReal();
 	removeSocio();
 	validarTamanhoPdf();
-	
+
 });

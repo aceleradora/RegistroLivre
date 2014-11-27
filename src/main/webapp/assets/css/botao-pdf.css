@@ -3,7 +3,7 @@
 /* you simply need to change the color of the background of each div - these are at the bottom of the css */
 
 .icon {
-  background: none repeat scroll 0 0 #000;
+  background: url("PDF_icon.png") repeat scroll 0 0 #000;
   border-radius: 6px;
   color: #fff;
   cursor: pointer;

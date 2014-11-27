@@ -155,7 +155,7 @@ function verificaCPFTodosSocios() {
 
 	if (correto) {
 		return true;
-	} else
+	} else {
 		return false;
-
+	}
 }

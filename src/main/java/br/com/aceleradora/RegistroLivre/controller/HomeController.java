@@ -22,7 +22,6 @@ public class HomeController {
 
 	@Get("/")
 	public void home() {
-		System.out.println(daoEmpresa.pesquisaPorCnpj("61.304.622/0001-06"));
 	}
 
 	public List<Empresa> buscaPorCnpj(String cnpj) {

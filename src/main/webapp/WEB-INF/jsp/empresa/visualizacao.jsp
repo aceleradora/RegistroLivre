@@ -14,28 +14,7 @@
 
 </head>
 <body>
-
-	<nav class="navbar navbar-default" role="navigation">
-	<div class="container-fluid">
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle collapsed"
-				data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-				<span class="sr-only">Toggle navigation</span> <span
-					class="icon-bar"></span> <span class="icon-bar"></span> <span
-					class="icon-bar"></span>
-			</button>
-			<a class="navbar-brand" href="/">Home</a>
-		</div>
-		<div class="collapse navbar-collapse"
-			id="bs-example-navbar-collapse-1">
-			<ul class="nav navbar-nav btn-borders-navbar">
-				<li><a href="../cadastro">Cadastrar Empresa</a></li>
-				<li><a href="../visualizacao/0">Visualizar Empresa</a></li>
-				<li><a href="../listagem">Listar Empresas</a></li>
-			</ul>
-		</div>
-	</div>
-	</nav>
+	<jsp:include page="/WEB-INF/jsp/includes/cabecalho.jsp" />
 
 	<div class="container">
 		<div class="row">
@@ -69,9 +48,10 @@
 									<dd>${empresa.razaoSocial}</dd>
 								</dl>
 							</div>
-						
-							<div class="col-lg-4 col-md-4 col-sm-3 col-xs-3">
-								<a href="${empresa.url}" download="${empresa.cnpj }"><div class="icon pdf">PDF</div></a>
+
+							  
+							<div class="col-lg-4 col-md-4 col-sm-2 col-xs-3">
+								<a href="${empresa.url}" download="${empresa.cnpj }"><img style="float:right; margin-right:12%; width:50%;" src="../assets/img/PDF_icon.png"><label style="float: right; font-size:95%;">Download de PDF</label></img></a>
 							</div>
 
 						</div>
@@ -118,7 +98,6 @@
 						<c:forEach items="${empresa.socios}" var="socio">
 							<dl>
 							
-								<dt>Sócio:</dt>
 								<dd>Nome: </dd>
 								<dd>${socio.nome}</dd>
 								<dd>CPF:</dd>

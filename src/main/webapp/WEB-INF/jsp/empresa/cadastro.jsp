@@ -5,6 +5,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+	<meta charset="UTF-8" />
 	<title>Cadastro de Empresa</title>
 	<link href="/assets/css/bootstrap/css/bootstrap.css" rel="stylesheet">
 	<link href="/assets/css/main.css" rel="stylesheet">
@@ -12,28 +13,7 @@
 	<script src="/assets/js/adiciona-socios.js"></script>
 </head>
 	<body>
-		<nav class="navbar navbar-default" role="navigation">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed"
-					data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-					<span class="sr-only">Toggle navigation</span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="/">Home</a>
-			</div>
-			<div class="collapse navbar-collapse"
-				id="bs-example-navbar-collapse-1">
-				<ul class="nav navbar-nav btn-borders-navbar">
-					<li><a href="cadastro">Cadastrar Empresa</a></li>
-					<li><a href="visualizacao/0">Visualizar Empresa</a></li>
-					<li><a href="listagem">Listar Empresas</a></li>
-				</ul>
-			</div>
-		</div>
-		</nav>	
-	
+	<jsp:include page="/WEB-INF/jsp/includes/cabecalho.jsp" />
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6 col-md-6 col-lg-offset-3 col-md-offset-3">
@@ -80,13 +60,13 @@
 							
 								<div class="form-group has-feedback" id="nomeFantasia-group">
 									<label class="control-label">Nome fantasia  <abbr title="Preenchimento obrigatório">*</abbr> </label>
-									<input class="form-control" type="text" name="empresa.nomeFantasia" id="nomeFantasia" value="${empresa.nomeFantasia}" placeholder="ex: Jaffari" required/>
+									<input class="form-control" type="text" name="empresa.nomeFantasia" id="nomeFantasia" value="${empresa.nomeFantasia}" placeholder="ex: Larah Instrumentos Musicais" required/>
 									<span class="glyphicon form-control-feedback"></span>
 								</div>
 							
 								<div class="form-group">
 									<label class="control-label">Razão Social</label>
-									<input class="form-control" type="text" name="empresa.razaoSocial"placeholder="ex: Cia Jaffari Comércio e Indústria LTDA" value="${empresa.razaoSocial}"/>
+									<input class="form-control" type="text" name="empresa.razaoSocial"placeholder="ex: Cia Larah Instrumentos Musicais LTDA" value="${empresa.razaoSocial}"/>
 								</div>
 							
 								<div class="row">
@@ -150,7 +130,7 @@
 								</div>
 									
 								<div class="form-group">
-									<label class="control-label">Upload de arquivo:</label>
+									<label class="control-label">Upload de arquivo <abbr title="Preenchimento obrigatório">*</abbr></label>
 									<c:choose>
 										<c:when test="${editar != null}">
 											<input name="empresa.url" type="text" value="${empresa.url}" hidden/>
@@ -162,7 +142,7 @@
 											<input id="file" class="form-group" type="file" name="arquivo" required/>
 										</c:otherwise>
 									</c:choose>										
-									<span class="msg-alert color-red">Tamanho máximo do arquivo: 5MB.</span>
+									<span class="msg-alert color-red" id="file-alert">Tamanho máximo do arquivo: 5MB.</span>
 								</div>		
 								
 
@@ -184,7 +164,7 @@
 							</div> <!-- panel-body -->
 							
 							<div class="panel-footer">									
-								<span class="pull-left msg-alert color-red margin-15-0">Preencha os campos corretamente para enviar.</span>
+								<span class="pull-left msg-alert color-red margin-15-0" id="form-alert">Preencha os campos corretamente para enviar.</span>
 								<input type="submit" id="btn-submit" class="btn btn-lg btn-primary pull-right margin-0-6" value="Enviar"/>
 								<input type="reset" value="Limpar" class="btn btn-default btn-lg pull-right margin-0-6"/>
 								<div style="clear:both"></div>
