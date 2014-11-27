@@ -24,7 +24,6 @@ public class EmpresaController {
 	private Validator validator;
 
 	public EmpresaController(EmpresaDAO dao, Result result, Validator validator) {
-		System.out.println("Controller");
 		this.daoEmpresa = dao;
 		this.result = result;
 		this.validator = validator;
@@ -54,7 +53,6 @@ public class EmpresaController {
 
 	@Post("/empresa/cadastrar/")
 	public void cadastrar(final Empresa empresa, final UploadedFile arquivo) {
-		empresa.setSocios(Validador.retiraSociosNulos(empresa.getSocios()));
 		validator.checking(new Validations() {
 			{
 				that(Validador.verificaCnpj(empresa.getCnpj()), "empresa.cnpj",
@@ -97,7 +95,6 @@ public class EmpresaController {
 	}
 	
 	public void atualizar(final Empresa empresa) {
-		empresa.setSocios(Validador.retiraSociosNulos(empresa.getSocios()));
 		validator.checking(new Validations() {
 			{
 				that(Validador.verificaCnpj(empresa.getCnpj()), "empresa.cnpj",
@@ -120,7 +117,6 @@ public class EmpresaController {
 	}
 
 	public void atualizar(final Empresa empresa, final UploadedFile arquivo){
-		empresa.setSocios(Validador.retiraSociosNulos(empresa.getSocios()));
 		validator.checking(new Validations() {
 			{
 				that(Validador.verificaCnpj(empresa.getCnpj()), "empresa.cnpj",

@@ -5,6 +5,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+	<meta charset="UTF-8" />
 	<title>Cadastro de Empresa</title>
 	<link href="/assets/css/bootstrap/css/bootstrap.css" rel="stylesheet">
 	<link href="/assets/css/main.css" rel="stylesheet">
@@ -162,7 +163,7 @@
 											<input id="file" class="form-group" type="file" name="arquivo" required/>
 										</c:otherwise>
 									</c:choose>										
-									<span class="msg-alert color-red">Tamanho máximo do arquivo: 5MB.</span>
+									<span class="msg-alert color-red" id="file-alert">Tamanho máximo do arquivo: 5MB.</span>
 								</div>		
 								
 
@@ -184,7 +185,7 @@
 							</div> <!-- panel-body -->
 							
 							<div class="panel-footer">									
-								<span class="pull-left msg-alert color-red margin-15-0">Preencha os campos corretamente para enviar.</span>
+								<span class="pull-left msg-alert color-red margin-15-0" id="form-alert">Preencha os campos corretamente para enviar.</span>
 								<input type="submit" id="btn-submit" class="btn btn-lg btn-primary pull-right margin-0-6" value="Enviar"/>
 								<input type="reset" value="Limpar" class="btn btn-default btn-lg pull-right margin-0-6"/>
 								<div style="clear:both"></div>
