@@ -80,13 +80,13 @@
 							
 								<div class="form-group has-feedback" id="nomeFantasia-group">
 									<label class="control-label">Nome fantasia  <abbr title="Preenchimento obrigatório">*</abbr> </label>
-									<input class="form-control" type="text" name="empresa.nomeFantasia" id="nomeFantasia" value="${empresa.nomeFantasia}" placeholder="ex: Jaffari" required/>
+									<input class="form-control" type="text" name="empresa.nomeFantasia" id="nomeFantasia" value="${empresa.nomeFantasia}" placeholder="ex: Larah Instrumentos Musicais" required/>
 									<span class="glyphicon form-control-feedback"></span>
 								</div>
 							
 								<div class="form-group">
 									<label class="control-label">Razão Social</label>
-									<input class="form-control" type="text" name="empresa.razaoSocial"placeholder="ex: Cia Jaffari Comércio e Indústria LTDA" value="${empresa.razaoSocial}"/>
+									<input class="form-control" type="text" name="empresa.razaoSocial"placeholder="ex: Cia Larah Instrumentos Musicais LTDA" value="${empresa.razaoSocial}"/>
 								</div>
 							
 								<div class="row">
