@@ -41,7 +41,10 @@ public class Empresa extends Entidade {
 	public Empresa() {
 		socios = new ArrayList<Socio>();
 		sdfIn = new SimpleDateFormat("dd/MM/yyyy");
+		sdfIn.setLenient(false);
+		
 		sdfOut = new SimpleDateFormat("dd/MM/yyyy");
+		sdfOut.setLenient(false);
 	}
 
 	public String getCnpj() {
@@ -101,8 +104,8 @@ public class Empresa extends Entidade {
 	}
 
 	public void setDataEmissaoDocumento(String dataEmissaoDocumento) {
-		try {
-			this.dataEmissaoDocumento = sdfIn.parse(dataEmissaoDocumento);
+		try {						
+			this.dataEmissaoDocumento = sdfIn.parse(dataEmissaoDocumento);			
 		} catch (Exception e) {
 			this.dataEmissaoDocumento = null;
 		}
