@@ -120,25 +120,6 @@ public class ValidadorTest {
 	}
 
 	
-	@Test
-	public void retornaUmaListaComDoisObjetosQuandoMandarUmaListaDeSociosComDoisObjetosValidosETresNulos(){
-		List<Socio> socios = new ArrayList<Socio>();
-		Socio pessoa = new Socio("nome", "071.549.456-21", true);	
-		Socio pessoa2 = new Socio(null, null, true);
-		Socio pessoa3 = new Socio ("nome", "848.817.120-04", true);
-		Socio pessoa4 = new Socio(null, null, true);
-		Socio pessoa5 = new Socio(null, null, true);
-		
-		socios.add(pessoa);
-		socios.add(pessoa2);
-		socios.add(pessoa3);
-		socios.add(pessoa4);
-		socios.add(pessoa5);
-
-		List<Socio> result = Validador.retiraSociosNulos(socios);
-				
-		assertEquals(result.size(), 2);
-	}
 
 	@Test
 	public void retornaVerdadeSeONumeroDoEnderecoForNumero(){
