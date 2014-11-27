@@ -11,15 +11,15 @@ import com.cloudinary.Cloudinary;
 import com.cloudinary.SingletonManager;
 
 public class Arquivo {
-	
-	private static String cloudName = System.getenv("CLOUD_NAME");
-	private static String apiKey = System.getenv("API_KEY");
-	private static String apiSecret = System.getenv("API_SECRET");
-	
-	private static Cloudinary cloudinary = new Cloudinary(Cloudinary.asMap("cloud_name",
-			cloudName, "api_key", apiKey, "api_secret", apiSecret));
-	
-	public static File inputStreamParaFile(InputStream inputStream, String nome) {
+
+	private File arquivo;
+	private String urlArquivo;
+
+	public Arquivo(InputStream inputStream, String nome) {
+		inputStreamParaFile(inputStream, nome);
+	}
+
+	private void inputStreamParaFile(InputStream inputStream, String nome) {
 		try {
 			File arquivo = new File("/tmp/" + nome.replaceAll("[.\\-/]", "")
 					+ ".pdf");
@@ -32,58 +32,31 @@ public class Arquivo {
 				outputStream.write(bytes, 0, read);
 			}
 			outputStream.close();
-			return arquivo;
+			this.arquivo = arquivo;
 		} catch (IOException e) {
-			return null;
-		}
-	}
-
-	public static String uploadReturnUrl(File file){
-		SingletonManager manager = new SingletonManager();
-		manager.setCloudinary(cloudinary);
-		manager.init();
-
-		try {
-			cloudinary.uploader().upload(file, Cloudinary.emptyMap());
-			
-			Map uploadResult = cloudinary.uploader().upload(file,
-					Cloudinary.emptyMap());
-
-			String url = (String) uploadResult.get("url");
-			return url;
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-			return null;
-		}
-
-	}
-	
-	public static String atualiza(String urlAntiga, File novoArquivo){
-		String idArquivo = getIdArquivo(urlAntiga);
-		String urlArquivoNovo;
-		
-		excluir(idArquivo);
-		urlArquivoNovo = Arquivo.uploadReturnUrl(novoArquivo);
-		
-		return urlArquivoNovo;
-	}
-	
-	private static String getIdArquivo(String url){
-		String [] urlCortada = url.split("/");
-		return urlCortada[urlCortada.length - 1].replace(".pdf", "");
-	}
-	
-	private static void excluir(String idArquivo){
-		SingletonManager manager = new SingletonManager();
-		manager.setCloudinary(cloudinary);
-		manager.init();
-		try {
-			
-			cloudinary.api().deleteResourcesByPrefix(getIdArquivo(idArquivo), Cloudinary.emptyMap());			
-			
-		} catch (Exception e) {
-			System.out.println("Erro ao deletar arquivo no cloudinary: " + e.getMessage());
+			System.out.println("Erro ao criar arquivo: " + e.getMessage());
 			e.printStackTrace();
 		}
-	}	
+	}
+
+	public String getIdArquivo(String url) {
+		String[] urlCortada = url.split("/");
+		return urlCortada[urlCortada.length - 1].replace(".pdf", "");
+	}
+
+	public File getArquivo() {
+		return arquivo;
+	}
+
+	public String getUrlArquivo() {
+		return this.urlArquivo;
+	}
+
+	public void setArquivo(File arquivo) {
+		this.arquivo = arquivo;
+	}
+
+	public void setUrlArquivo(String urlArquivo) {
+		this.urlArquivo = urlArquivo;
+	}
 }

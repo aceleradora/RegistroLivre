@@ -8,6 +8,7 @@ import br.com.aceleradora.RegistroLivre.dao.EmpresaDAO;
 import br.com.aceleradora.RegistroLivre.model.Empresa;
 import br.com.aceleradora.RegistroLivre.model.Validador;
 import br.com.aceleradora.RegistroLivre.util.Arquivo;
+import br.com.aceleradora.RegistroLivre.util.ClienteCloudinary;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;
@@ -73,27 +74,27 @@ public class EmpresaController {
 		});
 		validator.onErrorUsePageOf(this).cadastro();
 
-		try {
-			File arquivoParaUpload = Arquivo.inputStreamParaFile(
-					arquivo.getFile(), empresa.getCnpj());
+		Arquivo arquivoParaUpload = new Arquivo(arquivo.getFile(),
+				empresa.getCnpj());
+		ClienteCloudinary clienteCloudinary = new ClienteCloudinary(
+				arquivoParaUpload);
 
-			String url = Arquivo.uploadReturnUrl(arquivoParaUpload);
-
-			empresa.setUrl(url);
-
+		if (clienteCloudinary.upload()) {
+			empresa.setUrl(clienteCloudinary.getArquivo().getUrlArquivo());
 			daoEmpresa.adiciona(empresa);
 			result.include("mensagem", "Cadastro realizado com sucesso!");
 			result.redirectTo(this).visualizacao(empresa);
-		} catch (Exception e) {
-			System.out.println(e.getMessage());			
+		} else {
+
 			ArrayList<String> listaErros = new ArrayList<String>();
 			listaErros.add("Erro ao cadastrar, por favor tente novamente!");
 
 			result.include(listaErros);
 			result.redirectTo(this).cadastro();
 		}
+
 	}
-	
+
 	public void atualizar(final Empresa empresa) {
 		validator.checking(new Validations() {
 			{
@@ -116,7 +117,7 @@ public class EmpresaController {
 		result.redirectTo(this).visualizacao(empresa);
 	}
 
-	public void atualizar(final Empresa empresa, final UploadedFile arquivo){
+	public void atualizar(final Empresa empresa, final UploadedFile arquivo) {
 		validator.checking(new Validations() {
 			{
 				that(Validador.verificaCnpj(empresa.getCnpj()), "empresa.cnpj",
@@ -133,23 +134,33 @@ public class EmpresaController {
 			}
 		});
 		validator.onErrorUsePageOf(this).cadastro();
-			
-		File novoArquivo = Arquivo.inputStreamParaFile(arquivo.getFile(), empresa.getCnpj());
-		String url = Arquivo.atualiza(empresa.getUrl(), novoArquivo);
-		
-		empresa.setUrl(url);
-		
-		daoEmpresa.atualiza(empresa);
-		result.include("mensagem", "Atualização realizada com sucesso!");
-		result.redirectTo(this).visualizacao(empresa);
-	}	
-	
+
+		Arquivo arquivoParaUpload = new Arquivo(arquivo.getFile(),
+				empresa.getCnpj());
+
+		ClienteCloudinary clienteCloudinary = new ClienteCloudinary(
+				arquivoParaUpload);
+
+		if (clienteCloudinary.atualiza(empresa.getUrl())) {
+			empresa.setUrl(clienteCloudinary.getArquivo().getUrlArquivo());
+			daoEmpresa.atualiza(empresa);
+			result.include("mensagem", "Atualização realizada com sucesso!");
+			result.redirectTo(this).visualizacao(empresa);
+		} else {
+			ArrayList<String> listaErros = new ArrayList<String>();
+			listaErros.add("Erro ao atualizar, por favor tente novamente!");
+
+			result.include(listaErros);
+			result.redirectTo(this).cadastro();
+		}
+	}
+
 	@Post("/empresa/cadastrar/{empresa.id}")
-	public void atualizaTeste(Empresa empresa, UploadedFile arquivo){
-		if (arquivo != null){
+	public void atualizaTeste(Empresa empresa, UploadedFile arquivo) {
+		if (arquivo != null) {
 			atualizar(empresa, arquivo);
 		} else {
 			atualizar(empresa);
 		}
-	}	
+	}
 }
