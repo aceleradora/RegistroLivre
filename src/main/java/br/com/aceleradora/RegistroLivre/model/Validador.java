@@ -37,17 +37,7 @@ public class Validador {
 
 		String cpfSemCaracteresEspeciais = cpf.replaceAll("[.-]", "");
 
-		if (cpfSemCaracteresEspeciais.equals("00000000000")
-				|| cpfSemCaracteresEspeciais.equals("11111111111")
-				|| cpfSemCaracteresEspeciais.equals("22222222222")
-				|| cpfSemCaracteresEspeciais.equals("33333333333")
-				|| cpfSemCaracteresEspeciais.equals("44444444444")
-				|| cpfSemCaracteresEspeciais.equals("55555555555")
-				|| cpfSemCaracteresEspeciais.equals("66666666666")
-				|| cpfSemCaracteresEspeciais.equals("77777777777")
-				|| cpfSemCaracteresEspeciais.equals("88888888888")
-				|| cpfSemCaracteresEspeciais.equals("99999999999")
-				|| (cpfSemCaracteresEspeciais.length() != 11)) {
+		if ((verificaNumerosIguaisCpf(cpfSemCaracteresEspeciais)) == 11){
 			return false;
 		}
 
@@ -109,14 +99,11 @@ public class Validador {
 			return false;
 		}
 
-		if (cnpj == "00000000000000" || cnpj == "11111111111111"
-				|| cnpj == "22222222222222" || cnpj == "33333333333333"
-				|| cnpj == "44444444444444" || cnpj == "55555555555555"
-				|| cnpj == "66666666666666" || cnpj == "77777777777777"
-				|| cnpj == "88888888888888" || cnpj == "99999999999999") {
+		
+		if ((verificaNumerosIguaisCnpj(cnpj))==14){
 			return false;
 		}
-
+		
 		int tamanho = cnpj.length() - 2;
 		String numeros = cnpj.substring(0, tamanho);
 		String digitos = cnpj.substring(tamanho);
@@ -192,5 +179,25 @@ public class Validador {
 		}
 
 		return true;
+	}
+	
+	public static int verificaNumerosIguaisCnpj(String cnpj){
+		int quantidadeDeNumerosIguaisCnpj = 1;
+		for (int i=0; i < cnpj.length()-1; i++){
+			if (cnpj.charAt(i) == cnpj.charAt(i+1)){
+				quantidadeDeNumerosIguaisCnpj++;
+			}
+		}
+		return quantidadeDeNumerosIguaisCnpj;
+	}
+	
+	public static int verificaNumerosIguaisCpf(String cpf){
+		int quantidadeDeNumerosIguaisCpf = 1;
+		for (int i=0; i < cpf.length()-1; i++){
+			if (cpf.charAt(i) == cpf.charAt(i+1)){
+				quantidadeDeNumerosIguaisCpf++;
+			}
+		}
+		return quantidadeDeNumerosIguaisCpf;
 	}
 }
