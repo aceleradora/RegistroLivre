@@ -65,7 +65,7 @@ var validarNomeFantasiaVazio = function(){
 
 
 var validarCPFTempoReal = function(){
-	$('#divSocios').on('focusout', '.cpf', function(){		
+	$('#divSocios').on('keypress', '.cpf', function(){		
 		if(validarCpf($(this).val())){
 			
 			$(this).parents('.cpf-group').addClass('has-success');
