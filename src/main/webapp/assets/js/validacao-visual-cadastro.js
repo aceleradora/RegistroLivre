@@ -3,7 +3,7 @@ var cnpjGroupIcon = $("#cnpj-group span");
 var nomeFantasiaGroup = $("#nomeFantasia-group");
 var nomeFantasiaIcon = $("#nomeFantasia-group span");
 
-var validarCNPJTempoReal= function (cnpj) {
+var validarCNPJTempoReal = function(cnpj) {
 	if (validarCNPJ(cnpj)) {
 		input.validado(cnpjGroup, cnpjGroupIcon);
 	} else {
@@ -11,130 +11,118 @@ var validarCNPJTempoReal= function (cnpj) {
 	}
 }
 
-
-var validarCNPJVazio = function(){
+var validarCNPJVazio = function() {
 	$('#cnpj').focusout(function() {
 		if ($('#cnpj').val() == '') {
 			input.invalidado(cnpjGroup, cnpjGroupIcon);
 		}
-	});	
+	});
 }
 
-
-var validarNomeFantasiaVazio = function(){
+var validarNomeFantasiaVazio = function() {
 	$('#nomeFantasia').keypress(function() {
-		
+
 		if ($('#nomeFantasia').val().length > 0) {
 			input.validado(nomeFantasiaGroup, nomeFantasiaIcon);
 		} else {
 			input.invalidado(nomeFantasiaGroup, nomeFantasiaIcon);
 		}
-	});		
-	
-	
+	});
+
 	$('#nomeFantasia').focusout(function() {
 		$('#nomeFantasia').val($.trim($('#nomeFantasia').val()));
-		
+
 		if ($('#nomeFantasia').val() == '') {
 			input.invalidado(nomeFantasiaGroup, nomeFantasiaIcon);
 		}
-	});	
+	});
 }
 
-
-var validarCPFTempoReal = function(){
-	$('#divSocios').on('focusout', '.cpf', function(){		
+var validarCPFTempoReal = function() {
+	$('#divSocios').on('focusout', '.cpf', function() {
 		var cpf = $(this);
 		var cpfGroup = cpf.parents('.cpf-group');
 		var cpfGroupIcon = cpf.parents('.cpf-group').find('span');
 		var nomeSocio = cpf.parents('.socio-group').find('.nome-socio');
-		
-		if(validarCpf(cpf.val()) && (nomeSocio.val().length > 0)){
+
+		if (validarCpf(cpf.val()) && (nomeSocio.val().length > 0)) {
 			input.validado(cpfGroup, cpfGroupIcon);
 
-			if (verificaCPFTodosSocios()){					
+			if (verificaCPFTodosSocios()) {
 				botaoSubmit.habilitar();
-			}
-			else{
+			} else {
 				botaoSubmit.desabilitar();
 			}
-		}
-		else{	
+		} else {
 			botaoSubmit.desabilitar();
-			input.invalidado(cpfGroup, cpfGroupIcon);			
+			input.invalidado(cpfGroup, cpfGroupIcon);
 		}
 	});
-}	
+}
 
-
-var validarNomeSocioTempoReal = function(){
-	$('#divSocios').on('focusout', '.nome-socio', function(){
+var validarNomeSocioTempoReal = function() {
+	$('#divSocios').on('focusout', '.nome-socio', function() {
 		var nomeSocio = $(this);
 		var nomeSocioIcon = $(this).find('span');
 		var cpfSocio = $(this).parents('.socio-group').find('.cpf');
-		
-		if ((nomeSocio.length <= 0) && (cpfSocio.length > 0)){
+
+		if ((nomeSocio.length <= 0) && (cpfSocio.length > 0)) {
 			botaoSubmit.desabilitar();
 			input.invalidado(nomeSocio, nomeSocioIcon);
-		}else{
-			
+		} else {
+
 			botaoSubmit.habilitar();
 			input.validado(nomeSocio, nomeSocioIcon);
 		}
 	});
-}	
+}
 
-var colocaMascaraCNPJ = function(){
+var colocaMascaraCNPJ = function() {
 	$('#cnpj').mask('00.000.000/0000-00', {
 		onKeyPress : function() {
 			validarCNPJTempoReal($('#cnpj').val());
 		}
-	});		
+	});
 }
 
-
-var colocaMascaraCPF = function(){
-	$('.cpf').mask('000.000.000-00');	
+var colocaMascaraCPF = function() {
+	$('.cpf').mask('000.000.000-00');
 }
 
-
-var colocaMascaraCEP = function(){
-	$('#cep').mask('00000-000');	
+var colocaMascaraCEP = function() {
+	$('#cep').mask('00000-000');
 }
 
-
-var colocaMascaraNumero = function(){
+var colocaMascaraNumero = function() {
 	$('#numero').mask('00000000000');
 }
 
-var colocarMascaraDatas = function(){
-	$('.date').each(function(){
+var colocarMascaraDatas = function() {
+	$('.date').each(function() {
 		$(this).mask('00/00/0000');
 	});
 }
 
-
-var removeSocio = function(){
-	$('#divSocios').on('click', '.close', function(){
+var removeSocio = function() {
+	$('#divSocios').on('click', '.close', function() {
 		$(this).parents('.list-group-item').remove();
-		if(verificaCPFTodosSocios()){
+		if (verificaCPFTodosSocios()) {
 			botaoSubmit.habilitar();
-		}
-		else{
+		} else {
 			botaoSubmit.desabilitar();
 		}
-			
-	});	
+
+	});
 }
 
 var botaoSubmit = {
-	habilitar: function(){
+	habilitar : function() {
 		$("#btn-submit").prop('disabled', false);
-		$("#form-alert").hide();	
+		$("#form-alert").hide();
 	},
-	desabilitar: function(){
+	desabilitar : function() {
 		$("#btn-submit").prop('disabled', true);
-		$("#form-alert").show();			
+		$("#form-alert").show();
 	}
 }
 
@@ -155,20 +143,20 @@ var input = {
 	}
 }
 
-var validarTamanhoPdf = function(){
-	$('#file').change(function(){
+var validarTamanhoPdf = function() {
+	$('#file').change(function() {
 		var arquivo = document.getElementById("file");
-	    if (arquivo.files[0].size > 5000000) {
-	    	botaoSubmit.desabilitar();
-	    	$('#file-alert').show();
-	    } else {
-	        botaoSubmit.habilitar();
-	        $('#file-alert').hide();
-	    }
+		if (arquivo.files[0].size > 5000000) {
+			botaoSubmit.desabilitar();
+			$('#file-alert').show();
+		} else {
+			botaoSubmit.habilitar();
+			$('#file-alert').hide();
+		}
 	});
 }
-	
-$(document).ready(function() {	
+
+$(document).ready(function() {
 	validarCNPJVazio();
 	validarNomeFantasiaVazio();
 	colocaMascaraCNPJ();
@@ -180,5 +168,5 @@ $(document).ready(function() {
 	validarNomeSocioTempoReal();
 	removeSocio();
 	validarTamanhoPdf();
-	
+
 });
