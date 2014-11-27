@@ -21,8 +21,7 @@ public class Arquivo {
 
 	private void inputStreamParaFile(InputStream inputStream, String nome) {
 		try {
-			File arquivo = new File("/tmp/" + nome.replaceAll("[.\\-/]", "")
-					+ ".pdf");
+			File arquivo = new File("/tmp/" + nome.replaceAll("[.\\-/]", ""));
 			OutputStream outputStream = new FileOutputStream(arquivo);
 
 			int read = 0;
@@ -37,11 +36,6 @@ public class Arquivo {
 			System.out.println("Erro ao criar arquivo: " + e.getMessage());
 			e.printStackTrace();
 		}
-	}
-
-	public String getIdArquivo(String url) {
-		String[] urlCortada = url.split("/");
-		return urlCortada[urlCortada.length - 1].replace(".pdf", "");
 	}
 
 	public File getArquivo() {

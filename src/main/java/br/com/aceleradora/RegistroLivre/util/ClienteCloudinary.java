@@ -26,10 +26,11 @@ public class ClienteCloudinary {
 			SingletonManager manager = new SingletonManager();
 			manager.setCloudinary(cloudinary);
 			manager.init();
-			uploadResult = cloudinary.uploader().upload(arquivo,
-					Cloudinary.emptyMap());
 
-			cloudinary.url().generate(arquivo.getArquivo().getName());
+			uploadResult = cloudinary.uploader().upload(
+					arquivo.getArquivo(),
+					Cloudinary.asMap("public_id", arquivo.getArquivo()
+							.getName(), "flags", "attachment"));
 
 			arquivo.setUrlArquivo((String) uploadResult.get("url"));
 			return true;
@@ -40,7 +41,7 @@ public class ClienteCloudinary {
 	}
 
 	public boolean atualiza(String urlAntiga) {
-		String idArquivo = arquivo.getIdArquivo(urlAntiga);
+		String idArquivo = separaUrl(urlAntiga);
 
 		excluir(idArquivo);
 
@@ -54,7 +55,7 @@ public class ClienteCloudinary {
 		try {
 
 			cloudinary.api().deleteResourcesByPrefix(
-					arquivo.getIdArquivo(idArquivo), Cloudinary.emptyMap());
+					separaUrl(idArquivo), Cloudinary.emptyMap());
 
 		} catch (Exception e) {
 			System.out.println("Erro ao deletar arquivo no cloudinary: "
@@ -65,6 +66,11 @@ public class ClienteCloudinary {
 
 	public Arquivo getArquivo() {
 		return arquivo;
+	}
+
+	public String separaUrl(String url) {
+		String[] urlCortada = url.split("/");
+		return urlCortada[urlCortada.length - 1].replace(".pdf", "");
 	}
 
 }
