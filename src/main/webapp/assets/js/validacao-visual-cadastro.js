@@ -1,18 +1,13 @@
+var cnpjGroup = $("#cnpj-group");
+var cnpjGroupIcon = $("#cnpj-group span");
+var nomeFantasiaGroup = $("#nomeFantasia-group");
+var nomeFantasiaIcon = $("#nomeFantasia-group span");
 
 var validarCNPJTempoReal= function (cnpj) {
 	if (validarCNPJ(cnpj)) {
-		$("#cnpj-group").addClass("has-success has-feedback");
-		$("#cnpj-group").removeClass("has-error");
-
-		$("#cnpj-group span").addClass("glyphicon-ok");
-		$("#cnpj-group span").removeClass("glyphicon-remove");
-
+		input.validado(cnpjGroup, cnpjGroupIcon);
 	} else {
-		$("#cnpj-group").addClass("has-error");
-		$("#cnpj-group").removeClass("has-success");
-
-		$("#cnpj-group span").removeClass("glyphicon-ok");
-		$("#cnpj-group span").addClass("glyphicon-remove");
+		input.invalidado(cnpjGroup, cnpjGroupIcon);
 	}
 }
 
@@ -20,11 +15,7 @@ var validarCNPJTempoReal= function (cnpj) {
 var validarCNPJVazio = function(){
 	$('#cnpj').focusout(function() {
 		if ($('#cnpj').val() == '') {
-			$("#cnpj-group").removeClass("has-success");
-			$("#cnpj-group").addClass("has-error");
-
-			$("#cnpj-group span").removeClass("glyphicon-ok");
-			$("#cnpj-group span").addClass("glyphicon-remove");
+			input.invalidado(cnpjGroup, cnpjGroupIcon);
 		}
 	});	
 }
@@ -34,18 +25,9 @@ var validarNomeFantasiaVazio = function(){
 	$('#nomeFantasia').keypress(function() {
 		
 		if ($('#nomeFantasia').val().length > 0) {
-			$("#nomeFantasia-group").addClass("has-success has-feedback");
-			$("#nomeFantasia-group").removeClass("has-error");
-
-			$("#nomeFantasia-group span").addClass("glyphicon-ok");
-			$("#nomeFantasia-group span").removeClass("glyphicon-remove");
-
+			input.validado(nomeFantasiaGroup, nomeFantasiaIcon);
 		} else {
-			$("#nomeFantasia-group").removeClass("has-success");
-			$("#nomeFantasia-group").addClass("has-error");
-
-			$("#nomeFantasia-group span").removeClass("glyphicon-ok");
-			$("#nomeFantasia-group span").addClass("glyphicon-remove");
+			input.invalidado(nomeFantasiaGroup, nomeFantasiaIcon);
 		}
 	});		
 	
@@ -54,25 +36,22 @@ var validarNomeFantasiaVazio = function(){
 		$('#nomeFantasia').val($.trim($('#nomeFantasia').val()));
 		
 		if ($('#nomeFantasia').val() == '') {
-			$("#nomeFantasia-group").removeClass("has-success");
-			$("#nomeFantasia-group").addClass("has-error");
-
-			$("#nomeFantasia-group span").removeClass("glyphicon-ok");
-			$("#nomeFantasia-group span").addClass("glyphicon-remove");
+			input.invalidado(nomeFantasiaGroup, nomeFantasiaIcon);
 		}
 	});	
 }
 
 
 var validarCPFTempoReal = function(){
-	$('#divSocios').on('keypress', '.cpf', function(){		
-		if(validarCpf($(this).val()) && ($(this).parents('.socio-group').find('.nome-socio').val().length > 0)){
-			$(this).parents('.cpf-group').addClass('has-success');
-			$(this).parents('.cpf-group').removeClass('has-error');
-			
-			$(this).parents('.cpf-group').find('span').addClass('glyphicon-ok');
-			$(this).parents('.cpf-group').find('span').removeClass('glyphicon-remove');
-			
+	$('#divSocios').on('focusout', '.cpf', function(){		
+		var cpf = $(this);
+		var cpfGroup = cpf.parents('.cpf-group');
+		var cpfGroupIcon = cpf.parents('.cpf-group').find('span');
+		var nomeSocio = cpf.parents('.socio-group').find('.nome-socio');
+		
+		if(validarCpf(cpf.val()) && (nomeSocio.val().length > 0)){
+			input.validado(cpfGroup, cpfGroupIcon);
+
 			if (verificaCPFTodosSocios()){					
 				botaoSubmit.habilitar();
 			}
@@ -82,11 +61,7 @@ var validarCPFTempoReal = function(){
 		}
 		else{	
 			botaoSubmit.desabilitar();
-			$(this).parents('.cpf-group').removeClass('has-success');
-			$(this).parents('.cpf-group').addClass('has-error');
-			
-			$(this).parents('.cpf-group').find('span').removeClass('glyphicon-ok');
-			$(this).parents('.cpf-group').find('span').addClass('glyphicon-remove');			
+			input.invalidado(cpfGroup, cpfGroupIcon);			
 		}
 	});
 }	
@@ -94,26 +69,17 @@ var validarCPFTempoReal = function(){
 
 var validarNomeSocioTempoReal = function(){
 	$('#divSocios').on('focusout', '.nome-socio', function(){
-		if (($(this).length <= 0) && ($(this).parents('.socio-group').find('.cpf').length > 0)){
+		var nomeSocio = $(this);
+		var nomeSocioIcon = $(this).find('span');
+		var cpfSocio = $(this).parents('.socio-group').find('.cpf');
 		
+		if ((nomeSocio.length <= 0) && (cpfSocio.length > 0)){
 			botaoSubmit.desabilitar();
-			
-			$(this).removeClass('has-success');
-			$(this).addClass('has-error');
-			
-			$(this).find('span').removeClass('glyphicon-ok');
-			$(this).find('span').addClass('glyphicon-remove');
-			
-			
+			input.invalidado(nomeSocio, nomeSocioIcon);
 		}else{
 			
 			botaoSubmit.habilitar();
-				
-			$(this).removeClass('has-success');
-			$(this).addClass('has-error');
-				
-			$(this).find('span').addClass('glyphicon-ok');
-			$(this).find('span').removeClass('glyphicon-remove');
+			input.validado(nomeSocio, nomeSocioIcon);
 		}
 	});
 }	
@@ -169,6 +135,23 @@ var botaoSubmit = {
 	desabilitar: function(){
 		$("#btn-submit").prop('disabled', true);
 		$("#form-alert").show();			
+	}
+}
+
+var input = {
+	validado : function(input, icon) {
+		input.addClass("has-success has-feedback");
+		input.removeClass("has-error");
+
+		icon.addClass("glyphicon-ok");
+		icon.removeClass("glyphicon-remove");
+	},
+	invalidado : function(input, icon) {
+		input.addClass("has-error");
+		input.removeClass("has-success");
+
+		icon.removeClass("glyphicon-ok");
+		icon.addClass("glyphicon-remove");
 	}
 }
 
