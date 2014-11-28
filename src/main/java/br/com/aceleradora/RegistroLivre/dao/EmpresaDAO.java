@@ -20,7 +20,7 @@ public class EmpresaDAO implements IEmpresaDAO {
 	}
 
 	public List<Empresa> getTodas() {
-		return sessao.createQuery("FROM Empresa").list();
+		return sessao.createQuery("FROM Empresa ORDER BY dataregistro DESC").list();
 	}
 
 	public Empresa getById(long id) {

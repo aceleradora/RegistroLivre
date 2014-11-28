@@ -25,8 +25,9 @@ public class Empresa extends Entidade {
 	private String razaoSocial;
 	@Column(nullable = false)
 	private String nomeFantasia;
-	private Date dataCriacao;
+	private Date dataCriacaoEmpresa;
 	private Date dataEmissaoDocumento;
+	private Date dataRegistro;
 	private String url;
 	@Embedded
 	private Endereco endereco;
@@ -45,6 +46,8 @@ public class Empresa extends Entidade {
 		
 		sdfOut = new SimpleDateFormat("dd/MM/yyyy");
 		sdfOut.setLenient(false);
+		
+		dataRegistro = new Date();
 	}
 
 	public String getCnpj() {
@@ -81,7 +84,7 @@ public class Empresa extends Entidade {
 
 	public String getDataCriacao() {
 		try {
-			return sdfOut.format(dataCriacao);
+			return sdfOut.format(dataCriacaoEmpresa);
 		} catch (Exception e) {
 			return "";
 		}
@@ -89,9 +92,9 @@ public class Empresa extends Entidade {
 
 	public void setDataCriacao(String dataCriacao){
 		try {
-			this.dataCriacao = sdfIn.parse(dataCriacao);
+			this.dataCriacaoEmpresa = sdfIn.parse(dataCriacao);
 		} catch (Exception e) {
-			this.dataCriacao = null;			
+			this.dataCriacaoEmpresa = null;
 		}
 	}
 
