@@ -18,15 +18,15 @@ import br.com.caelum.vraptor.validator.Validations;
 
 @Resource
 public class EmpresaController {
-
 	private EmpresaDAO daoEmpresa;
 	private Result result;
 	private Validator validator;
-
+	 
 	public EmpresaController(EmpresaDAO dao, Result result, Validator validator) {
 		this.daoEmpresa = dao;
 		this.result = result;
 		this.validator = validator;
+		
 	}
 
 	@Get("/cadastro")

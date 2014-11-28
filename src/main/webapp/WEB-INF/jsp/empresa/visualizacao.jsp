@@ -95,23 +95,34 @@
 					
 						<h4 class="centralize panel-divider padding-6-0 margin-30-0">Estrutura Societária</h4>
 					
-						<c:forEach items="${empresa.socios}" var="socio">
-							<dl>
-								<dt>Sócio:</dt>
-								<dd>Nome: </dd>
-								<dd>${socio.nome}</dd>
-								<dd>CPF:</dd>
-								<dd>${socio.cpf}</dd>
-								<dd>
-									<c:if test="${socio.ativo == true}">
-										<span class="label label-success">Ativo</span>
-									</c:if>
-									<c:if test="${socio.ativo == false}">
-										<span class="label label-danger">Inativo</span>
-									</c:if>
-								</dd>
-							</dl>
-						</c:forEach>
+
+						<c:choose>
+						
+							<c:when test="${empresa.socios.size() == 0}">
+								<div class="centralize">Sem sócios cadastrados.</div>
+							</c:when>
+							
+							<c:otherwise>
+								<c:forEach items="${empresa.socios}" var="socio">
+									<dl>
+										<dd>Nome: </dd>
+										<dd>${socio.nome}</dd>
+										<dd>CPF:</dd>
+										<dd>${socio.cpf}</dd>
+										<dd>
+											<c:if test="${socio.ativo == true}">
+												<span class="label label-success">Ativo</span>
+											</c:if>
+											<c:if test="${socio.ativo == false}">
+												<span class="label label-danger">Inativo</span>
+											</c:if>
+										</dd>
+									</dl>
+								</c:forEach>
+							</c:otherwise>
+							
+						</c:choose>
+
 					</div>
 
 					<div class="panel-footer">
