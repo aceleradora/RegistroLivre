@@ -1,11 +1,6 @@
 package br.com.aceleradora.RegistroLivre.model;
 
 import javax.persistence.Embeddable;
-import javax.persistence.Entity;
-import javax.persistence.SequenceGenerator;
-
-import br.com.aceleradora.RegistroLivre.dao.Entidade;
-import br.com.caelum.vraptor.ioc.Component;
 
 @Embeddable
 public class Endereco {

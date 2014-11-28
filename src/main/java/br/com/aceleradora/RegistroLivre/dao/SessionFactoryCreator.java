@@ -1,6 +1,5 @@
 package br.com.aceleradora.RegistroLivre.dao;
 
-
 import javax.annotation.PreDestroy;
 
 import org.hibernate.SessionFactory;

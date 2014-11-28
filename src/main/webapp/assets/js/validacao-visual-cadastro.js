@@ -2,6 +2,7 @@ var cnpjGroup = $("#cnpj-group");
 var cnpjGroupIcon = $("#cnpj-group span");
 var nomeFantasiaGroup = $("#nomeFantasia-group");
 var nomeFantasiaIcon = $("#nomeFantasia-group span");
+var nomeFantasia = $('#nomeFantasia'); 
 
 var validarCNPJTempoReal = function(cnpj) {
 	if (validarCNPJ(cnpj)) {
@@ -20,19 +21,19 @@ var validarCNPJVazio = function() {
 }
 
 var validarNomeFantasiaVazio = function() {
-	$('#nomeFantasia').keypress(function() {
+	nomeFantasia.keypress(function() {
 
-		if ($('#nomeFantasia').val().length > 0) {
+		if (nomeFantasia.val().length > 0) {
 			input.validado(nomeFantasiaGroup, nomeFantasiaIcon);
 		} else {
 			input.invalidado(nomeFantasiaGroup, nomeFantasiaIcon);
 		}
 	});
 
-	$('#nomeFantasia').focusout(function() {
-		$('#nomeFantasia').val($.trim($('#nomeFantasia').val()));
+	nomeFantasia.focusout(function() {
+		nomeFantasia.val($.trim(nomeFantasia.val()));
 
-		if ($('#nomeFantasia').val() == '') {
+		if (nomeFantasia.val() == '') {
 			input.invalidado(nomeFantasiaGroup, nomeFantasiaIcon);
 		}
 	});
@@ -48,11 +49,8 @@ var validarCPFTempoReal = function() {
 		if (validarCpf(cpf.val()) && (nomeSocio.val().length > 0)) {
 			input.validado(cpfGroup, cpfGroupIcon);
 
-			if (verificaCPFTodosSocios()) {
-				botaoSubmit.habilitar();
-			} else {
-				botaoSubmit.desabilitar();
-			}
+			verificaCPFTodosSocios() ? botaoSubmit.habilitar() : botaoSubmit.desabilitar();
+			
 		} else {
 			botaoSubmit.desabilitar();
 			input.invalidado(cpfGroup, cpfGroupIcon);
@@ -70,7 +68,6 @@ var validarNomeSocioTempoReal = function() {
 			botaoSubmit.desabilitar();
 			input.invalidado(nomeSocio, nomeSocioIcon);
 		} else {
-
 			botaoSubmit.habilitar();
 			input.validado(nomeSocio, nomeSocioIcon);
 		}
@@ -106,12 +103,8 @@ var colocarMascaraDatas = function() {
 var removeSocio = function() {
 	$('#divSocios').on('click', '.close', function() {
 		$(this).parents('.list-group-item').remove();
-		if (verificaCPFTodosSocios()) {
-			botaoSubmit.habilitar();
-		} else {
-			botaoSubmit.desabilitar();
-		}
-
+		
+		verificaCPFTodosSocios() ? botaoSubmit.habilitar() : botaoSubmit.desabilitar();  
 	});
 }
 

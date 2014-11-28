@@ -1,8 +1,8 @@
 package br.com.aceleradora.RegistroLivre.model;
 
-import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -87,11 +87,11 @@ public class Empresa extends Entidade {
 		}
 	}
 
-	public void setDataCriacao(String dataCriacao) {
+	public void setDataCriacao(String dataCriacao){
 		try {
 			this.dataCriacao = sdfIn.parse(dataCriacao);
 		} catch (Exception e) {
-			this.dataCriacao = null;
+			this.dataCriacao = null;			
 		}
 	}
 
@@ -103,10 +103,10 @@ public class Empresa extends Entidade {
 		}
 	}
 
-	public void setDataEmissaoDocumento(String dataEmissaoDocumento) {
+	public void setDataEmissaoDocumento(String dataEmissaoDocumento){
 		try {						
 			this.dataEmissaoDocumento = sdfIn.parse(dataEmissaoDocumento);			
-		} catch (Exception e) {
+		} catch (Exception e) {			
 			this.dataEmissaoDocumento = null;
 		}
 	}
