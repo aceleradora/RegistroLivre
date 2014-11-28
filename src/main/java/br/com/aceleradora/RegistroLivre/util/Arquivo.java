@@ -38,12 +38,12 @@ public class Arquivo {
 		return arquivo;
 	}
 
-	public String getUrlArquivo() {
-		return this.urlArquivo;
+	public String getNomeArquivo() {
+		return arquivo.getName();
 	}
 
-	public void setArquivo(File arquivo) {
-		this.arquivo = arquivo;
+	public String getUrlArquivo() {
+		return this.urlArquivo;
 	}
 
 	public void setUrlArquivo(String urlArquivo) {

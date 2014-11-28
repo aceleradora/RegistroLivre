@@ -153,7 +153,7 @@ public class ValidadorTest {
 	}
 	
 	@Test
-	public void retornaVerdadeSeContemPDFNaString(){
+	public void retornaVerdadeSeContemPDFNoFinalDaString(){
 		when(arquivo.getFileName()).thenReturn("blablabla.pdf");
 		
 		boolean result = Validador.verificaExtensaoArquivo(arquivo);
@@ -162,8 +162,8 @@ public class ValidadorTest {
 	}
 	
 	@Test
-	public void retornaFalseSeNaoContemPDFNaString(){
-		when(arquivo.getFileName()).thenReturn("blablabla");
+	public void retornaFalseSeNaoContemPDFNoFinalDaString(){
+		when(arquivo.getFileName()).thenReturn("blablabla.pdf.jpg");
 		boolean result = Validador.verificaExtensaoArquivo(arquivo);
 		
 		assertFalse(result);

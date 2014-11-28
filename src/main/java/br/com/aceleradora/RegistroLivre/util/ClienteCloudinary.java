@@ -29,8 +29,8 @@ public class ClienteCloudinary {
 
 			uploadResult = cloudinary.uploader().upload(
 					arquivo.getArquivo(),
-					Cloudinary.asMap("public_id", arquivo.getArquivo()
-							.getName(), "flags", "attachment"));
+					Cloudinary.asMap("public_id", arquivo.getNomeArquivo(),
+							"flags", "attachment"));
 
 			arquivo.setUrlArquivo((String) uploadResult.get("url"));
 			return true;
@@ -54,8 +54,8 @@ public class ClienteCloudinary {
 		manager.init();
 		try {
 
-			cloudinary.api().deleteResourcesByPrefix(
-					separaUrl(idArquivo), Cloudinary.emptyMap());
+			cloudinary.api().deleteResourcesByPrefix(separaUrl(idArquivo),
+					Cloudinary.emptyMap());
 
 		} catch (Exception e) {
 			System.out.println("Erro ao deletar arquivo no cloudinary: "

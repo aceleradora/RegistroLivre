@@ -134,8 +134,10 @@ public class EmpresaController {
 		});
 		validator.onErrorUsePageOf(this).cadastro();
 
-		Arquivo arquivoParaUpload = new Arquivo(arquivo.getFile(),
-				empresa.getCnpj());
+		String nomeArquivo = empresa.getNomeFantasia().replace(' ', '_') + " - "
+				+ empresa.getCnpj();
+
+		Arquivo arquivoParaUpload = new Arquivo(arquivo.getFile(), nomeArquivo);
 
 		ClienteCloudinary clienteCloudinary = new ClienteCloudinary(
 				arquivoParaUpload);
