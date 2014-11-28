@@ -51,7 +51,7 @@
 
 							  
 							<div class="col-lg-4 col-md-4 col-sm-2 col-xs-3">
-								<a href="${empresa.url}" download="${empresa.cnpj }"><img style="float:right; margin-right:12%; width:50%;" src="../assets/img/PDF_icon.png"><label style="float: right; font-size:95%;">Download de PDF</label></img></a>
+								<a href="${empresa.url}" download><img style="float:right; margin-right:12%; width:50%;" src="../assets/img/PDF_icon.png"><label style="float: right; font-size:95%;">Download de PDF</label></img></a>
 							</div>
 
 						</div>

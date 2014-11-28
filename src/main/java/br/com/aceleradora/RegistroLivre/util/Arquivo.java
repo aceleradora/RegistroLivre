@@ -5,6 +5,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.text.Normalizer;
+import java.util.regex.Pattern;
 
 public class Arquivo {
 
@@ -14,10 +16,21 @@ public class Arquivo {
 	public Arquivo(InputStream inputStream, String nome) {
 		inputStreamParaFile(inputStream, nome);
 	}
+	
+	private String normalizarNome(String nome){
+		String nomeNormalizado = Normalizer.normalize(nome, Normalizer.Form.NFD);			
+	    Pattern pattern = Pattern.compile("\\p{InCombiningDiacriticalMarks}+");
+	    nomeNormalizado = pattern.matcher(nomeNormalizado).replaceAll("");
+	    nomeNormalizado = nomeNormalizado.replaceAll("[.\\-/]", "");
+	    return nomeNormalizado;
+	}
 
 	private void inputStreamParaFile(InputStream inputStream, String nome) {
 		try {
-			File arquivo = new File("/tmp/" + nome.replaceAll("[.\\-/]", ""));
+			
+			String nomeNormalizado = normalizarNome(nome);
+		    
+			File arquivo = new File("/tmp/" + nomeNormalizado);
 			OutputStream outputStream = new FileOutputStream(arquivo);
 
 			int read = 0;
