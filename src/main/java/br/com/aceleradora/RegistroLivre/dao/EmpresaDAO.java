@@ -29,10 +29,21 @@ public class EmpresaDAO implements IEmpresaDAO {
 		return empresa;
 	}
 	
-	public List<Empresa> pesquisaPorCnpj(String cnpj) {
-		Query query = sessao.createQuery("FROM Empresa WHERE cnpj LIKE :cnpj");
-		query.setParameter("cnpj", cnpj);
-		return query.list();
+	public List<Empresa> pesquisa(String busca) {
+		Query query = sessao.createQuery("select e from Empresa as e join e.socios as s "
+										+ "where s.nome like :busca");
+//		Query query = sessao.createQuery("FROM Empresa "
+//									   + "WHERE nomefantasia LIKE :busca "
+//									   + "OR cnpj LIKE :busca "
+//									   + "OR logradouro LIKE :busca "
+//									   + "OR cidade LIKE :busca "
+//									   + "OR uf LIKE :busca "
+//									   + "OR cep LIKE :busca "									  
+//									   + "OR razaosocial LIKE :busca ");
+		
+		query.setParameter("busca", "%" + busca + "%");
+		
+		return query.list();	
 	}
 
 	public Long contaQuantidadeDeRegistros() {
@@ -61,6 +72,5 @@ public class EmpresaDAO implements IEmpresaDAO {
 
 	public List<Empresa> pesquisaPorNomeFantasia(String nomeFantasia) {
 		return null;
-	}
-	
+	}	
 }

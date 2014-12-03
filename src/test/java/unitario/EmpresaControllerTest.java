@@ -50,35 +50,50 @@ public class EmpresaControllerTest {
 	
 	@Test
 	public void quandoChamaOMetodoListagemChamaOIncludeDoResult() throws Exception {
+		//ARRANGE
 		Long quantidadeRegistros = 5L;
 		when(empresaDAO.contaQuantidadeDeRegistros()).thenReturn(quantidadeRegistros);
 		
+		//ACT
 		empresaController.listagem();
 		
+		//ASSERT
 		verify(result).include("totalDeRegistros", quantidadeRegistros);
 	}
 	
 	@Test
 	public void quandoChamaOMetodoVisualizacaoRetornaOMetodoGetByIdDoDAO() throws Exception {
+		//ARRANGE
 		empresa.setId(1);
+		
+		//ACT
 		empresaController.visualizacao(empresa);	
 		
+		//ASSERT
 		verify(empresaDAO).getById(empresa.getId());		
 	}
 	
 	@Test
 	public void quandoChamaOMetodoCadastroRetornaOMetodoGetByIdDoDAO() throws Exception {
+		//ARRANGE
 		empresa.setId(1);
+		
+		//ACT
 		empresaController.cadastro(empresa);
 		
+		//ASSERT
 		verify(empresaDAO).getById(empresa.getId());	
 	}
 	
 	@Test
 	public void quandoChamaOMetodoCadastroIncluiEditarNoResult() throws Exception {
+		//ARRANGE
 		empresa.setId(1);
+		
+		//ACT
 		empresaController.cadastro(empresa);
 		
+		//ASSERT
 		verify(result).include("editar", true);
 	}
 }

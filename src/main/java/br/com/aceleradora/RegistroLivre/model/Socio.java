@@ -8,7 +8,6 @@ import br.com.aceleradora.RegistroLivre.dao.Entidade;
 @Entity
 @SequenceGenerator(initialValue = 1, allocationSize = 1, name = "geradorId", sequenceName = "socio_sequence")
 public class Socio extends Entidade {
-
 	private String nome;
 	private String cpf;
 	private boolean ativo;

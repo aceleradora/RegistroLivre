@@ -22,22 +22,12 @@ public class HomeController {
 
 	@Get("/")
 	public void home() {
-	}
-
-	public List<Empresa> buscaPorCnpj(String cnpj) {
-		List<Empresa> listaDeEmpresas = new ArrayList<>();
-
-		for (Empresa empresa : daoEmpresa.pesquisaPorCnpj(cnpj)) {
-			if (empresa.getCnpj().equals(cnpj)) {
-				listaDeEmpresas.add(empresa);
-			}
+		for(Empresa e : daoEmpresa.pesquisa("a")){
+			System.out.println(e.getId());
 		}
-
-		return listaDeEmpresas;
 	}
 
 	public List<Empresa> buscaPorNomeFantasia(String nomeFantasiaRequerido) {
-
 		List<Empresa> listaDeEmpresas = new ArrayList<Empresa>();
 
 		for (Empresa empresa : daoEmpresa
