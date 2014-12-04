@@ -30,7 +30,16 @@ public class EmpresaController {
 	}
 
 	@Get("/cadastro")
-	public void cadastro() {
+	public void cadastro() {				
+//		for (int i = 1; i < 101; i++) {
+//			Empresa e = new Empresa();			
+//			e.setCnpj("21.288.925/0001-50");
+//
+//			e.setNomeFantasia("Empresa " + i);
+//			e.setRazaoSocial("Empresa " + i);			
+//			daoEmpresa.adiciona(e);
+//		}
+		
 	}
 
 	@Get("/atualizar/{empresa.id}")
@@ -39,11 +48,11 @@ public class EmpresaController {
 		return daoEmpresa.getById(empresa.getId());
 	}
 
-	@Get("/listagem")
-	public List<Empresa> listagem() {
+	@Get("/listagem/{pagina}")
+	public List<Empresa> listagem(int pagina) {
 		result.include("totalDeRegistros",
 				daoEmpresa.contaQuantidadeDeRegistros());
-		return daoEmpresa.getTodas();
+		return daoEmpresa.getTodasComPaginacao(pagina);
 	}
 	
 	public List<Empresa> listagem(List<Empresa> listaDeResultadosDeEmpresas){
