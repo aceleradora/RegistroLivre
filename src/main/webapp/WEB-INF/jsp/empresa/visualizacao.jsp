@@ -41,7 +41,7 @@
 								</dl>
 								<dl>
 									<dt>Nome fantasia:</dt> 
-									<dd>${empresa.nomeFantasia}</label>
+									<dd>${empresa.nomeFantasia}</dd>
 								</dl>
 								<dl>
 									<dt>Razão Social:</dt> 
@@ -51,7 +51,10 @@
 
 							  
 							<div class="col-lg-4 col-md-4 col-sm-2 col-xs-3">
-								<a href="${empresa.url}" download><img style="float:right; margin-right:12%; width:50%;" src="../assets/img/PDF_icon.png"><label style="float: right; font-size:95%;">Download de PDF</label></img></a>
+								<a href="${empresa.url}" download>
+									<img style="float:right; margin-right:12%; width:50%;" src="../assets/img/PDF_icon.png" />
+									<label style="float: right; font-size:95%;">Download de PDF</label>
+								</a>
 							</div>
 
 						</div>
