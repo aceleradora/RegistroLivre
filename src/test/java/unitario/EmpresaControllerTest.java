@@ -55,7 +55,6 @@ public class EmpresaControllerTest {
 	}
 
 	@Test
-
 	public void quandoChamaOMetodoListagemComParametroDeBuscaRetornaOMetodoPesquisaDoDAO() throws Exception {
 		listaDeEmpresas = new ArrayList<Empresa>();
 		listaDeEmpresas.add(empresa);
@@ -68,111 +67,88 @@ public class EmpresaControllerTest {
 	
 	@Test
 	public void quandoChamaOMetodoListagemChamaOIncludeDoResult() throws Exception {
-		//ARRANGE
 		Long quantidadeRegistros = 5L;
 		when(empresaDAO.contaQuantidadeDeRegistros()).thenReturn(
 				quantidadeRegistros);
 
-		// ACT
 		empresaController.listagem();
 
-		// ASSERT
 		verify(result).include("totalDeRegistros", quantidadeRegistros);
 	}
 
 	@Test
 	public void quandoChamaOMetodoVisualizacaoRetornaOMetodoGetByIdDoDAO()
 			throws Exception {
-		// ARRANGE
 		empresa.setId(1);
 
-		// ACT
 		empresaController.visualizacao(empresa);
 
-		// ASSERT
 		verify(empresaDAO).getById(empresa.getId());
 	}
 
 	@Test
 	public void quandoChamaOMetodoCadastroRetornaOMetodoGetByIdDoDAO()
 			throws Exception {
-		// ARRANGE
 		empresa.setId(1);
 
-		// ACT
 		empresaController.cadastro(empresa);
 
-		// ASSERT
 		verify(empresaDAO).getById(empresa.getId());
 	}
 
 	@Test
 	public void quandoChamaOMetodoCadastroIncluiEditarNoResult()
 			throws Exception {
-		// ARRANGE
 		empresa.setId(1);
 
-		// ACT
 		empresaController.cadastro(empresa);
 
-		// ASSERT
 		verify(result).include("editar", true);
 	}
 
 	@Test
 	public void quandoChamaAPrimeiraPaginaRetornaOsVintePrimeirosRegistros()
 			throws Exception {
-		// ARRANGE
 		int pagina = 1;
-		listaDeEmpresasPaginacao = new ArrayList<Empresa>();
-		for (int i = 1; i < 101; i++) {
-			Empresa e = new Empresa();
-			e.setNomeFantasia("Empresa " + i);
-			listaDeEmpresasPaginacao.add(e);
-		}
+		criaEPopulaListaCom100Empresas();
 
 		when(empresaDAO.getTodasComPaginacao(pagina)).thenReturn(
 				listaDeEmpresasPaginacao.subList(0, 20));
 
-		// ACT
 		List<Empresa> empresasDaPrimeiraPagina = empresaDAO
 				.getTodasComPaginacao(pagina);
 		int indiceUltimaEmpresa = (int) (empresasDaPrimeiraPagina.size() - 1);
 
-		// ASSERT
 		assertThat(empresasDaPrimeiraPagina.get(0).getNomeFantasia(),
 				is("Empresa 1"));
 		assertThat(empresasDaPrimeiraPagina.get(indiceUltimaEmpresa)
 				.getNomeFantasia(), is("Empresa 20"));
-
 	}
 
 	@Test
-	public void quandoChamaASegundaPaginaRetornaOsVinteSegundosRegistros()
-			throws Exception {
-		// ARRANGE
+	public void quandoChamaASegundaPaginaRetornaOsVinteSegundosRegistros() throws Exception {
 		int pagina = 2;
-		listaDeEmpresasPaginacao = new ArrayList<Empresa>();
-		for (int i = 1; i < 101; i++) {
-			Empresa e = new Empresa();
-			e.setNomeFantasia("Empresa " + i);
-			listaDeEmpresasPaginacao.add(e);
-		}
+		criaEPopulaListaCom100Empresas();
+		when(empresaDAO.getTodasComPaginacao(pagina)).thenReturn(listaDeEmpresasPaginacao.subList(20, 40));
 
-		when(empresaDAO.getTodasComPaginacao(pagina)).thenReturn(
-				listaDeEmpresasPaginacao.subList(20, 40));
-
-		// ACT
-		List<Empresa> empresasDaSegundaPagina = empresaDAO
-				.getTodasComPaginacao(pagina);
+		List<Empresa> empresasDaSegundaPagina = empresaDAO.getTodasComPaginacao(pagina);
+		
 		int indiceUltimaEmpresa = (int) (empresasDaSegundaPagina.size() - 1);
 
-		// ASSERT
 		assertThat(empresasDaSegundaPagina.get(0).getNomeFantasia(),
 				is("Empresa 21"));
 		assertThat(empresasDaSegundaPagina.get(indiceUltimaEmpresa)
 				.getNomeFantasia(), is("Empresa 40"));
 
+	}
+	
+	private void criaEPopulaListaCom100Empresas() {
+		listaDeEmpresasPaginacao = new ArrayList<Empresa>();
+		for (int i = 1; i < 101; i++) {
+			Empresa e = new Empresa();
+			e.setNomeFantasia("Empresa " + i);
+			listaDeEmpresasPaginacao.add(e);
+		}
 	}
 
 }
