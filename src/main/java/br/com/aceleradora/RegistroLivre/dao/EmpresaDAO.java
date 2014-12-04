@@ -1,5 +1,8 @@
 package br.com.aceleradora.RegistroLivre.dao;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -20,43 +23,57 @@ public class EmpresaDAO implements IEmpresaDAO {
 	}
 
 	public List<Empresa> getTodas() {
-		return sessao.createQuery("FROM Empresa ORDER BY dataregistro DESC").list();
+		return sessao.createQuery("FROM Empresa ORDER BY dataregistro DESC")
+				.list();
 	}
 
 	public Empresa getById(long id) {
-		Empresa empresa = (Empresa) sessao.get(Empresa.class, id);	
-		
+		Empresa empresa = (Empresa) sessao.get(Empresa.class, id);
+
 		return empresa;
 	}
-	
-	public List<Empresa> pesquisa(String busca) {
-		busca = busca.toLowerCase();
-		
-		Query query = sessao.createQuery("SELECT DISTINCT empresa "
-										+ "FROM Empresa AS empresa "
-										+ "LEFT JOIN empresa.socios AS socio "
-										+ "WHERE empresa.cnpj LIKE :busca "
-											+ "OR lower(empresa.nomeFantasia) LIKE :busca "
-											+ "OR lower(empresa.razaoSocial) LIKE :busca "
-											+ "OR lower(empresa.endereco.logradouro) LIKE :busca "
-											+ "OR lower(empresa.endereco.cidade) LIKE :busca "
-											+ "OR lower(empresa.endereco.uf) LIKE :busca "
-											+ "OR empresa.endereco.cep LIKE :busca "
-											+ "OR lower(socio.nome) LIKE :busca "
-											+ "OR socio.cpf LIKE :busca ");
 
-		query.setParameter("busca", "%" + busca + "%");
+	public List<Empresa> pesquisa(String textoParaBusca) {
+		textoParaBusca = textoParaBusca.toLowerCase();
+		Date dataParaPesquisa = null;
 		
-		return query.list();	
+		String sqlQuery = "SELECT DISTINCT empresa "
+				+ "FROM Empresa AS empresa "
+				+ "LEFT JOIN empresa.socios AS socio "
+				+ "WHERE empresa.cnpj LIKE :busca "
+				+ "OR lower(empresa.nomeFantasia) LIKE :busca "
+				+ "OR lower(empresa.razaoSocial) LIKE :busca "
+				+ "OR lower(empresa.endereco.logradouro) LIKE :busca "
+				+ "OR lower(empresa.endereco.cidade) LIKE :busca "
+				+ "OR lower(empresa.endereco.uf) LIKE :busca "
+				+ "OR empresa.endereco.cep LIKE :busca "
+				+ "OR lower(socio.nome) LIKE :busca "
+				+ "OR socio.cpf LIKE :busca ";
+
+		try {
+			SimpleDateFormat formatoData = new SimpleDateFormat("yyyy-MM-dd");
+			dataParaPesquisa = formatoData.parse(textoParaBusca);
+			sqlQuery += "OR empresa.dataCriacaoEmpresa = :data ";
+		} catch (ParseException e) {}
+
+		Query query = sessao.createQuery(sqlQuery);
+
+		query.setParameter("busca", "%" + textoParaBusca + "%");
+		
+		if (dataParaPesquisa != null) {
+			query.setParameter("data", dataParaPesquisa);
+		}
+
+		return query.list();
 	}
 
 	public Long contaQuantidadeDeRegistros() {
-		long quantidadeDeRegistros = (Long) sessao.createCriteria(Empresa.class)
+		long quantidadeDeRegistros = (Long) sessao
+				.createCriteria(Empresa.class)
 				.setProjection(Projections.rowCount()).list().get(0);
-		
-		
+
 		return quantidadeDeRegistros;
-		
+
 	}
 
 	@Override
@@ -64,9 +81,9 @@ public class EmpresaDAO implements IEmpresaDAO {
 		Transaction transacao = sessao.beginTransaction();
 		sessao.save(empresa);
 		transacao.commit();
-		
+
 	}
-	
+
 	@Override
 	public void atualiza(Empresa empresa) {
 		Transaction transacao = sessao.beginTransaction();
@@ -76,5 +93,5 @@ public class EmpresaDAO implements IEmpresaDAO {
 
 	public List<Empresa> pesquisaPorNomeFantasia(String nomeFantasia) {
 		return null;
-	}	
+	}
 }
