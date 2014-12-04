@@ -22,35 +22,40 @@ import br.com.caelum.vraptor.Validator;
 
 @RunWith(MockitoJUnitRunner.class)
 public class EmpresaControllerTest {
-	@Mock private Result result;	
-	@Mock private EmpresaDAO empresaDAO;
+	@Mock
+	private Result result;
+	@Mock
+	private EmpresaDAO empresaDAO;
 	private Empresa empresa;
-	@Mock private Validator validator;
-	private EmpresaController empresaController;	
+	@Mock
+	private Validator validator;
+	private EmpresaController empresaController;
 	private List<Empresa> listaDeEmpresas;
 	private List<Empresa> listaDeEmpresasPaginacao;
 
 	@Before
 	public void setup() {
 		empresa = new Empresa();
-		empresaController = new EmpresaController(empresaDAO, result, validator);			
+		empresaController = new EmpresaController(empresaDAO, result, validator);
 	}
-		
+
 	@Test
-	public void quandoChamaOMetodoListagemRetornaOMetodoGetTodasDoDAO() throws Exception {
+	public void quandoChamaOMetodoListagemRetornaOMetodoGetTodasDoDAO()
+			throws Exception {
 		listaDeEmpresas = new ArrayList<Empresa>();
 		listaDeEmpresas.add(empresa);
-		
-		when(empresaDAO.getTodas()).thenReturn(listaDeEmpresas);	
-		
+
+		when(empresaDAO.getTodas()).thenReturn(listaDeEmpresas);
+
 		List<Empresa> listagem = empresaController.listagem();
 
 		verify(empresaDAO).getTodas();
 		verify(empresaDAO).contaQuantidadeDeRegistros();
 		assertThat(listagem, is(listaDeEmpresas));
 	}
-	
+
 	@Test
+
 	public void quandoChamaOMetodoListagemComParametroDeBuscaRetornaOMetodoPesquisaDoDAO() throws Exception {
 		listaDeEmpresas = new ArrayList<Empresa>();
 		listaDeEmpresas.add(empresa);
@@ -65,71 +70,109 @@ public class EmpresaControllerTest {
 	public void quandoChamaOMetodoListagemChamaOIncludeDoResult() throws Exception {
 		//ARRANGE
 		Long quantidadeRegistros = 5L;
-		when(empresaDAO.contaQuantidadeDeRegistros()).thenReturn(quantidadeRegistros);
-		
-		//ACT
+		when(empresaDAO.contaQuantidadeDeRegistros()).thenReturn(
+				quantidadeRegistros);
+
+		// ACT
 		empresaController.listagem();
-		
-		//ASSERT
+
+		// ASSERT
 		verify(result).include("totalDeRegistros", quantidadeRegistros);
 	}
-	
+
 	@Test
-	public void quandoChamaOMetodoVisualizacaoRetornaOMetodoGetByIdDoDAO() throws Exception {
-		//ARRANGE
+	public void quandoChamaOMetodoVisualizacaoRetornaOMetodoGetByIdDoDAO()
+			throws Exception {
+		// ARRANGE
 		empresa.setId(1);
-		
-		//ACT
-		empresaController.visualizacao(empresa);	
-		
-		//ASSERT
-		verify(empresaDAO).getById(empresa.getId());		
+
+		// ACT
+		empresaController.visualizacao(empresa);
+
+		// ASSERT
+		verify(empresaDAO).getById(empresa.getId());
 	}
-	
+
 	@Test
-	public void quandoChamaOMetodoCadastroRetornaOMetodoGetByIdDoDAO() throws Exception {
-		//ARRANGE
+	public void quandoChamaOMetodoCadastroRetornaOMetodoGetByIdDoDAO()
+			throws Exception {
+		// ARRANGE
 		empresa.setId(1);
-		
-		//ACT
+
+		// ACT
 		empresaController.cadastro(empresa);
-		
-		//ASSERT
-		verify(empresaDAO).getById(empresa.getId());	
+
+		// ASSERT
+		verify(empresaDAO).getById(empresa.getId());
 	}
-	
+
 	@Test
-	public void quandoChamaOMetodoCadastroIncluiEditarNoResult() throws Exception {
-		//ARRANGE
+	public void quandoChamaOMetodoCadastroIncluiEditarNoResult()
+			throws Exception {
+		// ARRANGE
 		empresa.setId(1);
-		
-		//ACT
+
+		// ACT
 		empresaController.cadastro(empresa);
-		
-		//ASSERT
+
+		// ASSERT
 		verify(result).include("editar", true);
 	}
-	
+
 	@Test
-	public void quandoChamaAPrimeiraPaginaRetornaOsVintePrimeirosRegistros() throws Exception{
-		//ARRANGE
-		int pagina = 1;		
-		listaDeEmpresasPaginacao = new ArrayList<Empresa>();		
+	public void quandoChamaAPrimeiraPaginaRetornaOsVintePrimeirosRegistros()
+			throws Exception {
+		// ARRANGE
+		int pagina = 1;
+		listaDeEmpresasPaginacao = new ArrayList<Empresa>();
 		for (int i = 1; i < 101; i++) {
 			Empresa e = new Empresa();
 			e.setNomeFantasia("Empresa " + i);
 			listaDeEmpresasPaginacao.add(e);
 		}
-		
-		when(empresaDAO.getTodasComPaginacao(pagina)).thenReturn(listaDeEmpresasPaginacao.subList(0, 20));
 
-		//ACT
-		List<Empresa> empresasDaPrimeiraPagina = empresaDAO.getTodasComPaginacao(pagina);
+		when(empresaDAO.getTodasComPaginacao(pagina)).thenReturn(
+				listaDeEmpresasPaginacao.subList(0, 20));
+
+		// ACT
+		List<Empresa> empresasDaPrimeiraPagina = empresaDAO
+				.getTodasComPaginacao(pagina);
 		int indiceUltimaEmpresa = (int) (empresasDaPrimeiraPagina.size() - 1);
-		
-		//ASSERT
-		assertThat(empresasDaPrimeiraPagina.get(0).getNomeFantasia(), is("Empresa 1"));
-		assertThat(empresasDaPrimeiraPagina.get(indiceUltimaEmpresa).getNomeFantasia(), is("Empresa 20"));
-		
+
+		// ASSERT
+		assertThat(empresasDaPrimeiraPagina.get(0).getNomeFantasia(),
+				is("Empresa 1"));
+		assertThat(empresasDaPrimeiraPagina.get(indiceUltimaEmpresa)
+				.getNomeFantasia(), is("Empresa 20"));
+
 	}
+
+	@Test
+	public void quandoChamaASegundaPaginaRetornaOsVinteSegundosRegistros()
+			throws Exception {
+		// ARRANGE
+		int pagina = 2;
+		listaDeEmpresasPaginacao = new ArrayList<Empresa>();
+		for (int i = 1; i < 101; i++) {
+			Empresa e = new Empresa();
+			e.setNomeFantasia("Empresa " + i);
+			listaDeEmpresasPaginacao.add(e);
+		}
+
+		when(empresaDAO.getTodasComPaginacao(pagina)).thenReturn(
+				listaDeEmpresasPaginacao.subList(20, 40));
+
+		// ACT
+		List<Empresa> empresasDaSegundaPagina = empresaDAO
+				.getTodasComPaginacao(pagina);
+		int indiceUltimaEmpresa = (int) (empresasDaSegundaPagina.size() - 1);
+
+		// ASSERT
+		assertThat(empresasDaSegundaPagina.get(0).getNomeFantasia(),
+				is("Empresa 21"));
+		assertThat(empresasDaSegundaPagina.get(indiceUltimaEmpresa)
+				.getNomeFantasia(), is("Empresa 40"));
+
+	}
+
 }
