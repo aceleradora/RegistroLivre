@@ -26,20 +26,10 @@ public class EmpresaController {
 		this.daoEmpresa = dao;
 		this.result = result;
 		this.validator = validator;
-		
 	}
 
 	@Get("/cadastro")
-	public void cadastro() {				
-//		for (int i = 1; i < 101; i++) {
-//			Empresa e = new Empresa();			
-//			e.setCnpj("21.288.925/0001-50");
-//
-//			e.setNomeFantasia("Empresa " + i);
-//			e.setRazaoSocial("Empresa " + i);			
-//			daoEmpresa.adiciona(e);
-//		}
-		
+	public void cadastro() {	
 	}
 
 	@Get("/atualizar/{empresa.id}")
@@ -82,23 +72,19 @@ public class EmpresaController {
 	public Empresa visualizacao(Empresa empresa) {
 		return daoEmpresa.getById(empresa.getId());
 	}
-
+	
 	@Path("/empresa/cadastrar/")
 	public void cadastrar(final Empresa empresa, final UploadedFile arquivo) {
 		validator.checking(new Validations() {
 			{
 				that(Validador.verificaCnpj(empresa.getCnpj()), "empresa.cnpj",
 						"cnpj.invalido");
-
 				that(Validador.verificaNumeroEndereco(empresa),
 						"empresa.endereco.numero", "numero.invalido");
-
 				that(Validador.verificaNomeFantasia(empresa.getNomeFantasia()),
 						"empresa.nomeFantasia", "nomeFantasia.obrigatorio");
-
 				that(Validador.verificaCpfListaSocio(empresa.getSocios()),
 						"empresa.socios", "cpf.invalido");
-
 				that(Validador.verificaExtensaoArquivo(arquivo), "arquivo",
 						"extensao.invalida");
 			}
@@ -134,14 +120,12 @@ public class EmpresaController {
 			{
 				that(Validador.verificaCnpj(empresa.getCnpj()), "empresa.cnpj",
 						"cnpj.invalido");
-
 				that(Validador.verificaNumeroEndereco(empresa),
 						"empresa.endereco.numero", "numero.invalido");
 				that(Validador.verificaNomeFantasia(empresa.getNomeFantasia()),
 						"empresa.nomeFantasia", "nomeFantasia.obrigatorio");
 				that(Validador.verificaCpfListaSocio(empresa.getSocios()),
 						"empresa.socios", "cpf.invalido");
-
 			}
 		});
 		validator.onErrorUsePageOf(this).cadastro();
@@ -156,7 +140,6 @@ public class EmpresaController {
 			{
 				that(Validador.verificaCnpj(empresa.getCnpj()), "empresa.cnpj",
 						"cnpj.invalido");
-
 				that(Validador.verificaNumeroEndereco(empresa),
 						"empresa.endereco.numero", "numero.invalido");
 				that(Validador.verificaNomeFantasia(empresa.getNomeFantasia()),
