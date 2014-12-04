@@ -51,8 +51,9 @@ public class EmpresaDAO implements IEmpresaDAO {
 				+ "OR socio.cpf LIKE :busca ";
 
 		try {
-			SimpleDateFormat formatoData = new SimpleDateFormat("yyyy-MM-dd");
-			dataParaPesquisa = formatoData.parse(textoParaBusca);
+			String textoParaBuscaData = textoParaBusca.replaceAll("-", "/");
+			SimpleDateFormat formatoData = new SimpleDateFormat("dd/MM/yyyy");
+			dataParaPesquisa = formatoData.parse(textoParaBuscaData);
 			sqlQuery += "OR empresa.dataCriacaoEmpresa = :data ";
 		} catch (ParseException e) {}
 
