@@ -43,9 +43,22 @@ public class EmpresaControllerTest {
 		when(empresaDAO.getTodas()).thenReturn(listaDeEmpresas);	
 		
 		List<Empresa> listagem = empresaController.listagem();
-		
+
 		verify(empresaDAO).getTodas();
+		verify(empresaDAO).contaQuantidadeDeRegistros();
 		assertThat(listagem, is(listaDeEmpresas));
+	}
+	
+	@Test
+	public void quandoChamaOMetodoListagemComParametroDeBuscaRetornaOMetodoPesquisaDoDAO() throws Exception {
+		listaDeEmpresas = new ArrayList<Empresa>();
+		listaDeEmpresas.add(empresa);
+		
+		when(empresaDAO.pesquisa("teste")).thenReturn(listaDeEmpresas);		
+		List<Empresa> busca = empresaController.listagem("teste");
+		
+		verify(empresaDAO).pesquisa("teste");
+		assertThat(busca, is(listaDeEmpresas));
 	}
 	
 	@Test

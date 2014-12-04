@@ -22,21 +22,13 @@
 						<h1 id="registrolivre">Registro Livre</h1>
 					</div>
 					<div class="panel-body">
-						<form class="form" name="pesquisa" action="/listagem" method="GET">
-							<input class="form-control" type="text" name="campoPesquisado"
-								id="campoPesquisado" />
-
-							<div class="radio">
-								<label class="radio-inline"> 
-									<input type="radio" name="tipoPesquisa" id="radioNomeFantasia" value="nomeFantasia" checked="true">
-									Nome Fantasia
-								</label> 
-								<label class="radio-inline"> 
-									<input type="radio" name="tipoPesquisa" id="radioCnpj" value="cnpj">
-									CNPJ
-								</label>
+						<form class="form" name="pesquisa" action="/busca" method="GET">
+							<div class="form-group">
+								<input class="form-control" type="text" name="q" id="campoPesquisado" />
 							</div>
-							<input type="submit" id="btn-submit" class="btn btn-lg btn-primary pull-right margin-0-6" value="Buscar"/>
+							<div class="form-group">
+								<input type="submit" id="btn-submit" class="btn btn-lg btn-primary pull-right margin-0-6" value="Buscar"/>
+							</div>
 						</form>
 					</div>
 				</div>
