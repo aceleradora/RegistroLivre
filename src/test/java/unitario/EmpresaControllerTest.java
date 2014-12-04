@@ -104,22 +104,16 @@ public class EmpresaControllerTest {
 	}
 
 	@Test
-	public void quandoChamaAPrimeiraPaginaRetornaOsVintePrimeirosRegistros()
-			throws Exception {
+	public void quandoChamaAPrimeiraPaginaRetornaOsVintePrimeirosRegistros() throws Exception {
 		int pagina = 1;
 		criaEPopulaListaCom100Empresas();
 
-		when(empresaDAO.getTodasComPaginacao(pagina)).thenReturn(
-				listaDeEmpresasPaginacao.subList(0, 20));
+		when(empresaDAO.getTodasComPaginacao(pagina)).thenReturn(listaDeEmpresasPaginacao.subList(0, 20));
 
-		List<Empresa> empresasDaPrimeiraPagina = empresaDAO
-				.getTodasComPaginacao(pagina);
-		int indiceUltimaEmpresa = (int) (empresasDaPrimeiraPagina.size() - 1);
+		List<Empresa> empresas = empresaController.listagem(pagina);
 
-		assertThat(empresasDaPrimeiraPagina.get(0).getNomeFantasia(),
-				is("Empresa 1"));
-		assertThat(empresasDaPrimeiraPagina.get(indiceUltimaEmpresa)
-				.getNomeFantasia(), is("Empresa 20"));
+		verify(empresaDAO).getTodasComPaginacao(pagina);
+		assertThat(empresas.size(), is(20));
 	}
 
 	@Test
@@ -128,7 +122,7 @@ public class EmpresaControllerTest {
 		criaEPopulaListaCom100Empresas();
 		when(empresaDAO.getTodasComPaginacao(pagina)).thenReturn(listaDeEmpresasPaginacao.subList(20, 40));
 
-		List<Empresa> empresasDaSegundaPagina = empresaDAO.getTodasComPaginacao(pagina);
+		List<Empresa> empresasDaSegundaPagina = empresaController.listagem(pagina);
 		
 		int indiceUltimaEmpresa = (int) (empresasDaSegundaPagina.size() - 1);
 
