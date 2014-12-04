@@ -22,9 +22,9 @@
 						<h1 id="registrolivre">Registro Livre</h1>
 					</div>
 					<div class="panel-body">
-						<form class="form" name="pesquisa" action="/listagem" method="GET">
+						<form class="form" name="pesquisa" action="/busca" method="GET">
 							<div class="form-group">
-								<input class="form-control" type="text" name="campoPesquisado" id="campoPesquisado" required/>
+								<input class="form-control" type="text" name="q" id="campoPesquisado" />
 							</div>
 							<div class="form-group">
 								<input type="submit" id="btn-submit" class="btn btn-lg btn-primary pull-right margin-0-6" value="Buscar"/>

@@ -45,6 +45,13 @@ public class EmpresaController {
 				daoEmpresa.contaQuantidadeDeRegistros());
 		return daoEmpresa.getTodas();
 	}
+	
+	@Get("/busca")
+	public List<Empresa> listagem(String q){
+		List<Empresa> listaDeResultadosDeEmpresas = daoEmpresa.pesquisa(q);
+		result.include("totalDeRegistros", listaDeResultadosDeEmpresas.size());
+		return listaDeResultadosDeEmpresas;
+	}
 
 	@Get("/visualizacao/{empresa.id}")
 	public Empresa visualizacao(Empresa empresa) {
