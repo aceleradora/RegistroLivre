@@ -46,11 +46,19 @@ public class EmpresaController {
 		return daoEmpresa.getTodas();
 	}
 	
-	@Get("/busca")
-	public List<Empresa> listagem(String q){
-		List<Empresa> listaDeResultadosDeEmpresas = daoEmpresa.pesquisa(q);
-		result.include("totalDeRegistros", listaDeResultadosDeEmpresas.size());
+	public List<Empresa> listagem(List<Empresa> listaDeResultadosDeEmpresas){
+		result.include("totalDeRegistros", listaDeResultadosDeEmpresas.size());			
 		return listaDeResultadosDeEmpresas;
+	}
+	
+	@Get("/busca")
+	public void busca(String q){
+		List<Empresa> listaDeResultadosDeEmpresas = daoEmpresa.pesquisa(q);
+		if (listaDeResultadosDeEmpresas.size() == 0){
+			result.redirectTo(HomeController.class).home();
+		}else{
+			result.redirectTo(this).listagem(listaDeResultadosDeEmpresas);			
+		}				
 	}
 
 	@Get("/visualizacao/{empresa.id}")
@@ -165,7 +173,7 @@ public class EmpresaController {
 			result.redirectTo(this).cadastro();
 		}
 	}
-
+	
 	@Path("/empresa/cadastrar/{empresa.id}")
 	public void atualizaTeste(Empresa empresa, UploadedFile arquivo) {
 		if (arquivo != null) {

@@ -55,9 +55,8 @@ public class EmpresaControllerTest {
 		listaDeEmpresas.add(empresa);
 		
 		when(empresaDAO.pesquisa("teste")).thenReturn(listaDeEmpresas);		
-		List<Empresa> busca = empresaController.listagem("teste");
+		List<Empresa> busca = empresaController.listagem(listaDeEmpresas);
 		
-		verify(empresaDAO).pesquisa("teste");
 		assertThat(busca, is(listaDeEmpresas));
 	}
 	
