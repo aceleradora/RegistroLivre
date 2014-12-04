@@ -22,13 +22,10 @@ import br.com.caelum.vraptor.Validator;
 
 @RunWith(MockitoJUnitRunner.class)
 public class EmpresaControllerTest {
-	@Mock
-	private Result result;
-	@Mock
-	private EmpresaDAO empresaDAO;
+	@Mock private Result result;
+	@Mock private EmpresaDAO empresaDAO;
+	@Mock private Validator validator;
 	private Empresa empresa;
-	@Mock
-	private Validator validator;
 	private EmpresaController empresaController;
 	private List<Empresa> listaDeEmpresas;
 	private List<Empresa> listaDeEmpresasPaginacao;
