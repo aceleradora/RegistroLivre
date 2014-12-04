@@ -28,6 +28,7 @@ public class EmpresaControllerTest {
 	@Mock private Validator validator;
 	private EmpresaController empresaController;	
 	private List<Empresa> listaDeEmpresas;
+	private List<Empresa> listaDeEmpresasPaginacao;
 
 	@Before
 	public void setup() {
@@ -107,5 +108,28 @@ public class EmpresaControllerTest {
 		
 		//ASSERT
 		verify(result).include("editar", true);
+	}
+	
+	@Test
+	public void quandoChamaAPrimeiraPaginaRetornaOsVintePrimeirosRegistros() throws Exception{
+		//ARRANGE
+		int pagina = 1;		
+		listaDeEmpresasPaginacao = new ArrayList<Empresa>();		
+		for (int i = 1; i < 101; i++) {
+			Empresa e = new Empresa();
+			e.setNomeFantasia("Empresa " + i);
+			listaDeEmpresasPaginacao.add(e);
+		}
+		
+		when(empresaDAO.getTodasComPaginacao(pagina)).thenReturn(listaDeEmpresasPaginacao.subList(0, 20));
+
+		//ACT
+		List<Empresa> empresasDaPrimeiraPagina = empresaDAO.getTodasComPaginacao(pagina);
+		int indiceUltimaEmpresa = (int) (empresasDaPrimeiraPagina.size() - 1);
+		
+		//ASSERT
+		assertThat(empresasDaPrimeiraPagina.get(0).getNomeFantasia(), is("Empresa 1"));
+		assertThat(empresasDaPrimeiraPagina.get(indiceUltimaEmpresa).getNomeFantasia(), is("Empresa 20"));
+		
 	}
 }

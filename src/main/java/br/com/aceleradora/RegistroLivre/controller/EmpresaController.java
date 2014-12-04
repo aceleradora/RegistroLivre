@@ -48,6 +48,13 @@ public class EmpresaController {
 		return daoEmpresa.getById(empresa.getId());
 	}
 
+	@Get("/listagem/")
+	public List<Empresa> listagem() {
+		result.include("totalDeRegistros",
+				daoEmpresa.contaQuantidadeDeRegistros());
+		return daoEmpresa.getTodas();
+	}
+	
 	@Get("/listagem/{pagina}")
 	public List<Empresa> listagem(int pagina) {
 		result.include("totalDeRegistros",
