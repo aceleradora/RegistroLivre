@@ -51,13 +51,13 @@ public class EmpresaDAO implements IEmpresaDAO {
 				+ "FROM Empresa AS empresa "
 				+ "LEFT JOIN empresa.socios AS socio "
 				+ "WHERE empresa.cnpj LIKE :busca "
-				+ "OR lower(empresa.nomeFantasia) LIKE :busca "
-				+ "OR lower(empresa.razaoSocial) LIKE :busca "
-				+ "OR lower(empresa.endereco.logradouro) LIKE :busca "
-				+ "OR lower(empresa.endereco.cidade) LIKE :busca "
-				+ "OR lower(empresa.endereco.uf) LIKE :busca "
+				+ "OR lower(unaccent(empresa.nomeFantasia)) LIKE :busca "
+				+ "OR lower(unaccent(empresa.razaoSocial)) LIKE :busca "
+				+ "OR lower(unaccent(empresa.endereco.logradouro)) LIKE :busca "
+				+ "OR lower(unaccent(empresa.endereco.cidade)) LIKE :busca "
+				+ "OR lower(unaccent(empresa.endereco.uf)) LIKE :busca "
 				+ "OR empresa.endereco.cep LIKE :busca "
-				+ "OR lower(socio.nome) LIKE :busca "
+				+ "OR lower(unaccent(socio.nome)) LIKE :busca "
 				+ "OR socio.cpf LIKE :busca ";
 
 		try {
