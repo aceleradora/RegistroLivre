@@ -40,17 +40,31 @@
 							</button>
 						</a>
 						<div style="clear: both"></div>
+				
 					</div>
-
+				</div>	
+			
+				<div class="centralize">
+					<ul class="pagination" style="margin:-25px 0 10px 0;">
+						<li><a href="#">Primeira</a></li>
+						<li><a href="#"> &laquo;</a></li>
+						<li class="active"><a href="#">1</a></li>
+						<li><a href="#">2</a></li>
+						<li><a href="#">3</a></li>
+						<li><a href="#">4</a></li>
+						<li><a href="#">5</a></li>
+						<li><a href="#">6</a></li>
+						<li><a href="#">7</a></li>
+						<li><a href="#">8</a></li>
+						<li><a href="#">9</a></li>
+						<li><a href="#">10</a></li>
+						<li><a href="#"> &raquo; </a></li>
+						<li><a href="#">Última</a></li>
+					</ul>
 				</div>
-
-
-
-
-				<!-- col -->
-			</div>
-			<!-- row -->
-		</div>
-		<!-- container -->
+			
+				</div> <!-- cow -->
+			</div> <!-- row -->
+		</div><!-- container -->
 </body>
 </html>
