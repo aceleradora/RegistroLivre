@@ -55,6 +55,7 @@ public class EmpresaController {
 	public void busca(String q){
 		List<Empresa> listaDeResultadosDeEmpresas = daoEmpresa.pesquisa(q);
 		if (listaDeResultadosDeEmpresas.size() == 0){
+			result.include("listaDeResultadosDeEmpresasVazia", true);
 			result.redirectTo(HomeController.class).home();
 		}else{
 			result.redirectTo(this).listagem(listaDeResultadosDeEmpresas);			

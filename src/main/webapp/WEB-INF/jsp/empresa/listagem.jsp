@@ -6,8 +6,8 @@
 <html lang="pt-br">
 <head>
 <meta charset="iso-8859-1" />
-<link href="assets/css/bootstrap/css/bootstrap.css" rel="stylesheet">
-<link href="assets/css/main.css" rel="stylesheet">
+<link href="/assets/css/bootstrap/css/bootstrap.css" rel="stylesheet">
+<link href="/assets/css/main.css" rel="stylesheet">
 </head>
 <body>
 	<jsp:include page="/WEB-INF/jsp/includes/cabecalho.jsp" />
