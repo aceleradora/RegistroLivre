@@ -22,7 +22,7 @@ public class HomeController {
 
 	@Get("/")
 	public void home() {
-		for(Empresa e : daoEmpresa.pesquisa("a")){
+		for(Empresa e : daoEmpresa.pesquisa("A")){
 			System.out.println(e.getId());
 		}
 	}

@@ -30,17 +30,21 @@ public class EmpresaDAO implements IEmpresaDAO {
 	}
 	
 	public List<Empresa> pesquisa(String busca) {
-		Query query = sessao.createQuery("SELECT distinct e FROM Empresa AS e JOIN e.socios AS s "
-										+ "WHERE "
-										+ "cnpj LIKE :busca "
-										+ "OR nomefantasia LIKE :busca "
-										+ "OR razaosocial LIKE :busca "
-										+ "OR logradouro LIKE :busca "
-										+ "OR cidade LIKE :busca "
-										+ "OR uf LIKE :busca "
-										+ "OR cep LIKE :busca "
-										+ "OR s.nome LIKE :busca");
+		busca = busca.toLowerCase();
 		
+		Query query = sessao.createQuery("SELECT DISTINCT empresa "
+										+ "FROM Empresa AS empresa "
+										+ "LEFT JOIN empresa.socios AS socio "
+										+ "WHERE empresa.cnpj LIKE :busca "
+											+ "OR lower(empresa.nomeFantasia) LIKE :busca "
+											+ "OR lower(empresa.razaoSocial) LIKE :busca "
+											+ "OR lower(empresa.endereco.logradouro) LIKE :busca "
+											+ "OR lower(empresa.endereco.cidade) LIKE :busca "
+											+ "OR lower(empresa.endereco.uf) LIKE :busca "
+											+ "OR empresa.endereco.cep LIKE :busca "
+											+ "OR lower(socio.nome) LIKE :busca "
+											+ "OR socio.cpf LIKE :busca ");
+
 		query.setParameter("busca", "%" + busca + "%");
 		
 		return query.list();	
