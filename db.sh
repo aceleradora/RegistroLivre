@@ -4,6 +4,8 @@
 sudo apt-get update
 sudo apt-get install postgresql postgresql-contrib
 
+sudo -u postgres psql -c "CREATE EXTENSION IF NOT EXISTS unaccent;"
+
 sudo apt-get install maven
 
 if [ -z "$DB_CONNECTION_USUARIO" ] && [ -z "$DB_CONNECTION_SENHA"]; then
