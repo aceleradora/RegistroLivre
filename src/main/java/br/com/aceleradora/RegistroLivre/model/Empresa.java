@@ -35,19 +35,14 @@ public class Empresa extends Entidade {
 	@JoinTable(name = "empresa_socios", joinColumns = { @JoinColumn(name = "empresa_id") }, inverseJoinColumns = { @JoinColumn(name = "socio_id") })
 	private List<Socio> socios;
 	@Transient
-	private SimpleDateFormat sdfIn;
-	@Transient
-	private SimpleDateFormat sdfOut;
+	private SimpleDateFormat formatadorDeData;
 	
 	public Empresa() {
 		socios = new ArrayList<Socio>();
-		sdfIn = new SimpleDateFormat("dd/MM/yyyy");
-		sdfIn.setLenient(false);
+		formatadorDeData = new SimpleDateFormat("dd/MM/yyyy");
+		formatadorDeData.setLenient(false);
 		
-		sdfOut = new SimpleDateFormat("dd/MM/yyyy");
-		sdfOut.setLenient(false);
-		
-		dataRegistro = new Date();
+		setDataRegistro(new Date());
 	}
 
 	public String getCnpj() {
@@ -84,7 +79,7 @@ public class Empresa extends Entidade {
 
 	public String getDataCriacao() {
 		try {
-			return sdfOut.format(dataCriacaoEmpresa);
+			return formatadorDeData.format(dataCriacaoEmpresa);
 		} catch (Exception e) {
 			return "";
 		}
@@ -92,7 +87,7 @@ public class Empresa extends Entidade {
 
 	public void setDataCriacao(String dataCriacao){
 		try {
-			this.dataCriacaoEmpresa = sdfIn.parse(dataCriacao);
+			this.dataCriacaoEmpresa = formatadorDeData.parse(dataCriacao);
 		} catch (Exception e) {
 			this.dataCriacaoEmpresa = null;
 		}
@@ -100,7 +95,7 @@ public class Empresa extends Entidade {
 
 	public String getDataEmissaoDocumento() {
 		try {
-			return sdfOut.format(dataEmissaoDocumento);
+			return formatadorDeData.format(dataEmissaoDocumento);
 		} catch (Exception e) {
 			return "";
 		}
@@ -108,7 +103,7 @@ public class Empresa extends Entidade {
 
 	public void setDataEmissaoDocumento(String dataEmissaoDocumento){
 		try {						
-			this.dataEmissaoDocumento = sdfIn.parse(dataEmissaoDocumento);			
+			this.dataEmissaoDocumento = formatadorDeData.parse(dataEmissaoDocumento);			
 		} catch (Exception e) {			
 			this.dataEmissaoDocumento = null;
 		}
@@ -122,6 +117,18 @@ public class Empresa extends Entidade {
 		this.socios = socios;
 	}
 
+	public String getDataRegistro() {
+		try {
+			return formatadorDeData.format(dataRegistro);
+		} catch (Exception e) {
+			return "";
+		}
+	}
+
+	public void setDataRegistro(Date dataRegistro) {
+		this.dataRegistro = dataRegistro;
+	}
+	
 	public String getUrl() {
 		return url;
 	}
@@ -129,4 +136,5 @@ public class Empresa extends Entidade {
 	public void setUrl(String url) {
 		this.url = url;
 	}
+	
 }

@@ -25,7 +25,7 @@ public class Validador {
 
 		String cpfSemCaracteresEspeciais = cpf.replaceAll("[.-]", "");
 
-		if ((verificaNumerosIguaisCpf(cpfSemCaracteresEspeciais)) == 11) {
+		if ((verificaQuantidadeNumerosIguais(cpfSemCaracteresEspeciais)) == 11) {
 			return false;
 		}
 
@@ -87,7 +87,7 @@ public class Validador {
 			return false;
 		}
 
-		if ((verificaNumerosIguaisCnpj(cnpj)) == 14) {
+		if ((verificaQuantidadeNumerosIguais(cnpj)) == 14) {
 			return false;
 		}
 
@@ -170,24 +170,14 @@ public class Validador {
 
 		return true;
 	}
-
-	public static int verificaNumerosIguaisCnpj(String cnpj) {
-		int quantidadeDeNumerosIguaisCnpj = 1;
-		for (int i = 0; i < cnpj.length() - 1; i++) {
-			if (cnpj.charAt(i) == cnpj.charAt(i + 1)) {
-				quantidadeDeNumerosIguaisCnpj++;
+		
+	public static int verificaQuantidadeNumerosIguais(String texto) {
+		int quantidadeDeNumerosIguais = 1;
+		for (int i = 0; i < texto.length() - 1; i++) {
+			if (texto.charAt(i) == texto.charAt(i + 1)) {
+				quantidadeDeNumerosIguais++;
 			}
 		}
-		return quantidadeDeNumerosIguaisCnpj;
-	}
-
-	public static int verificaNumerosIguaisCpf(String cpf) {
-		int quantidadeDeNumerosIguaisCpf = 1;
-		for (int i = 0; i < cpf.length() - 1; i++) {
-			if (cpf.charAt(i) == cpf.charAt(i + 1)) {
-				quantidadeDeNumerosIguaisCpf++;
-			}
-		}
-		return quantidadeDeNumerosIguaisCpf;
+		return quantidadeDeNumerosIguais;
 	}
 }

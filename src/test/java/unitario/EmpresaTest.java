@@ -18,45 +18,76 @@ public class EmpresaTest {
 	}
 
 	@Test
-	public void retornaStringVaziaQuandoADataENula() throws Exception {
-
+	public void retornaStringVaziaQuandoADataCriacaoENula() throws Exception {
 		empresa.setDataCriacao(null);
-
 		assertThat(empresa.getDataCriacao(), is(""));
 	}
 
 	@Test
-	public void retornaStringNoFormatoDiaMesAnoQuandoDataEstaCorreta()
+	public void retornaStringNoFormatoDiaMesAnoQuandoDataCriacaoEstaCorreta()
 			throws Exception {
-
 		empresa.setDataCriacao("17/11/2004");
-
 		assertThat(empresa.getDataCriacao(), is("17/11/2004"));
 	}
 
 	@Test
-	public void retornaStringVaziaQuandoMesEDiaEstiveremInvertidos()
+	public void retornaStringVaziaQuandoMesEDiaEstiveremInvertidosNaDataCriacao()
 			throws Exception {
-
 		empresa.setDataCriacao("12/30/2013");
-
 		assertThat(empresa.getDataCriacao(), is(""));
 	}
 
 	@Test
-	public void retornaStringVaziaQuandoAnoVemAntesNaData() throws Exception {
-
+	public void retornaStringVaziaQuandoAnoVemAntesNaDataCriacao() throws Exception {
 		empresa.setDataCriacao("2014/10/10");
-
 		assertThat(empresa.getDataCriacao(), is(""));
 	}
 
 	@Test
-	public void retornaStringVaziaQuandoUsaHifenAoInvesDeBarra()
+	public void retornaStringVaziaQuandoUsaHifenAoInvesDeBarraNaDataCriacao()
 			throws Exception {
-
 		empresa.setDataCriacao("27-11-2014");
-
 		assertThat(empresa.getDataCriacao(), is(""));
 	}
+
+	
+	@Test
+	public void retornaStringVaziaQuandoADataEmissaoDocumentoENula() throws Exception {
+		empresa.setDataEmissaoDocumento(null);
+		assertThat(empresa.getDataEmissaoDocumento(), is(""));
+	}
+
+	@Test
+	public void retornaStringNoFormatoDiaMesAnoQuandoDataEmissaoDocumentoEstaCorreta()
+			throws Exception {
+		empresa.setDataEmissaoDocumento("17/11/2004");
+		assertThat(empresa.getDataEmissaoDocumento(), is("17/11/2004"));
+	}
+
+	@Test
+	public void retornaStringVaziaQuandoMesEDiaEstiveremInvertidosNaDataEmissaoDocumento()
+			throws Exception {
+		empresa.setDataEmissaoDocumento("12/30/2013");
+		assertThat(empresa.getDataEmissaoDocumento(), is(""));
+	}
+
+	@Test
+	public void retornaStringVaziaQuandoAnoVemAntesNaDataEmissaoDocumento() throws Exception {
+		empresa.setDataEmissaoDocumento("2014/10/10");
+		assertThat(empresa.getDataEmissaoDocumento(), is(""));
+	}
+
+	@Test
+	public void retornaStringVaziaQuandoUsaHifenAoInvesDeBarraNaDataEmissaoDocumento()
+			throws Exception {
+		empresa.setDataEmissaoDocumento("27-11-2014");
+		assertThat(empresa.getDataEmissaoDocumento(), is(""));
+	} 
+	
+	
+	@Test
+	public void retornaADataDeRegistroAoCriarUmaNovaEmpresa(){		
+		assertThat(empresa.getDataRegistro(), is("04/12/2014"));
+	}
+	
 }
