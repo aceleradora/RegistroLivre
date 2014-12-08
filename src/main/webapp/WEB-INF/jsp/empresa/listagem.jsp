@@ -8,9 +8,6 @@
 <meta charset="iso-8859-1" />
 <link href="/assets/css/bootstrap/css/bootstrap.css" rel="stylesheet">
 <link href="/assets/css/main.css" rel="stylesheet">
-
-<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script src="../assets/js/visualizacao.js"></script>
 </head>
 <body>
 	<jsp:include page="/WEB-INF/jsp/includes/cabecalho.jsp" />
@@ -18,15 +15,6 @@
 		<div class="row">
 			<div class="col-lg-6 col-lg-offset-3">
 				<div class="panel panel-default margin-35-0">
-			
-					<c:if test="${listaDeResultadosDeEmpresasVazia == true}">
-	    				<div class="alert alert-warning alert-dismissible" role="alert">
-					  		<button type="button" class="close" id="close" data-dismiss="alert">
-				  				<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
-				  			</button>
-					  		<strong>Não há nenhum registro de empresa para a busca efetuada.</strong> 
-						</div>
-	    			</c:if>
 	    			
 					<div class="panel-heading">
 						<h1>Lista de Empresas Cadastradas</h1>
