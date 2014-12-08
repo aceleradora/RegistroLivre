@@ -56,7 +56,9 @@ public class EmpresaDAO implements IEmpresaDAO {
 			dataParaPesquisa = formatoData.parse(textoParaBuscaData);
 			sqlQuery += "OR empresa.dataCriacaoEmpresa = :data ";
 		} catch (ParseException e) {}
-
+		
+		sqlQuery += " ORDER BY empresa.dataRegistro DESC ";
+		
 		Query query = sessao.createQuery(sqlQuery);
 
 		query.setParameter("busca", "%" + textoParaBusca + "%");
