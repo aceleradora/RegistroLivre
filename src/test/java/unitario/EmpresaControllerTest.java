@@ -17,6 +17,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 import br.com.aceleradora.RegistroLivre.controller.EmpresaController;
 import br.com.aceleradora.RegistroLivre.dao.EmpresaDAO;
 import br.com.aceleradora.RegistroLivre.model.Empresa;
+import br.com.aceleradora.RegistroLivre.model.Paginador;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.Validator;
 
@@ -25,6 +26,7 @@ public class EmpresaControllerTest {
 	@Mock private Result result;
 	@Mock private EmpresaDAO empresaDAO;
 	@Mock private Validator validator;
+	@Mock private Paginador paginador;
 	private Empresa empresa;
 	private EmpresaController empresaController;
 	private List<Empresa> listaDeEmpresas;
@@ -33,42 +35,27 @@ public class EmpresaControllerTest {
 	@Before
 	public void setup() {
 		empresa = new Empresa();
-		empresaController = new EmpresaController(empresaDAO, result, validator);
+		empresaController = new EmpresaController(empresaDAO, result, validator, paginador);
 	}
 
 	@Test
-	public void quandoChamaOMetodoListagemRetornaOMetodoGetTodasDoDAO()
+	public void quandoChamaOMetodoListagemRetornaOMetodoGetPagina()
 			throws Exception {
 		listaDeEmpresas = new ArrayList<Empresa>();
 		listaDeEmpresas.add(empresa);
 
-		when(empresaDAO.getTodas()).thenReturn(listaDeEmpresas);
+		empresaController.listagem(1);
 
-		List<Empresa> listagem = empresaController.listagem();
-
-		verify(empresaDAO).getTodas();
-		verify(empresaDAO).contaQuantidadeDeRegistros();
-		assertThat(listagem, is(listaDeEmpresas));
+		verify(paginador).getPagina(1);
 	}
 
-	@Test
-	public void quandoChamaOMetodoListagemComParametroDeBuscaRetornaOMetodoPesquisaDoDAO() throws Exception {
-		listaDeEmpresas = new ArrayList<Empresa>();
-		listaDeEmpresas.add(empresa);
-		
-		when(empresaDAO.pesquisa("teste")).thenReturn(listaDeEmpresas);		
-		List<Empresa> busca = empresaController.listagem(listaDeEmpresas);
-		
-		assertThat(busca, is(listaDeEmpresas));
-	}
-	
 	@Test
 	public void quandoChamaOMetodoListagemChamaOIncludeDoResult() throws Exception {
 		Long quantidadeRegistros = 5L;
 		when(empresaDAO.contaQuantidadeDeRegistros()).thenReturn(
 				quantidadeRegistros);
 
-		empresaController.listagem();
+		empresaController.listagem(1);
 
 		verify(result).include("totalDeRegistros", quantidadeRegistros);
 	}
@@ -108,11 +95,10 @@ public class EmpresaControllerTest {
 		int pagina = 1;
 		criaEPopulaListaCom100Empresas();
 
-		when(empresaDAO.getTodasComPaginacao(pagina)).thenReturn(listaDeEmpresasPaginacao.subList(0, 20));
-
+		when(paginador.getPagina(pagina)).thenReturn(listaDeEmpresasPaginacao.subList(0, 20));
+		
 		List<Empresa> empresas = empresaController.listagem(pagina);
 
-		verify(empresaDAO).getTodasComPaginacao(pagina);
 		assertThat(empresas.size(), is(20));
 	}
 
@@ -120,8 +106,9 @@ public class EmpresaControllerTest {
 	public void quandoChamaASegundaPaginaRetornaOsVinteSegundosRegistros() throws Exception {
 		int pagina = 2;
 		criaEPopulaListaCom100Empresas();
-		when(empresaDAO.getTodasComPaginacao(pagina)).thenReturn(listaDeEmpresasPaginacao.subList(20, 40));
 
+		when(paginador.getPagina(pagina)).thenReturn(listaDeEmpresasPaginacao.subList(20, 40));
+		
 		List<Empresa> empresasDaSegundaPagina = empresaController.listagem(pagina);
 		
 		int indiceUltimaEmpresa = (int) (empresasDaSegundaPagina.size() - 1);

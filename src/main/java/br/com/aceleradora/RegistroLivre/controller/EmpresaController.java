@@ -5,6 +5,7 @@ import java.util.List;
 
 import br.com.aceleradora.RegistroLivre.dao.EmpresaDAO;
 import br.com.aceleradora.RegistroLivre.model.Empresa;
+import br.com.aceleradora.RegistroLivre.model.Paginador;
 import br.com.aceleradora.RegistroLivre.model.Validador;
 import br.com.aceleradora.RegistroLivre.util.Arquivo;
 import br.com.aceleradora.RegistroLivre.util.ClienteCloudinary;
@@ -21,11 +22,13 @@ public class EmpresaController {
 	private EmpresaDAO daoEmpresa;
 	private Result result;
 	private Validator validator;
+	private Paginador paginador;
 	 
-	public EmpresaController(EmpresaDAO dao, Result result, Validator validator) {
+	public EmpresaController(EmpresaDAO dao, Result result, Validator validator, Paginador paginador) {
 		this.daoEmpresa = dao;
 		this.result = result;
 		this.validator = validator;
+		this.paginador = paginador;
 	}
 
 	@Get("/cadastro")
@@ -37,24 +40,17 @@ public class EmpresaController {
 		result.include("editar", true);
 		return daoEmpresa.getById(empresa.getId());
 	}
-
-	@Get("/listagem/")
-	public List<Empresa> listagem() {
-		result.include("totalDeRegistros",
-				daoEmpresa.contaQuantidadeDeRegistros());
-		return daoEmpresa.getTodas();
-	}
 	
 	@Get("/listagem/{pagina}")
 	public List<Empresa> listagem(int pagina) {
-		result.include("totalDeRegistros",
-				daoEmpresa.contaQuantidadeDeRegistros());
-		return daoEmpresa.getTodasComPaginacao(pagina);
+		result.include("totalDeRegistros", daoEmpresa.contaQuantidadeDeRegistros());
+		return paginador.getPagina(pagina);
 	}
 	
-	public List<Empresa> listagem(List<Empresa> listaDeResultadosDeEmpresas){
-		result.include("totalDeRegistros", listaDeResultadosDeEmpresas.size());			
-		return listaDeResultadosDeEmpresas;
+	@Get("/listagem")
+	public void listagem(){
+		paginador.setListaEmpresas(daoEmpresa.getTodas());
+		result.redirectTo(this).listagem(1);
 	}
 	
 	@Get("/busca")
@@ -62,9 +58,10 @@ public class EmpresaController {
 		List<Empresa> listaDeResultadosDeEmpresas = daoEmpresa.pesquisa(q);
 		if (listaDeResultadosDeEmpresas.size() == 0){
 			result.include("listaDeResultadosDeEmpresasVazia", true);
-			result.redirectTo(HomeController.class).home();
+			result.redirectTo(this).listagem(1);
 		}else{
-			result.redirectTo(this).listagem(listaDeResultadosDeEmpresas);			
+			paginador.setListaEmpresas(daoEmpresa.getTodas());
+			result.redirectTo(this).listagem(1);			
 		}				
 	}
 
