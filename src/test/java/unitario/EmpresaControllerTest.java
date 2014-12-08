@@ -51,9 +51,8 @@ public class EmpresaControllerTest {
 
 	@Test
 	public void quandoChamaOMetodoListagemChamaOIncludeDoResult() throws Exception {
-		Long quantidadeRegistros = 5L;
-		when(empresaDAO.contaQuantidadeDeRegistros()).thenReturn(
-				quantidadeRegistros);
+		int quantidadeRegistros = 5;
+		when(paginador.getListaSize()).thenReturn(quantidadeRegistros);
 
 		empresaController.listagem(1);
 
