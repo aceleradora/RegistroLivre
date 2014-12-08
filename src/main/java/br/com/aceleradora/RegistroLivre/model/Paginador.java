@@ -9,7 +9,7 @@ import br.com.caelum.vraptor.ioc.SessionScoped;
 @SessionScoped
 @Component
 public class Paginador {
-	private final int ELEMETOS_POR_PAGINA = 20;
+	private final int ELEMENTOS_POR_PAGINA = 20;
 	private List<Empresa> listaEmpresas;
 
 	public Paginador() {
@@ -32,14 +32,15 @@ public class Paginador {
 			return new ArrayList<Empresa>();
 		}
 
-		int indexPrimeiroElemento = (pagina - 1) * ELEMETOS_POR_PAGINA;
+		int indexPrimeiroElemento = (pagina - 1) * ELEMENTOS_POR_PAGINA;
 		int indexUltimoElemento;
 
-		if (pagina * ELEMETOS_POR_PAGINA > listaEmpresas.size()) {
+		if (pagina * ELEMENTOS_POR_PAGINA > listaEmpresas.size()) {
 			indexUltimoElemento = listaEmpresas.size();
 		} else {
-			indexUltimoElemento = pagina * ELEMETOS_POR_PAGINA;
+			indexUltimoElemento = pagina * ELEMENTOS_POR_PAGINA;
 		}
+		
 		if (indexPrimeiroElemento < indexUltimoElemento) {
 			return listaEmpresas.subList(indexPrimeiroElemento,
 					indexUltimoElemento);

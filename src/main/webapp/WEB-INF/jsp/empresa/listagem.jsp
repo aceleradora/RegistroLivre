@@ -63,7 +63,7 @@
 					<ul class="pagination" style="margin:-25px 0 10px 0;">
 						<li><a href="#">Primeira</a></li>
 						<li><a href="#"> &laquo;</a></li>
-						<li class="active"><a href="listagem/1">1</a></li>
+						<li class="active"><a href="/listagem/1">1</a></li>
 						<li><a href="2">2</a></li>
 						<li><a href="3">3</a></li>
 						<li><a href="4">4</a></li>
