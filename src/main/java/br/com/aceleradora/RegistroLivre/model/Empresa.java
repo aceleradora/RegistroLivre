@@ -1,8 +1,7 @@
 package br.com.aceleradora.RegistroLivre.model;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -13,7 +12,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
-import javax.persistence.Transient;
 
 import br.com.aceleradora.RegistroLivre.dao.Entidade;
 
@@ -25,24 +23,19 @@ public class Empresa extends Entidade {
 	private String razaoSocial;
 	@Column(nullable = false)
 	private String nomeFantasia;
-	private Date dataCriacaoEmpresa;
-	private Date dataEmissaoDocumento;
-	private Date dataRegistro;
+	private Calendar dataCriacao;
+	private Calendar dataEmissaoDocumento;
+	private Calendar dataRegistro;
 	private String url;
 	@Embedded
 	private Endereco endereco;
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "empresa_socios", joinColumns = { @JoinColumn(name = "empresa_id") }, inverseJoinColumns = { @JoinColumn(name = "socio_id") })
 	private List<Socio> socios;
-	@Transient
-	private SimpleDateFormat formatadorDeData;
-	
+
 	public Empresa() {
 		socios = new ArrayList<Socio>();
-		formatadorDeData = new SimpleDateFormat("dd/MM/yyyy");
-		formatadorDeData.setLenient(false);
-		
-		setDataRegistro(new Date());
+		setDataRegistro(Calendar.getInstance());
 	}
 
 	public String getCnpj() {
@@ -69,44 +62,44 @@ public class Empresa extends Entidade {
 		this.nomeFantasia = nomeFantasia;
 	}
 
+	public Calendar getDataCriacao() {
+		return dataCriacao;
+	}
+
+	public void setDataCriacao(Calendar dataCriacao) {
+		this.dataCriacao = dataCriacao;
+	}
+
+	public Calendar getDataEmissaoDocumento() {
+		return dataEmissaoDocumento;
+	}
+
+	public void setDataEmissaoDocumento(Calendar dataEmissaoDocumento) {
+		this.dataEmissaoDocumento = dataEmissaoDocumento;
+	}
+
+	public Calendar getDataRegistro() {
+		return dataRegistro;
+	}
+
+	public void setDataRegistro(Calendar dataRegistro) {
+		this.dataRegistro = dataRegistro;
+	}
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
 	public Endereco getEndereco() {
 		return endereco;
 	}
 
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
-	}
-
-	public String getDataCriacao() {
-		try {
-			return formatadorDeData.format(dataCriacaoEmpresa);
-		} catch (Exception e) {
-			return "";
-		}
-	}
-
-	public void setDataCriacao(String dataCriacao){
-		try {
-			this.dataCriacaoEmpresa = formatadorDeData.parse(dataCriacao);
-		} catch (Exception e) {
-			this.dataCriacaoEmpresa = null;
-		}
-	}
-
-	public String getDataEmissaoDocumento() {
-		try {
-			return formatadorDeData.format(dataEmissaoDocumento);
-		} catch (Exception e) {
-			return "";
-		}
-	}
-
-	public void setDataEmissaoDocumento(String dataEmissaoDocumento){
-		try {						
-			this.dataEmissaoDocumento = formatadorDeData.parse(dataEmissaoDocumento);			
-		} catch (Exception e) {			
-			this.dataEmissaoDocumento = null;
-		}
 	}
 
 	public List<Socio> getSocios() {
@@ -116,25 +109,4 @@ public class Empresa extends Entidade {
 	public void setSocios(List<Socio> socios) {
 		this.socios = socios;
 	}
-
-	public String getDataRegistro() {
-		try {
-			return formatadorDeData.format(dataRegistro);
-		} catch (Exception e) {
-			return "";
-		}
-	}
-
-	public void setDataRegistro(Date dataRegistro) {
-		this.dataRegistro = dataRegistro;
-	}
-	
-	public String getUrl() {
-		return url;
-	}
-
-	public void setUrl(String url) {
-		this.url = url;
-	}
-	
 }

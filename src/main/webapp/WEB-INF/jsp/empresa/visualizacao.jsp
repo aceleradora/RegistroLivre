@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=iso-8859-1"
 	pageEncoding="iso-8859-1"%>
 <%@ page isELIgnored="false"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="pt-br">
@@ -87,13 +88,17 @@
 						</dl>
 
 						<dl>
-							<dt>Data de abertura:</dt> 
-							<dd>${empresa.dataCriacao}</dd>
+							<dt>Data de abertura:</dt>
+							<dd>
+								<fmt:formatDate value="${empresa.dataCriacao.time}" pattern="dd/MM/yyyy"  />
+							</dd>							
 						</dl>
 
 						<dl>
-							<dt>Emissão de documento:</dt>
-							<dd>${empresa.dataEmissaoDocumento}</dd>
+							<dt>Emissão de documento:</dt>						
+							<dd>
+								<fmt:formatDate value="${empresa.dataEmissaoDocumento.time}" pattern="dd/MM/yyyy"  />
+							</dd>
 						</dl>					
 					
 						<h4 class="centralize panel-divider padding-6-0 margin-30-0">Estrutura Societária</h4>

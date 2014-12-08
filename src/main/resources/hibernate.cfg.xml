@@ -11,7 +11,7 @@
 		<property name="hibernate.show_sql">true</property>
 		<property name="hibernate.format_sql">false</property>
 		<property name="hbm2ddl.auto">update</property>
-
+			
 		<mapping class="br.com.aceleradora.RegistroLivre.model.Empresa" />
 		<mapping class="br.com.aceleradora.RegistroLivre.model.Socio" />
 	</session-factory>
