@@ -2,6 +2,8 @@ package br.com.aceleradora.RegistroLivre.model;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -109,4 +111,8 @@ public class Empresa extends Entidade {
 	public void setSocios(List<Socio> socios) {
 		this.socios = socios;
 	}
+
 }
+
+
+

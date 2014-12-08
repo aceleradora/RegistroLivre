@@ -23,6 +23,10 @@ public class Paginador {
 		return listaEmpresas.size();
 	}
 
+	public List<Empresa> getListaEmpresas() {
+		return listaEmpresas;
+	}
+	
 	public List<Empresa> getPagina(int pagina) {
 		if (listaEmpresas == null) {
 			return new ArrayList<Empresa>();

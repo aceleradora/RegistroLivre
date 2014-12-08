@@ -1,5 +1,11 @@
 package br.com.aceleradora.RegistroLivre.controller;
 
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import br.com.aceleradora.RegistroLivre.dao.EmpresaDAO;
@@ -8,6 +14,7 @@ import br.com.aceleradora.RegistroLivre.model.Paginador;
 import br.com.aceleradora.RegistroLivre.model.Validador;
 import br.com.aceleradora.RegistroLivre.util.Arquivo;
 import br.com.aceleradora.RegistroLivre.util.ClienteCloudinary;
+import br.com.aceleradora.RegistroLivre.util.NomeFantasiaComparator;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;
@@ -53,6 +60,12 @@ public class EmpresaController {
 		result.redirectTo(this).listagem(1);
 	}
 
+	@Get("/listagem/ordenacao")
+	public void listaOrdenada(){
+		Collections.sort(paginador.getListaEmpresas(), new NomeFantasiaComparator());
+		result.redirectTo(this).listagem(1);
+	}
+	
 	@Get("/busca")
 	public void busca(String q) {
 		List<Empresa> listaDeResultadosDeEmpresas = daoEmpresa.pesquisa(q);
@@ -151,3 +164,4 @@ public class EmpresaController {
 		}
 	}
 }
+
