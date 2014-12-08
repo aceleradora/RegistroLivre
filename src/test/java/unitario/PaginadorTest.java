@@ -43,4 +43,49 @@ public class PaginadorTest {
 		assertThat(result.size(), is(20));
 	}
 
+	@Test
+	public void retornaAListaQuandoElaTiverMenosDe20Elementos() {
+		List<Empresa> listaEmpresas = new ArrayList<Empresa>();
+		Empresa empresa = new Empresa();
+		for (int i = 0; i < 10; i++) {
+			listaEmpresas.add(empresa);
+		}
+		
+		paginador.setListaEmpresas(listaEmpresas);		
+		
+		List<Empresa> result = paginador.getPagina(1);
+		
+		assertThat(result, is(listaEmpresas));
+	}
+
+	@Test
+	public void retornaUmaListaCom3ElementosNaSegundaPaginaMandarUmaListaCom23Elementos() {
+		List<Empresa> listaEmpresas = new ArrayList<Empresa>();
+		Empresa empresa = new Empresa();
+		for (int i = 0; i < 23; i++) {
+			listaEmpresas.add(empresa);
+		}
+		
+		paginador.setListaEmpresas(listaEmpresas);		
+		
+		List<Empresa> result = paginador.getPagina(2);
+		
+		assertThat(result.size(), is(3));
+	}
+	
+	@Test
+	public void retornaUmaListaVaziaNaSegundaPaginaQuandoListaPossuiMenosDeVinteElementos(){
+		List<Empresa> listaEmpresas = new ArrayList<Empresa>();
+		Empresa empresa = new Empresa();
+		for (int i = 0; i < 3; i++) {
+			listaEmpresas.add(empresa);
+		}
+		
+		paginador.setListaEmpresas(listaEmpresas);		
+		
+		List<Empresa> result = paginador.getPagina(2);
+		
+		assertThat(result.size(), is(0));
+	}
+
 }

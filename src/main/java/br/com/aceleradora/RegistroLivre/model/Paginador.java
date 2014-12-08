@@ -18,19 +18,29 @@ public class Paginador {
 	public void setListaEmpresas(List<Empresa> listaEmpresas) {
 		this.listaEmpresas = listaEmpresas;
 	}
+	
+	public int getListaSize(){
+		return listaEmpresas.size();
+	}
 
 	public List<Empresa> getPagina(int pagina) {
 		if (listaEmpresas == null) {
 			return new ArrayList<Empresa>();
 		}
 
-		List<Empresa> listaResultado = new ArrayList<Empresa>();
-
 		int indexPrimeiroElemento = (pagina - 1) * ELEMETOS_POR_PAGINA;
-		int indexUltimoElemento = pagina * ELEMETOS_POR_PAGINA;
-		
-		listaResultado = listaEmpresas.subList(indexPrimeiroElemento, indexUltimoElemento);
+		int indexUltimoElemento;
 
-		return listaResultado;
+		if (pagina * ELEMETOS_POR_PAGINA > listaEmpresas.size()) {
+			indexUltimoElemento = listaEmpresas.size();
+		} else {
+			indexUltimoElemento = pagina * ELEMETOS_POR_PAGINA;
+		}
+		if (indexPrimeiroElemento < indexUltimoElemento) {
+			return listaEmpresas.subList(indexPrimeiroElemento,
+					indexUltimoElemento);
+		} else {
+			return new ArrayList<Empresa>();
+		}
 	}
 }
