@@ -6,7 +6,6 @@ import br.com.aceleradora.RegistroLivre.model.Empresa;
 
 public interface IEmpresaDAO {
 	
-	public List<Empresa> getTodas();
 	public Empresa getById(long id);	
 	public void adiciona(Empresa empresa);
 	public void atualiza(Empresa empresa);

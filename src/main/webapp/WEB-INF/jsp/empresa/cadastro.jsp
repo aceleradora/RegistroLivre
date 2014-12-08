@@ -24,13 +24,13 @@
 					</div>
 				</c:forEach>
 				
-				<c:forEach items="${listaErros}" var="erro">
-	    			<div class="alert alert-danger alert-dismissible" role="alert">
-  						${erro}
+				<c:if test="${erro} != null">
+					<div class="alert alert-danger alert-dismissible" role="alert">
+						${erro}
 					</div>
-				</c:forEach>
-	    		
-					<div class="panel panel-default margin-35-0">
+				</c:if>
+				
+				<div class="panel panel-default margin-35-0">
 						
 						<div class="panel-heading centralize">
 							<c:choose>

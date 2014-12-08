@@ -16,6 +16,7 @@
 		<div class="row">
 			<div class="col-lg-6 col-lg-offset-3">
 				<div class="panel panel-default margin-35-0">
+	    			
 					<div class="panel-heading">
 						<h1>Lista de Empresas Cadastradas</h1>
 						<select id="caixaDeSelecaoDecampo">
