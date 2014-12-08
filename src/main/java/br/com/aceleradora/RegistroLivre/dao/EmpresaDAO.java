@@ -26,16 +26,6 @@ public class EmpresaDAO implements IEmpresaDAO {
 		return sessao.createQuery("FROM Empresa ORDER BY dataregistro DESC")
 				.list();
 	}
-	
-	public List<Empresa> getTodasComPaginacao(int numeroDaPagina){
-		int maximoDeRegistros = 20;
-		
-		Query query = sessao.createQuery("FROM Empresa ORDER BY dataregistro DESC");
-		query.setFirstResult((numeroDaPagina -1) * maximoDeRegistros);
-		query.setMaxResults(maximoDeRegistros);
-		
-		return query.list();
-	}
 
 	public Empresa getById(long id) {
 		Empresa empresa = (Empresa) sessao.get(Empresa.class, id);
