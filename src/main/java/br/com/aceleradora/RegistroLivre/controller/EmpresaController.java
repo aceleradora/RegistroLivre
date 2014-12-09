@@ -1,8 +1,5 @@
 package br.com.aceleradora.RegistroLivre.controller;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -13,7 +10,9 @@ import br.com.aceleradora.RegistroLivre.model.Paginador;
 import br.com.aceleradora.RegistroLivre.model.Validador;
 import br.com.aceleradora.RegistroLivre.util.Arquivo;
 import br.com.aceleradora.RegistroLivre.util.ClienteCloudinary;
-import br.com.aceleradora.RegistroLivre.util.comparator.*;
+import br.com.aceleradora.RegistroLivre.util.comparator.CnpjComparator;
+import br.com.aceleradora.RegistroLivre.util.comparator.NomeFantasiaComparator;
+import br.com.aceleradora.RegistroLivre.util.comparator.RecenteComparator;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;
@@ -114,7 +113,7 @@ public class EmpresaController {
 						"extensao.invalida");
 			}
 		});
-		validator.onErrorUsePageOf(this).cadastro();
+		validator.onErrorRedirectTo(this).cadastro();
 
 		String nomeArquivo = empresa.getNomeFantasia().replace(' ', '_') + "_"
 				+ empresa.getCnpj();
@@ -156,8 +155,8 @@ public class EmpresaController {
 				}
 			}
 		});
-		validator.onErrorUsePageOf(this).cadastro();
-
+		validator.onErrorRedirectTo(this).cadastro(empresa);
+		
 		if (arquivo != null) {
 			String nomeArquivo = empresa.getNomeFantasia().replace(' ', '_')
 					+ "_" + empresa.getCnpj();
@@ -173,7 +172,7 @@ public class EmpresaController {
 			} else {
 				result.include("erro",
 						"Erro ao atualizar, por favor tente novamente!");
-				result.redirectTo(this).cadastro();
+				result.redirectTo(this).cadastro(empresa);
 			}
 
 		}
