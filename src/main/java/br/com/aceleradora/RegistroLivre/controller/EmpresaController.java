@@ -1,6 +1,5 @@
 package br.com.aceleradora.RegistroLivre.controller;
 
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -61,11 +60,12 @@ public class EmpresaController {
 	}
 
 	@Get("/listagem/ordenacao")
-	public void listaOrdenada(){
-		Collections.sort(paginador.getListaEmpresas(), new NomeFantasiaComparator());
+	public void listaOrdenada() {
+		Collections.sort(paginador.getListaEmpresas(),
+				new NomeFantasiaComparator());
 		result.redirectTo(this).listagem(1);
 	}
-	
+
 	@Get("/busca")
 	public void busca(String q) {
 		List<Empresa> listaDeResultadosDeEmpresas = daoEmpresa.pesquisa(q);
@@ -134,8 +134,11 @@ public class EmpresaController {
 						"empresa.nomeFantasia", "nomeFantasia.obrigatorio");
 				that(Validador.verificaCpfListaSocio(empresa.getSocios()),
 						"empresa.socios", "cpf.invalido");
-				that(Validador.verificaExtensaoArquivo(arquivo), "arquivo",
-						"extensao.invalida");
+				
+				if (arquivo != null) {
+					that(Validador.verificaExtensaoArquivo(arquivo), "arquivo",
+							"extensao.invalida");
+				}
 			}
 		});
 		validator.onErrorUsePageOf(this).cadastro();
@@ -164,4 +167,3 @@ public class EmpresaController {
 		}
 	}
 }
-

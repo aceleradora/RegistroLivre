@@ -31,10 +31,7 @@ public class PaginadorTest {
 	@Test
 	public void retornaUmaListaCom20PosicoesQuandoListaDeEmpresasTiver40posicoes() {
 		List<Empresa> listaEmpresas = new ArrayList<Empresa>();
-		Empresa empresa = new Empresa();
-		for (int i = 0; i < 40; i++) {
-			listaEmpresas.add(empresa);
-		}
+		populaLista(listaEmpresas, 40);
 		
 		paginador.setListaEmpresas(listaEmpresas);		
 		
@@ -46,10 +43,7 @@ public class PaginadorTest {
 	@Test
 	public void retornaAListaQuandoElaTiverMenosDe20Elementos() {
 		List<Empresa> listaEmpresas = new ArrayList<Empresa>();
-		Empresa empresa = new Empresa();
-		for (int i = 0; i < 10; i++) {
-			listaEmpresas.add(empresa);
-		}
+		populaLista(listaEmpresas, 10);
 		
 		paginador.setListaEmpresas(listaEmpresas);		
 		
@@ -59,12 +53,9 @@ public class PaginadorTest {
 	}
 
 	@Test
-	public void retornaUmaListaCom3ElementosNaSegundaPaginaMandarUmaListaCom23Elementos() {
+	public void retornaUmaListaCom3ElementosNaSegundaPaginaQuandoMandarUmaListaCom23Elementos() {
 		List<Empresa> listaEmpresas = new ArrayList<Empresa>();
-		Empresa empresa = new Empresa();
-		for (int i = 0; i < 23; i++) {
-			listaEmpresas.add(empresa);
-		}
+		populaLista(listaEmpresas, 23);
 		
 		paginador.setListaEmpresas(listaEmpresas);		
 		
@@ -74,18 +65,22 @@ public class PaginadorTest {
 	}
 	
 	@Test
-	public void retornaUmaListaVaziaNaSegundaPaginaQuandoListaPossuiMenosDeVinteElementos(){
+	public void retornaUmaListaVaziaNaSegundaPaginaQuandoListaMandadaPossuirMenosDeVinteElementos(){
 		List<Empresa> listaEmpresas = new ArrayList<Empresa>();
-		Empresa empresa = new Empresa();
-		for (int i = 0; i < 3; i++) {
-			listaEmpresas.add(empresa);
-		}
+		populaLista(listaEmpresas, 3);
 		
 		paginador.setListaEmpresas(listaEmpresas);		
 		
 		List<Empresa> result = paginador.getPagina(2);
 		
 		assertThat(result.size(), is(0));
+	}
+
+	private void populaLista(List<Empresa> listaEmpresas, int tamanho) {
+		Empresa empresa = new Empresa();
+		for (int i = 0; i < tamanho; i++) {
+			listaEmpresas.add(empresa);
+		}
 	}
 
 }
