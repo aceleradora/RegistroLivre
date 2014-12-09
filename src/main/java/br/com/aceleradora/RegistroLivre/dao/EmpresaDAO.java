@@ -60,7 +60,7 @@ public class EmpresaDAO implements IEmpresaDAO {
 			String textoParaBuscaData = textoParaBusca.replaceAll("-", "/");
 			SimpleDateFormat formatoData = new SimpleDateFormat("dd/MM/yyyy");
 			dataParaPesquisa = formatoData.parse(textoParaBuscaData);
-			sqlQuery += "OR empresa.dataCriacaoEmpresa = :data ";
+			sqlQuery += "OR empresa.dataCriacao = :data ";
 		} catch (ParseException e) {}
 		
 		sqlQuery += " ORDER BY empresa.dataRegistro DESC ";
