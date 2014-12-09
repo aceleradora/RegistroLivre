@@ -67,9 +67,6 @@ public class EmpresaController {
 
 	@Get("/busca")
 	public void busca(String q) {
-		if(q == null){
-			result.redirectTo(HomeController.class).home();
-		}
 		List<Empresa> listaDeResultadosDeEmpresas = daoEmpresa.pesquisa(q);
 		if (listaDeResultadosDeEmpresas.size() == 0) {
 			result.include("listaDeResultadosDeEmpresasVazia", true);
