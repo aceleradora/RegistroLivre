@@ -59,10 +59,9 @@ public class EmpresaController {
 		result.redirectTo(this).listagem(1);
 	}
 
-	@Get("/listagem/ordenacao")
-	public void listaOrdenada() {
-		Collections.sort(paginador.getListaEmpresas(),
-				new NomeFantasiaComparator());
+	@Get("/ordenacao/{tipo}/{ordem}")
+	public void listaOrdenada(String tipo, String ordem) {
+		Collections.sort(paginador.getListaEmpresas(), new NomeFantasiaComparator());
 		result.redirectTo(this).listagem(1);
 	}
 
