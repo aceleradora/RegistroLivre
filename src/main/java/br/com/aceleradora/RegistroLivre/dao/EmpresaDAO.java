@@ -40,7 +40,7 @@ public class EmpresaDAO implements IEmpresaDAO {
 				return new ArrayList<Empresa>();
 			}
 			textoParaBusca = textoParaBusca.toLowerCase();
-			Calendar dataParaPesquisa = Calendar.getInstance();
+			Calendar dataParaPesquisa = null;
 		
 		String sqlQuery = "SELECT DISTINCT empresa "
 				+ "FROM Empresa AS empresa "
@@ -58,6 +58,9 @@ public class EmpresaDAO implements IEmpresaDAO {
 		try {
 			String textoParaBuscaData = textoParaBusca.replaceAll("-", "/");
 			SimpleDateFormat formatoData = new SimpleDateFormat("dd/MM/yyyy");
+			
+			dataParaPesquisa = Calendar.getInstance();
+			
 			dataParaPesquisa.setTime(formatoData.parse(textoParaBuscaData));
 			sqlQuery += "OR empresa.dataCriacao = :data ";
 		} catch (ParseException e) {}
