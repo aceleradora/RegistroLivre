@@ -32,11 +32,6 @@ public class BuscaTest extends FluentTest{
 		assertThat(find(".alert").getText(), containsString("Não há nenhum registro de empresa para a busca efetuada."));
 	
 	}
-	
-	
-	
-	
-	
-	
+		
 	
 }

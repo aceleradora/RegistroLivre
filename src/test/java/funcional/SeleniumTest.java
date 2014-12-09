@@ -13,11 +13,6 @@ public class SeleniumTest extends FluentTest {
 	private static final String URL_PAGE = "http://registro-livre-staging.herokuapp.com";
 	
 	protected static String path;
-		
-	static {
-		path = new File("").getAbsolutePath()+"/src/main/resources";
-		System.setProperty("webdriver.chrome.driver", path+"/chromedriver");
-	}
 	
 	public static WebDriver driver = new HtmlUnitDriver();
 	
