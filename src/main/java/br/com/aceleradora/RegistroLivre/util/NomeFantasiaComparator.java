@@ -10,3 +10,4 @@ public class NomeFantasiaComparator implements Comparator<Empresa> {
 		return empresa1.getNomeFantasia().compareToIgnoreCase(empresa2.getNomeFantasia());
 	}
 }
+

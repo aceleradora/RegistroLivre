@@ -7,8 +7,11 @@
 <html lang="pt-br">
 <head>
 <meta charset="iso-8859-1" />
-<link href="/assets/css/bootstrap/css/bootstrap.css" rel="stylesheet">
-<link href="/assets/css/main.css" rel="stylesheet">
+	<link href="/assets/css/bootstrap/css/bootstrap.css" rel="stylesheet">
+	<link href="/assets/css/main.css" rel="stylesheet">
+	
+	<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="/assets/js/listagem.js"></script>
 </head>
 <body>
 	<jsp:include page="/WEB-INF/jsp/includes/cabecalho.jsp" />
@@ -20,14 +23,13 @@
 					<div class="panel-heading">
 						<h1>Lista de Empresas Cadastradas</h1>
 						<select id="caixaDeSelecaoDecampo">
-  							<option value="">Ordenar Por</option>
+  							<option value="recentes">Mais Recentes</option>
   							<option value="nomeFantasia">Nome Fantasia</option>
   							<option value="cnpj">CNPJ</option>
-  							<option value="recentes">Mais Recentes</option>
 						</select>
 						<select id="caixaDeSelecaoCresc">
-  							<option value="cresc">Crescente</option>
-  							<option value="decresc">Decrescente</option>
+  							<option value="crescente">Crescente</option>
+  							<option value="decrescente">Decrescente</option>
 						</select>
 					</div>
 

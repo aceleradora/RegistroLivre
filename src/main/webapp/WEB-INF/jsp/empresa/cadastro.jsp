@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=iso-8859-1"
     pageEncoding="iso-8859-1"%>
 <%@ page isELIgnored="false"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="pt-br">
@@ -113,16 +114,20 @@
 								</div>
 								
 								<div class="row">
-									<div class="col-lg-6 col-md-6">
+									<div class="col-lg-6 col-md-6">											
 										<div class="form-group">
 											<label class="control-label">Data de abertura</label>
-											<input class="form-control date" name="empresa.dataCriacao" type="text" value="${empresa.dataCriacao}" />
-										</div>
+											
+											<fmt:formatDate value="${empresa.dataCriacao.time}" pattern="dd/MM/yyyy" var="dataCriacaoFormatada" />
+											<input class="form-control date" name="empresa.dataCriacao" type="text" value="${dataCriacaoFormatada}" />
+										</div>										
 									</div>
 									<div class="col-lg-6 col-md-6">
 										<div class="form-group">
 											<label class="control-label">Emissão de documento</label>
-											<input class="form-control date" name="empresa.dataEmissaoDocumento" id="dataEmissao" type="text" value="${empresa.dataEmissaoDocumento}"/>
+											
+											<fmt:formatDate value="${empresa.dataEmissaoDocumento.time}" pattern="dd/MM/yyyy" var="dataEmissaoDocumentoFormatada" />
+											<input class="form-control date" name="empresa.dataEmissaoDocumento" id="dataEmissao" type="text" value="${dataEmissaoDocumentoFormatada}"/>
 										</div>
 									</div>
 

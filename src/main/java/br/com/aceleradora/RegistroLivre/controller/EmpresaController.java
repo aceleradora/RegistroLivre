@@ -59,10 +59,9 @@ public class EmpresaController {
 		result.redirectTo(this).listagem(1);
 	}
 
-	@Get("/listagem/ordenacao")
-	public void listaOrdenada() {
-		Collections.sort(paginador.getListaEmpresas(),
-				new NomeFantasiaComparator());
+	@Get("/ordenacao/{tipo}/{ordem}")
+	public void listaOrdenada(String tipo, String ordem) {
+		Collections.sort(paginador.getListaEmpresas(), new NomeFantasiaComparator());
 		result.redirectTo(this).listagem(1);
 	}
 
@@ -163,10 +162,11 @@ public class EmpresaController {
 						"Erro ao atualizar, por favor tente novamente!");
 				result.redirectTo(this).cadastro();
 			}
-
-			daoEmpresa.atualiza(empresa);
-			result.include("mensagem", "Atualização realizada com sucesso!");
-			result.redirectTo(this).visualizacao(empresa);
+		
 		}
+		
+		daoEmpresa.atualiza(empresa);
+		result.include("mensagem", "Atualização realizada com sucesso!");
+		result.redirectTo(this).visualizacao(empresa);
 	}
 }
