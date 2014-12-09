@@ -160,10 +160,11 @@ public class EmpresaController {
 						"Erro ao atualizar, por favor tente novamente!");
 				result.redirectTo(this).cadastro();
 			}
-
-			daoEmpresa.atualiza(empresa);
-			result.include("mensagem", "Atualização realizada com sucesso!");
-			result.redirectTo(this).visualizacao(empresa);
+		
 		}
+		
+		daoEmpresa.atualiza(empresa);
+		result.include("mensagem", "Atualização realizada com sucesso!");
+		result.redirectTo(this).visualizacao(empresa);
 	}
 }
