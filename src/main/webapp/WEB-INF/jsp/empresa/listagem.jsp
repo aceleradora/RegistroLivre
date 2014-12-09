@@ -23,9 +23,10 @@
 					<div class="panel-heading">
 						<h1>Lista de Empresas Cadastradas</h1>
 						<select id="caixaDeSelecaoDecampo">
-  							<option value="recentes">Mais Recentes</option>
+  							<option value="">Ordenar Por</option>
   							<option value="nomeFantasia">Nome Fantasia</option>
   							<option value="cnpj">CNPJ</option>
+  							<option value="recentes">Mais Recentes</option>
 						</select>
 						<select id="caixaDeSelecaoCresc">
   							<option value="crescente">Crescente</option>

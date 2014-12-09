@@ -1,4 +1,4 @@
-package br.com.aceleradora.RegistroLivre.util;
+package br.com.aceleradora.RegistroLivre.util.comparator;
 
 import java.util.Comparator;
 
