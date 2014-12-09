@@ -13,7 +13,7 @@ import br.com.caelum.vraptor.restfulie.relation.RelationBuilder.WithName;
 
 public class BuscaTest extends FluentTest{
 
-	private static final String URL_PAGE = "http://localhost:8080";
+	private static final String URL_PAGE = "http://registro-livre-staging.herokuapp.com";
 	
 	public static WebDriver driver = new HtmlUnitDriver();
 	
@@ -31,8 +31,11 @@ public class BuscaTest extends FluentTest{
 		
 		assertThat(find(".alert").getText(), containsString("Não há nenhum registro de empresa para a busca efetuada."));
 	
-//		find(".alert").contains("delicia de teste");
 	}
+	
+	
+	
+	
 	
 	
 	
