@@ -2,6 +2,7 @@ package br.com.aceleradora.RegistroLivre.dao;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -11,7 +12,9 @@ import org.hibernate.Transaction;
 import org.hibernate.criterion.Projections;
 
 import br.com.aceleradora.RegistroLivre.model.Empresa;
+import br.com.caelum.vraptor.Validator;
 import br.com.caelum.vraptor.ioc.Component;
+import br.com.caelum.vraptor.validator.ValidatorFactoryCreator;
 
 @Component
 public class EmpresaDAO implements IEmpresaDAO {
@@ -34,8 +37,11 @@ public class EmpresaDAO implements IEmpresaDAO {
 	}
 
 	public List<Empresa> pesquisa(String textoParaBusca) {
-		textoParaBusca = textoParaBusca.toLowerCase();
-		Date dataParaPesquisa = null;
+			if(textoParaBusca == null){
+				return new ArrayList<Empresa>();
+			}
+			textoParaBusca = textoParaBusca.toLowerCase();
+			Date dataParaPesquisa = null;
 		
 		String sqlQuery = "SELECT DISTINCT empresa "
 				+ "FROM Empresa AS empresa "

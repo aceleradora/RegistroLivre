@@ -7,7 +7,7 @@
 <head>
 	<meta charset="UTF-8" />
 	
-	<title>Registro Livre - A verdade está lá fora teste!</title>
+	<title>Registro Livre - A verdade está lá fora!</title>
 	
 	<link href="assets/css/bootstrap/css/bootstrap.css" rel="stylesheet">
 	<link href="assets/css/bootstrap/css/bootstrap-theme.css" rel="stylesheet">
