@@ -62,19 +62,27 @@ public class EmpresaController {
 	@Get("/ordenacao/{tipo}/{ordem}")
 	public void listaOrdenada(String tipo, String ordem) {
 		Comparator<Empresa> comparador = null;
-		if(tipo.equals("nomeFantasia")){
+		if (tipo.equals("nomeFantasia")) {
 			comparador = new NomeFantasiaComparator();
-		}else if(tipo.equals("cnpj")){
+		} else if (tipo.equals("cnpj")) {
 			comparador = new CnpjComparator();
-		}else if(tipo.equals("recentes")){
+		} else if (tipo.equals("recentes")) {
 			comparador = new RecenteComparator();
 		}
-		Collections.sort(paginador.getListaEmpresas(), comparador);
+		if (ordem.equals("decrescente")) {
+			Collections.sort(paginador.getListaEmpresas(),
+					Collections.reverseOrder(comparador));
+		} else {
+			Collections.sort(paginador.getListaEmpresas(), comparador);
+		}
 		result.redirectTo(this).listagem(1);
 	}
 
 	@Get("/busca")
 	public void busca(String q) {
+		if (q == null) {
+			result.redirectTo(HomeController.class).home();
+		}
 		List<Empresa> listaDeResultadosDeEmpresas = daoEmpresa.pesquisa(q);
 		if (listaDeResultadosDeEmpresas.size() == 0) {
 			result.include("listaDeResultadosDeEmpresasVazia", true);
@@ -141,7 +149,7 @@ public class EmpresaController {
 						"empresa.nomeFantasia", "nomeFantasia.obrigatorio");
 				that(Validador.verificaCpfListaSocio(empresa.getSocios()),
 						"empresa.socios", "cpf.invalido");
-				
+
 				if (arquivo != null) {
 					that(Validador.verificaExtensaoArquivo(arquivo), "arquivo",
 							"extensao.invalida");
@@ -167,9 +175,9 @@ public class EmpresaController {
 						"Erro ao atualizar, por favor tente novamente!");
 				result.redirectTo(this).cadastro();
 			}
-		
+
 		}
-		
+
 		daoEmpresa.atualiza(empresa);
 		result.include("mensagem", "Atualização realizada com sucesso!");
 		result.redirectTo(this).visualizacao(empresa);
