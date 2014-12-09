@@ -13,7 +13,7 @@ import br.com.aceleradora.RegistroLivre.model.Paginador;
 import br.com.aceleradora.RegistroLivre.model.Validador;
 import br.com.aceleradora.RegistroLivre.util.Arquivo;
 import br.com.aceleradora.RegistroLivre.util.ClienteCloudinary;
-import br.com.aceleradora.RegistroLivre.util.NomeFantasiaComparator;
+import br.com.aceleradora.RegistroLivre.util.comparator.*;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;
@@ -61,7 +61,15 @@ public class EmpresaController {
 
 	@Get("/ordenacao/{tipo}/{ordem}")
 	public void listaOrdenada(String tipo, String ordem) {
-		Collections.sort(paginador.getListaEmpresas(), new NomeFantasiaComparator());
+		Comparator<Empresa> comparador = null;
+		if(tipo.equals("nomeFantasia")){
+			comparador = new NomeFantasiaComparator();
+		}else if(tipo.equals("cnpj")){
+			comparador = new CnpjComparator();
+		}else if(tipo.equals("recentes")){
+			comparador = new RecenteComparator();
+		}
+		Collections.sort(paginador.getListaEmpresas(), comparador);
 		result.redirectTo(this).listagem(1);
 	}
 
