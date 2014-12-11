@@ -34,6 +34,10 @@ public class Socio extends Entidade {
 		return cpf;
 	}
 
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
 	public boolean getAtivo() {
 		return ativo;
 	}

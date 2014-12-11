@@ -112,7 +112,23 @@ public class Empresa extends Entidade {
 		this.socios = socios;
 	}
 
+	public void retiraPontosTracosBarrasCnpjECpf() {
+		String cnpjSemPontoTraco = retiraPontosTracos(this.cnpj);
+		this.cnpj = cnpjSemPontoTraco;
+		String cpfSemPontoTraco = "";
+
+		if (socios != null) {
+			for (Socio socio : socios) {
+				cpfSemPontoTraco = retiraPontosTracos(socio.getCpf());
+				socio.setCpf(cpfSemPontoTraco);
+			}
+		}
+	}
+
+	public String retiraPontosTracos(String stringComPontoTraco) {
+		String stringSemPontoTraco = stringComPontoTraco
+				.replaceAll("[/.-]", "");
+
+		return stringSemPontoTraco;
+	}
 }
-
-
-

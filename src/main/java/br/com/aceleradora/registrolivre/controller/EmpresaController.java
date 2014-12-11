@@ -115,6 +115,8 @@ public class EmpresaController {
 		});
 		validator.onErrorRedirectTo(this).cadastro();
 
+		empresa.retiraPontosTracosBarrasCnpjECpf();
+		
 		String nomeArquivo = empresa.getNomeFantasia().replace(' ', '_') + "_"
 				+ empresa.getCnpj();
 
@@ -181,4 +183,6 @@ public class EmpresaController {
 		result.include("mensagem", "Atualização realizada com sucesso!");
 		result.redirectTo(this).visualizacao(empresa);
 	}
+	
+	
 }
