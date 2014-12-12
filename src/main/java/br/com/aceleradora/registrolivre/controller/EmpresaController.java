@@ -116,11 +116,9 @@ public class EmpresaController {
 		validator.onErrorRedirectTo(this).cadastro();
 
 		empresa.retiraPontosTracosBarrasCnpjECpf();
-		
-		String nomeArquivo = empresa.getNomeFantasia().replace(' ', '_') + "_"
-				+ empresa.getCnpj();
+				
 
-		Arquivo arquivoParaUpload = new Arquivo(arquivo.getFile(), nomeArquivo);
+		Arquivo arquivoParaUpload = new Arquivo(arquivo.getFile(), empresa);
 
 		ClienteCloudinary clienteCloudinary = new ClienteCloudinary(
 				arquivoParaUpload);
@@ -159,12 +157,10 @@ public class EmpresaController {
 		});
 		validator.onErrorRedirectTo(this).cadastro(empresa);
 		
-		if (arquivo != null) {
-			String nomeArquivo = empresa.getNomeFantasia().replace(' ', '_')
-					+ "_" + empresa.getCnpj();
+		if (arquivo != null) {		
 
 			Arquivo arquivoParaUpload = new Arquivo(arquivo.getFile(),
-					nomeArquivo);
+					empresa);
 
 			ClienteCloudinary clienteCloudinary = new ClienteCloudinary(
 					arquivoParaUpload);

@@ -6,30 +6,46 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.text.Normalizer;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.regex.Pattern;
+
+import br.com.aceleradora.RegistroLivre.model.Empresa;
 
 public class Arquivo {
 
 	private File arquivo;
 	private String urlArquivo;
 
-	public Arquivo(InputStream inputStream, String nome) {
-		inputStreamParaFile(inputStream, nome);
+	public Arquivo(InputStream inputStream, Empresa empresa) {
+		String nomeArquivo = formataNomeArquivo(empresa);
+		inputStreamParaFile(inputStream, nomeArquivo);
 	}
-	
-	private String normalizarNome(String nome){
-		String nomeNormalizado = Normalizer.normalize(nome, Normalizer.Form.NFD);			
-	    Pattern pattern = Pattern.compile("\\p{InCombiningDiacriticalMarks}+");
-	    nomeNormalizado = pattern.matcher(nomeNormalizado).replaceAll("");
-	    nomeNormalizado = nomeNormalizado.replaceAll("[.\\-/]", "");
-	    return nomeNormalizado;
+
+	private String formataNomeArquivo(Empresa empresa) {
+		SimpleDateFormat formatacaoDataETempo = new SimpleDateFormat("dd_MM_yyyy_HH:mm:ss");
+
+		String data = formatacaoDataETempo.format(empresa.getDataRegistro().getTime());
+
+		String nomeArquivo = empresa.getNomeFantasia().replace(' ', '_') + "_"
+				+ data;
+		return nomeArquivo;
+	}
+
+	private String normalizarNome(String nome) {
+		String nomeNormalizado = Normalizer
+				.normalize(nome, Normalizer.Form.NFD);
+		Pattern pattern = Pattern.compile("\\p{InCombiningDiacriticalMarks}+");
+		nomeNormalizado = pattern.matcher(nomeNormalizado).replaceAll("");
+		nomeNormalizado = nomeNormalizado.replaceAll("[.\\-/]", "");
+		return nomeNormalizado;
 	}
 
 	private void inputStreamParaFile(InputStream inputStream, String nome) {
 		try {
-			
+
 			String nomeNormalizado = normalizarNome(nome);
-		    
+
 			File arquivo = new File("/tmp/" + nomeNormalizado);
 			OutputStream outputStream = new FileOutputStream(arquivo);
 
