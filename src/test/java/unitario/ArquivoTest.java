@@ -12,8 +12,8 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import br.com.aceleradora.RegistroLivre.model.Empresa;
-import br.com.aceleradora.RegistroLivre.util.Arquivo;
+import br.com.aceleradora.registrolivre.model.Empresa;
+import br.com.aceleradora.registrolivre.util.Arquivo;
 
 @RunWith(MockitoJUnitRunner.class)
 public class ArquivoTest {
