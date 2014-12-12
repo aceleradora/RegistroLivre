@@ -1,4 +1,4 @@
-package br.com.aceleradora.RegistroLivre.util;
+package br.com.aceleradora.registrolivre.util;
 
 import br.com.caelum.vraptor.interceptor.multipart.DefaultMultipartConfig;
 import br.com.caelum.vraptor.ioc.ApplicationScoped;

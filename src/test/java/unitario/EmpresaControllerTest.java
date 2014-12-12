@@ -14,10 +14,10 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import br.com.aceleradora.RegistroLivre.controller.EmpresaController;
-import br.com.aceleradora.RegistroLivre.dao.EmpresaDAO;
-import br.com.aceleradora.RegistroLivre.model.Empresa;
-import br.com.aceleradora.RegistroLivre.model.Paginador;
+import br.com.aceleradora.registrolivre.controller.EmpresaController;
+import br.com.aceleradora.registrolivre.dao.EmpresaDAO;
+import br.com.aceleradora.registrolivre.model.Empresa;
+import br.com.aceleradora.registrolivre.util.Paginador;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.Validator;
 

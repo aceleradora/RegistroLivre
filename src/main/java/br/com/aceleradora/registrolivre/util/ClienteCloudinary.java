@@ -1,4 +1,4 @@
-package br.com.aceleradora.RegistroLivre.util;
+package br.com.aceleradora.registrolivre.util;
 
 import java.util.Map;
 

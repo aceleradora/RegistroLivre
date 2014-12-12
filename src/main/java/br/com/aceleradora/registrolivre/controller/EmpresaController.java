@@ -1,18 +1,18 @@
-package br.com.aceleradora.RegistroLivre.controller;
+package br.com.aceleradora.registrolivre.controller;
 
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import br.com.aceleradora.RegistroLivre.dao.EmpresaDAO;
-import br.com.aceleradora.RegistroLivre.model.Empresa;
-import br.com.aceleradora.RegistroLivre.model.Paginador;
-import br.com.aceleradora.RegistroLivre.model.Validador;
-import br.com.aceleradora.RegistroLivre.util.Arquivo;
-import br.com.aceleradora.RegistroLivre.util.ClienteCloudinary;
-import br.com.aceleradora.RegistroLivre.util.comparator.CnpjComparator;
-import br.com.aceleradora.RegistroLivre.util.comparator.NomeFantasiaComparator;
-import br.com.aceleradora.RegistroLivre.util.comparator.RecenteComparator;
+import br.com.aceleradora.registrolivre.dao.EmpresaDAO;
+import br.com.aceleradora.registrolivre.model.Empresa;
+import br.com.aceleradora.registrolivre.model.Validador;
+import br.com.aceleradora.registrolivre.util.Arquivo;
+import br.com.aceleradora.registrolivre.util.ClienteCloudinary;
+import br.com.aceleradora.registrolivre.util.Paginador;
+import br.com.aceleradora.registrolivre.util.comparator.CnpjComparator;
+import br.com.aceleradora.registrolivre.util.comparator.NomeFantasiaComparator;
+import br.com.aceleradora.registrolivre.util.comparator.RecenteComparator;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;
@@ -78,11 +78,11 @@ public class EmpresaController {
 	}
 
 	@Get("/busca")
-	public void busca(String q) {
-		if (q == null) {
+	public void busca(String busca) {
+		if (busca == null) {
 			result.redirectTo(HomeController.class).home();
 		}
-		List<Empresa> listaDeResultadosDeEmpresas = daoEmpresa.pesquisa(q);
+		List<Empresa> listaDeResultadosDeEmpresas = daoEmpresa.pesquisa(busca);
 		if (listaDeResultadosDeEmpresas.size() == 0) {
 			result.include("listaDeResultadosDeEmpresasVazia", true);
 			result.redirectTo(HomeController.class).home();

@@ -1,4 +1,4 @@
-package br.com.aceleradora.RegistroLivre.dao;
+package br.com.aceleradora.registrolivre.dao;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -12,7 +12,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Projections;
 
-import br.com.aceleradora.RegistroLivre.model.Empresa;
+import br.com.aceleradora.registrolivre.model.Empresa;
 import br.com.caelum.vraptor.ioc.Component;
 
 @Component

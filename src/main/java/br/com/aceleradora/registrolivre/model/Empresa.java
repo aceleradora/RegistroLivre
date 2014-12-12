@@ -1,4 +1,4 @@
-package br.com.aceleradora.RegistroLivre.model;
+package br.com.aceleradora.registrolivre.model;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -15,7 +15,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
 
-import br.com.aceleradora.RegistroLivre.dao.Entidade;
+import br.com.aceleradora.registrolivre.dao.Entidade;
 
 @Entity
 @SequenceGenerator(initialValue = 1, allocationSize = 1, name = "geradorId", sequenceName = "empresa_sequence")

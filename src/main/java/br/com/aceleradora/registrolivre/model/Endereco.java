@@ -1,4 +1,4 @@
-package br.com.aceleradora.RegistroLivre.model;
+package br.com.aceleradora.registrolivre.model;
 
 import javax.persistence.Embeddable;
 

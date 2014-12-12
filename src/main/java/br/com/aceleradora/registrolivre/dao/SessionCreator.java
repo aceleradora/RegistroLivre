@@ -1,4 +1,4 @@
-package br.com.aceleradora.RegistroLivre.dao;
+package br.com.aceleradora.registrolivre.dao;
 
 import javax.annotation.PreDestroy;
 

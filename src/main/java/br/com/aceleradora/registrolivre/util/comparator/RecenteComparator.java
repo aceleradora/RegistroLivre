@@ -1,8 +1,8 @@
-package br.com.aceleradora.RegistroLivre.util.comparator;
+package br.com.aceleradora.registrolivre.util.comparator;
 
 import java.util.Comparator;
 
-import br.com.aceleradora.RegistroLivre.model.Empresa;
+import br.com.aceleradora.registrolivre.model.Empresa;
 
 public class RecenteComparator implements Comparator<Empresa> {
 	@Override

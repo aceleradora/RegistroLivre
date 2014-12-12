@@ -1,8 +1,9 @@
-package br.com.aceleradora.RegistroLivre.model;
+package br.com.aceleradora.registrolivre.util;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.aceleradora.registrolivre.model.Empresa;
 import br.com.caelum.vraptor.ioc.Component;
 import br.com.caelum.vraptor.ioc.SessionScoped;
 

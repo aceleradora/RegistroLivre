@@ -8,9 +8,8 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
-
-import br.com.aceleradora.RegistroLivre.model.Empresa;
-import br.com.aceleradora.RegistroLivre.model.Paginador;
+import br.com.aceleradora.registrolivre.model.Empresa;
+import br.com.aceleradora.registrolivre.util.Paginador;
 
 public class PaginadorTest {
 

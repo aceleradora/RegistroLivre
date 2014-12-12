@@ -13,10 +13,10 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import br.com.aceleradora.RegistroLivre.model.Empresa;
-import br.com.aceleradora.RegistroLivre.model.Endereco;
-import br.com.aceleradora.RegistroLivre.model.Socio;
-import br.com.aceleradora.RegistroLivre.model.Validador;
+import br.com.aceleradora.registrolivre.model.Empresa;
+import br.com.aceleradora.registrolivre.model.Endereco;
+import br.com.aceleradora.registrolivre.model.Socio;
+import br.com.aceleradora.registrolivre.model.Validador;
 import br.com.caelum.vraptor.interceptor.multipart.UploadedFile;
 
 @RunWith(MockitoJUnitRunner.class)

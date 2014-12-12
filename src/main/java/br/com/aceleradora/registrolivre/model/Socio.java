@@ -1,9 +1,9 @@
-package br.com.aceleradora.RegistroLivre.model;
+package br.com.aceleradora.registrolivre.model;
 
 import javax.persistence.Entity;
 import javax.persistence.SequenceGenerator;
 
-import br.com.aceleradora.RegistroLivre.dao.Entidade;
+import br.com.aceleradora.registrolivre.dao.Entidade;
 
 @Entity
 @SequenceGenerator(initialValue = 1, allocationSize = 1, name = "geradorId", sequenceName = "socio_sequence")

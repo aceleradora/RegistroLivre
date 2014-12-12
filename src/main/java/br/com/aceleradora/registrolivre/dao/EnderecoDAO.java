@@ -1,9 +1,9 @@
-package br.com.aceleradora.RegistroLivre.dao;
+package br.com.aceleradora.registrolivre.dao;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import br.com.aceleradora.RegistroLivre.model.Endereco;
+import br.com.aceleradora.registrolivre.model.Endereco;
 import br.com.caelum.vraptor.ioc.Component;
 
 @Component

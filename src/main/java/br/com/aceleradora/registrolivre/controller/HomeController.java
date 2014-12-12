@@ -1,6 +1,6 @@
-package br.com.aceleradora.RegistroLivre.controller;
+package br.com.aceleradora.registrolivre.controller;
 
-import br.com.aceleradora.RegistroLivre.dao.EmpresaDAO;
+import br.com.aceleradora.registrolivre.dao.EmpresaDAO;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
