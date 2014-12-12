@@ -7,10 +7,10 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.text.Normalizer;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.regex.Pattern;
 
-import br.com.aceleradora.RegistroLivre.model.Empresa;
+import br.com.aceleradora.registrolivre.model.Empresa;
+
 
 public class Arquivo {
 
