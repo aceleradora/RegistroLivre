@@ -20,6 +20,7 @@ import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.Validator;
 import br.com.caelum.vraptor.interceptor.multipart.UploadedFile;
 import br.com.caelum.vraptor.validator.Validations;
+import flexjson.JSONSerializer;
 
 @Resource
 public class EmpresaController {
@@ -46,16 +47,8 @@ public class EmpresaController {
 		return daoEmpresa.getById(empresa.getId());
 	}
 
-	@Get("/listagem/{pagina}")
-	public List<Empresa> listagem(int pagina) {
-		result.include("totalDeRegistros", paginador.getListaSize());
-		return paginador.getPagina(pagina);
-	}
-
 	@Get("/listagem")
 	public void listagem() {
-		paginador.setListaEmpresas(daoEmpresa.getTodas());
-		result.redirectTo(this).listagem(1);
 	}
 
 	@Get("/ordenacao/{tipo}/{ordem}")
@@ -74,7 +67,7 @@ public class EmpresaController {
 		} else {
 			Collections.sort(paginador.getListaEmpresas(), comparador);
 		}
-		result.redirectTo(this).listagem(1);
+		result.redirectTo(this).listagem();
 	}
 
 	@Get("/busca")
@@ -82,13 +75,21 @@ public class EmpresaController {
 		if (busca == null) {
 			result.redirectTo(HomeController.class).home();
 		}
+
 		List<Empresa> listaDeResultadosDeEmpresas = daoEmpresa.pesquisa(busca);
+
 		if (listaDeResultadosDeEmpresas.size() == 0) {
 			result.include("listaDeResultadosDeEmpresasVazia", true);
 			result.redirectTo(HomeController.class).home();
 		} else {
-			paginador.setListaEmpresas(listaDeResultadosDeEmpresas);
-			result.redirectTo(this).listagem(1);
+			result.include(
+					"resultadoBusca",
+					new JSONSerializer().include("nomeFantasia")
+							.include("endereco.logradouro")
+							.include("dataEmissaoDocumento").exclude("*")
+							.serialize(listaDeResultadosDeEmpresas));
+
+			result.redirectTo(this).listagem();
 		}
 	}
 
@@ -116,7 +117,6 @@ public class EmpresaController {
 		validator.onErrorRedirectTo(this).cadastro();
 
 		empresa.retiraPontosTracosBarrasCnpjECpf();
-				
 
 		Arquivo arquivoParaUpload = new Arquivo(arquivo.getFile(), empresa);
 
@@ -156,11 +156,10 @@ public class EmpresaController {
 			}
 		});
 		validator.onErrorRedirectTo(this).cadastro(empresa);
-		
-		if (arquivo != null) {		
 
-			Arquivo arquivoParaUpload = new Arquivo(arquivo.getFile(),
-					empresa);
+		if (arquivo != null) {
+
+			Arquivo arquivoParaUpload = new Arquivo(arquivo.getFile(), empresa);
 
 			ClienteCloudinary clienteCloudinary = new ClienteCloudinary(
 					arquivoParaUpload);
@@ -179,6 +178,5 @@ public class EmpresaController {
 		result.include("mensagem", "Atualização realizada com sucesso!");
 		result.redirectTo(this).visualizacao(empresa);
 	}
-	
-	
+
 }

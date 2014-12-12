@@ -1,11 +1,10 @@
+$(document).ready(function() {
+	$("#caixaDeSelecaoDecampo").change(function() {
 
-$(document).ready(function(){
-	$("#caixaDeSelecaoDecampo").change(function(){
-		
 		var tipoValue = $(this).val();
 		var ordemValue = $("#caixaDeSelecaoCresc").val();
-		
-		window.location.href = "/ordenacao/" + tipoValue + "/" + ordemValue ;
-		
-	})
-})
+
+		window.location.href = "/ordenacao/" + tipoValue + "/" + ordemValue;
+
+	});
+});
