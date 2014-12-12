@@ -47,6 +47,16 @@ public class EmpresaController {
 	public void listarTodos() {
 		List<Empresa> listaDeResultadosDeEmpresas = daoEmpresa.getTodas();
 
+	@Get("/busca")
+	public void busca(String busca) {
+		if (busca == null) {
+			result.redirectTo(HomeController.class).home();
+		}
+
+		busca = busca.replaceAll("[/.-]", "");
+
+		List<Empresa> listaDeResultadosDeEmpresas = daoEmpresa.pesquisa(busca);
+
 		if (listaDeResultadosDeEmpresas.size() == 0) {
 			result.include("listaDeResultadosDeEmpresasVazia", true);
 			result.redirectTo(HomeController.class).home();
