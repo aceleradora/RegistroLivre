@@ -14,6 +14,7 @@
 			<ul class="nav navbar-nav btn-borders-navbar">
 				<li><a href="/cadastro">Cadastrar Empresa</a></li>				
 				<li><a href="/listagem">Listar Empresas</a></li>
+				<li><a href="/mensagem">Contato</a></li>
 			</ul>
 				<form class="form navbar-form navbar-left " role="search" name="pesquisa" action="/busca" method="GET">
 					<div class="form-group">
