@@ -1,8 +1,6 @@
 package br.com.aceleradora.registrolivre.controller;
 
 import java.util.Calendar;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 import br.com.aceleradora.registrolivre.dao.EmpresaDAO;
@@ -11,10 +9,6 @@ import br.com.aceleradora.registrolivre.model.Validador;
 import br.com.aceleradora.registrolivre.util.Arquivo;
 import br.com.aceleradora.registrolivre.util.CalendarTransformer;
 import br.com.aceleradora.registrolivre.util.ClienteCloudinary;
-import br.com.aceleradora.registrolivre.util.Paginador;
-import br.com.aceleradora.registrolivre.util.comparator.CnpjComparator;
-import br.com.aceleradora.registrolivre.util.comparator.NomeFantasiaComparator;
-import br.com.aceleradora.registrolivre.util.comparator.RecenteComparator;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;
@@ -29,14 +23,11 @@ public class EmpresaController {
 	private EmpresaDAO daoEmpresa;
 	private Result result;
 	private Validator validator;
-	private Paginador paginador;
 
-	public EmpresaController(EmpresaDAO dao, Result result,
-			Validator validator, Paginador paginador) {
+	public EmpresaController(EmpresaDAO dao, Result result, Validator validator) {
 		this.daoEmpresa = dao;
 		this.result = result;
 		this.validator = validator;
-		this.paginador = paginador;
 	}
 
 	@Get("/cadastro")
@@ -53,32 +44,9 @@ public class EmpresaController {
 	public void listagem() {
 	}
 
-	@Get("/ordenacao/{tipo}/{ordem}")
-	public void listaOrdenada(String tipo, String ordem) {
-		Comparator<Empresa> comparador = null;
-		if (tipo.equals("nomeFantasia")) {
-			comparador = new NomeFantasiaComparator();
-		} else if (tipo.equals("cnpj")) {
-			comparador = new CnpjComparator();
-		} else if (tipo.equals("recentes")) {
-			comparador = new RecenteComparator();
-		}
-		if (ordem.equals("decrescente")) {
-			Collections.sort(paginador.getListaEmpresas(),
-					Collections.reverseOrder(comparador));
-		} else {
-			Collections.sort(paginador.getListaEmpresas(), comparador);
-		}
-		result.redirectTo(this).listagem();
-	}
-
 	@Get("/busca")
 	public void busca(String busca) {
-		if (busca == null) {
-			result.include("buscaVazia", true);
-			result.redirectTo(HomeController.class).home();
-		} else {
-
+		if (busca != null) {
 			busca = busca.replaceAll("[./-]", "");
 
 			List<Empresa> listaDeResultadosDeEmpresas = daoEmpresa
@@ -91,6 +59,7 @@ public class EmpresaController {
 				result.include(
 						"resultadoBusca",
 						new JSONSerializer()
+								.include("id")
 								.include("nomeFantasia")
 								.include("endereco.logradouro")
 								.include("dataEmissaoDocumento")
@@ -102,6 +71,9 @@ public class EmpresaController {
 
 				result.redirectTo(this).listagem();
 			}
+		} else {
+			result.include("buscaVazia", true);
+			result.redirectTo(HomeController.class).home();
 		}
 	}
 
