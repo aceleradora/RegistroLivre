@@ -140,7 +140,7 @@
 										<c:when test="${editar != null}">
 											<input name="empresa.url" type="text" value="${empresa.url}" hidden/>
 											<br />
-											<a class="form-group" href="${empresa.url}">Antigo Arquivo</a>
+											<a class="form-group" href="${empresa.url}" target="_blank">Antigo Arquivo</a>
 											<input id="file" class="form-group" type="file" name="arquivo"/>
 										</c:when>
 										<c:otherwise>

@@ -26,12 +26,11 @@ public class BuscaTest extends FluentTest{
 	public void quandoClicaNoBotãoSemEnviarNadaDeveRetornarErroParaPáginaPrincipal(){
 		
 		goTo(URL_PAGE);
-		 
+
 		find("#btn-submit").click();
 		
-		assertThat(find(".alert").getText(), containsString("Não há nenhum registro de empresa para a busca efetuada."));
+		assertThat(find(".alert").getText(), containsString("Não há nada digitado no campo de busca, por favor tente novamente."));
 	
-	}
-		
+	}		
 	
 }

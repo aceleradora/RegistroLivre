@@ -18,15 +18,11 @@
 	<script type="text/javascript">
 	
 	<c:set var="resultadoBusca" value="${resultadoBusca}"/>
+	
 	$(document).ready(function() {
-		$('#minhaTable').DataTable({
-			data : <c:out value="${resultadoBusca}" escapeXml='false' />,
-			columns : [ { data : 'nomeFantasia'	         }, 
-			            { data : 'dataEmissaoDocumento'  },
-			            { data : 'endereco.logradouro'			     },
-			          ]
-		});
-		});
+		criaDatatable(<c:out value="${resultadoBusca}" escapeXml='false' />);
+	});
+	
 	</script>
 </head>
 <body>
@@ -37,7 +33,7 @@
 				<div class="panel panel-default margin-35-0">
 					<div class="panel-heading">
 						<h1>Lista de Empresas Cadastradas</h1>
-						<table id="minhaTable" class="display">
+						<table id="tabelaListagem" class="display">
 							<thead>
 								<tr>
 									<th>Nome Fantasia</th>

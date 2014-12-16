@@ -1,3 +1,7 @@
+#tabelaListagem tr:hover{
+	cursor: pointer;
+}
+
 #registrolivre{
 	font-size: 50px;
 	font-family: arial;
