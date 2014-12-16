@@ -1,5 +1,6 @@
 package br.com.aceleradora.registrolivre.controller;
 
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -8,6 +9,7 @@ import br.com.aceleradora.registrolivre.dao.EmpresaDAO;
 import br.com.aceleradora.registrolivre.model.Empresa;
 import br.com.aceleradora.registrolivre.model.Validador;
 import br.com.aceleradora.registrolivre.util.Arquivo;
+import br.com.aceleradora.registrolivre.util.CalendarTransformer;
 import br.com.aceleradora.registrolivre.util.ClienteCloudinary;
 import br.com.aceleradora.registrolivre.util.Paginador;
 import br.com.aceleradora.registrolivre.util.comparator.CnpjComparator;
@@ -87,6 +89,7 @@ public class EmpresaController {
 					new JSONSerializer().include("nomeFantasia")
 							.include("endereco.logradouro")
 							.include("dataEmissaoDocumento").exclude("*")
+							.transform(new CalendarTransformer("dd/MM/yyyy"), Calendar.class)
 							.serialize(listaDeResultadosDeEmpresas));
 
 			result.redirectTo(this).listagem();
@@ -130,7 +133,7 @@ public class EmpresaController {
 			result.redirectTo(this).visualizacao(empresa);
 		} else {
 			result.include("erro",
-					"Erro ao atualizar, por favor tente novamente!");
+					"Erro ao cadastrar, por favor tente novamente!");
 			result.redirectTo(this).cadastro();
 		}
 

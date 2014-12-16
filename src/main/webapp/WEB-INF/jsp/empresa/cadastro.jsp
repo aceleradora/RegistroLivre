@@ -25,7 +25,7 @@
 					</div>
 				</c:forEach>
 				
-				<c:if test="${erro} != null">
+				<c:if test="${erro != null}">
 					<div class="alert alert-danger alert-dismissible" role="alert">
 						${erro}
 					</div>
