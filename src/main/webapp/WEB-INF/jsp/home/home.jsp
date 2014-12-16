@@ -33,6 +33,15 @@
 							efetuada.</strong>
 					</div>
 				</c:if>
+				<c:if test="${buscaVazia == true}">
+					<div class="alert alert-warning alert-dismissible" role="alert">
+						<button type="button" class="close" id="close"
+							data-dismiss="alert">
+							<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+						</button>
+						<strong>Não há nada digitado no campo de busca, por favor tente novamente.</strong>
+					</div>
+				</c:if>
 				<div class="panel panel-default margin-100-0-0-0 transparente">
 					<div class="panel-heading centralize">
 						<h1 id="registrolivre">Registro Livre</h1>

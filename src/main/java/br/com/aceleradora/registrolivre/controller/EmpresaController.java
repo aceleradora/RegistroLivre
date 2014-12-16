@@ -75,26 +75,33 @@ public class EmpresaController {
 	@Get("/busca")
 	public void busca(String busca) {
 		if (busca == null) {
-			result.redirectTo(HomeController.class).home();
-		}
-		
-		busca = busca.replaceAll("[./-]", "");
-
-		List<Empresa> listaDeResultadosDeEmpresas = daoEmpresa.pesquisa(busca);
-
-		if (listaDeResultadosDeEmpresas.size() == 0) {
-			result.include("listaDeResultadosDeEmpresasVazia", true);
+			result.include("buscaVazia", true);
 			result.redirectTo(HomeController.class).home();
 		} else {
-			result.include(
-					"resultadoBusca",
-					new JSONSerializer().include("nomeFantasia")
-							.include("endereco.logradouro")
-							.include("dataEmissaoDocumento").exclude("*")
-							.transform(new CalendarTransformer("dd/MM/yyyy"), Calendar.class)
-							.serialize(listaDeResultadosDeEmpresas));
 
-			result.redirectTo(this).listagem();
+			busca = busca.replaceAll("[./-]", "");
+
+			List<Empresa> listaDeResultadosDeEmpresas = daoEmpresa
+					.pesquisa(busca);
+
+			if (listaDeResultadosDeEmpresas.size() == 0) {
+				result.include("listaDeResultadosDeEmpresasVazia", true);
+				result.redirectTo(HomeController.class).home();
+			} else {
+				result.include(
+						"resultadoBusca",
+						new JSONSerializer()
+								.include("nomeFantasia")
+								.include("endereco.logradouro")
+								.include("dataEmissaoDocumento")
+								.exclude("*")
+								.transform(
+										new CalendarTransformer("dd/MM/yyyy"),
+										Calendar.class)
+								.serialize(listaDeResultadosDeEmpresas));
+
+				result.redirectTo(this).listagem();
+			}
 		}
 	}
 
