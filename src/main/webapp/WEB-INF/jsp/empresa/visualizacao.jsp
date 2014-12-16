@@ -31,7 +31,7 @@
 	    		</c:if>
 				<div class="panel panel-default margin-35-0">
 					<div class="panel-heading centralize">
-						<h4>Visualização de Empresa</h4>
+						<h4>${empresa.nomeFantasia}</h4>
 					</div>
 					<div class="panel-body">
 
