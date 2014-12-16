@@ -40,8 +40,31 @@ public class EmpresaController {
 		return daoEmpresa.getById(empresa.getId());
 	}
 
-	@Get("/listagem")
 	public void listagem() {
+	}
+
+	@Get("/listagem")
+	public void listarTodos() {
+		List<Empresa> listaDeResultadosDeEmpresas = daoEmpresa.getTodas();
+
+		if (listaDeResultadosDeEmpresas.size() == 0) {
+			result.include("listaDeResultadosDeEmpresasVazia", true);
+			result.redirectTo(HomeController.class).home();
+		} else {
+			result.include(
+					"resultadoBusca",
+					new JSONSerializer()
+							.include("id")
+							.include("nomeFantasia")
+							.include("endereco.logradouro")
+							.include("dataEmissaoDocumento")
+							.exclude("*")
+							.transform(new CalendarTransformer("dd/MM/yyyy"),
+									Calendar.class)
+							.serialize(listaDeResultadosDeEmpresas));
+
+			result.redirectTo(this).listagem();
+		}
 	}
 
 	@Get("/busca")

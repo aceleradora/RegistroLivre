@@ -1,4 +1,3 @@
-
 function criaDatatable(dados){
 	$('#tabelaListagem').DataTable({
 		data : dados,
