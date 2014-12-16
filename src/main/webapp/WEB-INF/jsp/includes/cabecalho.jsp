@@ -16,12 +16,12 @@
 				<li><a href="/listagem">Listar Empresas</a></li>
 				
 			</ul>
-				<form class="form navbar-form navbar-left" role="search" name="pesquisa" action="/busca" method="GET">
+				<form class="form navbar-form navbar-left " role="search" name="pesquisa" action="/busca" method="GET">
 					<div class="form-group">
 						<input class="form-control" type="text" name="busca" id="campoPesquisado" />
 					</div>
 					<div class="form-group">
-						<input type="submit" id="btn-submit" class="btn btn-sm btn-primary pull-right margin-0-6" value="Buscar"/>
+						<input type="submit" id="btn-submit-cabecalho" class="btn btn-sm btn-primary pull-right margin-0-6" value="Buscar"/>
 					</div>
 				</form>
 		
