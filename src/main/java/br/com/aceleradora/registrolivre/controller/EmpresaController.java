@@ -75,6 +75,8 @@ public class EmpresaController {
 		if (busca == null) {
 			result.redirectTo(HomeController.class).home();
 		}
+		
+		busca = busca.replaceAll("[./-]", "");
 
 		List<Empresa> listaDeResultadosDeEmpresas = daoEmpresa.pesquisa(busca);
 
