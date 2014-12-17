@@ -62,6 +62,7 @@ public class EmpresaDAO implements IEmpresaDAO {
 			sqlQuery += "OR empresa.dataCriacao = :data ";
 		} catch (ParseException e) {
 			dataParaPesquisa = null;
+			textoParaBusca = textoParaBusca.replaceAll("[./-]", "");
 		}
 		
 		sqlQuery += " ORDER BY empresa.dataRegistro DESC ";
