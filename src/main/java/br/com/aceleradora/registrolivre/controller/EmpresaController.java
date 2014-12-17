@@ -68,7 +68,8 @@ public class EmpresaController {
 	@Get("/busca")
 	public void busca(String busca) {
 		if (busca != null) {
-			List<Empresa> listaDeResultadosDeEmpresas = daoEmpresa.pesquisa(busca);
+			List<Empresa> listaDeResultadosDeEmpresas = daoEmpresa
+					.pesquisa(busca);
 			result.forwardTo(this).listagem(listaDeResultadosDeEmpresas);
 		} else {
 			result.include("buscaVazia", true);
@@ -83,44 +84,16 @@ public class EmpresaController {
 
 	@Post("/empresa/cadastrar/")
 	public void cadastrar(final Empresa empresa, final UploadedFile arquivo) {
-		validator.checking(new Validations() {
-			{
-				that(Validador.verificaCnpj(empresa.getCnpj()), "empresa.cnpj",
-						"cnpj.invalido");
-				that(Validador.verificaNumeroEndereco(empresa),
-						"empresa.endereco.numero", "numero.invalido");
-				that(Validador.verificaNomeFantasia(empresa.getNomeFantasia()),
-						"empresa.nomeFantasia", "nomeFantasia.obrigatorio");
-				that(Validador.verificaCpfListaSocio(empresa.getSocios()),
-						"empresa.socios", "cpf.invalido");
-				that(Validador.verificaExtensaoArquivo(arquivo), "arquivo",
-						"extensao.invalida");
-			}
-		});
-		validator.onErrorRedirectTo(this).cadastro();
-
-		empresa.retiraPontosTracosBarrasCnpjECpf();
-
-		Arquivo arquivoParaUpload = new Arquivo(arquivo.getFile(), empresa);
-
-		ClienteCloudinary clienteCloudinary = new ClienteCloudinary(
-				arquivoParaUpload);
-
-		if (clienteCloudinary.upload()) {
-			empresa.setUrl(clienteCloudinary.getArquivo().getUrlArquivo());
-			daoEmpresa.adiciona(empresa);
-			result.include("mensagem", "Cadastro realizado com sucesso!");
-			result.redirectTo(this).visualizacao(empresa);
-		} else {
-			result.include("erro",
-					"Erro ao cadastrar, por favor tente novamente!");
-			result.redirectTo(this).cadastro();
-		}
-
+		salvar(empresa, arquivo, false);
 	}
 
 	@Post("/empresa/cadastrar/{empresa.id}")
 	public void atualizar(final Empresa empresa, final UploadedFile arquivo) {
+		salvar(empresa, arquivo, true);		
+	}
+
+	private void salvar(final Empresa empresa, final UploadedFile arquivo,
+			final boolean alteracao) {
 		validator.checking(new Validations() {
 			{
 				that(Validador.verificaCnpj(empresa.getCnpj()), "empresa.cnpj",
@@ -131,14 +104,21 @@ public class EmpresaController {
 						"empresa.nomeFantasia", "nomeFantasia.obrigatorio");
 				that(Validador.verificaCpfListaSocio(empresa.getSocios()),
 						"empresa.socios", "cpf.invalido");
-
-				if (arquivo != null) {
+				if ((alteracao && arquivo != null)
+						|| (!alteracao && arquivo == null)) {
 					that(Validador.verificaExtensaoArquivo(arquivo), "arquivo",
 							"extensao.invalida");
 				}
 			}
 		});
-		validator.onErrorRedirectTo(this).cadastro(empresa);
+
+		if (alteracao) {
+			validator.onErrorRedirectTo(this).cadastro(empresa);
+		} else {
+			validator.onErrorRedirectTo(this).cadastro();
+		}
+
+		empresa.retiraPontosTracosBarrasCnpjECpf();
 
 		if (arquivo != null) {
 
@@ -147,19 +127,32 @@ public class EmpresaController {
 			ClienteCloudinary clienteCloudinary = new ClienteCloudinary(
 					arquivoParaUpload);
 
-			if (clienteCloudinary.atualiza(empresa.getUrl())) {
-				empresa.setUrl(clienteCloudinary.getArquivo().getUrlArquivo());
+			if (alteracao) {
+				if (clienteCloudinary.atualiza(empresa.getUrl())) {
+					empresa.setUrl(clienteCloudinary.getArquivo()
+							.getUrlArquivo());
+				} else {
+					result.include("erro",
+							"Erro ao atualizar arquivo, por favor tente novamente!");
+					result.redirectTo(this).cadastro();
+				}
 			} else {
-				result.include("erro",
-						"Erro ao atualizar, por favor tente novamente!");
-				result.redirectTo(this).cadastro(empresa);
+				if (clienteCloudinary.upload()) {
+					empresa.setUrl(clienteCloudinary.getArquivo()
+							.getUrlArquivo());
+				} else {
+					result.include("erro",
+							"Erro ao salvar arquivo, por favor tente novamente!");
+					result.redirectTo(this).cadastro();
+				}
 			}
-
 		}
 
-		daoEmpresa.atualiza(empresa);
-		result.include("mensagem", "Atualização realizada com sucesso!");
+		daoEmpresa.salva(empresa);
+		String mensagem = (alteracao) ? "Atualização realizada com sucesso!"
+				: "Cadastro realizado com sucesso!";		
+
+		result.include("mensagem", mensagem);
 		result.redirectTo(this).visualizacao(empresa);
 	}
-
 }
