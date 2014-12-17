@@ -25,6 +25,7 @@
 					</div>
 				</c:if>
 				
+
 				<c:if test="${buscaVazia == true}">
 					<div class="alert alert-warning alert-dismissible" role="alert">
 						<button type="button" class="close" id="close"
@@ -36,16 +37,19 @@
 				</c:if>
 				
 				<div class="panel panel-default margin-100-0-0-0 transparente">
+
 					<div class="panel-heading centralize">
 						<h1 id="registrolivre">Registro Livre</h1>
 					</div>
 					<div class="panel-body">
 						<form class="form" name="pesquisa" action="/busca" method="GET">
+
 							<div class="form-group">
 								<input class="form-control" type="text" name="busca" id="campoPesquisado" />
 							</div>
 							<div class="form-group">
 								<input type="submit" id="btn-submit" class="btn btn-lg btn-primary pull-right margin-0-6" value="Buscar"/>
+
 							</div>
 						</form>
 					</div>
