@@ -9,12 +9,10 @@
 	<meta charset="UTF-8" />
 	<title>Cadastro de Empresa</title>
 	<jsp:include page="/WEB-INF/jsp/includes/assets.jsp" />
-	<link href="/assets/css/bootstrap/css/bootstrap.css" rel="stylesheet">
-	<link href="/assets/css/main.css" rel="stylesheet">
-	<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
-	<script src="/assets/js/bootstrap-filestyle.js" charset="utf-8"></script>
+
+	<script src="../assets/js/jquery.mask.min.js"></script>
 	<script src="/assets/js/cadastro.js" charset="utf-8"></script>
-	<script src="/assets/js/adiciona-socios.js" charset="utf-8"></script>
+	<script src="../assets/js/adiciona-socios.js"></script>
 </head>
 <body>
 	<jsp:include page="/WEB-INF/jsp/includes/cabecalho.jsp" />
