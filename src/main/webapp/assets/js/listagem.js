@@ -11,10 +11,17 @@ function criaDatatable(dados){
 			});
 		},
         "language": {
-            "lengthMenu": "Display _MENU_ records per page",
+            "lengthMenu": "Mostrar _MENU_ resultados por página",
             "zeroRecords": "Nenhum registro de empresa encontrado.",
+            "search": "Filtrar resultados:",
             "info": "Mostrando página _PAGE_ de _PAGES_",
-            "infoEmpty": "No records available",
+            "infoEmpty": "Sem registros disponíveis",
+            "paginate": {
+                "first":      "Primeiro",
+                "last":       "Último",
+                "next":       "Próximo",
+                "previous":   "Anterior"
+            },
         }
 	});
 }
