@@ -86,18 +86,10 @@ public class EmpresaDAO implements IEmpresaDAO {
 		return quantidadeDeRegistros;
 
 	}
-
-	@Override
-	public void adiciona(Empresa empresa) {
+	
+	public void salva(Empresa empresa){
 		Transaction transacao = sessao.beginTransaction();
-		sessao.save(empresa);		
-		transacao.commit();
-	}
-
-	@Override
-	public void atualiza(Empresa empresa) {
-		Transaction transacao = sessao.beginTransaction();
-		sessao.update(empresa);
+		sessao.saveOrUpdate(empresa);
 		transacao.commit();
 	}
 }
