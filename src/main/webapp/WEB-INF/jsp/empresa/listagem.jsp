@@ -28,19 +28,21 @@
 	<jsp:include page="/WEB-INF/jsp/includes/cabecalho.jsp" />
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-6 col-lg-offset-3">
+			<div class="col-lg-8 col-lg-offset-2">
 				<div class="panel panel-default margin-35-0">
 					<div class="panel-heading">
 						<h1>Lista de Empresas Cadastradas</h1>
-						<table id="tabelaListagem" class="display">
+					</div>
+					<div class="panel-body">	
+						<table id="tabelaListagem" class="table-striped table-hover">
 							<thead>
 								<tr>
 									<th>Nome Fantasia</th>
-									<th>Data Emissão Documento</th>
 									<th>Endereço</th>
+									<th>Data Emissão Documento</th>
 								</tr>
 							</thead>
-						</table>
+						</table>						
 					</div>
 				</div>
 			</div>
