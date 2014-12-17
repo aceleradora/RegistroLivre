@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=iso-8859-1" pageEncoding="iso-8859-1"%>
+<%@ page language="java" contentType="text/html; UTF-8" pageEncoding="UTF-8"%>
 <%@ page isELIgnored="false"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="pt-br">
 <head>
-<meta charset="iso-8859-1" />
+<meta charset="UTF-8" />
 	<link href="/assets/css/bootstrap/css/bootstrap.css" rel="stylesheet">
 	<link href="/assets/css/main.css" rel="stylesheet">
 	<link href="http://cdn.datatables.net/1.10.4/css/jquery.dataTables.css" rel="stylesheet">
@@ -38,8 +38,8 @@
 							<thead>
 								<tr>
 									<th>Nome Fantasia</th>
-									<th>Endereço</th>
-									<th>Data Emissão Documento</th>
+									<th>EndereÃ§o</th>
+									<th>Data EmissÃ£o Documento</th>
 								</tr>
 							</thead>
 						</table>						
