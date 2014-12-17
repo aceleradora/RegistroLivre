@@ -1,16 +1,26 @@
 function criaDatatable(dados){
-	$('#tabelaListagem').DataTable({
+	var tabela = $('#tabelaListagem').dataTable({
 		data : dados,
 		columns : [ { data : 'nomeFantasia'	}, 
 		            { data : 'endereco.logradouro' },
-		            { data : 'dataEmissaoDocumento', "type": "date"}
+		            { data : 'dataEmissaoDocumento' },
+ 		            { data : 'dataOrdenada' }
 		          ],
+        "aoColumnDefs" : [ {
+			"iDataSort" : 3,
+			"aTargets" : [2]
+			
+		},{
+			"aTargets" : [3],
+			"visible" : false,
+			
+		} ],
 		"rowCallback": function(row, data){
 			$("td", row).on('click', function(){
 				window.location.href = '/visualizacao/' + data.id;
 			});
 		},
-        "language": {
+		"language": {
             "lengthMenu": "Mostrar _MENU_ resultados por página",
             "zeroRecords": "Nenhum registro de empresa encontrado.",
             "search": "Filtrar resultados:",
@@ -21,7 +31,7 @@ function criaDatatable(dados){
                 "last":       "Último",
                 "next":       "Próximo",
                 "previous":   "Anterior"
-            },
+            }
         }
 	});
 }

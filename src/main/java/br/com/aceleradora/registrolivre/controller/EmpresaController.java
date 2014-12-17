@@ -9,6 +9,7 @@ import br.com.aceleradora.registrolivre.model.Validador;
 import br.com.aceleradora.registrolivre.util.Arquivo;
 import br.com.aceleradora.registrolivre.util.CalendarTransformer;
 import br.com.aceleradora.registrolivre.util.ClienteCloudinary;
+import br.com.aceleradora.registrolivre.util.FieldNameTransformer;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;
@@ -54,8 +55,8 @@ public class EmpresaController {
 							.include("endereco.logradouro")
 							.include("dataEmissaoDocumento")
 							.exclude("*")
-							.transform(new CalendarTransformer("dd/MM/yyyy"),
-									Calendar.class).serialize(listaDeEmpresas));
+							.transform(new FieldNameTransformer("dataOrdenada", "dd/MM/yyyy", "yyyyMMdd"), "dataEmissaoDocumento")
+							.serialize(listaDeEmpresas));
 		}
 	}
 
