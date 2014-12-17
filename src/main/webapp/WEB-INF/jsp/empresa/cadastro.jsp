@@ -6,12 +6,17 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-	<title>Cadastro de Empresa</title>	
-		
+	<meta charset="UTF-8" />
+	<title>Cadastro de Empresa</title>
 	<jsp:include page="/WEB-INF/jsp/includes/assets.jsp" />
-	<script src="../assets/js/jquery.mask.min.js"></script>
+	<link href="/assets/css/bootstrap/css/bootstrap.css" rel="stylesheet">
+	<link href="/assets/css/main.css" rel="stylesheet">
+	<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="/assets/js/bootstrap-filestyle.js" charset="utf-8"></script>
+	<script src="/assets/js/cadastro.js" charset="utf-8"></script>
+	<script src="/assets/js/adiciona-socios.js" charset="utf-8"></script>
 </head>
-	<body>
+<body>
 	<jsp:include page="/WEB-INF/jsp/includes/cabecalho.jsp" />
 		<div class="container">
 			<div class="row">
@@ -62,6 +67,22 @@
 									<input class="form-control" type="text" name="empresa.nomeFantasia" id="nomeFantasia" value="${empresa.nomeFantasia}" placeholder="ex: Larah Instrumentos Musicais" required/>
 									<span class="glyphicon form-control-feedback"></span>
 								</div>
+								
+								<div class="form-group">
+									<label class="control-label">Upload de arquivo <abbr title="Preenchimento obrigatório">*</abbr></label>
+									<c:choose>
+										<c:when test="${editar != null}">
+											<input name="empresa.url" type="text" value="${empresa.url}" hidden/>
+											<br />
+											<a class="form-group" href="${empresa.url}" target="_blank">Antigo Arquivo</a>
+											<input id="file" class="form-group filestyle" data-buttonText="Escolher arquivo" type="file" name="arquivo"/>
+										</c:when>
+										<c:otherwise>
+											<input id="file" class="form-group filestyle" data-buttonText="Escolher arquivo" type="file" name="arquivo" required/>
+										</c:otherwise>
+									</c:choose>										
+									<span class="msg-alert color-red" id="file-alert">Tamanho m�ximo do arquivo: 5MB.</span>
+								</div>	
 							
 								<div class="form-group">
 									<label class="control-label">Razão Social</label>
@@ -131,24 +152,7 @@
 
 																
 								</div>
-									
-								<div class="form-group">
-									<label class="control-label">Upload de arquivo <abbr title="Preenchimento obrigatÃ³rio">*</abbr></label>
-									<c:choose>
-										<c:when test="${editar != null}">
-											<input name="empresa.url" type="text" value="${empresa.url}" hidden/>
-											<br />
-											<a class="form-group" href="${empresa.url}" target="_blank">Antigo Arquivo</a>
-											<input id="file" class="form-group" type="file" name="arquivo"/>
-										</c:when>
-										<c:otherwise>
-											<input id="file" class="form-group" type="file" name="arquivo" required/>
-										</c:otherwise>
-									</c:choose>										
-									<span class="msg-alert color-red" id="file-alert">Tamanho máximo do arquivo: 5MB.</span>
-								</div>		
 								
-
 								<div id="divSocios">
 									<c:forEach items="${empresa.socios}" var="socio">
 										<script> document.onLoad(adicionaSociosCadastrados("${socio.nome}", "${socio.cpf}", "${socio.ativo}")); </script>
