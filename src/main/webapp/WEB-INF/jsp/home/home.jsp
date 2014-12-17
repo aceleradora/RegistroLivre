@@ -1,19 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=iso-8859-1" pageEncoding="iso-8859-1"%>
 <%@ page isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-	<meta charset="iso-8859-1"/>
-	
-	<title>Registro Livre - A verdade está lá fora!</title>
-	
-	<link href="assets/css/bootstrap/css/bootstrap.css" rel="stylesheet">
-	<link href="assets/css/bootstrap/css/bootstrap-theme.css" rel="stylesheet">
-	<link href="assets/css/main.css" rel="stylesheet">
-	
-	<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
-	<script src="../assets/js/visualizacao.js"></script>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>	
+	<title>Registro Livre - A verdade está lá fora!</title>	
+	<jsp:include page="/WEB-INF/jsp/includes/assets.jsp" />	
 </head>
 
 <body>
@@ -32,6 +24,7 @@
 							efetuada.</strong>
 					</div>
 				</c:if>
+				
 				<c:if test="${buscaVazia == true}">
 					<div class="alert alert-warning alert-dismissible" role="alert">
 						<button type="button" class="close" id="close"
@@ -41,6 +34,7 @@
 						<strong>Não há nada digitado no campo de busca, por favor tente novamente.</strong>
 					</div>
 				</c:if>
+				
 				<div class="panel panel-default margin-100-0-0-0 transparente">
 					<div class="panel-heading centralize">
 						<h1 id="registrolivre">Registro Livre</h1>

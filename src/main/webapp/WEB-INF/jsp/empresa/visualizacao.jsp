@@ -2,17 +2,12 @@
 <%@ page isELIgnored="false"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8" />
-<link href="../assets/css/bootstrap/css/bootstrap.css" rel="stylesheet">
-<link href="../assets/css/main.css" rel="stylesheet">
-<link href="../assets/css/botao-pdf.css" rel="stylesheet">
-<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script src="../assets/js/jquery.mask.min.js"></script>	
-<script src="../assets/js/visualizacao.js"></script>
-
+	<jsp:include page="/WEB-INF/jsp/includes/assets.jsp" />
+	<script src="../assets/js/jquery.mask.min.js"></script>
+	<title>Visualizar Empresa</title>
 </head>
 <body>
 	<jsp:include page="/WEB-INF/jsp/includes/cabecalho.jsp" />
