@@ -40,24 +40,9 @@ public class EmpresaController {
 		return daoEmpresa.getById(empresa.getId());
 	}
 
-	public void listagem() {
-	}
+	public void listagem(List<Empresa> listaDeEmpresas) {
 
-	@Get("/listagem")
-	public void listarTodos() {
-		List<Empresa> listaDeResultadosDeEmpresas = daoEmpresa.getTodas();
-
-	@Get("/busca")
-	public void busca(String busca) {
-		if (busca == null) {
-			result.redirectTo(HomeController.class).home();
-		}
-
-		busca = busca.replaceAll("[/.-]", "");
-
-		List<Empresa> listaDeResultadosDeEmpresas = daoEmpresa.pesquisa(busca);
-
-		if (listaDeResultadosDeEmpresas.size() == 0) {
+		if (listaDeEmpresas.size() == 0) {
 			result.include("listaDeResultadosDeEmpresasVazia", true);
 			result.redirectTo(HomeController.class).home();
 		} else {
@@ -70,11 +55,14 @@ public class EmpresaController {
 							.include("dataEmissaoDocumento")
 							.exclude("*")
 							.transform(new CalendarTransformer("dd/MM/yyyy"),
-									Calendar.class)
-							.serialize(listaDeResultadosDeEmpresas));
-
-			result.redirectTo(this).listagem();
+									Calendar.class).serialize(listaDeEmpresas));
 		}
+	}
+
+	@Get("/listagem")
+	public void listarTodos() {
+		List<Empresa> listaDeTodasEmpresas = daoEmpresa.getTodas();
+		result.forwardTo(this).listagem(listaDeTodasEmpresas);
 	}
 
 	@Get("/busca")
@@ -82,28 +70,8 @@ public class EmpresaController {
 		if (busca != null) {
 			busca = busca.replaceAll("[./-]", "");
 
-			List<Empresa> listaDeResultadosDeEmpresas = daoEmpresa
-					.pesquisa(busca);
-
-			if (listaDeResultadosDeEmpresas.size() == 0) {
-				result.include("listaDeResultadosDeEmpresasVazia", true);
-				result.redirectTo(HomeController.class).home();
-			} else {
-				result.include(
-						"resultadoBusca",
-						new JSONSerializer()
-								.include("id")
-								.include("nomeFantasia")
-								.include("endereco.logradouro")
-								.include("dataEmissaoDocumento")
-								.exclude("*")
-								.transform(
-										new CalendarTransformer("dd/MM/yyyy"),
-										Calendar.class)
-								.serialize(listaDeResultadosDeEmpresas));
-
-				result.redirectTo(this).listagem();
-			}
+			List<Empresa> listaDeResultadosDeEmpresas = daoEmpresa.pesquisa(busca);
+			result.forwardTo(this).listagem(listaDeResultadosDeEmpresas);
 		} else {
 			result.include("buscaVazia", true);
 			result.redirectTo(HomeController.class).home();
