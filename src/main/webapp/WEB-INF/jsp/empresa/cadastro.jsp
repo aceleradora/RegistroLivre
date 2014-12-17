@@ -9,10 +9,16 @@
 	<meta charset="UTF-8" />
 	<title>Cadastro de Empresa</title>
 	<jsp:include page="/WEB-INF/jsp/includes/assets.jsp" />
+	
+	<script type="text/javascript" src="http://cidades-estados-js.googlecode.com/files/cidades-estados-1.2-utf8.js"></script>
 	<script src="../assets/js/jquery.mask.min.js"></script>
-	<script src="../assets/js/bootstrap-filestyle.js"></script>
-	<script src="../assets/js/cadastro.js" charset="utf-8"></script>
-	<script src="../assets/js/adiciona-socios.js"></script>
+	<link href="/assets/css/bootstrap/css/bootstrap.css" rel="stylesheet">
+	<link href="/assets/css/main.css" rel="stylesheet">
+	<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="/assets/js/bootstrap-filestyle.js" charset="utf-8"></script>
+	<script src="/assets/js/cadastro.js" charset="utf-8"></script>
+	<script src="/assets/js/adiciona-socios.js" charset="utf-8"></script>
+	
 </head>
 <body>
 	<jsp:include page="/WEB-INF/jsp/includes/cabecalho.jsp" />
@@ -108,19 +114,16 @@
 								</div>
 								
 								<div class="row">
-									<div class="col-lg-9">
-										<div class="form-group">
-											<label class="control-label">Cidade</label>
-											<input class="form-control" type="text" name="empresa.endereco.cidade" value="${empresa.endereco.cidade}"/>
-										</div>
-									</div>
 									<div class="col-lg-3">
 										<div class="form-group">
 											<label class="control-label">Estado</label>			
-											<select name="empresa.endereco.uf" class="form-control">
-												<option value="RS">RS</option>
-												<option value="SP">SP</option>
-											</select>
+											<input id="estado" class="form-control" name="empresa.endereco.uf" value="${empresa.endereco.uf}" />
+										</div>
+									</div>
+									<div class="col-lg-9">
+										<div class="form-group">
+											<label class="control-label">Cidade</label>
+											<input id="cidade" class="form-control" name="empresa.endereco.cidade" value="${empresa.endereco.cidade}" />
 										</div>
 									</div>
 								</div>
