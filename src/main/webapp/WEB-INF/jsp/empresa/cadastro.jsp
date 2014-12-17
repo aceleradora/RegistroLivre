@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=iso-8859-1"
-    pageEncoding="iso-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ page isELIgnored="false"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -52,32 +52,32 @@
 								</div>
 										
 								<div class="form-group has-feedback" id="cnpj-group">
-									<label class="control-label">CNPJ <abbr title="Preenchimento obrigat髍io">*</abbr></label>
+									<label class="control-label">CNPJ <abbr title="Preenchimento obrigat贸rio">*</abbr></label>
 									<input class="form-control" type="text" name="empresa.cnpj" id="cnpj" value="${empresa.cnpj}" placeholder="ex: 00.000.000/0000-00" required/>
 									<span class="glyphicon form-control-feedback"></span>
 								</div>
 							
 								<div class="form-group has-feedback" id="nomeFantasia-group">
-									<label class="control-label">Nome fantasia  <abbr title="Preenchimento obrigat髍io">*</abbr> </label>
+									<label class="control-label">Nome fantasia  <abbr title="Preenchimento obrigat贸rio">*</abbr> </label>
 									<input class="form-control" type="text" name="empresa.nomeFantasia" id="nomeFantasia" value="${empresa.nomeFantasia}" placeholder="ex: Larah Instrumentos Musicais" required/>
 									<span class="glyphicon form-control-feedback"></span>
 								</div>
 							
 								<div class="form-group">
-									<label class="control-label">Raz鉶 Social</label>
+									<label class="control-label">Raz茫o Social</label>
 									<input class="form-control" type="text" name="empresa.razaoSocial"placeholder="ex: Cia Larah Instrumentos Musicais LTDA" value="${empresa.razaoSocial}"/>
 								</div>
 							
 								<div class="row">
 									<div class="col-lg-9">
 										<div class="form-group">
-											<label class="control-label">Endere鏾</label>
+											<label class="control-label">Endere莽o</label>
 											<input class="form-control" type="text" name="empresa.endereco.logradouro" placeholder="ex: Av. Ipiranga" value="${empresa.endereco.logradouro}"/>
 										</div>
 									</div>
 									<div class="col-lg-3">
 										<div class="form-group">
-											<label class="control-label">N鷐ero</label>
+											<label class="control-label">N煤mero</label>
 											<input id="numero" class="form-control" type="text" name="empresa.endereco.numero" value="${empresa.endereco.numero}"/>
 										</div>
 									</div>
@@ -122,7 +122,7 @@
 									</div>
 									<div class="col-lg-6 col-md-6">
 										<div class="form-group">
-											<label class="control-label">Emiss鉶 de documento</label>
+											<label class="control-label">Emiss茫o de documento</label>
 											
 											<fmt:formatDate value="${empresa.dataEmissaoDocumento.time}" pattern="dd/MM/yyyy" var="dataEmissaoDocumentoFormatada" />
 											<input class="form-control date" name="empresa.dataEmissaoDocumento" id="dataEmissao" type="text" value="${dataEmissaoDocumentoFormatada}"/>
@@ -133,7 +133,7 @@
 								</div>
 									
 								<div class="form-group">
-									<label class="control-label">Upload de arquivo <abbr title="Preenchimento obrigat贸rio">*</abbr></label>
+									<label class="control-label">Upload de arquivo <abbr title="Preenchimento obrigat脙鲁rio">*</abbr></label>
 									<c:choose>
 										<c:when test="${editar != null}">
 											<input name="empresa.url" type="text" value="${empresa.url}" hidden/>
@@ -145,7 +145,7 @@
 											<input id="file" class="form-group" type="file" name="arquivo" required/>
 										</c:otherwise>
 									</c:choose>										
-									<span class="msg-alert color-red" id="file-alert">Tamanho m醲imo do arquivo: 5MB.</span>
+									<span class="msg-alert color-red" id="file-alert">Tamanho m谩ximo do arquivo: 5MB.</span>
 								</div>		
 								
 
@@ -158,7 +158,7 @@
 								
 								<div class="form-group">
 									
-									<button type="button" class="btn btn-success pull-right margin-0-6" onclick="adicionaSocio()"><span class="glyphicon glyphicon-plus-sign"></span> Adicionar S骳io</button>
+									<button type="button" class="btn btn-success pull-right margin-0-6" onclick="adicionaSocio()"><span class="glyphicon glyphicon-plus-sign"></span> Adicionar S贸cio</button>
 									<br>
 								</div>								
 								
