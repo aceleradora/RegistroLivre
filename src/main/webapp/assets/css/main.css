@@ -1,10 +1,61 @@
+<<<<<<< Updated upstream
 #tabelaListagem tr:hover{
 	cursor: pointer;
+=======
+@font-face {
+    font-family: titulo;
+    src: url(LeagueGothic-Regular.otf);
+}
+
+body{
+	background-color: #22313F;	
+}
+
+.panel{
+	border-radius:0;	
+	background-color:red;
+	border:0;
+	width:100%;
+	
+	-moz-box-shadow:1px 1px 10px #000;
+	-webkit-box-shadow: 1px 1px 10px #000;
+	box-shadow: 1px 1px 10px #000;
+}
+
+	.panel-heading{
+		background-color: #26A65B; 
+	}
+	
+	.panel-body{
+		background-color: #34495E; 
+	}
+
+.btn-primary{
+	border-radius:0;
+	margin-left:3px;	
+}
+
+.input-group-btn{
+	margin-left:3px;
+	height:20px;	
+}
+
+.navbar{
+	border-radius:0;
+	border:0;		
+}
+
+.form-control{
+	border-radius:0;	
+	margin-right:2px;
+>>>>>>> Stashed changes
 }
 
 #registrolivre{
 	font-size: 50px;
-	font-family: arial;
+	font-family: titulo;
+	text-transform:uppercase;
+	letter-spacing: 3px;	
 }
 
 #divSocios .list-group-item{
@@ -90,15 +141,14 @@ h4 {
 }
 
 .transparente{
-	opacity: 0.7;
-	
+	opacity: 0.7;	
 }
 
 .img-background{
 		background-image: url("/assets/img/1.jpg");
 		background-size: 1500px 1000px;
 		background-repeat: no-repeat; 
-			font-weight: bold;	
+		font-weight: bold;	
 }
 
 .btn-borders-navbar li{
