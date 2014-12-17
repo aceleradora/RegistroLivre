@@ -3,7 +3,7 @@ function criaDatatable(dados){
 		data : dados,
 		columns : [ { data : 'nomeFantasia'	}, 
 		            { data : 'endereco.logradouro' },
-		            { data : 'dataEmissaoDocumento' }
+		            { data : 'dataEmissaoDocumento', "type": "date"}
 		          ],
 		"rowCallback": function(row, data){
 			$("td", row).on('click', function(){
