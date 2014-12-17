@@ -38,29 +38,28 @@
 						</div>
 						
 
-						<form class="form" name="formulario" action="mx1.hostinger.com.br" method="POST" onsubmit="return validarCadastro('${editar}');" enctype="multipart/form-data">
+						<form class="form" name="formulario" action="/contato/enviar" method="POST" enctype="multipart/form-data">
 
 							<div class="panel-body">
 								
 								<div class="list-group-item-heading centralize">
-									<input type=hidden name="destino" value="contato@registrolivre.hol.es">
 								</div>								
 										
 								<div class="form-group has-feedback" id="nome-group">
 									<label class="control-label">Nome <abbr title="Preenchimento obrigatório">*</abbr></label>
-									<input class="form-control" type="text" name="" id="" value="" placeholder="ex: Barbara Souza" required/>
+									<input class="form-control" type="text" name="contato.nome" id="" placeholder="ex: Barbara Souza" required/>
 									<span class="glyphicon form-control-feedback"></span>
 								</div>
 							
 								<div class="form-group has-feedback" id="email-group">
 									<label class="control-label">E-mail  <abbr title="Preenchimento obrigatório">*</abbr> </label>
-									<input class="form-control" type="email" name="" id="" value="" placeholder="ex: barbaras@gmail.com" required/>
+									<input class="form-control" type="email" name="contato.email" id=""  placeholder="ex: barbaras@gmail.com" required/>
 									<span class="glyphicon form-control-feedback"></span>
 								</div>
 							
 								<div class="form-group">
 									<label class="control-label">Assunto</label>
-									<select name="" id="" >
+									<select name="contato.assunto" id="" >
 										<option value="##" selected>Escolha uma opção </option>
 										<option value="duvida">Dúvida</option>
 										<option value="reclamacao">Reclamação</option>										
@@ -73,14 +72,14 @@
 										<div class="form-group">
 											<label class="control-label">Mensagem  <abbr title="Preenchimento obrigatório">*</abbr> </label> 
 											<br>
-											<textarea rows="5" cols="40" name="" id="" value="" required></textarea>
+											<textarea rows="5" cols="40" name="contato.mensagem" id="" required></textarea>
 										</div>
 								</div>							
 							</div> <!-- panel-body -->
 							
 							<div class="panel-footer">									
 								<span class="pull-left msg-alert color-red margin-15-0" id="form-alert">Preencha os campos corretamente para enviar.</span>
-								<input type="submit" id="btn-submit" class="btn btn-lg btn-primary pull-right margin-0-6" value="Enviar"/>
+								<input type="submit" id="btn-submit" class="btn btn-lg btn-primary pull-right margin-0-6" onclick="enviarEmailContato()" value="Enviar" />
 								<input type="reset" value="Limpar" class="btn btn-default btn-lg pull-right margin-0-6"/>
 								<div style="clear:both"></div>
 							</div>	
