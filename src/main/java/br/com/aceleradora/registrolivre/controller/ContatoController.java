@@ -2,7 +2,6 @@ package br.com.aceleradora.registrolivre.controller;
 
 import br.com.aceleradora.registrolivre.util.Contato;
 import br.com.caelum.vraptor.Get;
-import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 

@@ -1,13 +1,11 @@
 package br.com.aceleradora.registrolivre.controller;
 
-import java.util.Calendar;
 import java.util.List;
 
 import br.com.aceleradora.registrolivre.dao.EmpresaDAO;
 import br.com.aceleradora.registrolivre.model.Empresa;
 import br.com.aceleradora.registrolivre.model.Validador;
 import br.com.aceleradora.registrolivre.util.Arquivo;
-import br.com.aceleradora.registrolivre.util.CalendarTransformer;
 import br.com.aceleradora.registrolivre.util.ClienteCloudinary;
 import br.com.aceleradora.registrolivre.util.FieldNameTransformer;
 import br.com.caelum.vraptor.Get;
