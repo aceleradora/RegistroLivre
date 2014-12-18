@@ -59,8 +59,8 @@
 							
 								<div class="form-group">
 									<label class="control-label">Assunto</label>
-									<select name="contato.assunto" id="" >
-										<option value="##" selected>Escolha uma opção </option>
+									<select name="contato.assunto" required id="" >
+										<option value="" selected>Escolha uma opção </option>
 										<option value="duvida">Dúvida</option>
 										<option value="reclamacao">Reclamação</option>										
 										<option value="sugestao">Sugestão</option>
