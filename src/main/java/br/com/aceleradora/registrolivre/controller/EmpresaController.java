@@ -7,7 +7,7 @@ import br.com.aceleradora.registrolivre.model.Empresa;
 import br.com.aceleradora.registrolivre.model.Validador;
 import br.com.aceleradora.registrolivre.util.Arquivo;
 import br.com.aceleradora.registrolivre.util.ClienteCloudinary;
-import br.com.aceleradora.registrolivre.util.FieldNameTransformer;
+import br.com.aceleradora.registrolivre.util.DataOrdenadaTransformer;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;
@@ -40,7 +40,6 @@ public class EmpresaController {
 	}
 
 	public void listagem(List<Empresa> listaDeEmpresas) {
-
 		if (listaDeEmpresas.size() == 0) {
 			result.include("listaDeResultadosDeEmpresasVazia", true);
 			result.redirectTo(HomeController.class).home();
@@ -53,7 +52,7 @@ public class EmpresaController {
 							.include("endereco.logradouro")
 							.include("dataEmissaoDocumento")
 							.exclude("*")
-							.transform(new FieldNameTransformer("dataOrdenada", "dd/MM/yyyy", "yyyyMMdd"), "dataEmissaoDocumento")
+							.transform(new DataOrdenadaTransformer("dataOrdenada", "dd/MM/yyyy", "yyyyMMdd"), "dataEmissaoDocumento")
 							.serialize(listaDeEmpresas));
 		}
 	}
