@@ -6,6 +6,7 @@
 <head>	
 	<title>Registro Livre - A verdade está lá fora!</title>	
 	<jsp:include page="/WEB-INF/jsp/includes/assets.jsp" />	
+	<script src="/assets/js/home.js"></script>
 </head>
 
 <body>
