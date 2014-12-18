@@ -7,9 +7,9 @@ public class Email {
 	private String assunto;
 	private String mensagem;
 	
-	public Email(String nome, String email, String assunto, String mensagem) {
+	public Email(String nome, String rementente, String assunto, String mensagem) {
 		this.nome = nome;
-		this.remetente = email;
+		this.remetente = rementente;
 		this.assunto = assunto;
 		this.mensagem = mensagem;
 	}
