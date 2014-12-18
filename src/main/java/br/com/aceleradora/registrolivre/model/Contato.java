@@ -45,11 +45,26 @@ public class Contato {
 		
 		Properties props = new Properties();
 
-		props.put("mail.smtp.host", "smtp.gmail.com");
-		props.put("mail.smtp.socketFactory.port", "465");
-		props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
-		props.put("mail.smtp.auth", "true");
-		props.put("mail.smtp.port", "465");
+//		props.put("mail.smtp.host", "smtp.gmail.com");
+//		props.put("mail.smtp.socketFactory.port", "2525");
+//		props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+//		props.put("mail.smtp.auth", "true");
+//		props.put("mail.smtp.port", "465");
+		
+		
+		
+		
+		 props.put("mail.transport.protocol", "smtp"); // define protocolo de envio como SMTP
+		 props.put("mail.smtp.starttls.enable", "true");
+		 props.put("mail.smtp.host", "mx1.hostinger.com.br"); // server SMTP do GMAIL
+		 props.put("mail.smtp.auth", "true"); // ativa autenticacao
+		 props.put("mail.smtp.user", "contato@registrolivre.hol.es"); // usuario ou seja, a conta que esta enviando o email (tem que ser do GMAIL)
+		 //props.put("mail.smtp.ehlo", false);
+		 props.put("mail.debug", "true");
+		 props.put("mail.smtp.port", "2525"); // porta
+		 props.put("mail.smtp.socketFactory.port", "2525"); // mesma porta para o socket
+		 //props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+		 props.put("mail.smtp.socketFactory.fallback", "false");		 
 
 		Session session = Session.getDefaultInstance(props,
 				new javax.mail.Authenticator() {
@@ -64,7 +79,7 @@ public class Contato {
 		try {
 
 			Message message = new MimeMessage(session);
-			message.setFrom(new InternetAddress("registrolivreaceleradora@gmail.com")); 
+			message.setFrom(new InternetAddress("contato@registrolivre.hol.es")); 
 
 			Address[] toUser = InternetAddress 
 					.parse("registrolivreaceleradora@gmail.com");  
