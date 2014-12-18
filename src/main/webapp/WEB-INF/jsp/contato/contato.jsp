@@ -58,13 +58,13 @@
 										
 								<div class="form-group has-feedback" id="nome-group">
 									<label class="control-label">Nome <abbr title="Preenchimento obrigatório">*</abbr></label>
-									<input class="form-control" type="text" name="email.nome" id="" placeholder="ex: Barbara Souza" required/>
+									<input class="form-control" type="text" name="email.nome" value="${email.nome}" id="" placeholder="ex: Barbara Souza" required/>
 									<span class="glyphicon form-control-feedback"></span>
 								</div>
 							
 								<div class="form-group has-feedback" id="email-group">
 									<label class="control-label">E-mail  <abbr title="Preenchimento obrigatório">*</abbr> </label>
-									<input class="form-control" type="email" name="email.rementente" id=""  placeholder="ex: barbaras@gmail.com" required/>
+									<input class="form-control" type="email" name="email.rementente" value="${email.remetente}" id=""  placeholder="ex: barbaras@gmail.com" required/>
 									<span class="glyphicon form-control-feedback"></span>
 								</div>
 							
@@ -83,7 +83,7 @@
 										<div class="form-group">
 											<label class="control-label">Mensagem  <abbr title="Preenchimento obrigatório">*</abbr> </label> 
 											<br>
-											<textarea rows="5" cols="40" name="email.mensagem" id="" required></textarea>
+											<textarea rows="5" cols="40" name="email.mensagem" id="" required>${email.mensagem}</textarea>
 										</div>
 								</div>							
 							</div> <!-- panel-body -->

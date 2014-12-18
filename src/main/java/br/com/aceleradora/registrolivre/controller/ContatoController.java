@@ -23,17 +23,17 @@ public class ContatoController {
 
 	public void enviar(Email email){
 	if (email.getNome() != null && 
-			email.getAssunto() != "##" && 
 			email.getMensagem() != null &&
 			email.getRemetente() != null &&
-			email.getRemetente().contains("@"))
+			email.getRemetente().contains("@") &&
+			email.getAssunto() != null)
 			{
 				EmissorDeEmail emissor = new EmissorDeEmail(); 
 					emissor.enviar(email);
 					result.include("enviar", "Mensagem enviada com sucesso!");
 					result.forwardTo(this).contato();
 			} else {
-				result.include("mensagem", "Por favor preencha todos os campos!");
+				result.include("erro", "Por favor preencha todos os campos!");
 				result.include(email);
 				result.redirectTo(this).contato();
 		}
