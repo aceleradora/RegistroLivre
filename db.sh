@@ -43,4 +43,10 @@ if [ -z "$CLOUD_NAME" ]; then
 	echo "export CLOUD_NAME=$cloud_name">>~/.bashrc
 fi
 
+if [ -z "$SENHA_EMAIL" ]; then
+	echo '[DIGITE A SENHA PARA O EMAIL DE CONTATO]:'
+	read senha_email
+	echo "export SENHA_EMAIL=$senha_email">>~/.bashrc
+fi
+
 exec bash
