@@ -1,4 +1,4 @@
-package br.com.aceleradora.registrolivre.util;
+package br.com.aceleradora.registrolivre.model;
 
 import java.util.Properties;
 
