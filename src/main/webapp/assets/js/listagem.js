@@ -4,7 +4,8 @@ function criaDatatable(dados){
 		columns : [ { data : 'nomeFantasia'	}, 
 		            { data : 'endereco.logradouro' },
 		            { data : 'dataEmissaoDocumento' },
- 		            { data : 'dataOrdenada' }
+ 		            { data : 'dataOrdenada' },
+		            { data : 'id'}
 		          ],
         "aoColumnDefs" : [ {
 			"iDataSort" : 3,
@@ -13,8 +14,11 @@ function criaDatatable(dados){
 		},{
 			"aTargets" : [3],
 			"visible" : false,
-			
+		} ,{
+			"aTargets" : [4],
+			"visible" : false,
 		} ],
+		"order": [[ 4, "desc" ]],
 		"rowCallback": function(row, data){
 			$("td", row).on('click', function(){
 				window.location.href = '/visualizacao/' + data.id;
