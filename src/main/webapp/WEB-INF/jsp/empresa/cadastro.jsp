@@ -11,8 +11,7 @@
 	<jsp:include page="/WEB-INF/jsp/includes/assets.jsp" />
 	
 	<script type="text/javascript" src="http://cidades-estados-js.googlecode.com/files/cidades-estados-1.2-utf8.js"></script>
-	<script src="../assets/js/jquery.mask.min.js"></script>
-	<link href="/assets/css/bootstrap/css/bootstrap.css" rel="stylesheet">
+	<script src="/assets/js/jquery.mask.min.js"></script>	
 	<link href="/assets/css/main.css" rel="stylesheet">
 	<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 	<script src="/assets/js/bootstrap-filestyle.js" charset="utf-8"></script>
