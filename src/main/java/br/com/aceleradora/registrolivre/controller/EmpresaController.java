@@ -8,6 +8,7 @@ import br.com.aceleradora.registrolivre.model.Validador;
 import br.com.aceleradora.registrolivre.util.Arquivo;
 import br.com.aceleradora.registrolivre.util.ClienteCloudinary;
 import br.com.aceleradora.registrolivre.util.DataOrdenadaTransformer;
+import br.com.aceleradora.registrolivre.util.EnderecoTransformer;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;
@@ -53,6 +54,7 @@ public class EmpresaController {
 							.include("dataEmissaoDocumento")
 							.exclude("*")
 							.transform(new DataOrdenadaTransformer("dataOrdenada", "dd/MM/yyyy", "yyyyMMdd"), "dataEmissaoDocumento")
+							.transform(new EnderecoTransformer(), "endereco")
 							.serialize(listaDeEmpresas));
 		}
 	}
