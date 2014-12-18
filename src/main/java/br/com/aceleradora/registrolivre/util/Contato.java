@@ -55,7 +55,7 @@ public class Contato {
 				new javax.mail.Authenticator() {
 			protected PasswordAuthentication getPasswordAuthentication() 
 			{
-				return new PasswordAuthentication("registrolivreaceleradora@gmail.com", System.getenv("SENHA_EMAIL"));
+				return new PasswordAuthentication("contato@registrolivre.hol.es", System.getenv("SENHA_EMAIL"));
 			}
 		});
 
