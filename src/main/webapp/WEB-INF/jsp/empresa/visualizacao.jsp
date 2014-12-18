@@ -129,7 +129,7 @@
 					</div>
 
 					<div class="panel-footer">
-						<a class="btn btn-default" href="/listagem">Voltar</a>
+						<a class="btn btn-default" href="javascript:history.back(1)">Voltar</a>
 						<a href="/atualizar/${empresa.id}" id="btn-submit" class="btn btn-primary pull-right margin-0-6" >Editar</a>
 						<div style="clear: both"></div>
 					</div>
