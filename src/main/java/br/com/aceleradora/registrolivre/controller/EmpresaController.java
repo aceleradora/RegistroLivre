@@ -16,6 +16,7 @@ import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.Validator;
 import br.com.caelum.vraptor.interceptor.multipart.UploadedFile;
 import br.com.caelum.vraptor.validator.Validations;
+import br.com.caelum.vraptor.view.Results;
 import flexjson.JSONSerializer;
 
 @Resource
@@ -154,5 +155,12 @@ public class EmpresaController {
 
 		result.include("mensagem", mensagem);
 		result.redirectTo(this).visualizacao(empresa);
+	}
+	
+	@Get()
+	public void autoCompletar(String textoDigitado){
+		List<String> empresas = daoEmpresa.getParaAutoCompletar(textoDigitado);
+		
+		result.use(Results.json()).from(empresas).serialize();
 	}
 }
