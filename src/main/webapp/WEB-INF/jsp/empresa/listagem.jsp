@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; iso-8859-1" pageEncoding="iso-8859-1"%>
 <%@ page isELIgnored="false"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -10,7 +10,7 @@
 	<script src="../assets/js/jquery.mask.min.js"></script>
 	
 	<jsp:include page="/WEB-INF/jsp/includes/datatable.jsp" />
-	<script src="../assets/js/listagem.js"></script>
+	<script src="../assets/js/listagem.js" charset="utf-8"></script>
 	
 	<script type="text/javascript">
 		<c:set var="resultadoBusca" value="${resultadoBusca}"/>
@@ -33,8 +33,8 @@
 							<thead>
 								<tr>
 									<th>Nome Fantasia</th>
-									<th>EndereÃ§o</th>
-									<th>Data EmissÃ£o Documento</th>
+									<th>Endereço</th>
+									<th>Data Emissão Documento</th>
 								</tr>
 							</thead>
 						</table>						

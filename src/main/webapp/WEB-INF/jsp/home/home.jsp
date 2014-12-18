@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=iso-8859-1" pageEncoding="iso-8859-1"%>
 <%@ page isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>	
-	<title>Registro Livre - A verdade est√° l√° fora!</title>	
+	<title>Registro Livre - A verdade est· l· fora!</title>	
 	<jsp:include page="/WEB-INF/jsp/includes/assets.jsp" />	
 </head>
 
@@ -20,7 +20,7 @@
 							data-dismiss="alert">
 							<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
 						</button>
-						<strong>N√£o h√° nenhum registro de empresa para a busca
+						<strong>N„o h· nenhum registro de empresa para a busca
 							efetuada.</strong>
 					</div>
 				</c:if>
@@ -32,7 +32,7 @@
 							data-dismiss="alert">
 							<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
 						</button>
-						<strong>N√£o h√° nada digitado no campo de busca, por favor tente novamente.</strong>
+						<strong>N„o h· nada digitado no campo de busca, por favor tente novamente.</strong>
 					</div>
 				</c:if>
 				

@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; iso-8859-1" pageEncoding="iso-8859-1"%>
 <%@ page isELIgnored="false"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -7,6 +7,7 @@
 <head>
 	<jsp:include page="/WEB-INF/jsp/includes/assets.jsp" />
 	<script src="../assets/js/jquery.mask.min.js"></script>
+	<script src="/assets/js/visualizacao.js"></script>
 	<title>Visualizar Empresa</title>
 </head>
 <body>
@@ -40,7 +41,7 @@
 									<dd>${empresa.nomeFantasia}</dd>
 								</dl>
 								<dl>
-									<dt>Raz√£o Social:</dt> 
+									<dt>Raz„o Social:</dt> 
 									<dd>${empresa.razaoSocial}</dd>
 								</dl>
 							</div>
@@ -56,11 +57,11 @@
 						</div>
 
 						<dl>
-							<dt>Endere√ßo:</dt> 
+							<dt>EndereÁo:</dt> 
 							<dd>${empresa.endereco.logradouro}</dd>
 						</dl>
 						<dl>
-							<dt>N√∫mero:</dt>
+							<dt>N˙mero:</dt>
 							<dd>${empresa.endereco.numero}</dd>
 						</dl>
 						<dl>
@@ -90,19 +91,19 @@
 						</dl>
 
 						<dl>
-							<dt>Emiss√£o de documento:</dt>						
+							<dt>Emiss„o de documento:</dt>						
 							<dd>
 								<fmt:formatDate value="${empresa.dataEmissaoDocumento.time}" pattern="dd/MM/yyyy"  />
 							</dd>
 						</dl>					
 					
-						<h4 class="centralize panel-divider padding-6-0 margin-30-0">Estrutura Societ√°ria</h4>
+						<h4 class="centralize panel-divider padding-6-0 margin-30-0">Estrutura Societ·ria</h4>
 					
 
 						<c:choose>
 						
 							<c:when test="${empresa.socios.size() == 0}">
-								<div class="centralize">Sem s√≥cios cadastrados.</div>
+								<div class="centralize">Sem sÛcios cadastrados.</div>
 							</c:when>
 							
 							<c:otherwise>
