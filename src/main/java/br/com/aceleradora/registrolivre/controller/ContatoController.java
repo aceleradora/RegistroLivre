@@ -1,6 +1,8 @@
 package br.com.aceleradora.registrolivre.controller;
 
-import br.com.aceleradora.registrolivre.util.Contato;
+
+import br.com.aceleradora.registrolivre.model.Email;
+import br.com.aceleradora.registrolivre.util.EmissorDeEmail;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
@@ -19,11 +21,10 @@ public class ContatoController {
 		
 	}
 
-	public void enviar(Contato contato){
-		contato.enviarEmailContato();
-		result.include("contato", "Mensagem enviada com sucesso!");
-		result.redirectTo(this).contato();
-	}
-	
-	
+	public void enviar(Email email){
+		EmissorDeEmail emissor = new EmissorDeEmail(); 
+		emissor.enviar(email);
+		result.include("enviar", "Mensagem enviada com sucesso!");
+		result.forwardTo(this).contato();
+	}	
 }

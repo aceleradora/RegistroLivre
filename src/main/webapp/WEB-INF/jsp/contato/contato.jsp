@@ -6,12 +6,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="pt-br">
 <head>
-	<meta charset="iso-8859-1" />
 	<title>Contato</title>
-	<link href="/assets/css/bootstrap/css/bootstrap.css" rel="stylesheet">
-	<link href="/assets/css/main.css" rel="stylesheet">
-	<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
-	<script src="/assets/js/adiciona-socios.js" charset="utf-8"></script>
+	<jsp:include page="/WEB-INF/jsp/includes/assets.jsp" />	
 </head>
 	<body>
 	<jsp:include page="/WEB-INF/jsp/includes/cabecalho.jsp" />
@@ -21,13 +17,28 @@
 				
 				<c:forEach items="${errors}" var="error">
 	    			<div class="alert alert-danger alert-dismissible" role="alert">
+	    				<button type="button" class="close" id="close" data-dismiss="alert">
+				  			<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+				  		</button>
   						${error.message}
 					</div>
 				</c:forEach>
 				
-				<c:if test="${erro} != null">
+				<c:if test="${erro != null}">
 					<div class="alert alert-danger alert-dismissible" role="alert">
+						<button type="button" class="close" id="close" data-dismiss="alert">
+							<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+						</button>
 						${erro}
+					</div>
+				</c:if>
+				
+				<c:if test="${enviar != null}">
+					<div class="alert alert-success alert-dismissible" role="alert">
+						<button type="button" class="close" id="close" data-dismiss="alert">
+				  			<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+				  		</button>
+						${enviar}
 					</div>
 				</c:if>
 				
@@ -47,19 +58,19 @@
 										
 								<div class="form-group has-feedback" id="nome-group">
 									<label class="control-label">Nome <abbr title="Preenchimento obrigatório">*</abbr></label>
-									<input class="form-control" type="text" name="contato.nome" id="" placeholder="ex: Barbara Souza" required/>
+									<input class="form-control" type="text" name="email.nome" id="" placeholder="ex: Barbara Souza" required/>
 									<span class="glyphicon form-control-feedback"></span>
 								</div>
 							
 								<div class="form-group has-feedback" id="email-group">
 									<label class="control-label">E-mail  <abbr title="Preenchimento obrigatório">*</abbr> </label>
-									<input class="form-control" type="email" name="contato.email" id=""  placeholder="ex: barbaras@gmail.com" required/>
+									<input class="form-control" type="email" name="email.rementente" id=""  placeholder="ex: barbaras@gmail.com" required/>
 									<span class="glyphicon form-control-feedback"></span>
 								</div>
 							
 								<div class="form-group">
 									<label class="control-label">Assunto</label>
-									<select name="contato.assunto" required id="" >
+									<select name="email.assunto" required id="" >
 										<option value="" selected>Escolha uma opção </option>
 										<option value="duvida">Dúvida</option>
 										<option value="reclamacao">Reclamação</option>										
@@ -72,7 +83,7 @@
 										<div class="form-group">
 											<label class="control-label">Mensagem  <abbr title="Preenchimento obrigatório">*</abbr> </label> 
 											<br>
-											<textarea rows="5" cols="40" name="contato.mensagem" id="" required></textarea>
+											<textarea rows="5" cols="40" name="email.mensagem" id="" required></textarea>
 										</div>
 								</div>							
 							</div> <!-- panel-body -->
@@ -91,10 +102,5 @@
 				</div> <!-- col -->
 			</div> <!-- row -->
 		</div> <!-- container -->
-		
-	<script src="/assets/js/jquery.mask.min.js"></script>		
-	<script src="/assets/js/validacao-logica-cadastro.js"></script>		
-	<script src="/assets/js/validacao-visual-cadastro.js"></script>
-		
 	</body>
 </html>
