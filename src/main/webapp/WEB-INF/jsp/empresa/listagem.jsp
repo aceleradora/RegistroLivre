@@ -21,7 +21,7 @@
 </head>
 <body>
 	<jsp:include page="/WEB-INF/jsp/includes/cabecalho.jsp" />
-	<div class="container">
+	<div class="container content">
 		<div class="row">
 			<div class="col-lg-8 col-lg-offset-2">
 				<div class="panel panel-default margin-35-0">

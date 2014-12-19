@@ -18,8 +18,7 @@ public class HomeController {
 	}
 
 	@Get("/")
-	public void home() {
-
+	public void home() {		
 	}
 	
 }

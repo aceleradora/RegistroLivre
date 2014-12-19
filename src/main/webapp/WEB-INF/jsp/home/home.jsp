@@ -10,7 +10,8 @@
 
 <body>
 	<jsp:include page="/WEB-INF/jsp/includes/cabecalho.jsp" />	
-	<div class="container">
+	<script src="/assets/js/home.js"></script>
+	<div class="container content">
 		
 		<div class="row">
 			<div class="col-lg-6 col-lg-offset-3">
@@ -45,7 +46,7 @@
 						<form class="form" name="pesquisa" action="/busca" method="GET">
 
 							<div class="form-group">
-								<input class="form-control" type="text" name="busca" id="campoPesquisado" />
+								<input class="form-control" type="text" name="busca" id="campoPesquisado" placeholder="Busque por uma empresa aqui" />
 							</div>
 							<div class="form-group">
 								<input type="submit" id="btn-submit" class="btn btn-lg btn-primary pull-right margin-0-6" value="Buscar"/>
