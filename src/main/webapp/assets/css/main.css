@@ -2,6 +2,10 @@
 	margin-top:65px;
 }
 
+#campoPesquisadoNavbar:focus{
+	width: 300px;
+}
+
 #tabelaListagem tr:hover {
 	cursor: pointer;
 }
