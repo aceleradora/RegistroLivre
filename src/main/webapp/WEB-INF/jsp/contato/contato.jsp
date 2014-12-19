@@ -7,7 +7,8 @@
 <html lang="pt-br">
 <head>
 	<title>Contato</title>
-	<jsp:include page="/WEB-INF/jsp/includes/assets.jsp" />	
+	<jsp:include page="/WEB-INF/jsp/includes/assets.jsp" />
+	<script src="/assets/js/visualizacao.js"></script>
 </head>
 	<body>
 	<jsp:include page="/WEB-INF/jsp/includes/cabecalho.jsp" />
