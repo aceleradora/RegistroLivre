@@ -5,7 +5,12 @@
 <html lang="pt-br">
 <head>	
 	<title>Registro Livre - A verdade está lá fora!</title>	
-	<jsp:include page="/WEB-INF/jsp/includes/assets.jsp" />	
+	<meta charset="iso-8859-1" />
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+	<link href="/assets/css/bootstrap/css/bootstrap.css" rel="stylesheet">	
+	<link href="/assets/css/main.css" rel="stylesheet">	
+	<script src="http://code.jquery.com/jquery-1.10.2.js"> </script> 
+	<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>	
 	<script src="/assets/js/home.js"></script>
 </head>
 
@@ -45,21 +50,18 @@
 					</div>
 					<div class="panel-body">
 						<form class="form" name="pesquisa" action="/busca" method="GET">
-
-							<div class="form-group">
+							<div class="form-group ui-widget">
 								<input class="form-control" type="text" name="busca" id="campoPesquisado" placeholder="Busque por uma empresa aqui" />
 							</div>
 							<div class="form-group">
 								<input type="submit" id="btn-submit" class="btn btn-lg btn-primary pull-right margin-0-6" value="Buscar"/>
-
 							</div>
 						</form>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+	</div>	
 	<script src="/assets/js/jquery.mask.min.js"></script>
 	<script src="/assets/js/validacao-visual-home.js"></script>
 </body>
