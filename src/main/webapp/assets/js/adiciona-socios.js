@@ -28,11 +28,13 @@ function adicionaSocio(){
 } 
 
 function adicionaSociosCadastrados(nome, cpf, ativo){
-	if(ativo){
+	
+	if(ativo==true){		
 		botaoHtmlAtivo = '<input type="checkbox" name="empresa.socios[].ativo" checked> Ativo' ;
-	} else {
-		botaoHtmlAtivo = '<input type="checkbox" name="empresa.socios[].ativo" > Ativo' ;
+	} else {		
+		botaoHtmlAtivo = '<input type="checkbox" name="empresa.socios[].ativo"> Ativo' ;
 	}
+	
 	var htmlSocioCadastrados = 
 		'<li class="list-group-item socio-group" id="socio' + contSocios + '">' +
 			'<div class="list-group-item-heading centralize">' +
