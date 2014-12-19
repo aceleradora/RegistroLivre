@@ -29,6 +29,10 @@
 	margin: 0 30px;
 }
 
+.margin-0-20 {
+	margin: 0 20px;
+}
+
 .margin-0-15 {
 	margin: 0 15px;
 }
@@ -119,4 +123,9 @@ h4 {
 
 .btn-borders-navbar li:first-child {
 	border-left: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.img-140 {
+	height: 100px;
+	width: 100px;
 }
