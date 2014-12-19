@@ -25,7 +25,7 @@
 		<div class="row">
 			<div class="col-lg-8 col-lg-offset-2">
 				<div class="panel panel-default margin-35-0">
-					<div class="panel-heading">
+					<div class="panel-heading centralize">
 						<h1>Lista de Empresas Cadastradas</h1>
 					</div>
 					<div class="panel-body">	
