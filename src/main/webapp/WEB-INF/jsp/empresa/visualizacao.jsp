@@ -13,7 +13,7 @@
 <body>
 	<jsp:include page="/WEB-INF/jsp/includes/cabecalho.jsp" />
 
-	<div class="container">
+	<div class="container content">
 		<div class="row">
 			<div class="col-lg-6 col-md-8 col-lg-offset-3 col-md-offset-2">
 				<c:if test="${mensagem != null}">
