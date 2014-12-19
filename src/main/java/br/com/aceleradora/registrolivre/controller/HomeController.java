@@ -39,4 +39,8 @@ public class HomeController {
 		result.redirectTo(this).home();
 	}
 	
+	@Get("/sobre")
+	public void sobre(){
+		
+	}
 }
