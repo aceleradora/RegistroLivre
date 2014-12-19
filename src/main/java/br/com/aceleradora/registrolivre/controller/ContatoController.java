@@ -22,11 +22,7 @@ public class ContatoController {
 	}
 
 	public void enviar(Email email){
-	if (email.getNome() != null && 
-			email.getMensagem() != null &&
-			email.getRemetente() != null &&
-			email.getRemetente().contains("@") &&
-			email.getAssunto() != null)
+	if (validaCamposFormulario(email))
 			{
 				EmissorDeEmail emissor = new EmissorDeEmail(); 
 					emissor.enviar(email);
@@ -37,6 +33,13 @@ public class ContatoController {
 				result.include(email);
 				result.redirectTo(this).contato();
 		}
-	}	
+	}
 
+	public boolean validaCamposFormulario(Email email) {
+		return email.getNome() != null && 
+				email.getMensagem() != null &&
+				email.getRemetente() != null &&
+				email.getRemetente().contains("@") &&
+				email.getAssunto() != null;
+	}	
 }
