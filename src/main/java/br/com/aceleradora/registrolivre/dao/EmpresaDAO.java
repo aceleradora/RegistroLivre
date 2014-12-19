@@ -115,11 +115,12 @@ public class EmpresaDAO implements IEmpresaDAO {
 		return query.list();
 	}
 
-	private List<String> pesquisaPorCampo(String textoDigitado, String campoParaProcurar) {
-		Query query = sessao
-				.createQuery("SELECT DISTINCT empresa." + campoParaProcurar 
-						+ " FROM Empresa AS empresa "
-						+ " WHERE lower(unaccent(empresa.nomeFantasia)) LIKE lower(unaccent(:busca)) ");
+	private List<String> pesquisaPorCampo(String textoDigitado,
+			String campoParaProcurar) {
+		Query query = sessao.createQuery("SELECT DISTINCT empresa."	+ campoParaProcurar
+				+ " FROM Empresa AS empresa "
+				+ " WHERE lower(unaccent(empresa." + campoParaProcurar
+				+ ")) LIKE lower(unaccent(:busca)) ");
 
 		query.setParameter("busca", "%" + textoDigitado + "%");
 
