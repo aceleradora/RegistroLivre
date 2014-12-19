@@ -28,13 +28,101 @@
 					
 					<h1 class="centralize">Equipe</h1>
 					
-					<div class="col-lg-4 col-xs-4 col-md-4 col-sm-4">
+					<div class="col-md-3">
 						<img src="../assets/img/user.png" class="img-responsive img-circle" width="140"/>
 						<div class="margin-0-20">
 							<h4>Lucas Viola</h4>
 							<p>Desenvolvedor</p>
-						</div>
+						</div>			
+					</div>
+					
+					<div class="col-md-3">
+						<img src="../assets/img/user.png" class="img-responsive img-circle" width="140"/>
+						<div class="margin-0-20">
+							<h4>Lucas Viola</h4>
+							<p>Desenvolvedor</p>
+						</div>			
+					</div>		
+					
+					<div class="col-md-3">
+						<img src="../assets/img/user.png" class="img-responsive img-circle" width="140"/>
+						<div class="margin-0-20">
+							<h4>Lucas Viola</h4>
+							<p>Desenvolvedor</p>
+						</div>			
+					</div>		
+					
+					<div class="col-md-3">
+						<img src="../assets/img/user.png" class="img-responsive img-circle" width="140"/>
+						<div class="margin-0-20">
+							<h4>Lucas Viola</h4>
+							<p>Desenvolvedor</p>
+						</div>			
+					</div>
+
+					<div class="col-md-3">
+						<img src="../assets/img/user.png" class="img-responsive img-circle" width="140"/>
+						<div class="margin-0-20">
+							<h4>Lucas Viola</h4>
+							<p>Desenvolvedor</p>
+						</div>			
+					</div>
+					
+					<div class="col-md-3">
+						<img src="../assets/img/user.png" class="img-responsive img-circle" width="140"/>
+						<div class="margin-0-20">
+							<h4>Lucas Viola</h4>
+							<p>Desenvolvedor</p>
+						</div>			
+					</div>		
+					
+					<div class="col-md-3">
+						<img src="../assets/img/user.png" class="img-responsive img-circle" width="140"/>
+						<div class="margin-0-20">
+							<h4>Lucas Viola</h4>
+							<p>Desenvolvedor</p>
+						</div>			
+					</div>		
+					
+					<div class="col-md-3">
+						<img src="../assets/img/user.png" class="img-responsive img-circle" width="140"/>
+						<div class="margin-0-20">
+							<h4>Lucas Viola</h4>
+							<p>Desenvolvedor</p>
+						</div>			
 					</div>	
+
+					<div class="col-md-3">
+						<img src="../assets/img/user.png" class="img-responsive img-circle" width="140"/>
+						<div class="margin-0-20">
+							<h4>Lucas Viola</h4>
+							<p>Desenvolvedor</p>
+						</div>			
+					</div>
+					
+					<div class="col-md-3">
+						<img src="../assets/img/user.png" class="img-responsive img-circle" width="140"/>
+						<div class="margin-0-20">
+							<h4>Lucas Viola</h4>
+							<p>Desenvolvedor</p>
+						</div>			
+					</div>		
+					
+					<div class="col-md-3">
+						<img src="../assets/img/user.png" class="img-responsive img-circle" width="140"/>
+						<div class="margin-0-20">
+							<h4>Lucas Viola</h4>
+							<p>Desenvolvedor</p>
+						</div>			
+					</div>		
+					
+					<div class="col-md-3">
+						<img src="../assets/img/user.png" class="img-responsive img-circle" width="140"/>
+						<div class="margin-0-20">
+							<h4>Lucas Viola</h4>
+							<p>Desenvolvedor</p>
+						</div>			
+					</div>				
 
 				</div>
 			</div>
