@@ -15,6 +15,7 @@
 				<li><a href="/cadastro">Cadastrar Empresa</a></li>				
 				<li><a href="/listagem">Listar Empresas</a></li>
 				<li><a href="/contato">Contato</a></li>
+				<li><a href="/sobre">Quem Somos</a></li>
 			</ul>			
 			<form id="inputaBuscaNavbar" class="form navbar-form navbar-right " role="search" name="pesquisa" action="/busca" method="GET">
 				<div class="form-group">
