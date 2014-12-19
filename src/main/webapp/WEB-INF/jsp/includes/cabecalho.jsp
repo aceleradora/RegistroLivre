@@ -18,7 +18,7 @@
 			</ul>			
 			<form id="inputaBuscaNavbar" class="form navbar-form navbar-right " role="search" name="pesquisa" action="/busca" method="GET">
 				<div class="form-group">
-					<input class="form-control" type="text" name="busca" id="campoPesquisado" placeholder="Buscar empresa"/>
+					<input class="form-control" type="text" name="busca" id="campoPesquisadoNavbar" placeholder="Buscar empresa"/>
 				</div>
 				<div class="form-group">
 					<input type="submit" id="btn-submit-cabecalho" class="btn btn-sm btn-primary pull-right margin-0-6" value="Buscar"/>
