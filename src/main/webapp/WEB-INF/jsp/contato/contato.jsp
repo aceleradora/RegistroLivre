@@ -70,7 +70,7 @@
 							
 								<div class="form-group">
 									<label class="control-label">Assunto</label>
-									<select name="email.assunto" required id="" >
+									<select name="email.assunto" class="form-control" required id="" >
 										<option value="" selected>Escolha uma opção </option>
 										<option value="duvida">Dúvida</option>
 										<option value="reclamacao">Reclamação</option>										
@@ -79,14 +79,15 @@
 								</div>
 															
 								<div class="row">
-									<div class="col-lg-9">
+									<div class="col-lg-12">
 										<div class="form-group">
 											<label class="control-label">Mensagem  <abbr title="Preenchimento obrigatório">*</abbr> </label> 
 											<br>
-											<textarea rows="5" cols="40" name="email.mensagem" id="" required>${email.mensagem}</textarea>
+											<textarea rows="5" class="form-control" name="email.mensagem" id="" required>${email.mensagem}</textarea>
 										</div>
-								</div>							
-							</div> <!-- panel-body -->
+									</div>							
+								</div> 
+							</div>
 							
 							<div class="panel-footer">									
 								<span class="pull-left msg-alert color-red margin-15-0" id="form-alert">Preencha os campos corretamente para enviar.</span>

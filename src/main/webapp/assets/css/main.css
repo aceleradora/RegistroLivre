@@ -65,6 +65,10 @@
 	text-align: center;
 }
 
+.width-100{
+	width:100%;
+}
+
 .a-color-black {
 	text-decoration: none;
 	color: #000;
