@@ -4,28 +4,39 @@ $(document).ready(function() {
 	if (tagRegistroLivre) {
 		$("#inputaBuscaNavbar").hide();
 	}
-	var contadorTeclas = 0;
-	$('#campoPesquisado').keyup(function(e) {
+	$("#campoPesquisado").autocomplete({
+		source: [] 
+	});
+	
+	$('#campoPesquisado').keyup(function() {
 		var busca = $('#campoPesquisado').val();
-		contadorTeclas++;
-		if (contadorTeclas == 2) {
-			procura(busca);
-		} else if ((contadorTeclas - 2) % 3 == 0) {
+		if (busca.length == 2) {
 			procura(busca);
 		}
-	});
+	});	
 });
 
-function procura(busca) {
+function procura(busca) {	
 	$.ajax({
+		dataType: "json",
 		url : "/empresa/autoCompletar",
 		type : "GET",
 		data : {
 			"textoDigitado" : busca
 		}
-	}).done(function(data) {
+	}).done(function(dados) {
 		$("#campoPesquisado").autocomplete({
-			source : data
+			source: function(request, response) {
+		        var results = $.ui.autocomplete.filter(dados.list, request.term);
+		        response(results.slice(0, 5));
+		    },
+			select: function (event, ui) {
+			    var category = ui.item.value.split(' ').join('+');
+			    var url = "/busca?busca=" + category;
+
+			    event.preventDefault();
+			    window.location.href = url;
+			}
 		});
 	});
 }
