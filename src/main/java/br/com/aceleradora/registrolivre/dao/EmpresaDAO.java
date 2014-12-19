@@ -96,8 +96,8 @@ public class EmpresaDAO implements IEmpresaDAO {
 	public List<String> getParaAutoCompletar(String textoDigitado) {
 		List<String> retorno = new ArrayList<String>();
 
-		retorno.addAll(pesquisaPorNomeFantasia(textoDigitado));
-		retorno.addAll(pesquisaPorRazaoSocial(textoDigitado));
+		retorno.addAll(pesquisaPorCampo(textoDigitado, "nomeFantasia"));
+		retorno.addAll(pesquisaPorCampo(textoDigitado, "razaoSocial"));
 		retorno.addAll(pesquisaPorNomeDosSocios(textoDigitado));
 
 		return retorno;
@@ -105,7 +105,7 @@ public class EmpresaDAO implements IEmpresaDAO {
 
 	private List<String> pesquisaPorNomeDosSocios(String textoDigitado) {
 		Query query = sessao
-				.createQuery("SELECT socio.nome "
+				.createQuery("SELECT DISTINCT socio.nome "
 						+ " FROM Empresa AS empresa "
 						+ " LEFT JOIN empresa.socios AS socio "
 						+ " WHERE lower(unaccent(socio.nome)) LIKE lower(unaccent(:busca))");
@@ -115,22 +115,12 @@ public class EmpresaDAO implements IEmpresaDAO {
 		return query.list();
 	}
 
-	private List<String> pesquisaPorRazaoSocial(String textoDigitado) {
-		Query query = sessao
-				.createQuery("SELECT empresa.razaoSocial "
-						+ " FROM Empresa AS empresa "
-						+ " WHERE lower(unaccent(empresa.razaoSocial)) LIKE lower(unaccent(:busca)) ");
-
-		query.setParameter("busca", "%" + textoDigitado + "%");
-
-		return query.list();
-	}
-
-	private List<String> pesquisaPorNomeFantasia(String textoDigitado) {
-		Query query = sessao
-				.createQuery("SELECT empresa.nomeFantasia "
-						+ " FROM Empresa AS empresa "
-						+ " WHERE lower(unaccent(empresa.nomeFantasia)) LIKE lower(unaccent(:busca)) ");
+	private List<String> pesquisaPorCampo(String textoDigitado,
+			String campoParaProcurar) {
+		Query query = sessao.createQuery("SELECT DISTINCT empresa."	+ campoParaProcurar
+				+ " FROM Empresa AS empresa "
+				+ " WHERE lower(unaccent(empresa." + campoParaProcurar
+				+ ")) LIKE lower(unaccent(:busca)) ");
 
 		query.setParameter("busca", "%" + textoDigitado + "%");
 
