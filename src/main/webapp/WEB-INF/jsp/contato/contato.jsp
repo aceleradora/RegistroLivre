@@ -8,7 +8,7 @@
 <head>
 	<title>Contato</title>
 	<jsp:include page="/WEB-INF/jsp/includes/assets.jsp" />
-	<script src="/assets/js/visualizacao.js"></script>
+	<script src="/assets/js/contato.js"></script>
 </head>
 	<body>
 	<jsp:include page="/WEB-INF/jsp/includes/cabecalho.jsp" />
@@ -88,9 +88,10 @@
 										</div>
 									</div>							
 								</div> 
+								<span>Sua mensagem será enviada para: </span><label class="control-label"> contato@registrolivre.inf.br</label>
 							</div>
 							
-							<div class="panel-footer">									
+							<div class="panel-footer">								
 								<span class="pull-left msg-alert color-red margin-15-0" id="form-alert">Preencha os campos corretamente para enviar.</span>
 								<input type="submit" id="btn-submit" class="btn btn-lg btn-primary pull-right margin-0-6" onclick="enviarEmailContato()" value="Enviar" required/>
 								<input type="reset" value="Limpar" class="btn btn-default btn-lg pull-right margin-0-6"/>
