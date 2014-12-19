@@ -10,8 +10,8 @@ import br.com.caelum.vraptor.Result;
 @Resource
 public class HomeController {
 
-	EmpresaDAO daoEmpresa;
-	Result result;
+	private EmpresaDAO daoEmpresa;
+	private Result result;
 
 	public HomeController(EmpresaDAO daoEmpresa, Result result) {
 		this.daoEmpresa = daoEmpresa;
@@ -24,13 +24,15 @@ public class HomeController {
 	
 	@Get("/insere")
 	public void insereEmpresas(int n){
-		Empresa empresa = new Empresa();
-		
-		empresa.setCnpj("36.150.502/0001-46");
-		empresa.setNomeFantasia("Nome Fantasia Teste");
-		empresa.setUrl("http://res.cloudinary.com/dhqchbqit/image/upload/v1418990825/rangel_19_12_2014_10:07:01.pdf");
+		System.out.println(n);
 		
 		for(int index = 0; index < n; index++){
+			Empresa empresa = new Empresa();
+			
+			empresa.setCnpj("36.150.502/0001-46");
+			empresa.setNomeFantasia("Nome Fantasia Teste");
+			empresa.setUrl("http://res.cloudinary.com/dhqchbqit/image/upload/v1418990825/rangel_19_12_2014_10:07:01.pdf");
+			
 			daoEmpresa.salva(empresa);
 		}
 		
