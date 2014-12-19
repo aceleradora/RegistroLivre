@@ -41,7 +41,8 @@ public class ContatoControllerTest {
 
 	@Ignore
 	@Test
-	public void quandoUsuarioNaoPreencheNomeRetornaMensagemDeErro() {
+	public void quandoUsuarioNaoPreencheNomeDeveRetornarMensagemDeErro() {
+		formDeEmail = new Email(null, remetente, assunto, mensagem);
 		
 		controller.enviar(formDeEmail);
 		
