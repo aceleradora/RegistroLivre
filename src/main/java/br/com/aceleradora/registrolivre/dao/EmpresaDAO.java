@@ -39,20 +39,19 @@ public class EmpresaDAO implements IEmpresaDAO {
 		if (textoParaBusca == null) {
 			return new ArrayList<Empresa>();
 		}
-		textoParaBusca = textoParaBusca.toLowerCase();
 		Calendar dataParaPesquisa = Calendar.getInstance();
 
 		String sqlQuery = "SELECT DISTINCT empresa "
 				+ "FROM Empresa AS empresa "
 				+ "LEFT JOIN empresa.socios AS socio "
 				+ "WHERE empresa.cnpj LIKE :busca "
-				+ "OR lower(unaccent(empresa.nomeFantasia)) LIKE :busca "
-				+ "OR lower(unaccent(empresa.razaoSocial)) LIKE :busca "
-				+ "OR lower(unaccent(empresa.endereco.logradouro)) LIKE :busca "
-				+ "OR lower(unaccent(empresa.endereco.cidade)) LIKE :busca "
-				+ "OR lower(unaccent(empresa.endereco.uf)) LIKE :busca "
+				+ "OR lower(unaccent(empresa.nomeFantasia)) LIKE lower(unaccent(:busca)) "
+				+ "OR lower(unaccent(empresa.razaoSocial)) LIKE lower(unaccent(:busca)) "
+				+ "OR lower(unaccent(empresa.endereco.logradouro)) LIKE lower(unaccent(:busca)) "
+				+ "OR lower(unaccent(empresa.endereco.cidade)) LIKE lower(unaccent(:busca)) "
+				+ "OR lower(unaccent(empresa.endereco.uf)) LIKE lower(unaccent(:busca)) "
 				+ "OR empresa.endereco.cep LIKE :busca "
-				+ "OR lower(unaccent(socio.nome)) LIKE :busca "
+				+ "OR lower(unaccent(socio.nome)) LIKE lower(unaccent(:busca)) "
 				+ "OR socio.cpf LIKE :busca ";
 
 		try {
