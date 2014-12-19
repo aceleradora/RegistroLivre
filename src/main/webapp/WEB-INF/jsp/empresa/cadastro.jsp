@@ -15,7 +15,7 @@
 	<script src="/assets/js/jquery.mask.min.js"></script>	
 	<script src="/assets/js/bootstrap-filestyle.js"></script>
 	<script src="/assets/js/cadastro.js"></script>
-	<script src="/assets/js/adiciona-socios.js"></script>
+	<script src="/assets/js/adiciona-socios.js" charset="utf-8"></script>
 	
 </head>
 <body>
