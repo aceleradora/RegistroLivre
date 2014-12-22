@@ -59,19 +59,19 @@
 								</div>
 										
 								<div class="form-group has-feedback" id="cnpj-group">
-									<label class="control-label">CNPJ <abbr title="Preenchimento obrigat髍io">*</abbr></label>
+									<label class="control-label">CNPJ <abbr class="cor-vermelha" title="Preenchimento obrigat髍io">*</abbr></label>
 									<input class="form-control" type="text" name="empresa.cnpj" id="cnpj" value="${empresa.cnpj}" placeholder="ex: 00.000.000/0000-00" required/>
 									<span class="glyphicon form-control-feedback"></span>
 								</div>
 							
 								<div class="form-group has-feedback" id="nomeFantasia-group">
-									<label class="control-label">Nome fantasia  <abbr title="Preenchimento obrigat贸rio">*</abbr> </label>
+									<label class="control-label">Nome fantasia  <abbr class="cor-vermelha" title="Preenchimento obrigat贸rio">*</abbr> </label>
 									<input class="form-control" type="text" name="empresa.nomeFantasia" id="nomeFantasia" value="${empresa.nomeFantasia}" placeholder="ex: Larah Instrumentos Musicais" required/>
 									<span class="glyphicon form-control-feedback"></span>
 								</div>
 								
 								<div class="form-group">
-									<label class="control-label">Upload de arquivo <abbr title="Preenchimento obrigat贸rio">*</abbr></label>
+									<label class="control-label">Upload de arquivo <abbr class="cor-vermelha" title="Preenchimento obrigat贸rio">*</abbr></label>
 									<c:choose>
 										<c:when test="${editar != null}">
 											<input name="empresa.url" type="text" value="${empresa.url}" hidden/>
