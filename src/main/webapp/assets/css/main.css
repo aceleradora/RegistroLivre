@@ -1,5 +1,11 @@
 .content{
-	margin-top:65px;
+	margin: 0 auto;
+	margin-top:65px;	
+	width: 95%;
+}
+
+.nome{
+	text-align:center;
 }
 
 #campoPesquisadoNavbar:focus{
@@ -133,4 +139,16 @@ h4 {
 .img-140 {
 	height: 100px;
 	width: 100px;
+}
+
+.font-size-19 {
+	font-size: 19px;
+}
+
+.font-size-16 {
+	font-size: 16px;
+}
+
+.font-size-40 {
+	font-size: 40px;
 }
