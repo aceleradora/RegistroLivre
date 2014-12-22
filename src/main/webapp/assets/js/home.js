@@ -10,7 +10,12 @@ $(document).ready(function() {
 	
 	$('#campoPesquisado').keyup(function() {
 		var busca = $('#campoPesquisado').val();
-		if (busca.length == 2) {
+		if (busca.length >= 2) {			
+			$("#btn-submit").prop('disabled', false);
+		} else {
+			$("#btn-submit").prop('disabled', true);
+		}
+		if (busca.length == 2) {			
 			procura(busca);
 		}
 	});	
