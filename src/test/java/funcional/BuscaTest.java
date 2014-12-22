@@ -4,6 +4,7 @@ import static org.hamcrest.CoreMatchers.containsString;
 import static org.junit.Assert.assertThat;
 
 import org.fluentlenium.adapter.FluentTest;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
@@ -19,6 +20,7 @@ public class BuscaTest extends FluentTest{
 		return driver;
 	}
 	
+	@Ignore
 	@Test
 	public void quandoClicaNoBotãoSemEnviarNadaDeveRetornarErroParaPáginaPrincipal(){
 		
