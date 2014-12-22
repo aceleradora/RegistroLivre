@@ -4,7 +4,8 @@ function criaDatatable(dados){
 		columns : [ { data : 'nomeFantasia'	}, 
 		            { data : 'endereco.logradouro' },
 		            { data : 'dataEmissaoDocumento' },
- 		            { data : 'dataOrdenada' },
+ 		            { data : 'dataEmissaoOrdenada' },
+		            { data : 'dataRegistro'},
 		            { data : 'id'}
 		          ],
         "aoColumnDefs" : [ {
@@ -16,6 +17,9 @@ function criaDatatable(dados){
 			"visible" : false,
 		} ,{
 			"aTargets" : [4],
+			"visible" : false,
+		} ,{
+			"aTargets" : [5],
 			"visible" : false,
 		} ],
 		"order": [[ 4, "desc" ]],

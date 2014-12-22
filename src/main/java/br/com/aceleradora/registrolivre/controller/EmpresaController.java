@@ -6,6 +6,7 @@ import br.com.aceleradora.registrolivre.dao.EmpresaDAO;
 import br.com.aceleradora.registrolivre.model.Empresa;
 import br.com.aceleradora.registrolivre.model.Validador;
 import br.com.aceleradora.registrolivre.util.Arquivo;
+import br.com.aceleradora.registrolivre.util.CalendarTransformer;
 import br.com.aceleradora.registrolivre.util.ClienteCloudinary;
 import br.com.aceleradora.registrolivre.util.DataOrdenadaTransformer;
 import br.com.aceleradora.registrolivre.util.EnderecoTransformer;
@@ -50,11 +51,13 @@ public class EmpresaController {
 					"resultadoBusca",
 					new JSONSerializer()
 							.include("id")
+							.include("dataRegistro")
 							.include("nomeFantasia")
 							.include("endereco.logradouro")
 							.include("dataEmissaoDocumento")
 							.exclude("*")
-							.transform(new DataOrdenadaTransformer("dataOrdenada", "dd/MM/yyyy", "yyyyMMdd"), "dataEmissaoDocumento")
+							.transform(new CalendarTransformer("yyyyMMdd"), "dataRegistro")
+							.transform(new DataOrdenadaTransformer("dataEmissaoOrdenada", "dd/MM/yyyy", "yyyyMMdd"), "dataEmissaoDocumento")
 							.transform(new EnderecoTransformer(), "endereco")
 							.serialize(listaDeEmpresas));
 		}
