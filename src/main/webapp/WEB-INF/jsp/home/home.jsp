@@ -62,7 +62,5 @@
 			</div>
 		</div>
 	</div>	
-	<script src="/assets/js/jquery.mask.min.js"></script>
-	<script src="/assets/js/validacao-visual-home.js"></script>
 </body>
 </html>
