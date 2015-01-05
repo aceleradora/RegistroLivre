@@ -126,29 +126,12 @@ public class EmpresaController {
 
 		if (arquivo != null) {
 
-			Arquivo arquivoParaUpload = new Arquivo(arquivo.getFile(), empresa);
-
-			ClienteCloudinary clienteCloudinary = new ClienteCloudinary(
-					arquivoParaUpload);
+			ClienteCloudinary SessaoCloudinary = criaSessaoCloudnary(empresa, arquivo);
 
 			if (alteracao) {
-				if (clienteCloudinary.atualiza(empresa.getUrl())) {
-					empresa.setUrl(clienteCloudinary.getArquivo()
-							.getUrlArquivo());
-				} else {
-					result.include("erro",
-							"Erro ao atualizar arquivo, por favor tente novamente!");
-					result.redirectTo(this).cadastro();
-				}
+				atualizaArquivo(empresa, SessaoCloudinary);
 			} else {
-				if (clienteCloudinary.upload()) {
-					empresa.setUrl(clienteCloudinary.getArquivo()
-							.getUrlArquivo());
-				} else {
-					result.include("erro",
-							"Erro ao salvar arquivo, por favor tente novamente!");
-					result.redirectTo(this).cadastro();
-				}
+				uploadArquivo(empresa, SessaoCloudinary);
 			}
 		}
 
@@ -158,6 +141,39 @@ public class EmpresaController {
 
 		result.include("mensagem", mensagem);
 		result.redirectTo(this).visualizacao(empresa);
+	}
+
+	private ClienteCloudinary criaSessaoCloudnary(final Empresa empresa,
+			final UploadedFile arquivo) {
+		Arquivo arquivoParaUpload = new Arquivo(arquivo.getFile(), empresa);
+
+		ClienteCloudinary clienteCloudinary = new ClienteCloudinary(
+				arquivoParaUpload);
+		return clienteCloudinary;
+	}
+
+	private void uploadArquivo(final Empresa empresa,
+			ClienteCloudinary clienteCloudinary) {
+		if (clienteCloudinary.upload()) {
+			empresa.setUrl(clienteCloudinary.getArquivo()
+					.getUrlArquivo());
+		} else {
+			result.include("erro",
+					"Erro ao salvar arquivo, por favor tente novamente!");
+			result.redirectTo(this).cadastro();
+		}
+	}
+
+	private void atualizaArquivo(final Empresa empresa,
+			ClienteCloudinary clienteCloudinary) {
+		if (clienteCloudinary.atualiza(empresa.getUrl())) {
+			empresa.setUrl(clienteCloudinary.getArquivo()
+					.getUrlArquivo());
+		} else {
+			result.include("erro",
+					"Erro ao atualizar arquivo, por favor tente novamente!");
+			result.redirectTo(this).cadastro();
+		}
 	}
 	
 	@Get()
