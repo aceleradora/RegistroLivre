@@ -7,7 +7,6 @@
 <head>	
 	<title>Listar Empresas</title>
 	<jsp:include page="/WEB-INF/jsp/includes/assets.jsp" />
-	<script src="../assets/js/jquery.mask.min.js"></script>
 	
 	<jsp:include page="/WEB-INF/jsp/includes/datatable.jsp" />
 	<script src="../assets/js/listagem.js" charset="utf-8"></script>

@@ -12,7 +12,6 @@
 	<jsp:include page="/WEB-INF/jsp/includes/assets.jsp" />	
 
 	<script type="text/javascript" src="http://cidades-estados-js.googlecode.com/files/cidades-estados-1.2-utf8.js"></script>
-	<script src="/assets/js/jquery.mask.min.js"></script>	
 	<script src="/assets/js/bootstrap-filestyle.js"></script>
 	<script src="/assets/js/cadastro.js"></script>
 	<script src="/assets/js/adiciona-socios.js" charset="utf-8"></script>
