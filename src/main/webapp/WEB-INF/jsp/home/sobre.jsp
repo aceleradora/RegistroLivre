@@ -32,9 +32,9 @@
 					de negócios e de governança necessárias para atuar em equipes de alto desempenho de desenvolvimento de software. 
 					A Aceleradora é uma parceria ThoughtWorks, PUCRS e Centro de Inovação Microsoft.</p>
 					
-					<br><br><br><br>
+					<br><br><br>
 					<h1 class="centralize font-size-40">Equipe</h1>
-					<br><br><br><br><br>
+					<br><br><br><br>
 					
 					<div class="col-md-2 avatar">
 						<img src="../assets/img/user.png" class="img-responsive img-circle" width="140"/>
