@@ -88,7 +88,7 @@
 										</div>
 									</div>							
 								</div> 
-								<span>Sua mensagem será enviada para: </span><label class="control-label"> githu</label>
+								<span>Sua mensagem será enviada para: </span><label class="control-label"> contato@registrolivre.inf.br</label>
 							</div>
 							
 							<div class="panel-footer">								
