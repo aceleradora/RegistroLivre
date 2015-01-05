@@ -30,6 +30,15 @@
 					<br><br><br><br><br><br>
 					<h1 class="centralize font-size-40">Equipe</h1>
 					<br><br><br><br><br>
+					
+					<div class="col-md-2 avatar">
+						<img src="../assets/img/user.png" class="img-responsive img-circle" width="140"/>
+						<div>
+							<h4 class="nome">Alejandro Olchik</h4>
+							<p class="tipo">Scrum Master</p>
+						</div>			
+					</div>
+					
 					<div class="col-md-2 avatar">
 						<img src="../assets/img/user.png" class="img-responsive img-circle" width="140"/>
 						<div>
@@ -45,10 +54,17 @@
 							<p class="tipo">Desenvolvedora</p>
 						</div>
 					</div>
+					
+					<div class="col-md-2 avatar">
+						<img src="../assets/img/user.png" class="img-responsive img-circle" width="140"/>
+						<div>
+							<h4 class="nome">Bernardo Estácio</h4>
+							<p class="tipo">Mentor</p>
+						</div>			
+					</div>		
 	
 					<div class="col-md-2 avatar">
-						<img src="../assets/img/user.png" class="img-responsive img-circle"
-							width="140" />
+						<img src="../assets/img/user.png" class="img-responsive img-circle" width="140" />
 						<div>
 							<h4 class="nome">Carisa Rubim</h4>
 							<p class="tipo">Desenvolvedora</p>
@@ -56,8 +72,7 @@
 					</div>
 
 					<div class="col-md-2 avatar">
-						<img src="../assets/img/user.png" class="img-responsive img-circle"
-							width="140" />
+						<img src="../assets/img/user.png" class="img-responsive img-circle"	width="140" />
 						<div>
 							<h4 class="nome">Everton Goulart</h4>
 							<p class="tipo">Desenvolvedor</p>
@@ -70,7 +85,23 @@
 							<h4 class="nome">Hernique Braga</h4>
 							<p class="tipo">Desenvolvedor</p>
 						</div>			
-					</div>	
+					</div>
+					
+					<div class="col-md-2 avatar">
+						<img src="../assets/img/user.png" class="img-responsive img-circle" width="140"/>
+						<div>
+							<h4 class="nome">Jefferson Stachelski</h4>
+							<p class="tipo">Mentor</p>
+						</div>			
+					</div>
+					
+					<div class="col-md-2 avatar">
+						<img src="../assets/img/user.png" class="img-responsive img-circle" width="140"/>
+						<div>
+							<h4 class="nome">João H. S. Pinto</h4>
+							<p class="tipo">Mentor</p>
+						</div>			
+					</div>		
 					
 					<div class="col-md-2 avatar">
 						<img src="../assets/img/user.png" class="img-responsive img-circle" width="140"/>
@@ -83,10 +114,34 @@
 					<div class="col-md-2 avatar">
 						<img src="../assets/img/user.png" class="img-responsive img-circle" width="140"/>
 						<div>
+							<h4 class="nome">José Zimermann</h4>
+							<p class="tipo">Mentor</p>
+						</div>			
+					</div>
+					
+					<div class="col-md-2 avatar">
+						<img src="../assets/img/user.png" class="img-responsive img-circle" width="140"/>
+						<div>
 							<h4 class="nome"">Joseane Wichrowski</h4>
 							<p class="tipo">Desenvolvedora</p>
 						</div>			
-					</div>		
+					</div>
+					
+					<div class="col-md-2 avatar">
+						<img src="../assets/img/user.png" class="img-responsive img-circle" width="140"/>
+						<div>
+							<h4 class="nome">Julio Farah</h4>
+							<p class="tipo">Mentor</p>
+						</div>			
+					</div>
+					
+					<div class="col-md-2 avatar">
+						<img src="../assets/img/user.png" class="img-responsive img-circle" width="140"/>
+						<div>
+							<h4 class="nome">Lucas Beier</h4>
+							<p class="tipo">Mentor</p>
+						</div>			
+					</div>
 								
 					<div class="col-md-2 avatar">
 						<img src="../assets/img/user.png" class="img-responsive img-circle" width="140"/>
@@ -118,7 +173,39 @@
 							<h4 class="nome">Marcus Rodrigues</h4>
 							<p class="tipo">Desenvolvedor</p>
 						</div>			
-					</div>					
+					</div>
+					
+					<div class="col-md-2 avatar">
+						<img src="../assets/img/user.png" class="img-responsive img-circle" width="140"/>
+						<div>
+							<h4 class="nome">Patricia Durand</h4>
+							<p class="tipo">Mentora</p>
+						</div>			
+					</div>
+					
+					<div class="col-md-2 avatar">
+						<img src="../assets/img/user.png" class="img-responsive img-circle" width="140"/>
+						<div>
+							<h4 class="nome">Samantha Rosa</h4>
+							<p class="tipo">Mentora</p>
+						</div>			
+					</div>
+					
+					<div class="col-md-2 avatar">
+						<img src="../assets/img/user.png" class="img-responsive img-circle" width="140"/>
+						<div>
+							<h4 class="nome">Tania Silva</h4>
+							<p class="tipo">Mentora</p>
+						</div>			
+					</div>
+					
+					<div class="col-md-2 avatar">
+						<img src="../assets/img/user.png" class="img-responsive img-circle" width="140"/>
+						<div>
+							<h4 class="nome">Thiago Xavier</h4>
+							<p class="tipo">Mentor</p>
+						</div>			
+					</div>
 					
 					<div class="col-md-2 avatar">
 						<img src="../assets/img/user.png" class="img-responsive img-circle" width="140"/>
