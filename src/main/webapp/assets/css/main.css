@@ -141,14 +141,20 @@ h4 {
 	width: 100px;
 }
 
-.font-size-19 {
-	font-size: 19px;
-}
-
-.font-size-16 {
-	font-size: 16px;
-}
-
 .font-size-40 {
 	font-size: 40px;
+}
+
+.avatar{
+	text-align: center;
+	margin: 14px 14px;
+}
+
+.avatar .nome{
+	font-size: 17px;
+	height: 30px;
+}
+
+.avatar .tipo{
+	font-size: 14px;
 }

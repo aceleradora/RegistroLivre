@@ -30,101 +30,101 @@
 					<br><br><br><br><br><br>
 					<h1 class="centralize font-size-40">Equipe</h1>
 					<br><br><br><br><br>
-					<div class="col-md-2">
+					<div class="col-md-2 avatar">
 						<img src="../assets/img/user.png" class="img-responsive img-circle" width="140"/>
-						<div class="margin-0-20">
-							<h4 class="nome font-size-19">Alexandre Morales</h4>
-							<p class="font-size-16">Desenvolvedor</p>
+						<div>
+							<h4 class="nome">Alexandre Morales</h4>
+							<p class="tipo">Desenvolvedor</p>
 						</div>			
 					</div>
 
-					<div class="col-md-2">
+					<div class="col-md-2 avatar">
 						<img src="../assets/img/user.png" class="img-responsive img-circle"	width="140" />
-						<div class="margin-0-20">
-							<h4 class="nome font-size-19">Ana Daros</h4>
-							<p class="font-size-16">Desenvolvedora</p>
+						<div>
+							<h4 class="nome">Ana Daros</h4>
+							<p class="tipo">Desenvolvedora</p>
 						</div>
 					</div>
 	
-					<div class="col-md-2">
+					<div class="col-md-2 avatar">
 						<img src="../assets/img/user.png" class="img-responsive img-circle"
 							width="140" />
-						<div class="margin-0-20">
-							<h4 class="nome font-size-19">Carisa Rubim</h4>
-							<p class="font-size-16">Desenvolvedora</p>
+						<div>
+							<h4 class="nome">Carisa Rubim</h4>
+							<p class="tipo">Desenvolvedora</p>
 						</div>
 					</div>
 
-					<div class="col-md-2">
+					<div class="col-md-2 avatar">
 						<img src="../assets/img/user.png" class="img-responsive img-circle"
 							width="140" />
-						<div class="margin-0-20">
-							<h4 class="nome font-size-19">Everton Goulart</h4>
-							<p class="font-size-16">Desenvolvedor</p>
+						<div>
+							<h4 class="nome">Everton Goulart</h4>
+							<p class="tipo">Desenvolvedor</p>
 						</div>
 					</div>
 				
-					<div class="col-md-2">
+					<div class="col-md-2 avatar">
 						<img src="../assets/img/user.png" class="img-responsive img-circle" width="140"/>
-						<div class="margin-0-20">
-							<h4 class="nome font-size-19">Hernique Braga</h4>
-							<p class="font-size-16">Desenvolvedor</p>
+						<div>
+							<h4 class="nome">Hernique Braga</h4>
+							<p class="tipo">Desenvolvedor</p>
 						</div>			
 					</div>	
 					
-					<div class="col-md-2">
+					<div class="col-md-2 avatar">
 						<img src="../assets/img/user.png" class="img-responsive img-circle" width="140"/>
-						<div class="margin-0-20">
-							<h4 class="nome font-size-19">Jonatas Salgado</h4>
-							<p class="font-size-16">Desenvolvedor</p>
+						<div>
+							<h4 class="nome">Jonatas Salgado</h4>
+							<p class="tipo">Desenvolvedor</p>
 						</div>			
 					</div>
 					
-					<div class="col-md-2">
+					<div class="col-md-2 avatar">
 						<img src="../assets/img/user.png" class="img-responsive img-circle" width="140"/>
-						<div class="margin-0-20">
-							<h4 class="nome font-size-19"">Joseane Wichrowski</h4>
-							<p class="font-size-16">Desenvolvedora</p>
+						<div>
+							<h4 class="nome"">Joseane Wichrowski</h4>
+							<p class="tipo">Desenvolvedora</p>
 						</div>			
 					</div>		
 								
-					<div class="col-md-2">
+					<div class="col-md-2 avatar">
 						<img src="../assets/img/user.png" class="img-responsive img-circle" width="140"/>
-						<div class="margin-0-20">
-							<h4 class="nome font-size-19">Lucas Jordani</h4>
-							<p class="font-size-16">Desenvolvedor</p>
+						<div>
+							<h4 class="nome">Lucas Jordani</h4>
+							<p class="tipo">Desenvolvedor</p>
 						</div>			
 					</div>						
 					
-					<div class="col-md-2">
+					<div class="col-md-2 avatar">
 						<img src="../assets/img/user.png" class="img-responsive img-circle" width="140"/>
-						<div class="margin-0-20">
-							<h4 class="nome font-size-19">Lucas Rangel</h4>
-							<p class="font-size-16">Desenvolvedor</p>
+						<div>
+							<h4 class="nome">Lucas Rangel</h4>
+							<p class="tipo">Desenvolvedor</p>
 						</div>			
 					</div>
 					
-					<div class="col-md-2">
+					<div class="col-md-2 avatar">
 						<img src="../assets/img/user.png" class="img-responsive img-circle" width="140"/>
-						<div class="margin-0-20">
-							<h4 class="nome font-size-19">Lucas Viola</h4>
-							<p class="font-size-16">Desenvolvedor</p>
+						<div>
+							<h4 class="nome">Lucas Viola</h4>
+							<p class="tipo">Desenvolvedor</p>
 						</div>			
 					</div>
 
-					<div class="col-md-2">
+					<div class="col-md-2 avatar">
 						<img src="../assets/img/user.png" class="img-responsive img-circle" width="140"/>
-						<div class="margin-0-20">
-							<h4 class="nome font-size-19">Marcus Rodrigues</h4>
-							<p class="font-size-16">Desenvolvedor</p>
+						<div>
+							<h4 class="nome">Marcus Rodrigues</h4>
+							<p class="tipo">Desenvolvedor</p>
 						</div>			
 					</div>					
 					
-					<div class="col-md-2">
+					<div class="col-md-2 avatar">
 						<img src="../assets/img/user.png" class="img-responsive img-circle" width="140"/>
-						<div class="margin-0-20">
-							<h4 class="nome font-size-19">Yasser Rachid</h4>
-							<p class="font-size-16">Desenvolvedor</p>
+						<div>
+							<h4 class="nome">Yasser Rachid</h4>
+							<p class="tipo">Desenvolvedor</p>
 						</div>			
 					</div>				
 
