@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
+import javax.validation.constraints.Pattern;
 
 import br.com.aceleradora.registrolivre.dao.Entidade;
 import br.com.aceleradora.registrolivre.validador.annotations.CNPJValido;
@@ -30,6 +31,7 @@ public class Empresa extends Entidade {
 	private Calendar dataCriacao;
 	private Calendar dataEmissaoDocumento;
 	private Calendar dataRegistro;
+	@Pattern(regexp = ".+\\.pdf", message = "Somente arquivos com a extensão .pdf podem ser cadastrados.")
 	private String url;
 	@Embedded
 	private Endereco endereco;
