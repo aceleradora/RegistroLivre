@@ -4,7 +4,6 @@ import java.util.List;
 
 import br.com.aceleradora.registrolivre.dao.EmpresaDAO;
 import br.com.aceleradora.registrolivre.model.Empresa;
-import br.com.aceleradora.registrolivre.model.Validador;
 import br.com.aceleradora.registrolivre.util.Arquivo;
 import br.com.aceleradora.registrolivre.util.CalendarTransformer;
 import br.com.aceleradora.registrolivre.util.ClienteCloudinary;
@@ -16,7 +15,6 @@ import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.Validator;
 import br.com.caelum.vraptor.interceptor.multipart.UploadedFile;
-import br.com.caelum.vraptor.validator.Validations;
 import br.com.caelum.vraptor.view.Results;
 import flexjson.JSONSerializer;
 
