@@ -87,41 +87,34 @@ public class EmpresaController {
 	}
 
 	@Post("/empresa/cadastrar/")
-	public void cadastrar(final Empresa empresa, final UploadedFile arquivo) {
+	public void cadastrar(Empresa empresa, UploadedFile arquivo) {
+		empresa.setUrl(arquivo.getFileName());
+		
+		validar(empresa);
+		validator.onErrorRedirectTo(this).cadastro();
+		
 		salvar(empresa, arquivo, false);
 	}
 
 	@Post("/empresa/cadastrar/{empresa.id}")
-	public void atualizar(final Empresa empresa, final UploadedFile arquivo) {
+	public void atualizar(Empresa empresa, UploadedFile arquivo) {		
+		if(arquivo !=null){
+			empresa.setUrl(arquivo.getFileName());
+		}
+		
+		validar(empresa);
+		validator.onErrorRedirectTo(this).cadastro(empresa);
+		
 		salvar(empresa, arquivo, true);		
 	}
+	
+	private void validar(Empresa empresa){
+		validator.validate(empresa);
+		validator.validate(empresa.getEndereco());
+	}
 
-	private void salvar(final Empresa empresa, final UploadedFile arquivo,
-			final boolean alteracao) {
-		validator.checking(new Validations() {
-			{
-				that(Validador.verificaCnpj(empresa.getCnpj()), "empresa.cnpj",
-						"cnpj.invalido");
-				that(Validador.verificaNumeroEndereco(empresa),
-						"empresa.endereco.numero", "numero.invalido");
-				that(Validador.verificaNomeFantasia(empresa.getNomeFantasia()),
-						"empresa.nomeFantasia", "nomeFantasia.obrigatorio");
-				that(Validador.verificaCpfListaSocio(empresa.getSocios()),
-						"empresa.socios", "cpf.invalido");
-				if ((alteracao && arquivo != null)
-						|| (!alteracao && arquivo == null)) {
-					that(Validador.verificaExtensaoArquivo(arquivo), "arquivo",
-							"extensao.invalida");
-				}
-			}
-		});
-
-		if (alteracao) {
-			validator.onErrorRedirectTo(this).cadastro(empresa);
-		} else {
-			validator.onErrorRedirectTo(this).cadastro();
-		}
-
+	private void salvar(Empresa empresa, UploadedFile arquivo,	boolean alteracao) {
+		
 		empresa.retiraPontosTracosBarrasCnpjECpf();
 
 		if (arquivo != null) {
