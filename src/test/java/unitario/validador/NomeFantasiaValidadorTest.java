@@ -1,10 +1,10 @@
-package validador;
+package unitario.validador;
 
 import static org.junit.Assert.assertThat;
-import static validador.HibernateValidationUtils.noCampo;
-import static validador.HibernateValidationUtils.sucesso;
-import static validador.HibernateValidationUtils.falha;
-import static validador.HibernateValidationUtils.validacaoPara;
+import static unitario.validador.HibernateValidationUtils.falha;
+import static unitario.validador.HibernateValidationUtils.noCampo;
+import static unitario.validador.HibernateValidationUtils.sucesso;
+import static unitario.validador.HibernateValidationUtils.validacaoPara;
 
 import org.junit.Before;
 import org.junit.Test;
