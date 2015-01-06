@@ -4,11 +4,13 @@ import javax.persistence.Entity;
 import javax.persistence.SequenceGenerator;
 
 import br.com.aceleradora.registrolivre.dao.Entidade;
+import br.com.aceleradora.registrolivre.validador.annotations.CPFValido;
 
 @Entity
 @SequenceGenerator(initialValue = 1, allocationSize = 1, name = "geradorId", sequenceName = "socio_sequence")
 public class Socio extends Entidade {
 	private String nome;
+	@CPFValido
 	private String cpf;
 	private boolean ativo;
 

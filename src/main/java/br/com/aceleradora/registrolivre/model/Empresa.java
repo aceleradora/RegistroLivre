@@ -14,14 +14,18 @@ import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
 
 import br.com.aceleradora.registrolivre.dao.Entidade;
+import br.com.aceleradora.registrolivre.validador.annotations.CNPJValido;
+import br.com.aceleradora.registrolivre.validador.annotations.NomeFantasiaValido;
 
 @Entity
 @SequenceGenerator(initialValue = 1, allocationSize = 1, name = "geradorId", sequenceName = "empresa_sequence")
 public class Empresa extends Entidade {
 	@Column(nullable = false)
+	@CNPJValido
 	private String cnpj;
 	private String razaoSocial;
 	@Column(nullable = false)
+	@NomeFantasiaValido
 	private String nomeFantasia;
 	private Calendar dataCriacao;
 	private Calendar dataEmissaoDocumento;
