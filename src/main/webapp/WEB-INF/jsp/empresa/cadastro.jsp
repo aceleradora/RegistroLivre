@@ -8,7 +8,15 @@
 
 <head>
 
-	<title>Cadastro de Empresa</title>
+	<c:choose>
+		<c:when test="${editar != null}">
+			<title>Ediçao de Empresa</title>
+		</c:when>
+		<c:otherwise>
+			<title>Cadastro de Empresa</title>
+		</c:otherwise>
+	</c:choose>
+
 	<jsp:include page="/WEB-INF/jsp/includes/assets.jsp" />	
 
 	<script type="text/javascript" src="http://cidades-estados-js.googlecode.com/files/cidades-estados-1.2-utf8.js"></script>
@@ -153,7 +161,7 @@
 								
 								<div id="divSocios">
 									<c:forEach items="${empresa.socios}" var="socio">
-										<script> document.onLoad(adicionaSociosCadastrados("${socio.nome}", "${socio.cpf}", "${socio.ativo}")); </script>
+										<script> adicionaSociosCadastrados("${socio.nome}", "${socio.cpf}", "${socio.ativo}"); </script>
 									</c:forEach>								
 								</div>
 								

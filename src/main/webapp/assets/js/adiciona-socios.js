@@ -28,7 +28,7 @@ function adicionaSocio(){
 } 
 
 function adicionaSociosCadastrados(nome, cpf, ativo){
-	alert(ativo)
+	
 	if(ativo=="true"){		
 		botaoHtmlAtivo = '<input type="checkbox" name="empresa.socios[].ativo" checked> Ativo' ;
 	} else {		
