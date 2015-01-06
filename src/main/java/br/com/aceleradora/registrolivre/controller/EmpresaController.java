@@ -126,12 +126,12 @@ public class EmpresaController {
 
 		if (arquivo != null) {
 
-			ClienteCloudinary SessaoCloudinary = criaSessaoCloudnary(empresa, arquivo);
+			ClienteCloudinary clienteCloudinary = criaSessaoCloudnary(empresa, arquivo);
 
 			if (alteracao) {
-				atualizaArquivo(empresa, SessaoCloudinary);
+				atualizaArquivo(empresa, clienteCloudinary);
 			} else {
-				uploadArquivo(empresa, SessaoCloudinary);
+				uploadArquivo(empresa, clienteCloudinary);
 			}
 		}
 
