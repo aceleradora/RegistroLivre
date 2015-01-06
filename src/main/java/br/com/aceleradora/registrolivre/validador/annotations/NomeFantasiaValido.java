@@ -6,13 +6,12 @@ import java.lang.annotation.RetentionPolicy;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 
-import br.com.aceleradora.registrolivre.validador.validacoes.CPFValidador;
+import br.com.aceleradora.registrolivre.validador.validacoes.NomeFantasiaValidador;
 
 @Retention(RetentionPolicy.RUNTIME)
-@Constraint(validatedBy = CPFValidador.class)
-public @interface CPFValido {
-	
-	String message() default "Os CPFs precisam ser válidos.";
+@Constraint(validatedBy = NomeFantasiaValidador.class)
+public @interface NomeFantasiaValido {
+	String message() default "Nome fantasia obrigatório.";
 
 	Class<?>[] groups() default {};
 

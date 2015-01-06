@@ -14,7 +14,7 @@ import br.com.aceleradora.registrolivre.validador.validacoes.CNPJValidador;
 @Documented
 public @interface CNPJValido {
 
-	String message() default "Digite um CNPJ válido.";
+	String message() default "CNPJ é obrigatório e precisa ser válido.";
 
 	Class<?>[] groups() default {};
 
