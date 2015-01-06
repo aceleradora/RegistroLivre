@@ -17,12 +17,16 @@ public class CPFValidador implements ConstraintValidator<CPFValido, String> {
 		char digito1, digito2;
 		int soma, resto, numero, peso;
 
-		String cpfSemCaracteresEspeciais = cpf.replaceAll("[.-]", "");
+		String cpfSemCaracteresEspeciais = cpf.replaceAll("[.-]", "");		
+
+		if(cpfSemCaracteresEspeciais.length() != 11){
+			return false;
+		}
 
 		if ((ValidacoesComuns.verificaQuantidadeNumerosIguais(cpfSemCaracteresEspeciais)) == 11) {
 			return false;
 		}
-
+		
 		soma = 0;
 		peso = 10;
 
