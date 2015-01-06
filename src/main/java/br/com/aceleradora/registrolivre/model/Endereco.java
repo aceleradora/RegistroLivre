@@ -1,11 +1,12 @@
 package br.com.aceleradora.registrolivre.model;
 
 import javax.persistence.Embeddable;
+import javax.validation.constraints.Pattern;
 
 @Embeddable
 public class Endereco {
-
 	private String logradouro;
+	@Pattern(regexp = "[0-9]+", message = "O número de endereço posto é inválido.")
 	private String numero;
 	private String complemento;
 	private String cidade;
