@@ -175,7 +175,7 @@
 					<div class="col-md-2 avatar">
 						<img src="../assets/img/user.png" class="img-responsive img-circle"/>
 						<div>
-							<h4 class="nome">Marcelo Tresel</h4>
+							<h4 class="nome">Marcelo Träsel</h4>
 							<p class="tipo">P.O.</p>
 						</div>			
 					</div>
