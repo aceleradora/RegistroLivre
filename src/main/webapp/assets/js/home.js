@@ -24,7 +24,7 @@ function criaAutocomplete(){
 	$("#campoPesquisado").autocomplete({
 		source: function(request, response) {
 			var matcher = new RegExp( $.ui.autocomplete.escapeRegex( request.term ), "i" );
-	        response( $.grep( resultados.slice(0, 5), function( value ) {
+	        response( $.grep( resultados, function( value ) {
 	          value = value.label || value.value || value;
 	          return matcher.test( value ) || matcher.test( normaliza( value ) );		          
 	        }));

@@ -16,7 +16,6 @@
 <body>
 	<jsp:include page="/WEB-INF/jsp/includes/cabecalho.jsp" />	
 	<div class="container content">
-	<script src="/assets/js/home.js"></script>
 		
 		<div class="row">
 			<div class="col-lg-6 col-lg-offset-3">
@@ -61,5 +60,6 @@
 			</div>
 		</div>
 	</div>	
+	<script src="/assets/js/home.js" charset="UTF-8"></script>
 </body>
 </html>
