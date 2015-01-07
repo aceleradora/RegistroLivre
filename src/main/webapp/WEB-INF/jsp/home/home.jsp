@@ -11,6 +11,7 @@
 	<link href="/assets/css/main.css" rel="stylesheet">	
 	<script src="http://code.jquery.com/jquery-1.10.2.js"> </script> 
 	<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>	
+	<script src="/assets/js/home.js" charset="UTF-8"></script>
 </head>
 
 <body>
@@ -60,6 +61,5 @@
 			</div>
 		</div>
 	</div>	
-	<script src="/assets/js/home.js" charset="UTF-8"></script>
 </body>
 </html>
