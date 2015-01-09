@@ -58,19 +58,19 @@
 								</div>								
 										
 								<div class="form-group has-feedback" id="nome-group">
-									<label class="control-label">Nome <abbr title="Preenchimento obrigatório">*</abbr></label>
-									<input class="form-control" type="text" name="email.nome" value="${email.nome}" id="" placeholder="ex: Barbara Souza" required/>
+									<label class="control-label">Nome <abbr class="cor-vermelha" title="Preenchimento obrigatório">*</abbr></label>
+									<input class="form-control" type="text" name="email.nome" value="${email.nome}" id="" placeholder="ex: Fulano de Tal" required/>
 									<span class="glyphicon form-control-feedback"></span>
 								</div>
 							
 								<div class="form-group has-feedback" id="email-group">
-									<label class="control-label">E-mail  <abbr title="Preenchimento obrigatório">*</abbr> </label>
-									<input class="form-control" type="email" name="email.rementente" value="${email.remetente}" id=""  placeholder="ex: barbaras@gmail.com" required/>
+									<label class="control-label">E-mail  <abbr class="cor-vermelha" title="Preenchimento obrigatório">*</abbr> </label>
+									<input class="form-control" type="email" name="email.rementente" value="${email.remetente}" id=""  placeholder="ex: fulano123@email.com" required/>
 									<span class="glyphicon form-control-feedback"></span>
 								</div>
 							
 								<div class="form-group">
-									<label class="control-label">Assunto</label>
+									<label class="control-label">Assunto <abbr class="cor-vermelha" title="Preenchimento obrigatório">*</abbr> </label>
 									<select name="email.assunto" class="form-control" required id="" >
 										<option value="" selected>Escolha uma opção </option>
 										<option value="duvida">Dúvida</option>
@@ -82,7 +82,7 @@
 								<div class="row">
 									<div class="col-lg-12">
 										<div class="form-group">
-											<label class="control-label">Mensagem  <abbr title="Preenchimento obrigatório">*</abbr> </label> 
+											<label class="control-label">Mensagem  <abbr class="cor-vermelha" title="Preenchimento obrigatório">*</abbr> </label> 
 											<br>
 											<textarea rows="5" class="form-control" name="email.mensagem" id="" required>${email.mensagem}</textarea>
 										</div>
