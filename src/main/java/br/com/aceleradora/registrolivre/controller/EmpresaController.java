@@ -36,8 +36,10 @@ public class EmpresaController {
 
 	@Get("/atualizar/{empresa.id}")
 	public Empresa cadastro(Empresa empresa) {
+		empresa = daoEmpresa.getById(empresa.getId());
 		result.include("editar", true);
-		return daoEmpresa.getById(empresa.getId());
+		result.include("nomeArquivoAntigo", empresa.getUrl().substring(61));
+		return empresa;
 	}
 
 	public void listagem(List<Empresa> listaDeEmpresas) {
@@ -99,6 +101,7 @@ public class EmpresaController {
 		if(arquivo !=null){
 			empresa.setUrl(arquivo.getFileName());
 		}
+		
 		
 		validar(empresa);
 		validator.onErrorRedirectTo(this).cadastro(empresa);
@@ -173,4 +176,5 @@ public class EmpresaController {
 		
 		result.use(Results.json()).from(empresas).serialize();
 	}
+	
 }

@@ -7,6 +7,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
+import static org.mockito.Mockito.*;
 
 import br.com.aceleradora.registrolivre.controller.EmpresaController;
 import br.com.aceleradora.registrolivre.dao.EmpresaDAO;
@@ -42,7 +43,8 @@ public class EmpresaControllerTest {
 	public void quandoChamaOMetodoCadastroRetornaOMetodoGetByIdDoDAO()
 			throws Exception {
 		empresa.setId(1);
-
+		empresa.setUrl("http://res.cloudinary.com/dhqchbqit/image/upload/v1419266215/");
+		when(empresaDAO.getById(empresa.getId())).thenReturn(empresa);
 		empresaController.cadastro(empresa);
 
 		verify(empresaDAO).getById(empresa.getId());
@@ -52,10 +54,13 @@ public class EmpresaControllerTest {
 	public void quandoChamaOMetodoCadastroIncluiEditarNoResult()
 			throws Exception {
 		empresa.setId(1);
-
+		empresa.setUrl("http://res.cloudinary.com/dhqchbqit/image/upload/v1419266215/");
+		when(empresaDAO.getById(1)).thenReturn(empresa);
 		empresaController.cadastro(empresa);
 
 		verify(result).include("editar", true);
+		verify(result).include("nomeArquivoAntigo", empresa.getUrl().substring(61));
+
 	}
 
 
