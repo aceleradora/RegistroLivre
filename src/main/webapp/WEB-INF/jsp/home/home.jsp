@@ -38,8 +38,7 @@
 
 				<c:if test="${buscaVazia == true}">
 					<div class="alert alert-warning alert-dismissible" role="alert">
-						<button type="button" class="close" id="close"
-							data-dismiss="alert">
+						<button type="button" class="close" id="close" data-dismiss="alert">
 							<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
 						</button>
 						<strong>Não há nada digitado no campo de busca, por favor tente novamente.</strong>
@@ -69,7 +68,7 @@
 			<div id="busca-avancada" class="col-lg-6 col-lg-offset-3" style="display:none">
 				<div class="panel panel-default margin-30-0">
 					<div class="panel-heading centralize">
-						<h4>Busca Avançada</h4>
+						<h4>Busca Avançada <span onclick="removeSocioBuscaAvancada()" class="pull-right cursor-pointer">&times;</span></h4>
 					</div>
 					<form class="form" name="pesquisaAvancada" action="???" method="GET">
 						<div class="panel-body">
@@ -103,7 +102,7 @@
 								<label>Logradouro</label>
 								<input type="text" class="form-control" name="logradouro"/>
 							</div>
-							<div id="socios-group-busca-avancada"class="row">
+							<div id="socios-lista-busca-avancada"class="row">
 								<div class="col-lg-8">
 									<div class="form-group">
 										<label>Nome do sócio</label>

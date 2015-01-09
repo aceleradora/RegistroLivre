@@ -90,6 +90,10 @@ function mostraBuscaAvancada() {
 	$("#busca-avancada").fadeIn();
 }
 
+function fechaBuscaAvancada() {
+	$("#busca-avancada").fadeOut();
+}
+
 function rolaLinksAncoraDeFormaLenta() {
   $('a[href*=#]:not([href=#])').click(function() {
     if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
@@ -109,20 +113,27 @@ var contSocios = 1;
 
 function adicionaSocioBuscaAvancada(){
 	var htmlSocio = 
-					'<div class="col-lg-8">' +
-						'<div class="form-group">' +
-							'<label>Nome do sócio</label>' +
-							'<input type="text" class="form-control" name="nomeSocio"/>' +
+					'<div class="socios-item-busca-avancada">' +
+						'<div class="col-lg-8">' +
+							'<div class="form-group">' +
+								'<label>Nome do sócio</label>' +
+								'<input type="text" class="form-control" name="nomeSocio"/>' +
+							'</div>' +
 						'</div>' +
-					'</div>' +
-					'<div class="col-lg-4">' +
-						'<div class="form-group">' +
-							'<label>CPF</label>' +
-							'<input type="text" class="form-control cpf" name="cpf" placeholder="ex: 000.000.000-00"/>' +
+						'<div class="col-lg-4">' +
+							'<div class="form-group">' +
+								'<div onclick="removeSocioBuscaAvancada()" class="pull-right cursor-pointer"><span>&times;</span></div>' +
+								'<label>CPF</label>' +
+								'<input type="text" class="form-control cpf" name="cpf" placeholder="ex: 000.000.000-00"/>' +
+							'</div>' +
 						'</div>' +
 					'</div>';
 
-	$("#socios-group-busca-avancada").append(htmlSocio);
+	$("#socios-lista-busca-avancada").append(htmlSocio);
 	$('.cpf').mask('000.000.000-00');
 	contSocios++;
-} 
+}
+
+function removeSocioBuscaAvancada() {
+	$(this).parents(".socios-item-busca-avancada").remove();
+}

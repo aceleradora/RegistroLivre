@@ -172,6 +172,6 @@ h4 {
 	font-size: 14px;
 }
 
-a:hover{
+a:hover, .cursor-pointer{
 	cursor: pointer;
 }
