@@ -21,7 +21,7 @@
 
 	<script type="text/javascript" src="http://cidades-estados-js.googlecode.com/files/cidades-estados-1.2-utf8.js"></script>
 	<script src="/assets/js/bootstrap-filestyle.js"></script>
-	<script src="/assets/js/cadastro.js"></script>
+	<script src="/assets/js/cadastro.js" charset="utf-8"></script>
 	<script src="/assets/js/adiciona-socios.js" charset="utf-8"></script>
 	
 </head>
@@ -95,7 +95,7 @@
 							
 								<div class="form-group">
 									<label class="control-label">Razão Social</label>
-									<input class="form-control" type="text" name="empresa.razaoSocial"placeholder="ex: Cia Larah Instrumentos Musicais LTDA" value="${empresa.razaoSocial}"/>
+									<input class="form-control" type="text" name="empresa.razaoSocial" placeholder="ex: Cia Larah Instrumentos Musicais LTDA" value="${empresa.razaoSocial}"/>
 								</div>
 							
 								<div class="row">
