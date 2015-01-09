@@ -4,7 +4,10 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -12,6 +15,7 @@ import org.hibernate.Transaction;
 import org.hibernate.criterion.Projections;
 
 import br.com.aceleradora.registrolivre.model.Empresa;
+import br.com.aceleradora.registrolivre.model.Socio;
 import br.com.caelum.vraptor.ioc.Component;
 
 @Component
@@ -103,26 +107,127 @@ public class EmpresaDAO implements IEmpresaDAO {
 	}
 
 	private List<String> pesquisaPorNomeDosSocios(String textoDigitado) {
-		Query query = sessao
+		Query pesquisa = sessao
 				.createQuery("SELECT DISTINCT socio.nome "
 						+ " FROM Empresa AS empresa "
 						+ " LEFT JOIN empresa.socios AS socio "
 						+ " WHERE lower(unaccent(socio.nome)) LIKE lower(unaccent(:busca))");
 
-		query.setParameter("busca", "%" + textoDigitado + "%");
+		pesquisa.setParameter("busca", "%" + textoDigitado + "%");
 
-		return query.list();
+		return pesquisa.list();
 	}
 
 	private List<String> pesquisaPorCampo(String textoDigitado,
 			String campoParaProcurar) {
-		Query query = sessao.createQuery("SELECT DISTINCT empresa."	+ campoParaProcurar
-				+ " FROM Empresa AS empresa "
+		Query pesquisa = sessao.createQuery("SELECT DISTINCT empresa."
+				+ campoParaProcurar + " FROM Empresa AS empresa "
 				+ " WHERE lower(unaccent(empresa." + campoParaProcurar
 				+ ")) LIKE lower(unaccent(:busca)) ");
 
-		query.setParameter("busca", "%" + textoDigitado + "%");
+		pesquisa.setParameter("busca", "%" + textoDigitado + "%");
 
-		return query.list();
+		return pesquisa.list();
+	}
+
+	private Query montarPesquisaAvancada(Empresa empresa, String operador) {
+		StringBuilder sqlPesquisa = new StringBuilder();		
+		
+		sqlPesquisa.append("SELECT DISTINCT empresa FROM Empresa AS empresa ");
+
+		if (empresa.getSocios().size() > 0) {
+			sqlPesquisa.append(" LEFT JOIN empresa.socios AS socio WHERE ");
+
+			for (int i = 0; i < empresa.getSocios().size(); i++) {
+
+				if (empresa.getSocios().get(i).getNome() != null) {
+					sqlPesquisa.append("lower(unaccent(socio.nome)) LIKE lower(unaccent(:nome" + i + ")) " + operador );
+				}
+
+				if (empresa.getSocios().get(i).getCpf() != null) {
+					sqlPesquisa.append("socio.cpf LIKE :cpf" + i + " " + operador );
+				}
+			}
+
+		} else {
+			sqlPesquisa.append(" WHERE ");
+		}
+		
+
+		if (empresa.getCnpj() != null) {			
+			sqlPesquisa.append("empresa.cnpj LIKE :cnpj " + operador );		
+		}
+
+		if (empresa.getRazaoSocial() != null) {
+			sqlPesquisa.append("lower(unaccent(empresa.razaoSocial)) LIKE lower(unaccent(:razaoSocial)) " + operador );
+		}
+
+		if (empresa.getNomeFantasia() != null) {
+			sqlPesquisa.append("lower(unaccent(empresa.nomeFantasia)) LIKE lower(unaccent(:nomeFantasia)) " + operador );
+		}
+		
+		if (empresa.getEndereco() != null) {
+			if (empresa.getEndereco().getCidade() != null) {
+				sqlPesquisa.append("lower(unaccent(empresa.cidade)) LIKE lower(unaccent(:cidade)) " + operador );
+			}
+
+			if (empresa.getEndereco().getUf() != null) {
+				sqlPesquisa.append("lower(unaccent(empresa.uf)) LIKE lower(unaccent(:uf)) " + operador );
+			}
+
+			if (empresa.getEndereco().getLogradouro() != null) {
+				sqlPesquisa.append("lower(unaccent(empresa.logradouro)) LIKE lower(unaccent(:logradouro)) " + operador );
+			}
+		}
+				
+		Query pesquisa = sessao.createQuery(sqlPesquisa.substring(0, sqlPesquisa.length() - operador.length()));
+			
+		if (empresa.getNomeFantasia() != null) {
+			pesquisa.setParameter("nomeFantasia", "%" + empresa.getNomeFantasia()+ "%");
+		}
+		if (empresa.getRazaoSocial() != null) {
+			pesquisa.setParameter("razaoSocial", "%" + empresa.getRazaoSocial()	+ "%");
+		}
+		if (empresa.getCnpj() != null) {	
+			pesquisa.setParameter("cnpj", "%" + empresa.getCnpj()+ "%");
+		}
+		if (empresa.getEndereco() != null) {
+			if (empresa.getEndereco().getLogradouro() != null) {
+				pesquisa.setParameter("logradouro", "%"	+ empresa.getEndereco().getLogradouro() + "%");
+			}
+			if (empresa.getEndereco().getCidade() != null) {
+				pesquisa.setParameter("cidade", "%" + empresa.getEndereco().getCidade()	+ "%");
+			}
+			if (empresa.getEndereco().getUf() != null) {
+				pesquisa.setParameter("uf", "%" + empresa.getEndereco().getUf() + "%");
+			}
+		}
+		
+
+		for (int i = 0; i < empresa.getSocios().size(); i++) {
+			
+
+			if (empresa.getSocios().get(i).getNome() != null) {
+
+				pesquisa.setParameter("nome" + i , "%" + empresa.getSocios().get(i).getNome() + "%");
+			}
+			if (empresa.getSocios().get(i).getCpf() != null) {
+
+				pesquisa.setParameter("cpf" + i , "%" + empresa.getSocios().get(i).getCpf() + "%");
+			}
+			
+		}
+		
+		return pesquisa;
+	}
+
+	public List<Empresa> pesquisaAvancadaEspecifica(Empresa empresa) {
+		Query pesquisa = montarPesquisaAvancada(empresa, OperadoresSQL.AND);
+		return pesquisa.list();
+	}
+
+	public List<Empresa> pesquisaAvancadaAproximada(Empresa empresa) {
+		Query pesquisa = montarPesquisaAvancada(empresa, OperadoresSQL.OR);
+		return pesquisa.list();
 	}
 }
