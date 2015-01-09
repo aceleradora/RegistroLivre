@@ -1,17 +1,16 @@
 package br.com.aceleradora.registrolivre.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import br.com.aceleradora.registrolivre.dao.EmpresaDAO;
 import br.com.aceleradora.registrolivre.model.Empresa;
-import br.com.aceleradora.registrolivre.model.Socio;
 import br.com.aceleradora.registrolivre.util.Arquivo;
 import br.com.aceleradora.registrolivre.util.CalendarTransformer;
 import br.com.aceleradora.registrolivre.util.ClienteCloudinary;
 import br.com.aceleradora.registrolivre.util.DataOrdenadaTransformer;
 import br.com.aceleradora.registrolivre.util.EnderecoTransformer;
 import br.com.caelum.vraptor.Get;
+import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
@@ -83,7 +82,7 @@ public class EmpresaController {
 		}
 	}
 	
-	@Get("/buscaAvancada")
+	@Post("/buscaAvancada")
 	public void buscaAvancada(Empresa empresa){
 		List<Empresa> listaDeResultadosDeEmpresas = daoEmpresa.pesquisaAvancadaEspecifica(empresa);
 		if (listaDeResultadosDeEmpresas.size() == 0){
