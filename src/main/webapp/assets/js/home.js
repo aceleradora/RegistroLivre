@@ -84,3 +84,7 @@ function buscaCidadeEstado() {
 
 	});
 }
+
+function mostraBuscaAvancada() {
+	$("#busca-avancada").fadeIn();
+}
