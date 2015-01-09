@@ -71,11 +71,11 @@
 					<div class="panel-heading centralize">
 						<h4>Busca Avançada</h4>
 					</div>
-					<div class="panel-body">
-						<form class="form" name="pesquisaAvancada" action="???" method="GET">
+					<form class="form" name="pesquisaAvancada" action="???" method="GET">
+						<div class="panel-body">
 							<div class="form-group">
 								<label>CNPJ</label>
-								<input type="text" id="cnpj-busca-avancada" class="form-control" name="cnpj"/>
+								<input type="text" id="cnpj-busca-avancada" class="form-control" name="cnpj" placeholder="ex: 00.000.000/0000-00"/>
 							</div>
 							<div class="form-group">
 								<label>Nome Fantasia</label>
@@ -86,13 +86,13 @@
 								<input type="text" class="form-control" name="RazaoSocial"/>
 							</div>
 							<div class="row">
-								<div class="col-lg-3">
+								<div class="col-lg-4">
 									<div class="form-group">
 										<label>Estado</label>
 										<input type="text" id="estado" class="form-control" name="estado"/>
 									</div>
 								</div>
-								<div class="col-lg-9">
+								<div class="col-lg-8">
 									<div class="form-group">
 										<label>Cidade</label>
 										<input type="text" id="cidade" class="form-control" name="cidade"/>
@@ -103,20 +103,31 @@
 								<label>Logradouro</label>
 								<input type="text" class="form-control" name="logradouro"/>
 							</div>
-							<div class="form-group">
-								<label>Nome Sócio</label>
-								<input type="text" class="form-control" name="nomeSocio"/>
+							<div class="row">
+								<div class="col-lg-8">
+									<div class="form-group">
+										<label>Nome do sócio</label>
+										<input type="text" class="form-control" name="nomeSocio"/>
+									</div>
+								</div>
+								<div class="col-lg-4">
+									<div class="form-group">
+										<label>CPF</label>
+										<input type="text" class="form-control cpf" name="cpf" placeholder="ex: 000.000.000-00"/>
+									</div>
+								</div>
 							</div>
-							<div class="form-group">
-								<label>CPF</label>
-								<input type="text" class="form-control cpf" name="cpf"/>
-							</div>
-							<div class="form-group">
-								<input type="submit" class="btn btn-lg btn-primary pull-right margin-0-6" value="Buscar"/>
-								<input type="reset" value="Limpar" class="btn btn-default btn-lg pull-right margin-0-6"/>
-							</div>
-						</form>
-					</div>
+							<div class="form-group centralize">
+								<button type="button" class="btn btn-default margin-0-6" onclick="adicionaSocio()"><span class="glyphicon glyphicon-plus-sign"></span> Adicionar Sócio</button>
+								<br>
+							</div>	
+						</div>
+						<div class="panel-footer">
+							<input type="submit" value="Buscar" class="btn btn-lg btn-primary pull-right margin-0-6"/>
+							<input type="reset" value="Limpar" class="btn btn-default btn-lg pull-right margin-0-6"/>
+							<div style="clear:both"></div>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>
