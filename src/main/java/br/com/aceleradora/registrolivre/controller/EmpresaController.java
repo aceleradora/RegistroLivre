@@ -1,9 +1,11 @@
 package br.com.aceleradora.registrolivre.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import br.com.aceleradora.registrolivre.dao.EmpresaDAO;
 import br.com.aceleradora.registrolivre.model.Empresa;
+import br.com.aceleradora.registrolivre.model.Socio;
 import br.com.aceleradora.registrolivre.util.Arquivo;
 import br.com.aceleradora.registrolivre.util.CalendarTransformer;
 import br.com.aceleradora.registrolivre.util.ClienteCloudinary;
@@ -79,6 +81,19 @@ public class EmpresaController {
 			result.include("buscaVazia", true);
 			result.redirectTo(HomeController.class).home();
 		}
+	}
+	
+	@Get("/buscaAvancada")
+	public void buscaAvancada(Empresa empresa){
+		List<Empresa> listaDeResultadosDeEmpresas = daoEmpresa.pesquisaAvancadaEspecifica(empresa);
+		if (listaDeResultadosDeEmpresas.size() == 0){
+			listaDeResultadosDeEmpresas = daoEmpresa.pesquisaAvancadaAproximada(empresa);
+		}
+		if (listaDeResultadosDeEmpresas.size() == 0){
+			result.include("buscaVazia", true);
+			result.redirectTo(HomeController.class).home();
+		}
+		result.forwardTo(this).listagem(listaDeResultadosDeEmpresas); 		
 	}
 
 	@Get("/visualizacao/{empresa.id}")
