@@ -117,14 +117,14 @@ function adicionaSocioBuscaAvancada(){
 						'<div class="col-lg-8">' +
 							'<div class="form-group">' +
 								'<label>Nome do sócio</label>' +
-								'<input type="text" class="form-control" name="nomeSocio"/>' +
+								'<input type="text" class="form-control" name="empresa.socios[].nome"/>' +
 							'</div>' +
 						'</div>' +
 						'<div class="col-lg-4">' +
 							'<div class="form-group">' +
 								'<div onclick="removeSocioBuscaAvancada()" class="pull-right cursor-pointer"><span>&times;</span></div>' +
 								'<label>CPF</label>' +
-								'<input type="text" class="form-control cpf" name="cpf" placeholder="ex: 000.000.000-00"/>' +
+								'<input type="text" class="form-control cpf" name="empresa.socios[].cpf" placeholder="ex: 000.000.000-00"/>' +
 							'</div>' +
 						'</div>' +
 					'</div>';

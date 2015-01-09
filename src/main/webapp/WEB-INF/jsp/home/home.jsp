@@ -70,7 +70,7 @@
 					<div class="panel-heading centralize">
 						<h4>Busca Avançada <span onclick="removeSocioBuscaAvancada()" class="pull-right cursor-pointer">&times;</span></h4>
 					</div>
-					<form class="form" name="pesquisaAvancada" action="???" method="GET">
+					<form class="form" name="pesquisaAvancada" action="buscaAvancada" method="POST">
 						<div class="panel-body">
 							<div class="form-group">
 								<label>CNPJ</label>
@@ -78,41 +78,41 @@
 							</div>
 							<div class="form-group">
 								<label>Nome Fantasia</label>
-								<input type="text" class="form-control" name="nomeFantasia"/>
+								<input type="text" class="form-control" name="empresa.nomeFantasia"/>
 							</div>
 							<div class="form-group">
 								<label>Razão Social</label>
-								<input type="text" class="form-control" name="RazaoSocial"/>
+								<input type="text" class="form-control" name="empresa.razaoSocial"/>
 							</div>
 							<div class="row">
 								<div class="col-lg-4">
 									<div class="form-group">
 										<label>Estado</label>
-										<input type="text" id="estado" class="form-control" name="estado"/>
+										<input type="text" id="estado" class="form-control" name="empresa.endereco.estado"/>
 									</div>
 								</div>
 								<div class="col-lg-8">
 									<div class="form-group">
 										<label>Cidade</label>
-										<input type="text" id="cidade" class="form-control" name="cidade"/>
+										<input type="text" id="cidade" class="form-control" name="empresa.endereco.cidade"/>
 									</div>
 								</div>
 							</div>
 							<div class="form-group">
 								<label>Logradouro</label>
-								<input type="text" class="form-control" name="logradouro"/>
+								<input type="text" class="form-control" name="empresa.endereco.logradouro"/>
 							</div>
 							<div id="socios-lista-busca-avancada"class="row">
 								<div class="col-lg-8">
 									<div class="form-group">
 										<label>Nome do sócio</label>
-										<input type="text" class="form-control" name="nomeSocio"/>
+										<input type="text" class="form-control" name="empresa.socios[].nome"/>
 									</div>
 								</div>
 								<div class="col-lg-4">
 									<div class="form-group">
 										<label>CPF</label>
-										<input type="text" class="form-control cpf" name="cpf" placeholder="ex: 000.000.000-00"/>
+										<input type="text" class="form-control cpf" name="empresa.socios[].cpf" placeholder="ex: 000.000.000-00"/>
 									</div>
 								</div>
 							</div>
