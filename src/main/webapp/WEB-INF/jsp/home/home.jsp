@@ -59,6 +59,55 @@
 					</div>
 				</div>
 			</div>
+			<div class="col-lg-6 col-lg-offset-3" style="display:none">
+				<div class="panel panel-default margin-30-0">
+					<div class="panel-heading centralize">
+						<h4>Busca Avançada</h4>
+					</div>
+					<div class="panel-body">
+						<form class="form" name="pesquisaAvancada" action="???" method="GET">
+							<div class="form-group">
+								<label>CNPJ</label>
+								<input type="text" class="form-control" name="???"/>
+							</div>
+							<div class="form-group">
+								<label>Nome Fantasia</label>
+								<input type="text" class="form-control" name="???"/>
+							</div>
+							<div class="form-group">
+								<label>Razão Social</label>
+								<input type="text" class="form-control" name="???"/>
+							</div>
+							<div class="row">
+								<div class="col-lg-3">
+									<div class="form-group">
+										<label>Estado</label>
+										<input type="text" class="form-control" name="???"/>
+									</div>
+								</div>
+								<div class="col-lg-9">
+									<div class="form-group">
+										<label>Cidade</label>
+										<input type="text" class="form-control" name="???"/>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label>Logradouro</label>
+								<input type="text" class="form-control" name="???"/>
+							</div>
+							<div class="form-group">
+								<label>Nome Sócio</label>
+								<input type="text" class="form-control" name="???"/>
+							</div>
+							<div class="form-group">
+								<label>CPF</label>
+								<input type="text" class="form-control" name="???"/>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>	
 </body>
