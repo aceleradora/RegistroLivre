@@ -13,6 +13,9 @@
 	<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>	
 	<script src="/assets/js/home.js" charset="UTF-8"></script>
 	<script type="text/javascript" src="http://cidades-estados-js.googlecode.com/files/cidades-estados-1.2-utf8.js"></script>
+	<script src="/assets/js/jquery.mask.min.js"></script>		
+	<script src="/assets/js/validacao-logica-cadastro.js"></script>		
+	<script src="/assets/js/validacao-visual-cadastro.js"></script>
 </head>
 
 <body>
@@ -72,41 +75,45 @@
 						<form class="form" name="pesquisaAvancada" action="???" method="GET">
 							<div class="form-group">
 								<label>CNPJ</label>
-								<input type="text" class="form-control" name="???"/>
+								<input type="text" id="cnpj-busca-avancada" class="form-control" name="cnpj"/>
 							</div>
 							<div class="form-group">
 								<label>Nome Fantasia</label>
-								<input type="text" class="form-control" name="???"/>
+								<input type="text" class="form-control" name="nomeFantasia"/>
 							</div>
 							<div class="form-group">
 								<label>Razão Social</label>
-								<input type="text" class="form-control" name="???"/>
+								<input type="text" class="form-control" name="RazaoSocial"/>
 							</div>
 							<div class="row">
 								<div class="col-lg-3">
 									<div class="form-group">
 										<label>Estado</label>
-										<input type="text" id="estado" class="form-control" name="???"/>
+										<input type="text" id="estado" class="form-control" name="estado"/>
 									</div>
 								</div>
 								<div class="col-lg-9">
 									<div class="form-group">
 										<label>Cidade</label>
-										<input type="text" id="cidade" class="form-control" name="???"/>
+										<input type="text" id="cidade" class="form-control" name="cidade"/>
 									</div>
 								</div>
 							</div>
 							<div class="form-group">
 								<label>Logradouro</label>
-								<input type="text" class="form-control" name="???"/>
+								<input type="text" class="form-control" name="logradouro"/>
 							</div>
 							<div class="form-group">
 								<label>Nome Sócio</label>
-								<input type="text" class="form-control" name="???"/>
+								<input type="text" class="form-control" name="nomeSocio"/>
 							</div>
 							<div class="form-group">
 								<label>CPF</label>
-								<input type="text" class="form-control" name="???"/>
+								<input type="text" class="form-control cpf" name="cpf"/>
+							</div>
+							<div class="form-group">
+								<input type="submit" class="btn btn-lg btn-primary pull-right margin-0-6" value="Buscar"/>
+								<input type="reset" value="Limpar" class="btn btn-default btn-lg pull-right margin-0-6"/>
 							</div>
 						</form>
 					</div>
