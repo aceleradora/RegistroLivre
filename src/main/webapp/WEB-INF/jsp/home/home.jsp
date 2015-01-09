@@ -57,7 +57,7 @@
 								<input class="form-control" type="text" name="busca" id="campoPesquisado" placeholder="Busque por uma empresa aqui" />
 							</div>
 							<div class="pull-left padding-30-0-0-0">
-								<i class="padding-0-6"><a onclick="mostraBuscaAvancada()">Busca Avançada</a></i>
+								<i class="padding-0-6"><a href="#busca-avancada" onclick="mostraBuscaAvancada()">Busca Avançada</a></i>
 							</div>
 							<div class="form-group">
 								<input type="submit" id="btn-submit" class="btn btn-lg btn-primary pull-right margin-0-6" value="Buscar" disabled="true"/>
@@ -103,7 +103,7 @@
 								<label>Logradouro</label>
 								<input type="text" class="form-control" name="logradouro"/>
 							</div>
-							<div class="row">
+							<div id="socios-group-busca-avancada"class="row">
 								<div class="col-lg-8">
 									<div class="form-group">
 										<label>Nome do sócio</label>
@@ -118,7 +118,7 @@
 								</div>
 							</div>
 							<div class="form-group centralize">
-								<button type="button" class="btn btn-default margin-0-6" onclick="adicionaSocio()"><span class="glyphicon glyphicon-plus-sign"></span> Adicionar Sócio</button>
+								<button type="button" class="btn btn-default margin-0-6" onclick="adicionaSocioBuscaAvancada()"><span class="glyphicon glyphicon-plus-sign"></span> Adicionar Sócio</button>
 								<br>
 							</div>	
 						</div>

@@ -5,6 +5,7 @@ $(document).ready(function() {
 	criaAutocomplete();
 	eventoAoDigitar();
 	buscaCidadeEstado();
+	rolaLinksAncoraDeFormaLenta();
 });
 
 function procura(busca) {	
@@ -88,3 +89,40 @@ function buscaCidadeEstado() {
 function mostraBuscaAvancada() {
 	$("#busca-avancada").fadeIn();
 }
+
+function rolaLinksAncoraDeFormaLenta() {
+  $('a[href*=#]:not([href=#])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        $('html,body').animate({
+          scrollTop: target.offset().top
+        }, 800);
+        return false;
+      }
+    }
+  });
+}
+
+var contSocios = 1;
+
+function adicionaSocioBuscaAvancada(){
+	var htmlSocio = 
+					'<div class="col-lg-8">' +
+						'<div class="form-group">' +
+							'<label>Nome do sócio</label>' +
+							'<input type="text" class="form-control" name="nomeSocio"/>' +
+						'</div>' +
+					'</div>' +
+					'<div class="col-lg-4">' +
+						'<div class="form-group">' +
+							'<label>CPF</label>' +
+							'<input type="text" class="form-control cpf" name="cpf" placeholder="ex: 000.000.000-00"/>' +
+						'</div>' +
+					'</div>';
+
+	$("#socios-group-busca-avancada").append(htmlSocio);
+	$('.cpf').mask('000.000.000-00');
+	contSocios++;
+} 
