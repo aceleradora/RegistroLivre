@@ -68,3 +68,7 @@ function normaliza(term) {
   }
   return ret;
 };
+
+function fechaAlertaNenhumRegistro() {
+	$(".alert").fadeOut();
+}
