@@ -4,6 +4,7 @@ $(document).ready(function() {
 	retiraCampoBuscaNavbar();
 	criaAutocomplete();
 	eventoAoDigitar();
+	buscaCidadeEstado();
 });
 
 function procura(busca) {	
@@ -69,6 +70,17 @@ function normaliza(term) {
   return ret;
 };
 
+
 function fechaAlertaNenhumRegistro() {
 	$(".alert").fadeOut();
+}
+
+function buscaCidadeEstado() {
+	new dgCidadesEstados({
+		estado : document.getElementById('estado'),
+		cidade : document.getElementById('cidade'),
+		
+		change: true
+
+	});
 }

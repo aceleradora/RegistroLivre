@@ -12,6 +12,7 @@
 	<script src="http://code.jquery.com/jquery-1.10.2.js"> </script> 
 	<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>	
 	<script src="/assets/js/home.js" charset="UTF-8"></script>
+	<script type="text/javascript" src="http://cidades-estados-js.googlecode.com/files/cidades-estados-1.2-utf8.js"></script>
 </head>
 
 <body>
@@ -82,13 +83,13 @@
 								<div class="col-lg-3">
 									<div class="form-group">
 										<label>Estado</label>
-										<input type="text" class="form-control" name="???"/>
+										<input type="text" id="estado" class="form-control" name="???"/>
 									</div>
 								</div>
 								<div class="col-lg-9">
 									<div class="form-group">
 										<label>Cidade</label>
-										<input type="text" class="form-control" name="???"/>
+										<input type="text" id="cidade" class="form-control" name="???"/>
 									</div>
 								</div>
 							</div>
