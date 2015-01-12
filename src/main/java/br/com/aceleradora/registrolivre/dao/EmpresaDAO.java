@@ -131,6 +131,8 @@ public class EmpresaDAO implements IEmpresaDAO {
 	}
 
 	private Query montarPesquisaAvancada(Empresa empresa, String operador) {
+		empresa.retiraPontosTracosBarrasCnpjECpf();
+		
 		StringBuilder sqlPesquisa = new StringBuilder();		
 		
 		sqlPesquisa.append("SELECT DISTINCT empresa FROM Empresa AS empresa ");
@@ -183,7 +185,7 @@ public class EmpresaDAO implements IEmpresaDAO {
 		Query pesquisa = sessao.createQuery(sqlPesquisa.substring(0, sqlPesquisa.length() - operador.length()));
 			
 		if (empresa.getNomeFantasia() != null) {
-			pesquisa.setParameter("nomeFantasia", "%" + empresa.getNomeFantasia()+ "%");
+			pesquisa.setParameter("nomeFantasia", "%" + empresa.getNomeFantasia()+ "%");			
 		}
 		if (empresa.getRazaoSocial() != null) {
 			pesquisa.setParameter("razaoSocial", "%" + empresa.getRazaoSocial()	+ "%");
