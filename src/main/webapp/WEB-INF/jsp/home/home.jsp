@@ -11,7 +11,7 @@
 	<link href="/assets/css/main.css" rel="stylesheet">	
 	<script src="http://code.jquery.com/jquery-1.10.2.js"> </script> 
 	<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>	
-	<script src="/assets/js/home.js" charset="UTF-8"></script>
+	<script src="/assets/js/home.js" charset="iso-8859-1"></script>
 	<script type="text/javascript" src="http://cidades-estados-js.googlecode.com/files/cidades-estados-1.2-utf8.js"></script>
 	<script src="/assets/js/jquery.mask.min.js"></script>		
 	<script src="/assets/js/validacao-logica-cadastro.js"></script>		
@@ -70,11 +70,11 @@
 					<div class="panel-heading centralize">
 						<h4>Busca Avançada <span onclick="removeSocioBuscaAvancada()" class="pull-right cursor-pointer">&times;</span></h4>
 					</div>
-					<form class="form" name="pesquisaAvancada" action="buscaAvancada" method="POST">
+					<form class="form" name="pesquisaAvancada" action="buscaAvancada" method="POST">						
 						<div class="panel-body">
 							<div class="form-group">
 								<label>CNPJ</label>
-								<input type="text" id="cnpj-busca-avancada" class="form-control" name="cnpj" placeholder="ex: 00.000.000/0000-00"/>
+								<input type="text" id="cnpj-busca-avancada" class="form-control" name="empresa.cnpj" placeholder="ex: 00.000.000/0000-00"/>
 							</div>
 							<div class="form-group">
 								<label>Nome Fantasia</label>
@@ -103,21 +103,10 @@
 								<input type="text" class="form-control" name="empresa.endereco.logradouro"/>
 							</div>
 							<div id="socios-lista-busca-avancada"class="row">
-								<div class="col-lg-8">
-									<div class="form-group">
-										<label>Nome do sócio</label>
-										<input type="text" class="form-control" name="empresa.socios[].nome"/>
-									</div>
-								</div>
-								<div class="col-lg-4">
-									<div class="form-group">
-										<label>CPF</label>
-										<input type="text" class="form-control cpf" name="empresa.socios[].cpf" placeholder="ex: 000.000.000-00"/>
-									</div>
-								</div>
+															
 							</div>
 							<div class="form-group centralize">
-								<button type="button" class="btn btn-default margin-0-6" onclick="adicionaSocioBuscaAvancada()"><span class="glyphicon glyphicon-plus-sign"></span> Adicionar Sócio</button>
+								<button type="button" class="btn btn-default margin-0-6" onclick="adicionaSocioBuscaAvancada()"><span class="glyphicon glyphicon-plus-sign"></span> Pesquisar Sócio</button>
 								<br>
 							</div>	
 						</div>
