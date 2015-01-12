@@ -122,7 +122,7 @@ function adicionaSocioBuscaAvancada(){
 						'</div>' +
 						'<div class="col-lg-4">' +
 							'<div class="form-group">' +
-								'<div onclick="removeSocioBuscaAvancada()" class="pull-right cursor-pointer"><span>&times;</span></div>' +
+								'<div onclick="removeSocioBuscaAvancada(this)" class="pull-right cursor-pointer"><span>&times;</span></div>' +
 								'<label>CPF</label>' +
 								'<input type="text" class="form-control cpf" name="empresa.socios[].cpf" placeholder="ex: 000.000.000-00"/>' +
 							'</div>' +
@@ -134,6 +134,6 @@ function adicionaSocioBuscaAvancada(){
 	contSocios++;
 }
 
-function removeSocioBuscaAvancada() {
-	$(this).parents(".socios-item-busca-avancada").remove();
+function removeSocioBuscaAvancada(botaoFechar) {
+	$(botaoFechar).parents(".socios-item-busca-avancada").remove();
 }
