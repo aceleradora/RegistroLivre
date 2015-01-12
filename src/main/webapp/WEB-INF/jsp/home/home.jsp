@@ -70,7 +70,7 @@
 					<div class="panel-heading centralize">
 						<h4>Busca Avançada <span onclick="removeSocioBuscaAvancada()" class="pull-right cursor-pointer">&times;</span></h4>
 					</div>
-					<form class="form" name="pesquisaAvancada" action="buscaAvancada" method="POST">						
+					<form class="form" name="pesquisaAvancada" action="buscaAvancada" method="POST" accept-charset="UTF-8,ISO-8859-1" >									
 						<div class="panel-body">
 							<div class="form-group">
 								<label>CNPJ</label>
