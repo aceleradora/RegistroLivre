@@ -85,13 +85,15 @@ public class EmpresaController {
 	@Post("/buscaAvancada")
 	public void buscaAvancada(Empresa empresa){
 		List<Empresa> listaDeResultadosDeEmpresas = daoEmpresa.pesquisaAvancadaEspecifica(empresa);
+		
 		if (listaDeResultadosDeEmpresas.size() == 0){
 			listaDeResultadosDeEmpresas = daoEmpresa.pesquisaAvancadaAproximada(empresa);
 		}
-		if (listaDeResultadosDeEmpresas.size() == 0){
-			result.include("buscaVazia", true);
+		
+		if (listaDeResultadosDeEmpresas.size() == 0){			
 			result.redirectTo(HomeController.class).home();
 		}
+		
 		result.forwardTo(this).listagem(listaDeResultadosDeEmpresas); 		
 	}
 
