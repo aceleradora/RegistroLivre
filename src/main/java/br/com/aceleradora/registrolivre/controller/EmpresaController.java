@@ -4,7 +4,6 @@ import java.util.List;
 
 import br.com.aceleradora.registrolivre.dao.IEmpresaDAO;
 import br.com.aceleradora.registrolivre.model.Empresa;
-import br.com.aceleradora.registrolivre.model.Socio;
 import br.com.aceleradora.registrolivre.util.Arquivo;
 import br.com.aceleradora.registrolivre.util.CalendarTransformador;
 import br.com.aceleradora.registrolivre.util.ClienteCloudinary;
