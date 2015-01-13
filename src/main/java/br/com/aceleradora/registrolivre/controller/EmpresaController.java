@@ -2,7 +2,6 @@ package br.com.aceleradora.registrolivre.controller;
 
 import java.util.List;
 
-import br.com.aceleradora.registrolivre.dao.EmpresaDAO;
 import br.com.aceleradora.registrolivre.dao.IEmpresaDAO;
 import br.com.aceleradora.registrolivre.model.Empresa;
 import br.com.aceleradora.registrolivre.util.Arquivo;
