@@ -17,7 +17,6 @@ import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
 import javax.validation.constraints.Pattern;
 
-import br.com.aceleradora.registrolivre.controller.HomeController;
 import br.com.aceleradora.registrolivre.validador.annotations.CNPJValido;
 import br.com.aceleradora.registrolivre.validador.annotations.NomeFantasiaValido;
 
@@ -165,7 +164,7 @@ public class Empresa {
 				}
 			}
 		}
-
+		
 		if (!temSocios
 			&& cnpj == null
 			&& nomeFantasia == null

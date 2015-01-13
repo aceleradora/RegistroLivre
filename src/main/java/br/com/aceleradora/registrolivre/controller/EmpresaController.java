@@ -92,20 +92,15 @@ public class EmpresaController {
 		if (!empresa.contemDados()) {
 			result.include("buscaVazia", true);
 			result.redirectTo(HomeController.class).home();
-		}
-
-		List<Empresa> listaDeResultadosDeEmpresas = daoEmpresa
-				.pesquisaAvancadaEspecifica(empresa);
-
-		if (listaDeResultadosDeEmpresas.size() == 0) {
-			listaDeResultadosDeEmpresas = daoEmpresa
-					.pesquisaAvancadaAproximada(empresa);
-		}
-
-		if (listaDeResultadosDeEmpresas.size() == 0) {
-			result.redirectTo(HomeController.class).home();
 		} else {
-			result.forwardTo(this).listagem(listaDeResultadosDeEmpresas);
+			List<Empresa> listaDeResultadosDeEmpresas = daoEmpresa.pesquisaAvancadaEspecifica(empresa);
+
+			if (listaDeResultadosDeEmpresas.size() == 0) {
+				result.include("buscaAproximada", true);
+				listaDeResultadosDeEmpresas = daoEmpresa.pesquisaAvancadaAproximada(empresa);
+			}
+
+			result.redirectTo(this).listagem(listaDeResultadosDeEmpresas);
 		}
 	}
 
