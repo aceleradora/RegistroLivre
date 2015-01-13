@@ -10,11 +10,14 @@
 	
 	<jsp:include page="/WEB-INF/jsp/includes/datatable.jsp" />
 	<script src="../assets/js/listagem.js" charset="utf-8"></script>
-	
+
 	<script type="text/javascript">
 		<c:set var="resultadoBusca" value="${resultadoBusca}"/>
 		$(document).ready(function() {
 			criaDatatable(<c:out value="${resultadoBusca}" escapeXml='false' />);
+			$("#close-info-busca-aproximada").click(function(){
+				$("#info-busca-aproximada").fadeOut();
+			});
 		});
 	</script>	
 </head>
@@ -23,6 +26,14 @@
 	<div class="container content">
 		<div class="row">
 			<div class="col-lg-8 col-lg-offset-2">
+				<c:if test="${buscaAproximada == true}">
+					<div class="alert alert-info alert-dismissible" id="info-busca-aproximada" role="alert">
+						<button type="button" class="close" id="close-info-busca-aproximada" data-dismiss="alert">
+							<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+						</button>
+						<p style="font-weight: strong;">Nenhum registro específico encontrado, seguem abaixo sugestões de registros aproximados:</p>
+					</div>
+				</c:if>
 				<div class="panel panel-default margin-35-0">
 					<div class="panel-heading centralize">
 						<h1>Lista de Empresas Cadastradas</h1>
