@@ -1,8 +1,25 @@
 package br.com.aceleradora.registrolivre.dao;
 
+import java.util.List;
+
 import br.com.aceleradora.registrolivre.model.Empresa;
 
-public interface IEmpresaDAO {	
-	public Empresa getById(long id);	
+public interface IEmpresaDAO {
+
+	public List<Empresa> getTodas();
+
+	public Empresa getById(long id);
+
+	public List<Empresa> pesquisa(String textoParaBusca);
+
+	public Long contaQuantidadeDeRegistros();
+
 	public void salva(Empresa empresa);
+
+	public List<String> getParaAutoCompletar(String textoDigitado);
+
+	public List<Empresa> pesquisaAvancadaEspecifica(Empresa empresa);
+
+	public List<Empresa> pesquisaAvancadaAproximada(Empresa empresa);
+
 }

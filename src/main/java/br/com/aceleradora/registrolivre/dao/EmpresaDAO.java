@@ -4,10 +4,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -15,11 +12,10 @@ import org.hibernate.Transaction;
 import org.hibernate.criterion.Projections;
 
 import br.com.aceleradora.registrolivre.model.Empresa;
-import br.com.aceleradora.registrolivre.model.Socio;
 import br.com.caelum.vraptor.ioc.Component;
 
 @Component
-public class EmpresaDAO implements IEmpresaDAO {
+public class EmpresaDAO implements IEmpresaDAO{
 
 	private Session sessao;
 
@@ -27,17 +23,20 @@ public class EmpresaDAO implements IEmpresaDAO {
 		this.sessao = sessao;
 	}
 
+	@Override
 	public List<Empresa> getTodas() {
 		return sessao.createQuery("FROM Empresa ORDER BY dataregistro DESC")
 				.list();
 	}
 
+	@Override
 	public Empresa getById(long id) {
 		Empresa empresa = (Empresa) sessao.get(Empresa.class, id);
 
 		return empresa;
 	}
 
+	@Override
 	public List<Empresa> pesquisa(String textoParaBusca) {
 		if (textoParaBusca == null) {
 			return new ArrayList<Empresa>();
@@ -81,6 +80,7 @@ public class EmpresaDAO implements IEmpresaDAO {
 		return query.list();
 	}
 
+	@Override
 	public Long contaQuantidadeDeRegistros() {
 		long quantidadeDeRegistros = (Long) sessao
 				.createCriteria(Empresa.class)
@@ -90,12 +90,14 @@ public class EmpresaDAO implements IEmpresaDAO {
 
 	}
 
+	@Override
 	public void salva(Empresa empresa) {
 		Transaction transacao = sessao.beginTransaction();
 		sessao.saveOrUpdate(empresa);
 		transacao.commit();
 	}
 
+	@Override
 	public List<String> getParaAutoCompletar(String textoDigitado) {
 		List<String> retorno = new ArrayList<String>();
 
@@ -223,11 +225,13 @@ public class EmpresaDAO implements IEmpresaDAO {
 		return pesquisa;
 	}
 
+	@Override
 	public List<Empresa> pesquisaAvancadaEspecifica(Empresa empresa) {
 		Query pesquisa = montarPesquisaAvancada(empresa, OperadoresSQL.AND);
 		return pesquisa.list();
 	}
 
+	@Override
 	public List<Empresa> pesquisaAvancadaAproximada(Empresa empresa) {
 		Query pesquisa = montarPesquisaAvancada(empresa, OperadoresSQL.OR);
 		return pesquisa.list();
