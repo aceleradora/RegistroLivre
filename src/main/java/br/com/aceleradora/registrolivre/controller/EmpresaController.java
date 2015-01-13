@@ -4,6 +4,7 @@ import java.util.List;
 
 import br.com.aceleradora.registrolivre.dao.IEmpresaDAO;
 import br.com.aceleradora.registrolivre.model.Empresa;
+import br.com.aceleradora.registrolivre.model.Socio;
 import br.com.aceleradora.registrolivre.util.Arquivo;
 import br.com.aceleradora.registrolivre.util.CalendarTransformador;
 import br.com.aceleradora.registrolivre.util.ClienteCloudinary;
@@ -56,8 +57,13 @@ public class EmpresaController {
 							.include("endereco.logradouro")
 							.include("dataEmissaoDocumento")
 							.exclude("*")
-							.transform(new CalendarTransformador("yyyyMMdd"), "dataRegistro")
-							.transform(new DataOrdenadaTransformador("dataEmissaoOrdenada", "dd/MM/yyyy", "yyyyMMdd"), "dataEmissaoDocumento")
+							.transform(new CalendarTransformador("yyyyMMdd"),
+									"dataRegistro")
+							.transform(
+									new DataOrdenadaTransformador(
+											"dataEmissaoOrdenada",
+											"dd/MM/yyyy", "yyyyMMdd"),
+									"dataEmissaoDocumento")
 							.transform(new EnderecoTransformador(), "endereco")
 							.serialize(listaDeEmpresas));
 		}
@@ -80,20 +86,27 @@ public class EmpresaController {
 			result.redirectTo(HomeController.class).home();
 		}
 	}
-	
+
 	@Post("/buscaAvancada")
-	public void buscaAvancada(Empresa empresa){
-		List<Empresa> listaDeResultadosDeEmpresas = daoEmpresa.pesquisaAvancadaEspecifica(empresa);
-		
-		if (listaDeResultadosDeEmpresas.size() == 0){
-			listaDeResultadosDeEmpresas = daoEmpresa.pesquisaAvancadaAproximada(empresa);
-		}
-		
-		if (listaDeResultadosDeEmpresas.size() == 0){			
+	public void buscaAvancada(Empresa empresa) {
+		if (!empresa.contemDados()) {
+			result.include("buscaVazia", true);
 			result.redirectTo(HomeController.class).home();
 		}
-		
-		result.forwardTo(this).listagem(listaDeResultadosDeEmpresas); 		
+
+		List<Empresa> listaDeResultadosDeEmpresas = daoEmpresa
+				.pesquisaAvancadaEspecifica(empresa);
+
+		if (listaDeResultadosDeEmpresas.size() == 0) {
+			listaDeResultadosDeEmpresas = daoEmpresa
+					.pesquisaAvancadaAproximada(empresa);
+		}
+
+		if (listaDeResultadosDeEmpresas.size() == 0) {
+			result.redirectTo(HomeController.class).home();
+		} else {
+			result.forwardTo(this).listagem(listaDeResultadosDeEmpresas);
+		}
 	}
 
 	@Get("/visualizacao/{empresa.id}")
@@ -104,38 +117,38 @@ public class EmpresaController {
 	@Post("/empresa/cadastrar/")
 	public void cadastrar(Empresa empresa, UploadedFile arquivo) {
 		empresa.setUrl(arquivo.getFileName());
-		
+
 		validar(empresa);
 		validator.onErrorRedirectTo(this).cadastro();
-		
+
 		salvar(empresa, arquivo, false);
 	}
 
 	@Post("/empresa/cadastrar/{empresa.id}")
-	public void atualizar(Empresa empresa, UploadedFile arquivo) {		
-		if(arquivo !=null){
+	public void atualizar(Empresa empresa, UploadedFile arquivo) {
+		if (arquivo != null) {
 			empresa.setUrl(arquivo.getFileName());
 		}
-		
-		
+
 		validar(empresa);
 		validator.onErrorRedirectTo(this).cadastro(empresa);
-		
-		salvar(empresa, arquivo, true);		
+
+		salvar(empresa, arquivo, true);
 	}
-	
-	private void validar(Empresa empresa){
+
+	private void validar(Empresa empresa) {
 		validator.validate(empresa);
 		validator.validate(empresa.getEndereco());
 	}
 
-	private void salvar(Empresa empresa, UploadedFile arquivo,	boolean alteracao) {
-		
+	private void salvar(Empresa empresa, UploadedFile arquivo, boolean alteracao) {
+
 		empresa.retiraPontosTracosBarrasCnpjECpf();
 
 		if (arquivo != null) {
 
-			ClienteCloudinary clienteCloudinary = criaSessaoCloudnary(empresa, arquivo);
+			ClienteCloudinary clienteCloudinary = criaSessaoCloudnary(empresa,
+					arquivo);
 
 			if (alteracao) {
 				atualizaArquivo(empresa, clienteCloudinary);
@@ -146,7 +159,7 @@ public class EmpresaController {
 
 		daoEmpresa.salva(empresa);
 		String mensagem = (alteracao) ? "Atualização realizada com sucesso!"
-				: "Cadastro realizado com sucesso!";		
+				: "Cadastro realizado com sucesso!";
 
 		result.include("mensagem", mensagem);
 		result.redirectTo(this).visualizacao(empresa);
@@ -164,8 +177,7 @@ public class EmpresaController {
 	private void uploadArquivo(final Empresa empresa,
 			ClienteCloudinary clienteCloudinary) {
 		if (clienteCloudinary.upload()) {
-			empresa.setUrl(clienteCloudinary.getArquivo()
-					.getUrlArquivo());
+			empresa.setUrl(clienteCloudinary.getArquivo().getUrlArquivo());
 		} else {
 			result.include("erro",
 					"Erro ao salvar arquivo, por favor tente novamente!");
@@ -176,20 +188,19 @@ public class EmpresaController {
 	private void atualizaArquivo(final Empresa empresa,
 			ClienteCloudinary clienteCloudinary) {
 		if (clienteCloudinary.atualiza(empresa.getUrl())) {
-			empresa.setUrl(clienteCloudinary.getArquivo()
-					.getUrlArquivo());
+			empresa.setUrl(clienteCloudinary.getArquivo().getUrlArquivo());
 		} else {
 			result.include("erro",
 					"Erro ao atualizar arquivo, por favor tente novamente!");
 			result.redirectTo(this).cadastro();
 		}
 	}
-	
+
 	@Get()
-	public void autoCompletar(String textoDigitado){
+	public void autoCompletar(String textoDigitado) {
 		List<String> empresas = daoEmpresa.getParaAutoCompletar(textoDigitado);
-		
+
 		result.use(Results.json()).from(empresas).serialize();
 	}
-	
+
 }

@@ -17,6 +17,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
 import javax.validation.constraints.Pattern;
 
+import br.com.aceleradora.registrolivre.controller.HomeController;
 import br.com.aceleradora.registrolivre.validador.annotations.CNPJValido;
 import br.com.aceleradora.registrolivre.validador.annotations.NomeFantasiaValido;
 
@@ -154,4 +155,27 @@ public class Empresa {
 		return stringSemPontoTraco;
 	}
 
+	public boolean contemDados() {
+		boolean temSocios = false;
+
+		if (socios.size() > 0) {
+			for (Socio socio : socios) {
+				if (socio.getCpf() == null || socio.getNome() == null) {
+					temSocios = true;
+				}
+			}
+		}
+
+		if (!temSocios
+			&& cnpj == null
+			&& nomeFantasia == null
+			&& razaoSocial == null
+			&& endereco.getUf() == null
+			&& endereco.getCidade() == null
+			&& endereco.getLogradouro() == null) {
+				return false;
+		}
+		
+		return true;
+	}
 }

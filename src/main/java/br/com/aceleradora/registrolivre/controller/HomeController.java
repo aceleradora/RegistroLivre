@@ -1,6 +1,5 @@
 package br.com.aceleradora.registrolivre.controller;
 
-
 import br.com.aceleradora.registrolivre.dao.IEmpresaDAO;
 import br.com.aceleradora.registrolivre.model.Empresa;
 import br.com.caelum.vraptor.Get;
@@ -41,6 +40,5 @@ public class HomeController {
 	
 	@Get("/sobre")
 	public void sobre(){
-		
 	}
 }
