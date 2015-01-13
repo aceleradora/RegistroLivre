@@ -70,7 +70,7 @@
 			<div id="busca-avancada" class="col-lg-6 col-lg-offset-3" style="display:none">
 				<div class="panel panel-default margin-30-0">
 					<div class="panel-heading centralize">
-						<h4>Busca Avançada <span onclick="removeSocioBuscaAvancada()" class="pull-right cursor-pointer">&times;</span></h4>
+						<h4>Busca Avançada <span onclick="fechaBuscaAvancada()" class="pull-right cursor-pointer">&times;</span></h4>
 					</div>
 					<form class="form" name="pesquisaAvancada" action="buscaAvancada" method="POST" accept-charset="UTF-8,ISO-8859-1" >									
 						<div class="panel-body">
