@@ -1,7 +1,7 @@
 package br.com.aceleradora.registrolivre.controller;
 
 
-import br.com.aceleradora.registrolivre.dao.EmpresaDAO;
+import br.com.aceleradora.registrolivre.dao.IEmpresaDAO;
 import br.com.aceleradora.registrolivre.model.Empresa;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Resource;
@@ -10,10 +10,10 @@ import br.com.caelum.vraptor.Result;
 @Resource
 public class HomeController {
 
-	private EmpresaDAO daoEmpresa;
+	private IEmpresaDAO daoEmpresa;
 	private Result result;
 
-	public HomeController(EmpresaDAO daoEmpresa, Result result) {
+	public HomeController(IEmpresaDAO daoEmpresa, Result result) {
 		this.daoEmpresa = daoEmpresa;
 		this.result = result;
 	}

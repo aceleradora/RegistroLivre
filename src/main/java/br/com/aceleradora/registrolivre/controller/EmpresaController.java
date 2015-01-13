@@ -3,6 +3,7 @@ package br.com.aceleradora.registrolivre.controller;
 import java.util.List;
 
 import br.com.aceleradora.registrolivre.dao.EmpresaDAO;
+import br.com.aceleradora.registrolivre.dao.IEmpresaDAO;
 import br.com.aceleradora.registrolivre.model.Empresa;
 import br.com.aceleradora.registrolivre.util.Arquivo;
 import br.com.aceleradora.registrolivre.util.CalendarTransformer;
@@ -10,7 +11,6 @@ import br.com.aceleradora.registrolivre.util.ClienteCloudinary;
 import br.com.aceleradora.registrolivre.util.DataOrdenadaTransformer;
 import br.com.aceleradora.registrolivre.util.EnderecoTransformer;
 import br.com.caelum.vraptor.Get;
-import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
@@ -21,11 +21,11 @@ import flexjson.JSONSerializer;
 
 @Resource
 public class EmpresaController {
-	private EmpresaDAO daoEmpresa;
+	private IEmpresaDAO daoEmpresa;
 	private Result result;
 	private Validator validator;
 
-	public EmpresaController(EmpresaDAO dao, Result result, Validator validator) {
+	public EmpresaController(IEmpresaDAO dao, Result result, Validator validator) {
 		this.daoEmpresa = dao;
 		this.result = result;
 		this.validator = validator;
