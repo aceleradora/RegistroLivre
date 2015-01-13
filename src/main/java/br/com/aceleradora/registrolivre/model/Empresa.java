@@ -8,19 +8,24 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
 import javax.validation.constraints.Pattern;
 
-import br.com.aceleradora.registrolivre.dao.Entidade;
 import br.com.aceleradora.registrolivre.validador.annotations.CNPJValido;
 import br.com.aceleradora.registrolivre.validador.annotations.NomeFantasiaValido;
 
 @Entity
-@SequenceGenerator(initialValue = 1, allocationSize = 1, name = "geradorId", sequenceName = "empresa_sequence")
-public class Empresa extends Entidade {
+public class Empresa {
+	@Id
+	@SequenceGenerator(initialValue = 1, allocationSize = 1, name = "geradorId", sequenceName = "empresa_sequence")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "geradorId")
+	private long id;
 	@Column(nullable = false)
 	@CNPJValido
 	private String cnpj;
@@ -42,6 +47,14 @@ public class Empresa extends Entidade {
 	public Empresa() {
 		socios = new ArrayList<Socio>();
 		setDataRegistro(Calendar.getInstance());
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	public String getCnpj() {
@@ -117,19 +130,19 @@ public class Empresa extends Entidade {
 	}
 
 	public void retiraPontosTracosBarrasCnpjECpf() {
-		if(this.cnpj != null){
+		if (this.cnpj != null) {
 			String cnpjSemPontoTraco = retiraPontosTracos(this.cnpj);
-			this.cnpj = cnpjSemPontoTraco;			
+			this.cnpj = cnpjSemPontoTraco;
 		}
-		
+
 		String cpfSemPontoTraco = "";
 
 		if (socios != null) {
 			for (Socio socio : socios) {
-				if(socio.getCpf() != null){
+				if (socio.getCpf() != null) {
 					cpfSemPontoTraco = retiraPontosTracos(socio.getCpf());
-					socio.setCpf(cpfSemPontoTraco);	
-				}				
+					socio.setCpf(cpfSemPontoTraco);
+				}
 			}
 		}
 	}
@@ -140,5 +153,5 @@ public class Empresa extends Entidade {
 
 		return stringSemPontoTraco;
 	}
-	
+
 }

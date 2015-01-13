@@ -1,14 +1,20 @@
 package br.com.aceleradora.registrolivre.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 
-import br.com.aceleradora.registrolivre.dao.Entidade;
 import br.com.aceleradora.registrolivre.validador.annotations.CPFValido;
 
 @Entity
-@SequenceGenerator(initialValue = 1, allocationSize = 1, name = "geradorId", sequenceName = "socio_sequence")
-public class Socio extends Entidade {
+public class Socio{
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "geradorId")
+	@SequenceGenerator(initialValue = 1, allocationSize = 1, name = "geradorId", sequenceName = "socio_sequence")
+	private long id;
+	
 	private String nome;
 	@CPFValido
 	private String cpf;
@@ -26,6 +32,14 @@ public class Socio extends Entidade {
 		this.nome = nome;
 		this.cpf = cpf;
 		this.ativo = ativo;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	public String getNome() {
