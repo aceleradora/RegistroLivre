@@ -6,10 +6,10 @@ import br.com.aceleradora.registrolivre.dao.EmpresaDAO;
 import br.com.aceleradora.registrolivre.dao.IEmpresaDAO;
 import br.com.aceleradora.registrolivre.model.Empresa;
 import br.com.aceleradora.registrolivre.util.Arquivo;
-import br.com.aceleradora.registrolivre.util.CalendarTransformer;
+import br.com.aceleradora.registrolivre.util.CalendarTransformador;
 import br.com.aceleradora.registrolivre.util.ClienteCloudinary;
-import br.com.aceleradora.registrolivre.util.DataOrdenadaTransformer;
-import br.com.aceleradora.registrolivre.util.EnderecoTransformer;
+import br.com.aceleradora.registrolivre.util.DataOrdenadaTransformador;
+import br.com.aceleradora.registrolivre.util.EnderecoTransformador;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;
@@ -57,9 +57,9 @@ public class EmpresaController {
 							.include("endereco.logradouro")
 							.include("dataEmissaoDocumento")
 							.exclude("*")
-							.transform(new CalendarTransformer("yyyyMMdd"), "dataRegistro")
-							.transform(new DataOrdenadaTransformer("dataEmissaoOrdenada", "dd/MM/yyyy", "yyyyMMdd"), "dataEmissaoDocumento")
-							.transform(new EnderecoTransformer(), "endereco")
+							.transform(new CalendarTransformador("yyyyMMdd"), "dataRegistro")
+							.transform(new DataOrdenadaTransformador("dataEmissaoOrdenada", "dd/MM/yyyy", "yyyyMMdd"), "dataEmissaoDocumento")
+							.transform(new EnderecoTransformador(), "endereco")
 							.serialize(listaDeEmpresas));
 		}
 	}

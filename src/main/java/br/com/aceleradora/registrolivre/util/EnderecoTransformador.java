@@ -3,7 +3,7 @@ package br.com.aceleradora.registrolivre.util;
 import br.com.aceleradora.registrolivre.model.Endereco;
 import flexjson.transformer.AbstractTransformer;
 
-public class EnderecoTransformer extends AbstractTransformer {
+public class EnderecoTransformador extends AbstractTransformer {
 		
     public void transform(Object object) {
     	Endereco endereco = (Endereco) object;    	

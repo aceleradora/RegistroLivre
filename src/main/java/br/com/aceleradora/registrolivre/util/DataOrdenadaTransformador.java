@@ -6,12 +6,12 @@ import java.util.Date;
 
 import flexjson.transformer.AbstractTransformer;
 
-public class DataOrdenadaTransformer extends AbstractTransformer {
+public class DataOrdenadaTransformador extends AbstractTransformer {
 	private String dateFormat;
 	private String dateFormatNovo;
 	private String nomeNovo;
 
-	public DataOrdenadaTransformer(String nomeNovo, String dateFormat,
+	public DataOrdenadaTransformador(String nomeNovo, String dateFormat,
 			String dateFormatNovo) {
 		this.dateFormatNovo = dateFormatNovo;
 		this.dateFormat = dateFormat;

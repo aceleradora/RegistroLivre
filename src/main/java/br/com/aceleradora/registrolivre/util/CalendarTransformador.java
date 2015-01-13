@@ -5,12 +5,12 @@ import java.util.Calendar;
 
 import flexjson.transformer.AbstractTransformer;
 
-public class CalendarTransformer extends AbstractTransformer {
+public class CalendarTransformador extends AbstractTransformer {
 
 	private String dateFormat;
 	private ThreadLocal<SimpleDateFormat> formatter = new ThreadLocal<SimpleDateFormat>();
 
-	public CalendarTransformer(String dateFormat) {
+	public CalendarTransformador(String dateFormat) {
 		this.dateFormat = dateFormat;
 	}
 
