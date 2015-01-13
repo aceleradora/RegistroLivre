@@ -133,6 +133,7 @@ function adicionaSocioBuscaAvancada(){
 	$("#socios-lista-busca-avancada").append(htmlSocio);
 	$('.cpf').mask('000.000.000-00');
 	contSocios++;
+	validarBuscaAvancada();
 }
 
 function removeSocioBuscaAvancada(botaoFechar) {
