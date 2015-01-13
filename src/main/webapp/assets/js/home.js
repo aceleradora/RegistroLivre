@@ -6,6 +6,7 @@ $(document).ready(function() {
 	eventoAoDigitar();
 	buscaCidadeEstado();
 	rolaLinksAncoraDeFormaLenta();
+	validarBuscaAvancada();
 });
 
 function procura(busca) {	
@@ -117,7 +118,7 @@ function adicionaSocioBuscaAvancada(){
 						'<div class="col-lg-8">' +
 							'<div class="form-group">' +
 								'<label>Nome do sócio</label>' +
-								'<input type="text" class="form-control" name="empresa.socios[].nome"/>' +
+								'<input type="text" class="form-control nome-socio" name="empresa.socios[].nome"/>' +
 							'</div>' +
 						'</div>' +
 						'<div class="col-lg-4">' +
@@ -136,4 +137,54 @@ function adicionaSocioBuscaAvancada(){
 
 function removeSocioBuscaAvancada(botaoFechar) {
 	$(botaoFechar).parents(".socios-item-busca-avancada").remove();
+}
+
+function contaCamposPreenchidos(formulario){
+	var contador = 0;	
+	formulario.find("input[type='text']").each(function(){
+		if($(this).val().length != 0 && $(this).val() != ' '){
+			contador++;
+		}
+	});	
+	return contador;	
+}
+
+function habilita(botao){
+	botao.prop("disabled", false);
+}
+
+function desabilita(botao){
+	botao.prop("disabled", true);
+}
+
+function validarBuscaAvancada() {
+	var formulario = $("#pesquisa-avancada");
+	var camposDeTexto = formulario.find("input[type='text']");
+	var estados = $("#estado");	
+	var estadoSelecionado = estados.find(":selected");
+	var botao = $("#botao-pesquisa-avancada");
+		
+	camposDeTexto.each(function() {
+		$(this).keyup(function() {
+			estadoSelecionado = $("#estado").find(":selected");			
+			if($(this).val().length == 0){
+				if(contaCamposPreenchidos($("#pesquisa-avancada")) == 0 && estadoSelecionado.val() == ''){
+					desabilita(botao);
+				}else{
+					habilita(botao);
+				}				
+			}else{				
+				habilita(botao);
+			}			
+		});
+	});
+	
+	estados.change(function(){
+		console.log("Change: " + $(this).find(":selected").val());
+		if(contaCamposPreenchidos(formulario) == 0 && $(this).find(":selected").val() == ''){
+			desabilita(botao);
+		}else{
+			habilita(botao);
+		}				
+	});
 }

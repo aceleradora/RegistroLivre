@@ -72,7 +72,7 @@
 					<div class="panel-heading centralize">
 						<h4>Busca Avançada <span onclick="fechaBuscaAvancada()" class="pull-right cursor-pointer">&times;</span></h4>
 					</div>
-					<form class="form" name="pesquisaAvancada" action="buscaAvancada" method="POST" accept-charset="UTF-8,ISO-8859-1" >									
+					<form class="form" id="pesquisa-avancada" name="pesquisaAvancada" action="buscaAvancada" method="POST" accept-charset="UTF-8,ISO-8859-1" >									
 						<div class="panel-body">
 							<div class="form-group">
 								<label>CNPJ</label>
@@ -80,17 +80,17 @@
 							</div>
 							<div class="form-group">
 								<label>Nome Fantasia</label>
-								<input type="text" class="form-control" name="empresa.nomeFantasia"/>
+								<input type="text" id="nome-fantasia-busca-avancada" class="form-control" name="empresa.nomeFantasia"/>
 							</div>
 							<div class="form-group">
 								<label>Razão Social</label>
-								<input type="text" class="form-control" name="empresa.razaoSocial"/>
+								<input type="text" id="razao-social-busca-avancada" class="form-control" name="empresa.razaoSocial"/>
 							</div>
 							<div class="row">
 								<div class="col-lg-4">
 									<div class="form-group">
 										<label>Estado</label>
-										<input type="text" id="estado" class="form-control" name="empresa.endereco.estado"/>
+										<input type="text" id="estado" class="form-control" name="empresa.endereco.uf"/>
 									</div>
 								</div>
 								<div class="col-lg-8">
@@ -102,7 +102,7 @@
 							</div>
 							<div class="form-group">
 								<label>Logradouro</label>
-								<input type="text" class="form-control" name="empresa.endereco.logradouro"/>
+								<input type="text" id="logradouro" class="form-control" name="empresa.endereco.logradouro"/>
 							</div>
 							<div id="socios-lista-busca-avancada"class="row">
 															
@@ -113,7 +113,7 @@
 							</div>	
 						</div>
 						<div class="panel-footer">
-							<input type="submit" value="Buscar" class="btn btn-lg btn-primary pull-right margin-0-6"/>
+							<input type="submit" id="botao-pesquisa-avancada" value="Buscar" class="btn btn-lg btn-primary pull-right margin-0-6" disabled="true"/>
 							<input type="reset" value="Limpar" class="btn btn-default btn-lg pull-right margin-0-6"/>
 							<div style="clear:both"></div>
 						</div>
