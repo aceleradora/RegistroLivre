@@ -16,7 +16,6 @@ import br.com.caelum.vraptor.ioc.Component;
 
 @Component
 public class EmpresaDAO implements IEmpresaDAO{
-
 	private Session sessao;
 
 	public EmpresaDAO(Session sessao) {
@@ -172,15 +171,15 @@ public class EmpresaDAO implements IEmpresaDAO{
 		
 		if (empresa.getEndereco() != null) {
 			if (empresa.getEndereco().getCidade() != null) {
-				sqlPesquisa.append("lower(unaccent(empresa.cidade)) LIKE lower(unaccent(:cidade)) " + operador );
+				sqlPesquisa.append("lower(unaccent(empresa.endereco.cidade)) LIKE lower(unaccent(:cidade)) " + operador );
 			}
 
 			if (empresa.getEndereco().getUf() != null) {
-				sqlPesquisa.append("lower(unaccent(empresa.uf)) LIKE lower(unaccent(:uf)) " + operador );
+				sqlPesquisa.append("lower(unaccent(empresa.endereco.uf)) LIKE lower(unaccent(:uf)) " + operador );
 			}
 
 			if (empresa.getEndereco().getLogradouro() != null) {
-				sqlPesquisa.append("lower(unaccent(empresa.logradouro)) LIKE lower(unaccent(:logradouro)) " + operador );
+				sqlPesquisa.append("lower(unaccent(empresa.endereco.logradouro)) LIKE lower(unaccent(:logradouro)) " + operador );
 			}
 		}
 				
