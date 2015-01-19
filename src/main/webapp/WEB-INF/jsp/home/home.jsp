@@ -14,6 +14,7 @@
 	
 	<% //Manter charset utf-8 para funcionar a acentuação no auto completar %>
 	<script src="/assets/js/home.js" charset="utf-8"></script>
+	<script src="/assets/js/socios.js" charset="utf-8"></script>
 	<script type="text/javascript" src="http://cidades-estados-js.googlecode.com/files/cidades-estados-1.2-utf8.js"></script>
 	<script src="/assets/js/jquery.mask.min.js"></script>		
 	<script src="/assets/js/validacao-logica-cadastro.js"></script>		
@@ -108,7 +109,7 @@
 															
 							</div>
 							<div class="form-group centralize">
-								<button type="button" class="btn btn-default margin-0-6" onclick="adicionaSocioBuscaAvancada()"><span class="glyphicon glyphicon-plus-sign"></span> Pesquisar Sócio</button>
+								<button type="button" class="btn btn-default margin-0-6" onclick="RegistroLivre.Socios().adicionaBuscaAvancada()"><span class="glyphicon glyphicon-plus-sign"></span> Pesquisar Sócio</button>
 								<br>
 							</div>	
 						</div>

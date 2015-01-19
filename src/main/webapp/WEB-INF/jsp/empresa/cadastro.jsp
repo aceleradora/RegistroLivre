@@ -3,7 +3,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<!-- <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">-->
 <html lang="pt-br">
 
 <head>
@@ -21,8 +20,8 @@
 
 	<script type="text/javascript" src="http://cidades-estados-js.googlecode.com/files/cidades-estados-1.2-utf8.js"></script>
 	<script src="/assets/js/bootstrap-filestyle.js"></script>
-	<script src="/assets/js/cadastro.js" charset="utf-8"></script>
-	<script src="/assets/js/adiciona-socios.js" charset="utf-8"></script>
+	<script src="/assets/js/cadastro.js"></script>
+	<script src="/assets/js/socios.js" charset="utf-8"></script>
 	
 </head>
 <body>

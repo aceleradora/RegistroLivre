@@ -27,6 +27,22 @@ RegistroLivre.Socios = function Socios(){
 			'</div>' +
 		'</li>');
 	
+	var $templateBuscaAvancada = 
+		$('<div class="socios-item-busca-avancada">' +
+				'<div class="col-lg-8">' +
+					'<div class="form-group">' +
+						'<label>Nome do sócio</label>' +
+						'<input type="text" class="form-control nome-socio" name="empresa.socios[].nome"/>' +
+					'</div>' +
+				'</div>' +
+				'<div class="col-lg-4">' +
+					'<div class="form-group">' +
+						'<div onclick="removeSocioBuscaAvancada(this)" class="pull-right cursor-pointer"><span>&times;</span></div>' +
+						'<label>CPF</label>' +
+						'<input type="text" class="form-control cpf" name="empresa.socios[].cpf" placeholder="ex: 000.000.000-00"/>' +
+					'</div>' +
+				'</div>' +
+			'</div>');
 	
 	var adicionaSocio = function adicionaSocio(){
 		$template.find('.cpf').mask('000.000.000-00');
@@ -40,8 +56,15 @@ RegistroLivre.Socios = function Socios(){
 		adicionaSocio();
 	}
 	
+	var adicionaBuscaAvancada = function adicionaBuscaAvancada(){
+		$templateBuscaAvancada.find('.cpf').mask('000.000.000-00');
+		$("#socios-lista-busca-avancada").append($templateBuscaAvancada);
+		validarBuscaAvancada();
+	}
+	
 	return {
 		adicionaSocio: adicionaSocio,
-		adicionaSocioComDados: adicionaSocioComDados
+		adicionaSocioComDados: adicionaSocioComDados,
+		adicionaBuscaAvancada: adicionaBuscaAvancada
 	}
 }
