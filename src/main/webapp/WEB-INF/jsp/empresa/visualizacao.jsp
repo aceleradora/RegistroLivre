@@ -111,7 +111,7 @@
 										<dd>Nome: </dd>
 										<dd>${socio.nome}</dd>
 										<dd>CPF:</dd>
-										<span id="cpf" >${socio.cpf}</span>
+										<span class="cpf">${socio.cpf}</span>
 										<dd>
 											<c:if test="${socio.ativo == true}">
 												<span class="label label-success">Ativo</span>

@@ -15,7 +15,7 @@ var botaMascaraCnpj = function() {
 }
 
 var botaMascaraCpf = function() {
-	$('#cpf').mask('999.999.999-99');
+	$('.cpf').mask('999.999.999-99');
 }
 
 $(document).ready(function() {	
