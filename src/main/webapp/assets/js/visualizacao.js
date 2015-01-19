@@ -1,13 +1,7 @@
-/**
- * 
- */
-var mensagemFadeOut = function() {
-		
+var mensagemFadeOut = function() {		
 	$('#close').click(function(){
-		
 		$('.alert').fadeOut();
 	});
-	
 }
 
 var botaMascaraCnpj = function() {

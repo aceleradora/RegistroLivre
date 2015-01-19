@@ -9,12 +9,12 @@
 	<jsp:include page="/WEB-INF/jsp/includes/assets.jsp" />
 	
 	<jsp:include page="/WEB-INF/jsp/includes/datatable.jsp" />
-	<script src="../assets/js/listagem.js" charset="utf-8"></script>
+	<script src="../assets/js/datatable.js" charset="utf-8"></script>
 
 	<script type="text/javascript">
 		<c:set var="resultadoBusca" value="${resultadoBusca}"/>
 		$(document).ready(function() {
-			criaDatatable(<c:out value="${resultadoBusca}" escapeXml='false' />);
+			datatable.cria(<c:out value="${resultadoBusca}" escapeXml='false' />);
 			$("#close-info-busca-aproximada").click(function(){
 				$("#info-busca-aproximada").fadeOut();
 			});

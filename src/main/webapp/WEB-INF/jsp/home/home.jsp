@@ -102,7 +102,7 @@
 								<label>Logradouro</label>
 								<input type="text" id="logradouro" class="form-control" name="empresa.endereco.logradouro"/>
 							</div>
-							<div id="socios-lista-busca-avancada"class="row">
+							<div id="divSocios"class="row">
 															
 							</div>
 							<div class="form-group centralize">

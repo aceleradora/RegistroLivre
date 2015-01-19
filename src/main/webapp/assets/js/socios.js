@@ -59,9 +59,7 @@ RegistroLivre.Socios = function Socios(){
 	}
 	
 	var adicionaBuscaAvancada = function adicionaBuscaAvancada(){
-		var $templateBuscaAvancada = $(templateBuscaAvancada); 
-		$templateBuscaAvancada.find('.cpf').mask('000.000.000-00');
-		$("#socios-lista-busca-avancada").append($templateBuscaAvancada);
+		adiciona($(templateBuscaAvancada));
 		validarBuscaAvancada();
 	}
 	
