@@ -22,7 +22,7 @@
 	<script src="/assets/js/bootstrap/bootstrap-filestyle.js"></script>
 	<script src="/assets/js/cadastro.js"></script>
 	<script src="/assets/js/socios.js" charset="utf-8"></script>
-	
+	<script src="/assets/js/cidadeEstado.js"></script>	
 </head>
 <body>
 	<jsp:include page="/WEB-INF/jsp/includes/cabecalho.jsp" />

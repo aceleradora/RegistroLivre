@@ -53,4 +53,4 @@ RegistroLivre.DataTable = function DataTable(){
 	}
 }
 
-var datatable = RegistroLivre.DataTable();
+var datatable = new RegistroLivre.DataTable();

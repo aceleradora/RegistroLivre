@@ -1,12 +1,3 @@
-var buscaCidadeEstado = function() {
-	new dgCidadesEstados({
-		estado : document.getElementById('estado'),
-		cidade : document.getElementById('cidade'),
-		
-		change: true
-	});
-};
-
 var valorInicialCNPJ;
 var valorInicialNomeFantasia;
 var salvando = false;
@@ -44,6 +35,4 @@ $(document).ready(function() {
 	});	
 	
 	$(":file").filestyle({buttonText: "Escolher arquivo"});	
-
-	buscaCidadeEstado();
 });

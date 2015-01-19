@@ -1,60 +1,10 @@
-var resultados = [];
-
 $(document).ready(function() {
 	retiraCampoBuscaNavbar();
-	criaAutocomplete();
-	eventoAoDigitar();
-	buscaCidadeEstado();
+//	criaAutocomplete();
+	eventoDesbloquearBotaoPesquisar();
 	rolaLinksAncoraDeFormaLenta();
 	validarBuscaAvancada();
 });
-
-function procura(busca) {	
-	$.ajax({
-		dataType: "json",
-		url : "/empresa/autoCompletar",
-		type : "GET",
-		data : {
-			"textoDigitado" : busca
-		}
-	}).done(function(dados) {
-		resultados = $.merge(resultados, dados.list);
-		$.unique(resultados);
-	});
-}
-
-function criaAutocomplete(){
-	$("#campoPesquisado").autocomplete({
-		source: function(request, response) {
-			var matcher = new RegExp( $.ui.autocomplete.escapeRegex( request.term ), "i" );
-	        response( $.grep( resultados, function( value ) {
-	          value = value.label || value.value || value;
-	          return matcher.test( value ) || matcher.test( normaliza( value ) );		          
-	        }));
-	    },
-		select: function (event, ui) {
-		    var category = ui.item.value.split(' ').join('+');
-		    var url = "/busca?busca=" + category;
-
-		    event.preventDefault();
-		    window.location.href = url;
-		}
-	});
-}
-
-function eventoAoDigitar(){
-	$("#campoPesquisado").keyup(function() {
-		var busca = $("#campoPesquisado").val();
-		if (busca.length >= 2) {			
-			$("#btn-submit").prop('disabled', false);
-		} else {
-			$("#btn-submit").prop('disabled', true);
-		}
-		if (busca.length == 2) {			
-			procura(busca);
-		}
-	});
-}
 
 function retiraCampoBuscaNavbar(){
 	var tagRegistroLivre = $("#registrolivre");
@@ -77,16 +27,6 @@ function fechaAlertaNenhumRegistro() {
 	$(".alert").fadeOut();
 }
 
-function buscaCidadeEstado() {
-	new dgCidadesEstados({
-		estado : document.getElementById('estado'),
-		cidade : document.getElementById('cidade'),
-		
-		change: true
-
-	});
-}
-
 function mostraBuscaAvancada() {
 	$("#busca-avancada").fadeIn();
 }
@@ -94,6 +34,18 @@ function mostraBuscaAvancada() {
 function fechaBuscaAvancada() {
 	$("#busca-avancada").fadeOut();
 }
+
+function eventoDesbloquearBotaoPesquisar(){
+	var busca = $("#campoPesquisado").val();
+	$("#campoPesquisado").keyup(function() {
+		if (busca.length >= 2) {                        
+			$("#btn-submit").prop('disabled', false);
+		} else {
+			$("#btn-submit").prop('disabled', true);
+		}
+	});
+}
+
 
 function rolaLinksAncoraDeFormaLenta() {
   $('a[href*=#]:not([href=#])').click(function() {

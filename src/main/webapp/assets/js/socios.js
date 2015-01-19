@@ -75,4 +75,4 @@ RegistroLivre.Socios = function Socios(){
 	}
 }
 
-var socios = RegistroLivre.Socios();
+var socios = new RegistroLivre.Socios();
