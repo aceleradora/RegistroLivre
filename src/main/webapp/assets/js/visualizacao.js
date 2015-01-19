@@ -13,7 +13,7 @@ var botaMascaraCpf = function() {
 }
 
 $(document).ready(function() {	
-	mensagemFadeOut();	
-	botaMascaraCnpj();	
-	botaMascaraCpf();	
+	mensagemFadeOut();
+	botaMascaraCnpj();
+	botaMascaraCpf();
 });
