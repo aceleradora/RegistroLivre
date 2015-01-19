@@ -4,19 +4,16 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>	
+	<jsp:include page="/WEB-INF/jsp/includes/assets.jsp" />
 	<title>Registro Livre - A verdade está lá fora!</title>	
 	<meta charset="iso-8859-1" />
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
-	<link href="/assets/css/bootstrap/css/bootstrap.css" rel="stylesheet">	
-	<link href="/assets/css/main.css" rel="stylesheet">	
-	<script src="http://code.jquery.com/jquery-1.10.2.js"> </script>
 	<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 	
 	<% //Manter charset utf-8 para funcionar a acentuação no auto completar %>
 	<script src="/assets/js/home.js" charset="utf-8"></script>
 	<script src="/assets/js/socios.js" charset="utf-8"></script>
 	<script type="text/javascript" src="http://cidades-estados-js.googlecode.com/files/cidades-estados-1.2-utf8.js"></script>
-	<script src="/assets/js/jquery.mask.min.js"></script>		
 	<script src="/assets/js/validacao-logica-cadastro.js"></script>		
 	<script src="/assets/js/validacao-visual-cadastro.js"></script>
 </head>
@@ -109,7 +106,7 @@
 															
 							</div>
 							<div class="form-group centralize">
-								<button type="button" class="btn btn-default margin-0-6" onclick="RegistroLivre.Socios().adicionaBuscaAvancada()"><span class="glyphicon glyphicon-plus-sign"></span> Pesquisar Sócio</button>
+								<button type="button" class="btn btn-default margin-0-6" onclick="socios.adicionaBuscaAvancada()"><span class="glyphicon glyphicon-plus-sign"></span> Pesquisar Sócio</button>
 								<br>
 							</div>	
 						</div>

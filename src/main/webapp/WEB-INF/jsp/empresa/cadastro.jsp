@@ -160,13 +160,13 @@
 								
 								<div id="divSocios">
 									<c:forEach items="${empresa.socios}" var="socio">
-										<script> RegistroLivre.Socios().adicionaSocioComDados("${socio.nome}", "${socio.cpf}", "${socio.ativo}"); </script>
+										<script>socios.adicionaComDados("${socio.nome}", "${socio.cpf}", "${socio.ativo}"); </script>
 									</c:forEach>								
 								</div>
 								
 								
 								<div class="form-group centralize">
-									<button type="button" class="btn btn-default margin-0-6" onclick="RegistroLivre.Socios().adicionaSocio()"><span class="glyphicon glyphicon-plus-sign"></span> Adicionar Sócio</button>
+									<button type="button" class="btn btn-default margin-0-6" onclick="socios.adiciona()"><span class="glyphicon glyphicon-plus-sign"></span> Adicionar Sócio</button>
 									<br>
 								</div>								
 								

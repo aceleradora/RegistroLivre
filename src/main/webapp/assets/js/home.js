@@ -110,10 +110,6 @@ function rolaLinksAncoraDeFormaLenta() {
   });
 }
 
-function removeSocioBuscaAvancada(botaoFechar) {
-	$(botaoFechar).parents(".socios-item-busca-avancada").remove();
-}
-
 function contaCamposPreenchidos(formulario){
 	var contador = 0;	
 	formulario.find("input[type='text']").each(function(){
