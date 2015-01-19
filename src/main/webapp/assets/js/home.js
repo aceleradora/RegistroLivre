@@ -28,9 +28,9 @@ function eventoDesbloquearBotaoPesquisar(){
 	var busca = $("#campoPesquisado").val();
 	$("#campoPesquisado").keyup(function() {
 		if (busca.length >= 2) {                        
-			$("#btn-submit").prop('disabled', false);
-		} else {
-			$("#btn-submit").prop('disabled', true);
+			habilita($("#btn-submit"));
+		} else {                        
+			desabilita($("#btn-submit"));
 		}
 	});
 }
