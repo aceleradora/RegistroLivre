@@ -1,6 +1,7 @@
 function criaDatatable(dados){
 	var tabela = $('#tabelaListagem').dataTable({
 		data : dados,
+		stateSave: true,
 		columns : [ { data : 'nomeFantasia'	}, 
 		            { data : 'endereco.logradouro' },
 		            { data : 'dataEmissaoDocumento' },
