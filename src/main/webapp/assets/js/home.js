@@ -25,11 +25,11 @@ function fechaBuscaAvancada() {
 }
 
 function eventoDesbloquearBotaoPesquisar(){
-	var busca = $("#campoPesquisado").val();
 	$("#campoPesquisado").keyup(function() {
-		if (busca.length >= 2) {                        
+		var busca = $("#campoPesquisado").val();
+		if (busca.length >= 2) {                  
 			habilita($("#btn-submit"));
-		} else {                        
+		} else {                                   
 			desabilita($("#btn-submit"));
 		}
 	});
