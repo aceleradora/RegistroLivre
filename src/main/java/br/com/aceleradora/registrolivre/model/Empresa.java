@@ -159,13 +159,13 @@ public class Empresa {
 
 		if (socios.size() > 0) {
 			for (Socio socio : socios) {
-				if (socio.getCpf() == null || socio.getNome() == null) {
+				if (socio.getCpf() != null || socio.getNome() != null) {
 					temSocios = true;
 				}
 			}
 		}
 		
-		if (!temSocios
+		if ((!temSocios)
 			&& cnpj == null
 			&& nomeFantasia == null
 			&& razaoSocial == null
