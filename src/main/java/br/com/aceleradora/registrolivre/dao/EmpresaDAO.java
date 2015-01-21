@@ -40,43 +40,69 @@ public class EmpresaDAO implements IEmpresaDAO{
 		if (textoParaBusca == null) {
 			return new ArrayList<Empresa>();
 		}
+		
 		Calendar dataParaPesquisa = Calendar.getInstance();
-
-		String sqlQuery = "SELECT DISTINCT empresa "
-				+ "FROM Empresa AS empresa "
-				+ "LEFT JOIN empresa.socios AS socio "
-				+ "WHERE empresa.cnpj LIKE :busca "
-				+ "OR lower(unaccent(empresa.nomeFantasia)) LIKE lower(unaccent(:busca)) "
-				+ "OR lower(unaccent(empresa.razaoSocial)) LIKE lower(unaccent(:busca)) "
-				+ "OR lower(unaccent(empresa.endereco.logradouro)) LIKE lower(unaccent(:busca)) "
-				+ "OR lower(unaccent(empresa.endereco.cidade)) LIKE lower(unaccent(:busca)) "
-				+ "OR lower(unaccent(empresa.endereco.uf)) LIKE lower(unaccent(:busca)) "
-				+ "OR empresa.endereco.cep LIKE :busca "
-				+ "OR lower(unaccent(socio.nome)) LIKE lower(unaccent(:busca)) "
-				+ "OR socio.cpf LIKE :busca ";
+		
+		String [] palavrasChave = textoParaBusca.split(" ");
+		
+		ConstrutorHQL hql = new ConstrutorHQL();		
+		
+		hql.select(ConstrutorHQL.DISTINCT + "empresa");
+		hql.from("Empresa");
+		hql.as("empresa");
+		hql.leftJoin("empresa.socios");
+		hql.as("socio");
+		hql.where();		
+		
+		String parametro;
+		for (int i =0; i<palavrasChave.length;i++) {
+			parametro = hql.lower(hql.unaccent(":busca" + i));			
+			
+			hql.like("empresa.cnpj", parametro);
+			hql.or();
+			hql.like(hql.lower(hql.unaccent("empresa.nomeFantasia")), parametro);
+			hql.or();
+			hql.like(hql.lower(hql.unaccent("empresa.razaoSocial")), parametro);
+			hql.or();
+			hql.like(hql.lower(hql.unaccent("empresa.endereco.logradouro")), parametro);
+			hql.or();
+			hql.like(hql.lower(hql.unaccent("empresa.endereco.cidade")), parametro);
+			hql.or();
+			hql.like(hql.lower("empresa.endereco.uf"), parametro);
+			hql.or();
+			hql.like("empresa.endereco.cep", parametro);
+			hql.or();
+			hql.like(hql.lower(hql.unaccent("socio.nome")), parametro);
+			hql.or();
+			hql.like("socio.cpf", parametro);
+			
+			if(i< palavrasChave.length -1 ){
+				hql.or();
+			}
+			
+			hql.adicionarParametro("busca"+i, "%" + palavrasChave[i] + "%");
+		}
 
 		try {
 			String textoParaBuscaData = textoParaBusca.replaceAll("-", "/");
 			SimpleDateFormat formatoData = new SimpleDateFormat("dd/MM/yyyy");
 
 			dataParaPesquisa.setTime(formatoData.parse(textoParaBuscaData));
-			sqlQuery += "OR empresa.dataCriacao = :data ";
+			hql.or();
+			hql.equals("empresa.dataCriacao", ":data");
+			
 		} catch (ParseException e) {
 			dataParaPesquisa = null;
 			textoParaBusca = textoParaBusca.replaceAll("[./-]", "");
 		}
 
-		sqlQuery += " ORDER BY empresa.dataRegistro DESC ";
-
-		Query query = sessao.createQuery(sqlQuery);
-
-		query.setParameter("busca", "%" + textoParaBusca + "%");
+		hql.orderBy("empresa.dataRegistro", ConstrutorHQL.DESC);
 
 		if (dataParaPesquisa != null) {
-			query.setParameter("data", dataParaPesquisa);
-		}
+			hql.adicionarParametro(":data", dataParaPesquisa);
+		}				
 
-		return query.list();
+		return hql.construir(sessao).list();
 	}
 
 	@Override
@@ -86,7 +112,6 @@ public class EmpresaDAO implements IEmpresaDAO{
 				.setProjection(Projections.rowCount()).list().get(0);
 
 		return quantidadeDeRegistros;
-
 	}
 
 	@Override
@@ -108,27 +133,39 @@ public class EmpresaDAO implements IEmpresaDAO{
 	}
 
 	private List<String> pesquisaPorNomeDosSocios(String textoDigitado) {
-		Query pesquisa = sessao
-				.createQuery("SELECT DISTINCT socio.nome "
-						+ " FROM Empresa AS empresa "
-						+ " LEFT JOIN empresa.socios AS socio "
-						+ " WHERE lower(unaccent(socio.nome)) LIKE lower(unaccent(:busca))");
-
-		pesquisa.setParameter("busca", "%" + textoDigitado + "%");
-
-		return pesquisa.list();
+		ConstrutorHQL hql = new ConstrutorHQL();
+		
+		hql.select(ConstrutorHQL.DISTINCT + "socio.nome");
+		hql.from("Empresa");
+		hql.as("empresa");
+		hql.leftJoin("empresa.socios");
+		hql.as("socio");
+		hql.where();
+		hql.like(hql.lower(hql.unaccent("socio.nome")), hql.lower(hql.unaccent(":busca")));
+		
+		hql.adicionarParametro("busca", hql.circundarCom(ConstrutorHQL.ANY, textoDigitado));		
+		
+		return hql.construir(sessao).list();
 	}
 
 	private List<String> pesquisaPorCampo(String textoDigitado,
 			String campoParaProcurar) {
-		Query pesquisa = sessao.createQuery("SELECT DISTINCT empresa."
-				+ campoParaProcurar + " FROM Empresa AS empresa "
-				+ " WHERE lower(unaccent(empresa." + campoParaProcurar
-				+ ")) LIKE lower(unaccent(:busca)) ");
+		
+		String campoPesquisa = "empresa." + campoParaProcurar;
+		
+		ConstrutorHQL hql = new ConstrutorHQL();
+		
+		hql.select(ConstrutorHQL.DISTINCT + campoPesquisa);
+		hql.from("Empresa");
+		hql.as("empresa");
+		
+		hql.where();
+		
+		hql.like(hql.lower(hql.unaccent(campoPesquisa)), hql.lower(hql.unaccent(":busca")));		
+		
+		hql.adicionarParametro("busca", hql.circundarCom(ConstrutorHQL.ANY, textoDigitado));
 
-		pesquisa.setParameter("busca", "%" + textoDigitado + "%");
-
-		return pesquisa.list();
+		return hql.construir(sessao).list();
 	}
 
 	private Query montarPesquisaAvancada(Empresa empresa, String operador) {
@@ -226,13 +263,13 @@ public class EmpresaDAO implements IEmpresaDAO{
 
 	@Override
 	public List<Empresa> pesquisaAvancadaEspecifica(Empresa empresa) {
-		Query pesquisa = montarPesquisaAvancada(empresa, OperadoresSQL.AND);
+		Query pesquisa = montarPesquisaAvancada(empresa, OperadoresSQL.AND);		
 		return pesquisa.list();
 	}
 
 	@Override
 	public List<Empresa> pesquisaAvancadaAproximada(Empresa empresa) {
-		Query pesquisa = montarPesquisaAvancada(empresa, OperadoresSQL.OR);
+		Query pesquisa = montarPesquisaAvancada(empresa, OperadoresSQL.OR);		
 		return pesquisa.list();
 	}
 }
