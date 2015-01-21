@@ -1,13 +1,7 @@
-/**
- * 
- */
-var mensagemFadeOut = function() {
-		
+var mensagemFadeOut = function() {		
 	$('#close').click(function(){
-		
 		$('.alert').fadeOut();
 	});
-	
 }
 
 var botaMascaraCnpj = function() {
@@ -19,7 +13,7 @@ var botaMascaraCpf = function() {
 }
 
 $(document).ready(function() {	
-	mensagemFadeOut();	
-	botaMascaraCnpj();	
-	botaMascaraCpf();	
+	mensagemFadeOut();
+	botaMascaraCnpj();
+	botaMascaraCpf();
 });

@@ -1,13 +1,3 @@
-var buscaCidadeEstado = function() {
-	new dgCidadesEstados({
-		estado : document.getElementById('estado'),
-		cidade : document.getElementById('cidade'),
-		
-		change: true
-
-	});
-}
-
 var valorInicialCNPJ;
 var valorInicialNomeFantasia;
 var salvando = false;
@@ -15,7 +5,7 @@ var salvando = false;
 var valorInicialDosCampos = function(){
 	valorInicialCNPJ = $("#cnpj").val();
 	valorInicialNomeFantasia = $("#nomeFantasia").val();
-}
+};
 
 var temCampoMudado = function(){	
 	var valorCNPJ = $("#cnpj").val().replace(/[^\d]+/g, '');
@@ -28,7 +18,7 @@ var temCampoMudado = function(){
 		return true;
 	
 	return false;
-}
+};
 
 
 $(document).ready(function() {	
@@ -45,7 +35,4 @@ $(document).ready(function() {
 	});	
 	
 	$(":file").filestyle({buttonText: "Escolher arquivo"});	
-
-	buscaCidadeEstado();
-	
 });

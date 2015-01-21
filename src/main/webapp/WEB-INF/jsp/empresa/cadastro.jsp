@@ -3,7 +3,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<!-- <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">-->
 <html lang="pt-br">
 
 <head>
@@ -20,10 +19,10 @@
 	<jsp:include page="/WEB-INF/jsp/includes/assets.jsp" />	
 
 	<script type="text/javascript" src="http://cidades-estados-js.googlecode.com/files/cidades-estados-1.2-utf8.js"></script>
-	<script src="/assets/js/bootstrap-filestyle.js"></script>
-	<script src="/assets/js/cadastro.js" charset="utf-8"></script>
-	<script src="/assets/js/adiciona-socios.js" charset="utf-8"></script>
-	
+	<script src="/assets/js/bootstrap/bootstrap-filestyle.js"></script>
+	<script src="/assets/js/cadastro.js"></script>
+	<script src="/assets/js/socios.js" charset="utf-8"></script>
+	<script src="/assets/js/cidadeEstado.js"></script>	
 </head>
 <body>
 	<jsp:include page="/WEB-INF/jsp/includes/cabecalho.jsp" />
@@ -161,13 +160,13 @@
 								
 								<div id="divSocios">
 									<c:forEach items="${empresa.socios}" var="socio">
-										<script> adicionaSociosCadastrados("${socio.nome}", "${socio.cpf}", "${socio.ativo}"); </script>
+										<script>socios.adicionaComDados("${socio.nome}", "${socio.cpf}", "${socio.ativo}"); </script>
 									</c:forEach>								
 								</div>
 								
 								
 								<div class="form-group centralize">
-									<button type="button" class="btn btn-default margin-0-6" onclick="adicionaSocio()"><span class="glyphicon glyphicon-plus-sign"></span> Adicionar Sócio</button>
+									<button type="button" class="btn btn-default margin-0-6" onclick="socios.adiciona()"><span class="glyphicon glyphicon-plus-sign"></span> Adicionar Sócio</button>
 									<br>
 								</div>								
 								
@@ -190,7 +189,6 @@
 			</div> <!-- row -->
 		</div> <!-- container -->
 		
-	<script src="/assets/js/jquery.mask.min.js"></script>		
 	<script src="/assets/js/validacao-logica-cadastro.js"></script>		
 	<script src="/assets/js/validacao-visual-cadastro.js"></script>
 		
