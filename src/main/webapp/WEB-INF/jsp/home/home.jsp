@@ -53,7 +53,7 @@
 						<h1 id="registrolivre">Registro Livre</h1>
 					</div>
 					<div class="panel-body">
-						<form class="form" name="pesquisa" action="/busca" method="GET">
+						<form class="form" name="pesquisa" action="/busca" method="GET" accept-charset="UTF-8, ISO-8859-1">
 							<div class="form-group ui-widget">
 								<input class="form-control" type="text" name="busca" id="campoPesquisado" placeholder="Busque por uma empresa aqui" />
 							</div>
