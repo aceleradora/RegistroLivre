@@ -92,11 +92,10 @@ public class EmpresaController {
 			result.include("buscaVazia", true);
 			result.redirectTo(HomeController.class).home();
 		} else {
-			List<Empresa> listaDeResultadosDeEmpresas = daoEmpresa.pesquisaAvancadaEspecifica(empresa);
-
+			List<Empresa> listaDeResultadosDeEmpresas = daoEmpresa.pesquisaAvancadaEspecifica(empresa);			
 			if (listaDeResultadosDeEmpresas.size() == 0) {
 				result.include("buscaAproximada", true);
-				listaDeResultadosDeEmpresas = daoEmpresa.pesquisaAvancadaAproximada(empresa);
+				listaDeResultadosDeEmpresas = daoEmpresa.pesquisaAvancadaAproximada(empresa);				
 			}
 
 			result.redirectTo(this).listagem(listaDeResultadosDeEmpresas);
