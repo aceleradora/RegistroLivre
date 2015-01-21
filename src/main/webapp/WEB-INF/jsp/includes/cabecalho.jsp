@@ -18,7 +18,7 @@
 				<li><a href="/sobre"><span class="glyphicon glyphicon-user"></span> Quem somos</span></a>
 				<li><a href="/contato"><span class="glyphicon glyphicon-envelope"></span> Contato</a></li>
 			</ul>			
-			<form id="inputaBuscaNavbar" class="form navbar-form navbar-right " role="search" name="pesquisa" action="/busca" method="GET">
+			<form id="inputaBuscaNavbar" class="form navbar-form navbar-right " role="search" name="pesquisa" action="/busca" method="GET" accept-charset="UTF-8">
 				<div class="form-group">
 					<input class="form-control" type="text" name="busca" id="campoPesquisadoNavbar" placeholder="Buscar empresa"/>
 				</div>
