@@ -141,6 +141,14 @@
 					</div>
 					
 					<div class="col-md-2 avatar">
+						<img src="../assets/img/amigoDoPOAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
+						<div>
+							<h4 class="nome">Leandro Demori</h4>
+							<p class="tipo">Idealizador</p>
+						</div>			
+					</div>	
+					
+					<div class="col-md-2 avatar">
 						<img src="../assets/img/xandiAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
 						<div>
 							<h4 class="nome">Lucas Beier</h4>
@@ -227,14 +235,7 @@
 							<p class="tipo">Desenvolvedor</p>
 						</div>			
 					</div>		
-					
-					<div class="col-md-2 avatar">
-						<img src="../assets/img/amigoDoPOAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
-						<div>
-							<h4 class="nome">Amigo P.O.</h4>
-							<p class="tipo">Idealizador</p>
-						</div>			
-					</div>								
+															
 
 				</div>
 			</div>
