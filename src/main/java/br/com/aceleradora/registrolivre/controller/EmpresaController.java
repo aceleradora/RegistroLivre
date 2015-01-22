@@ -196,5 +196,12 @@ public class EmpresaController {
 
 		result.use(Results.json()).from(empresas).serialize();
 	}
+	
+	@Get()
+	public void autoCompletarSocio(String textoDigitado) {
+		List<String> socios = daoEmpresa.getParaAutoCompletarSocio(textoDigitado);
+
+		result.use(Results.json()).from(socios).serialize();
+	}
 
 }
