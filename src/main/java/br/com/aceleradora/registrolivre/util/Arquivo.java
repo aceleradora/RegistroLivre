@@ -44,7 +44,7 @@ public class Arquivo {
 				.normalize(nome, Normalizer.Form.NFD);
 		Pattern pattern = Pattern.compile("\\p{InCombiningDiacriticalMarks}+");
 		nomeNormalizado = pattern.matcher(nomeNormalizado).replaceAll("");
-		nomeNormalizado = nomeNormalizado.replaceAll("[.\\-/]", "");
+		nomeNormalizado = nomeNormalizado.replaceAll("[.\\-/&;]", "");
 		return nomeNormalizado;
 	}
 
