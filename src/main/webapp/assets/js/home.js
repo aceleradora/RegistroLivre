@@ -1,7 +1,9 @@
 $(document).ready(function() {
+	bindEvents();
+	
 	retiraCampoBuscaNavbar();
 	eventoDesbloquearBotaoPesquisar();
-	rolaLinksAncoraDeFormaLenta();
+	
 	validarBuscaAvancada();
 });
 
@@ -35,20 +37,21 @@ function eventoDesbloquearBotaoPesquisar(){
 	});
 }
 
-
-function rolaLinksAncoraDeFormaLenta() {
-  $('a[href*=#]:not([href=#])').click(function() {
+var rolaLinks = function rolaLinks() {
     if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-      var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-      if (target.length) {
-        $('html,body').animate({
-          scrollTop: target.offset().top
-        }, 800);
-        return false;
+        var target = $(this.hash);
+        target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+        if (target.length) {
+          $('html,body').animate({
+            scrollTop: target.offset().top
+          }, 800);
+          return false;
+        }
       }
-    }
-  });
+    };
+
+function bindEvents() {
+  $('a[href*=#]:not([href=#])').click(rolaLinks);
 }
 
 function contaCamposPreenchidos(formulario){

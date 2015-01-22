@@ -32,8 +32,8 @@
 							data-dismiss="alert">
 							<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
 						</button>
-						<strong>Não há nenhum registro de empresa para a busca
-							efetuada.</strong>
+						<span id="error">Não há nenhum registro de empresa para a busca
+							efetuada.</span>
 					</div>
 				</c:if>
 				
@@ -53,12 +53,12 @@
 						<h1 id="registrolivre">Registro Livre</h1>
 					</div>
 					<div class="panel-body">
-						<form class="form" name="pesquisa" action="/busca" method="GET">
+						<form class="form" id="form-busca" name="pesquisa" action="/busca" method="GET">
 							<div class="form-group ui-widget">
 								<input class="form-control" type="text" name="busca" id="campoPesquisado" placeholder="Busque por uma empresa aqui" />
 							</div>
 							<div class="pull-left padding-30-0-0-0">
-								<i class="padding-0-6"><a href="#busca-avancada" onclick="mostraBuscaAvancada()">Busca Avançada</a></i>
+								<i class="padding-0-6"><a id="busca-avancada-link-ancora" href="#busca-avancada" onclick="mostraBuscaAvancada()">Busca Avançada</a></i>
 							</div>
 							<div class="form-group">
 								<input type="submit" id="btn-submit" class="btn btn-lg btn-primary pull-right margin-0-6" value="Buscar" disabled="true"/>
