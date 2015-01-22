@@ -37,7 +37,7 @@
 					
 					
 					<div class="col-md-2 avatar">
-						<img src="../assets/img/user.png" class="img-responsive img-circle"/>
+						<img src="../assets/img/xandiAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
 						<div>
 							<h4 class="nome">Alejandro Olchik</h4>
 							<p class="tipo">Scrum Master</p>
@@ -45,7 +45,7 @@
 					</div>
 					
 					<div class="col-md-2 avatar">
-						<img src="../assets/img/user.png" class="img-responsive img-circle"/>
+						<img src="../assets/img/xandiAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
 						<div>
 							<h4 class="nome">Alexandre Morales</h4>
 							<p class="tipo">Desenvolvedor</p>
@@ -53,7 +53,7 @@
 					</div>
 
 					<div class="col-md-2 avatar">
-						<img src="../assets/img/user.png" class="img-responsive img-circle"/>
+						<img src="../assets/img/anaAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
 						<div>
 							<h4 class="nome">Ana Daros</h4>
 							<p class="tipo">Desenvolvedora</p>
@@ -61,7 +61,7 @@
 					</div>
 					
 					<div class="col-md-2 avatar">
-						<img src="../assets/img/user.png" class="img-responsive img-circle"/>
+						<img src="../assets/img/bernardoAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
 						<div>
 							<h4 class="nome">Bernardo Estácio</h4>
 							<p class="tipo">Mentor</p>
@@ -69,7 +69,7 @@
 					</div>		
 	
 					<div class="col-md-2 avatar">
-						<img src="../assets/img/user.png" class="img-responsive img-circle" />
+						<img src="../assets/img/carisaAjustado.jpg" class="img-responsive img-circle imagemAjustado" />
 						<div>
 							<h4 class="nome">Carisa Rubim</h4>
 							<p class="tipo">Desenvolvedora</p>
@@ -77,7 +77,7 @@
 					</div>
 
 					<div class="col-md-2 avatar">
-						<img src="../assets/img/user.png" class="img-responsive img-circle"/>
+						<img src="../assets/img/evertonAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
 						<div>
 							<h4 class="nome">Everton Goulart</h4>
 							<p class="tipo">Desenvolvedor</p>
@@ -85,15 +85,15 @@
 					</div>
 				
 					<div class="col-md-2 avatar">
-						<img src="../assets/img/user.png" class="img-responsive img-circle"/>
+						<img src="../assets/img/henriqueAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
 						<div>
-							<h4 class="nome">Hernique Braga</h4>
+							<h4 class="nome">Henrique Braga</h4>
 							<p class="tipo">Desenvolvedor</p>
 						</div>			
 					</div>
 					
 					<div class="col-md-2 avatar">
-						<img src="../assets/img/user.png" class="img-responsive img-circle"/>
+						<img src="../assets/img/xandiAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
 						<div>
 							<h4 class="nome">Jefferson Stachelski</h4>
 							<p class="tipo">Mentor</p>
@@ -101,7 +101,7 @@
 					</div>
 					
 					<div class="col-md-2 avatar">
-						<img src="../assets/img/user.png" class="img-responsive img-circle"/>
+						<img src="../assets/img/joaoAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
 						<div>
 							<h4 class="nome">João H. S. Pinto</h4>
 							<p class="tipo">Mentor</p>
@@ -109,7 +109,7 @@
 					</div>		
 					
 					<div class="col-md-2 avatar">
-						<img src="../assets/img/user.png" class="img-responsive img-circle"/>
+						<img src="../assets/img/johnAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
 						<div>
 							<h4 class="nome">Jonatas Salgado</h4>
 							<p class="tipo">Desenvolvedor</p>
@@ -117,7 +117,7 @@
 					</div>
 					
 					<div class="col-md-2 avatar">
-						<img src="../assets/img/user.png" class="img-responsive img-circle"/>
+						<img src="../assets/img/xandiAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
 						<div>
 							<h4 class="nome">José Zimermann</h4>
 							<p class="tipo">Mentor</p>
@@ -125,7 +125,7 @@
 					</div>
 					
 					<div class="col-md-2 avatar">
-						<img src="../assets/img/user.png" class="img-responsive img-circle"/>
+						<img src="../assets/img/josiAjustada.jpg" class="img-responsive img-circle imagemAjustado"/>
 						<div>
 							<h4 class="nome">Joseane Wichrowski</h4>
 							<p class="tipo">Desenvolvedora</p>
@@ -133,7 +133,7 @@
 					</div>
 					
 					<div class="col-md-2 avatar">
-						<img src="../assets/img/user.png" class="img-responsive img-circle"/>
+						<img src="../assets/img/xandiAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
 						<div>
 							<h4 class="nome">Julio Farah</h4>
 							<p class="tipo">Mentor</p>
@@ -141,7 +141,7 @@
 					</div>
 					
 					<div class="col-md-2 avatar">
-						<img src="../assets/img/user.png" class="img-responsive img-circle"/>
+						<img src="../assets/img/xandiAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
 						<div>
 							<h4 class="nome">Lucas Beier</h4>
 							<p class="tipo">Mentor</p>
@@ -149,7 +149,7 @@
 					</div>
 								
 					<div class="col-md-2 avatar">
-						<img src="../assets/img/user.png" class="img-responsive img-circle"/>
+						<img src="../assets/img/jordaniAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
 						<div>
 							<h4 class="nome">Lucas Jordani</h4>
 							<p class="tipo">Desenvolvedor</p>
@@ -157,7 +157,7 @@
 					</div>						
 					
 					<div class="col-md-2 avatar">
-						<img src="../assets/img/user.png" class="img-responsive img-circle"/>
+						<img src="../assets/img/rangelAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
 						<div>
 							<h4 class="nome">Lucas Rangel</h4>
 							<p class="tipo">Desenvolvedor</p>
@@ -165,7 +165,7 @@
 					</div>
 					
 					<div class="col-md-2 avatar">
-						<img src="../assets/img/user.png" class="img-responsive img-circle"/>
+						<img src="../assets/img/violaAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
 						<div>
 							<h4 class="nome">Lucas Viola</h4>
 							<p class="tipo">Desenvolvedor</p>
@@ -173,7 +173,7 @@
 					</div>
 					
 					<div class="col-md-2 avatar">
-						<img src="../assets/img/user.png" class="img-responsive img-circle"/>
+						<img src="../assets/img/marceloAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
 						<div>
 							<h4 class="nome">Marcelo Träsel</h4>
 							<p class="tipo">P.O.</p>
@@ -181,7 +181,7 @@
 					</div>
 
 					<div class="col-md-2 avatar">
-						<img src="../assets/img/user.png" class="img-responsive img-circle"/>
+						<img src="../assets/img/marcusAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
 						<div>
 							<h4 class="nome">Marcus Rodrigues</h4>
 							<p class="tipo">Desenvolvedor</p>
@@ -189,7 +189,7 @@
 					</div>
 					
 					<div class="col-md-2 avatar">
-						<img src="../assets/img/user.png" class="img-responsive img-circle"/>
+						<img src="../assets/img/patiAjustada.jpg" class="img-responsive img-circle imagemAjustado"/>
 						<div>
 							<h4 class="nome">Patricia Durand</h4>
 							<p class="tipo">Mentora</p>
@@ -197,7 +197,7 @@
 					</div>
 					
 					<div class="col-md-2 avatar">
-						<img src="../assets/img/user.png" class="img-responsive img-circle"/>
+						<img src="../assets/img/samanthaAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
 						<div>
 							<h4 class="nome">Samantha Rosa</h4>
 							<p class="tipo">Mentora</p>
@@ -205,7 +205,7 @@
 					</div>
 					
 					<div class="col-md-2 avatar">
-						<img src="../assets/img/user.png" class="img-responsive img-circle"/>
+						<img src="../assets/img/taniaAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
 						<div>
 							<h4 class="nome">Tania Silva</h4>
 							<p class="tipo">Mentora</p>
@@ -213,7 +213,7 @@
 					</div>
 					
 					<div class="col-md-2 avatar">
-						<img src="../assets/img/user.png" class="img-responsive img-circle"/>
+						<img src="../assets/img/thiagoAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
 						<div>
 							<h4 class="nome">Thiago Xavier</h4>
 							<p class="tipo">Mentor</p>
@@ -221,12 +221,20 @@
 					</div>
 					
 					<div class="col-md-2 avatar">
-						<img src="../assets/img/user.png" class="img-responsive img-circle"/>
+						<img src="../assets/img/yasserAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
 						<div>
 							<h4 class="nome">Yasser Rachid</h4>
 							<p class="tipo">Desenvolvedor</p>
 						</div>			
-					</div>									
+					</div>		
+					
+					<div class="col-md-2 avatar">
+						<img src="../assets/img/xandiAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
+						<div>
+							<h4 class="nome">Amigo P.O.</h4>
+							<p class="tipo">Avulso</p>
+						</div>			
+					</div>								
 
 				</div>
 			</div>

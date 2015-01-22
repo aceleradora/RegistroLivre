@@ -6356,4 +6356,7 @@ button.close {
     display: none !important;
   }
 }
+.imagemAjustado{	
+	height: 112px;
+}
 /*# sourceMappingURL=bootstrap.css.map */
