@@ -48,6 +48,7 @@ RegistroLivre.Socios = function Socios(){
 		var $template = templateExistente || $(template);
 		$template.find('.cpf').mask('000.000.000-00');
 		$("#divSocios").append($template);
+		autocompletarsocio.cria();
 	}
 		
 	var adicionaComDados = function adicionaComDados(nome, cpf, ativo){
