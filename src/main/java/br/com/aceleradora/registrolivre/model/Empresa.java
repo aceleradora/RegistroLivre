@@ -16,6 +16,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
 import javax.validation.constraints.Pattern;
+import org.apache.commons.lang.StringEscapeUtils;
 
 import br.com.aceleradora.registrolivre.validador.annotations.CNPJValido;
 import br.com.aceleradora.registrolivre.validador.annotations.NomeFantasiaValido;
@@ -62,7 +63,7 @@ public class Empresa {
 	}
 
 	public void setCnpj(String cnpj) {
-		this.cnpj = cnpj;
+		this.cnpj = StringEscapeUtils.escapeHtml(cnpj);
 	}
 
 	public String getRazaoSocial() {
@@ -70,7 +71,7 @@ public class Empresa {
 	}
 
 	public void setRazaoSocial(String razaoSocial) {
-		this.razaoSocial = razaoSocial;
+		this.razaoSocial = StringEscapeUtils.escapeHtml(razaoSocial);
 	}
 
 	public String getNomeFantasia() {
@@ -78,7 +79,7 @@ public class Empresa {
 	}
 
 	public void setNomeFantasia(String nomeFantasia) {
-		this.nomeFantasia = nomeFantasia;
+		this.nomeFantasia = StringEscapeUtils.escapeHtml(nomeFantasia);
 	}
 
 	public Calendar getDataCriacao() {
@@ -164,17 +165,14 @@ public class Empresa {
 				}
 			}
 		}
-		
-		if ((!temSocios)
-			&& cnpj == null
-			&& nomeFantasia == null
-			&& razaoSocial == null
-			&& endereco.getUf() == null
-			&& endereco.getCidade() == null
-			&& endereco.getLogradouro() == null) {
-				return false;
+
+		if ((!temSocios) && cnpj == null && nomeFantasia == null
+				&& razaoSocial == null && endereco.getUf() == null
+				&& endereco.getCidade() == null
+				&& endereco.getLogradouro() == null) {
+			return false;
 		}
-		
+
 		return true;
 	}
 }
