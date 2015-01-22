@@ -6,6 +6,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 
+import org.apache.commons.lang.StringEscapeUtils;
+
 import br.com.aceleradora.registrolivre.validador.annotations.CPFValido;
 
 @Entity
@@ -24,13 +26,13 @@ public class Socio{
 	}
 
 	public Socio(String nome, String cpf) {
-		this.nome = nome;
-		this.cpf = cpf;
+		this.nome = StringEscapeUtils.escapeHtml(nome);
+		this.cpf = StringEscapeUtils.escapeHtml(cpf);
 	}
 
 	public Socio(String nome, String cpf, boolean ativo) {
-		this.nome = nome;
-		this.cpf = cpf;
+		this.nome = StringEscapeUtils.escapeHtml(nome);
+		this.cpf = StringEscapeUtils.escapeHtml(cpf);
 		this.ativo = ativo;
 	}
 
@@ -51,7 +53,7 @@ public class Socio{
 	}
 
 	public void setCpf(String cpf) {
-		this.cpf = cpf;
+		this.cpf = StringEscapeUtils.escapeHtml(cpf);
 	}
 
 	public boolean getAtivo() {
