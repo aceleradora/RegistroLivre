@@ -37,7 +37,7 @@
 					
 					
 					<div class="col-md-2 avatar">
-						<img src="../assets/img/xandiAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
+						<img src="../assets/img/alejAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
 						<div>
 							<h4 class="nome">Alejandro Olchik</h4>
 							<p class="tipo">Scrum Master</p>
@@ -133,7 +133,7 @@
 					</div>
 					
 					<div class="col-md-2 avatar">
-						<img src="../assets/img/xandiAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
+						<img src="../assets/img/julioAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
 						<div>
 							<h4 class="nome">Julio Farah</h4>
 							<p class="tipo">Mentor</p>
@@ -149,7 +149,7 @@
 					</div>	
 					
 					<div class="col-md-2 avatar">
-						<img src="../assets/img/xandiAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
+						<img src="../assets/img/lucasAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
 						<div>
 							<h4 class="nome">Lucas Beier</h4>
 							<p class="tipo">Mentor</p>
