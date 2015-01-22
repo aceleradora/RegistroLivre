@@ -38,7 +38,7 @@ public class EmpresaController {
 	public Empresa cadastro(Empresa empresa) {
 		empresa = daoEmpresa.getById(empresa.getId());
 		result.include("editar", true);
-		result.include("nomeArquivoAntigo", empresa.getUrl().substring(61));
+		result.include("nomeArquivoAntigo", empresa.getUrl());
 		return empresa;
 	}
 
@@ -92,11 +92,13 @@ public class EmpresaController {
 			result.include("buscaVazia", true);
 			result.redirectTo(HomeController.class).home();
 		} else {
-			List<Empresa> listaDeResultadosDeEmpresas = daoEmpresa.pesquisaAvancadaEspecifica(empresa);
+			List<Empresa> listaDeResultadosDeEmpresas = daoEmpresa
+					.pesquisaAvancadaEspecifica(empresa);
 
 			if (listaDeResultadosDeEmpresas.size() == 0) {
 				result.include("buscaAproximada", true);
-				listaDeResultadosDeEmpresas = daoEmpresa.pesquisaAvancadaAproximada(empresa);
+				listaDeResultadosDeEmpresas = daoEmpresa
+						.pesquisaAvancadaAproximada(empresa);
 			}
 
 			result.redirectTo(this).listagem(listaDeResultadosDeEmpresas);
