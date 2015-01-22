@@ -3,6 +3,8 @@ package br.com.aceleradora.registrolivre.model;
 import javax.persistence.Embeddable;
 import javax.validation.constraints.Pattern;
 
+import org.apache.commons.lang.StringEscapeUtils;
+
 @Embeddable
 public class Endereco {
 	private String logradouro;
@@ -17,37 +19,37 @@ public class Endereco {
 		return logradouro;
 	}
 	public void setLogradouro(String logradouro) {
-		this.logradouro = logradouro;
+		this.logradouro = StringEscapeUtils.escapeHtml(logradouro);
 	}
 	public String getNumero() {
 		return numero;
 	}
 	public void setNumero(String numero) {
-		this.numero = numero;
+		this.numero = StringEscapeUtils.escapeHtml(numero);
 	}
 	public String getComplemento() {
 		return complemento;
 	}
 	public void setComplemento(String complemento) {
-		this.complemento = complemento;
+		this.complemento = StringEscapeUtils.escapeHtml(complemento);
 	}
 	public String getCidade() {
 		return cidade;
 	}
 	public void setCidade(String cidade) {
-		this.cidade = cidade;
+		this.cidade = StringEscapeUtils.escapeHtml(cidade);
 	}
 	public String getUf() {
 		return uf;
 	}
 	public void setUf(String uf) {
-		this.uf = uf;
+		this.uf = StringEscapeUtils.escapeHtml(uf);
 	}
 	public String getCep() {
 		return cep;
 	}
 	public void setCep(String cep) {
-		this.cep = cep;
+		this.cep = StringEscapeUtils.escapeHtml(cep);
 	}
 	
 	public boolean verificaCep(){
