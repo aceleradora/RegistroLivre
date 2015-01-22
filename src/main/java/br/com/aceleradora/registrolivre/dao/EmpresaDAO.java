@@ -106,6 +106,15 @@ public class EmpresaDAO implements IEmpresaDAO{
 
 		return retorno;
 	}
+	
+
+	public List<String> getParaAutoCompletarSocio(String textoDigitado) {
+		List<String> retorno = new ArrayList<String>();
+
+		retorno.addAll(pesquisaPorNomeDosSocios(textoDigitado));
+
+		return retorno;
+	}
 
 	private List<String> pesquisaPorNomeDosSocios(String textoDigitado) {
 		Query pesquisa = sessao
