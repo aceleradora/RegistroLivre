@@ -17,6 +17,8 @@ public interface IEmpresaDAO {
 	public void salva(Empresa empresa);
 
 	public List<String> getParaAutoCompletar(String textoDigitado);
+	
+	public List<String> getParaAutoCompletarSocio(String textoDigitado);
 
 	public List<Empresa> pesquisaAvancadaEspecifica(Empresa empresa);
 
