@@ -17,12 +17,15 @@
 	</c:choose>
 
 	<jsp:include page="/WEB-INF/jsp/includes/assets.jsp" />	
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+	<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 
 	<script type="text/javascript" src="http://cidades-estados-js.googlecode.com/files/cidades-estados-1.2-utf8.js"></script>
 	<script src="/assets/js/bootstrap/bootstrap-filestyle.js"></script>
 	<script src="/assets/js/cadastro.js"></script>
 	<script src="/assets/js/socios.js" charset="utf-8"></script>
-	<script src="/assets/js/cidadeEstado.js"></script>	
+	<script src="/assets/js/cidadeEstado.js"></script>
+	<script src="/assets/js/autocompletarsocio.js"></script>
 </head>
 <body>
 	<jsp:include page="/WEB-INF/jsp/includes/cabecalho.jsp" />
@@ -158,7 +161,7 @@
 																
 								</div>
 								
-								<div id="divSocios">
+								<div id="divSocios" class="form-group ui-widget">
 									<c:forEach items="${empresa.socios}" var="socio">
 										<script>socios.adicionaComDados("${socio.nome}", "${socio.cpf}", "${socio.ativo}"); </script>
 									</c:forEach>								
