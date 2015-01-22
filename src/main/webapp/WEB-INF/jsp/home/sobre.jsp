@@ -176,7 +176,7 @@
 						<img src="../assets/img/marceloAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
 						<div>
 							<h4 class="nome">Marcelo Träsel</h4>
-							<p class="tipo">P.O.</p>
+							<p class="tipo">Idealizador</p>
 						</div>			
 					</div>
 
@@ -229,10 +229,10 @@
 					</div>		
 					
 					<div class="col-md-2 avatar">
-						<img src="../assets/img/xandiAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
+						<img src="../assets/img/amigoDoPOAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
 						<div>
 							<h4 class="nome">Amigo P.O.</h4>
-							<p class="tipo">Avulso</p>
+							<p class="tipo">Idealizador</p>
 						</div>			
 					</div>								
 
