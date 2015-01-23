@@ -133,17 +133,18 @@
 											<input id="estado" class="form-control" name="empresa.endereco.uf" value="${empresa.endereco.uf}" />
 										</div>
 									</div>
-									<div class="col-lg-9">
+									<div class="col-lg-6">
 										<div class="form-group">
 											<label class="control-label">Cidade</label>
 											<input id="cidade" class="form-control" name="empresa.endereco.cidade" value="${empresa.endereco.cidade}" />
 										</div>
 									</div>
-								</div>
-								
-								<div class="form-group">
-									<label class="control-label">CEP</label>
-									<input id="cep" class="form-control" name="empresa.endereco.cep" type="text" value="${empresa.endereco.cep}" placeholder="000000-000"/>
+									<div class="col-lg-3">
+										<div class="form-group">
+											<label class="control-label">CEP</label>
+											<input id="cep" class="form-control" name="empresa.endereco.cep" type="text" value="${empresa.endereco.cep}" placeholder="000000-000"/>
+										</div>
+									</div>
 								</div>
 								
 								<div class="row">
