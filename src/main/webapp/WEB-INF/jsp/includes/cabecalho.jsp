@@ -12,7 +12,7 @@
 		<div class="collapse navbar-collapse"
 			id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav btn-borders-navbar">
-				<li><a href="/"><span class="glyphicon glyphicon-home"></span> Início</a></li>
+				<li><a href="/"><span class="glyphicon glyphicon-search"></span> Busca</a></li>
 				<li><a href="/cadastro"><span class="glyphicon glyphicon-cloud-upload"></span> Cadastrar Empresa</a></li>				
 				<li><a href="/listagem"><span class="glyphicon glyphicon-th-list"></span> Listar Empresas</a></li>				
 				<li><a href="/sobre"><span class="glyphicon glyphicon-user"></span> Quem somos</span></a>
