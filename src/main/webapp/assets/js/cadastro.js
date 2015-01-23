@@ -28,6 +28,11 @@ $(document).ready(function() {
 		salvando=true;
 	});
 	
+	$("#adiciona-socios").on("click", function(){
+		socios.adiciona();
+		animacoes.rolaLinksAncoraDeFormaLenta($(".socio-group").last());
+	});
+	
 	$(window).on('beforeunload ',function() {		
 		
 		if(temCampoMudado() && salvando==false)
