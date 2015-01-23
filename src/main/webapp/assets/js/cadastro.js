@@ -20,6 +20,12 @@ var temCampoMudado = function(){
 	return false;
 };
 
+var mensagemFadeOut = function() {		
+	$('.close').click(function(){
+		$(this).parents('.alert').fadeOut();
+	});
+}
+
 var associarEventos= function(){
 	$("#btn-submit").on("click", function(){
 		salvando=true;
@@ -41,6 +47,7 @@ var associarEventos= function(){
 $(document).ready(function() {	
 	valorInicialDosCampos();		
 	associarEventos();
+	mensagemFadeOut();
 	
 	$(":file").filestyle({buttonText: "Escolher arquivo"});	
 });

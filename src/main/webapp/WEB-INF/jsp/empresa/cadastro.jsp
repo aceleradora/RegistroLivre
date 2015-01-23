@@ -35,12 +35,18 @@
 				
 				<c:forEach items="${errors}" var="error">
 	    			<div class="alert alert-danger alert-dismissible" role="alert">
+					  	<button type="button" class="close" data-dismiss="alert">
+				  			<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+				  		</button>
   						${error.message}
 					</div>
 				</c:forEach>
 				
 				<c:if test="${erro != null}">
 					<div class="alert alert-danger alert-dismissible" role="alert">
+					  	<button type="button" class="close" data-dismiss="alert">
+				  			<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+				  		</button>
 						${erro}
 					</div>
 				</c:if>
