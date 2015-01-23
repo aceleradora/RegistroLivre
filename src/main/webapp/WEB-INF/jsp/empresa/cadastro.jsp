@@ -169,7 +169,7 @@
 								
 								
 								<div class="form-group centralize">
-									<button type="button" class="btn btn-default margin-0-6" onclick="socios.adiciona()"><span class="glyphicon glyphicon-plus-sign"></span> Adicionar Sócio</button>
+									<button type="button" id="adiciona-socios" class="btn btn-default margin-0-6"><span class="glyphicon glyphicon-plus-sign"></span> Adicionar Sócio</button>
 									<br>
 								</div>								
 								
