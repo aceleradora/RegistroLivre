@@ -1,18 +1,19 @@
 $(document).ready(function() {
-	bindEvents();
+	associarEventos();
 	
 	retiraCampoBuscaNavbar();
 	eventoDesbloquearBotaoPesquisar();
-	validarBuscaAvancada();
-	
-	$("#abrir-busca-avancada").click(function(e){
-		e.preventDefault();		
-		
-		mostraBuscaAvancada();
-		animacoes.rolaLinksAncoraDeFormaLenta($("#busca-avancada"));		
-	});
-	
+	validarBuscaAvancada();	
 });
+
+function associarEventos() {
+	$("#abrir-busca-avancada").on("click",function(e) {
+		e.preventDefault();
+
+		mostraBuscaAvancada();
+		animacoes.rolaLinksAncoraDeFormaLenta($("#busca-avancada"));
+	});
+}
 
 function retiraCampoBuscaNavbar() {
 	var tagRegistroLivre = $("#registrolivre");
