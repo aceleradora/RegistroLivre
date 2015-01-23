@@ -20,10 +20,7 @@ var temCampoMudado = function(){
 	return false;
 };
 
-
-$(document).ready(function() {	
-	valorInicialDosCampos();
-	
+var associarEventos= function(){
 	$("#btn-submit").on("click", function(){
 		salvando=true;
 	});
@@ -37,7 +34,13 @@ $(document).ready(function() {
 		
 		if(temCampoMudado() && salvando==false)
 			return 'Existem campos preenchidos no formulário.';
-	});	
+	});
+}
+
+
+$(document).ready(function() {	
+	valorInicialDosCampos();		
+	associarEventos();
 	
 	$(":file").filestyle({buttonText: "Escolher arquivo"});	
 });
