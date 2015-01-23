@@ -140,7 +140,7 @@ public class EmpresaController {
 	private void salvar(Empresa empresa, UploadedFile arquivo, boolean alteracao) {
 
 		empresa.retiraPontosTracosBarrasCnpjECpf();
-		if (empresa.cnpjJaExistente(daoEmpresa.getTodosCNPJ())) {
+		if (empresa.cnpjJaExistente(daoEmpresa.getTodosCNPJ()) && !alteracao) {
 			result.include("erro",
 					"CNPJ Já Existente!");
 			result.include(empresa);
