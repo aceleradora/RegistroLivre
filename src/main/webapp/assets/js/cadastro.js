@@ -27,6 +27,7 @@ var mensagemFadeOut = function() {
 }
 
 var associarEventos= function(){
+	
 	$("#btn-submit").on("click", function(){
 		salvando=true;
 	});
