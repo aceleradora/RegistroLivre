@@ -50,4 +50,28 @@ public class EmpresaTest {
 		assertThat(empresa.getSocios().get(0).getCpf(), is(cpfSemPontoBarraPonto));
 		
 	}
+	
+	@Test
+	public void quandoChamarOMetodoCnpjJaExistenteMandandoUmaListaVaiRetornarVerdadeSeOCnpjDaEmpresaExistirNaLista(){
+		String cnpj = "56863298000118";
+		empresa.setCnpj(cnpj);		
+		List<String> listaDeCnpj = new ArrayList<String>();
+		listaDeCnpj.add(cnpj);
+		
+		boolean result = empresa.cnpjJaExistente(listaDeCnpj);
+
+		assertThat(result, is(true));		
+	}
+	
+	@Test
+	public void quandoChamarOMetodoCnpjJaExistenteMandandoUmaListaVaiRetornarFalsoSeOCnpjDaEmpresaNaoExistirNaLista(){
+		String cnpj = "56863298000118";
+		empresa.setCnpj("34792367000107");		
+		List<String> listaDeCnpj = new ArrayList<String>();
+		listaDeCnpj.add(cnpj);
+		
+		boolean result = empresa.cnpjJaExistente(listaDeCnpj);
+
+		assertThat(result, is(false));		
+	}
 }
