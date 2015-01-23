@@ -29,6 +29,12 @@ public class EmpresaDAO implements IEmpresaDAO{
 	}
 
 	@Override
+	public List<String> getTodosCNPJ() {
+		return sessao.createQuery("SELECT DISTINCT empresa.cnpj FROM Empresa AS empresa")
+				.list();
+	}
+
+	@Override
 	public Empresa getById(long id) {
 		Empresa empresa = (Empresa) sessao.get(Empresa.class, id);
 

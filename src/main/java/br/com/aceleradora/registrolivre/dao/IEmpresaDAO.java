@@ -8,6 +8,8 @@ public interface IEmpresaDAO {
 
 	public List<Empresa> getTodas();
 
+	public List<String> getTodosCNPJ();
+
 	public Empresa getById(long id);
 
 	public List<Empresa> pesquisa(String textoParaBusca);

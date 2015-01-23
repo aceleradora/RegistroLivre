@@ -112,10 +112,10 @@ public class EmpresaController {
 
 	@Post("/empresa/cadastrar/")
 	public void cadastrar(Empresa empresa, UploadedFile arquivo) {
-		empresa.setUrl(arquivo.getFileName());
-
 		validar(empresa);
 		validator.onErrorRedirectTo(this).cadastro();
+
+		empresa.setUrl(arquivo.getFileName());
 
 		salvar(empresa, arquivo, false);
 	}
@@ -140,25 +140,32 @@ public class EmpresaController {
 	private void salvar(Empresa empresa, UploadedFile arquivo, boolean alteracao) {
 
 		empresa.retiraPontosTracosBarrasCnpjECpf();
+		if (empresa.cnpjJaExistente(daoEmpresa.getTodosCNPJ())) {
+			result.include("erro",
+					"CNPJ Já Existente!");
+			result.include(empresa);
+			result.redirectTo(this).cadastro();
+		} else {
 
-		if (arquivo != null) {
+			if (arquivo != null) {
 
-			ClienteCloudinary clienteCloudinary = criaSessaoCloudnary(empresa,
-					arquivo);
+				ClienteCloudinary clienteCloudinary = criaSessaoCloudnary(
+						empresa, arquivo);
 
-			if (alteracao) {
-				atualizaArquivo(empresa, clienteCloudinary);
-			} else {
-				uploadArquivo(empresa, clienteCloudinary);
+				if (alteracao) {
+					atualizaArquivo(empresa, clienteCloudinary);
+				} else {
+					uploadArquivo(empresa, clienteCloudinary);
+				}
 			}
+
+			daoEmpresa.salva(empresa);
+			String mensagem = (alteracao) ? "Atualização realizada com sucesso!"
+					: "Cadastro realizado com sucesso!";
+
+			result.include("mensagem", mensagem);
+			result.redirectTo(this).visualizacao(empresa);
 		}
-
-		daoEmpresa.salva(empresa);
-		String mensagem = (alteracao) ? "Atualização realizada com sucesso!"
-				: "Cadastro realizado com sucesso!";
-
-		result.include("mensagem", mensagem);
-		result.redirectTo(this).visualizacao(empresa);
 	}
 
 	private ClienteCloudinary criaSessaoCloudnary(final Empresa empresa,
@@ -177,6 +184,7 @@ public class EmpresaController {
 		} else {
 			result.include("erro",
 					"Erro ao salvar arquivo, por favor tente novamente!");
+			result.include(empresa);
 			result.redirectTo(this).cadastro();
 		}
 	}
@@ -188,7 +196,7 @@ public class EmpresaController {
 		} else {
 			result.include("erro",
 					"Erro ao atualizar arquivo, por favor tente novamente!");
-			result.redirectTo(this).cadastro();
+			result.redirectTo(this).cadastro(empresa);
 		}
 	}
 
@@ -198,10 +206,11 @@ public class EmpresaController {
 
 		result.use(Results.json()).from(empresas).serialize();
 	}
-	
+
 	@Get()
 	public void autoCompletarSocio(String textoDigitado) {
-		List<String> socios = daoEmpresa.getParaAutoCompletarSocio(textoDigitado);
+		List<String> socios = daoEmpresa
+				.getParaAutoCompletarSocio(textoDigitado);
 
 		result.use(Results.json()).from(socios).serialize();
 	}

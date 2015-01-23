@@ -16,6 +16,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
 import javax.validation.constraints.Pattern;
+
 import org.apache.commons.lang.StringEscapeUtils;
 
 import br.com.aceleradora.registrolivre.validador.annotations.CNPJValido;
@@ -174,5 +175,9 @@ public class Empresa {
 		}
 
 		return true;
+	}
+	
+	public boolean cnpjJaExistente(List<String> listaDeCnpj){
+		return listaDeCnpj.contains(getCnpj());
 	}
 }
