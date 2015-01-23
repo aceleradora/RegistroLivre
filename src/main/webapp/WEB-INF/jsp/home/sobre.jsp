@@ -93,7 +93,7 @@
 					</div>
 					
 					<div class="col-md-2 avatar">
-						<img src="../assets/img/xandiAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
+						<img src="../assets/img/user.png" class="img-responsive img-circle imagemAjustado"/>
 						<div>
 							<h4 class="nome">Jefferson Stachelski</h4>
 							<p class="tipo">Mentor</p>
@@ -117,7 +117,7 @@
 					</div>
 					
 					<div class="col-md-2 avatar">
-						<img src="../assets/img/xandiAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
+						<img src="../assets/img/user.png" class="img-responsive img-circle imagemAjustado"/>
 						<div>
 							<h4 class="nome">José Zimermann</h4>
 							<p class="tipo">Mentor</p>
@@ -144,7 +144,7 @@
 						<img src="../assets/img/amigoDoPOAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
 						<div>
 							<h4 class="nome">Leandro Demori</h4>
-							<p class="tipo">Idealizador</p>
+							<p class="tipo">Coordenador</p>
 						</div>			
 					</div>	
 					
@@ -184,7 +184,7 @@
 						<img src="../assets/img/marceloAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
 						<div>
 							<h4 class="nome">Marcelo Träsel</h4>
-							<p class="tipo">Idealizador</p>
+							<p class="tipo">Coordenador</p>
 						</div>			
 					</div>
 
