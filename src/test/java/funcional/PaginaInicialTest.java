@@ -1,50 +1,63 @@
 package funcional;
 
+import java.io.File;
+
 import org.fluentlenium.adapter.FluentTest;
 import org.fluentlenium.core.annotation.Page;
 import org.junit.Ignore;
 import org.junit.Test;
+
+import static org.fest.assertions.Assertions.assertThat;
+import static org.junit.Assert.*;
+
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
-public class PaginaInicialTest extends FluentTest{
+public class PaginaInicialTest extends FluentTest {
+//	private static final String URL_PAGE = "http://localhost:8080";
+	protected static String path;
+	
+	static {
+		path = new File("").getAbsolutePath() + "/src/main/resources";
+		System.setProperty("webdriver.chrome.driver", path + "/chromedriver");
+		System.setProperty("chromeDriver", "/usr/local/bin/chromedriver");
+	}
 
-	
-	public  WebDriver driver = new HtmlUnitDriver();
-	
-	
 	@Page
-	public PaginaInicial paginaInicial;
-	
+	private PaginaInicial paginaInicial = new PaginaInicial();
+
+	public WebDriver driver = new ChromeDriver(DesiredCapabilities.chrome());
 	
 	@Override
 	public WebDriver getDefaultDriver() {
 		return driver;
 	}
 	
-	@Test
-	public void testaSePaginaExiste() throws Exception {
-		goTo(paginaInicial);
-	}
-	
-	
-	@Ignore //Não conseguimos testar devido ao onKeyUp do botão. Só conseguimos tirando o disabled=false no HTML
-	@Test
-	public void deveBuscarEmpresaExistente() throws Exception {
-		goTo(paginaInicial);
-		paginaInicial.preencheEEnviaFormDeBusca("Larah");
-	}
-
 	@Ignore
 	@Test
-	public void deveAbrirABuscaAvancada() throws Exception {
-		
+	public void deveEntrarNaPagina() throws Exception {
 		goTo(paginaInicial);
-		
-		paginaInicial.abreBuscaAvancada();
 	}
+
+
+
+	 @Test
+	 public void deveBuscarEmpresaExistente() throws Exception {
+		goTo(paginaInicial);
+	 	paginaInicial.preencheEEnviaFormDeBusca("Larah");
+	 	
+	 	assertAt(paginaInicial);
+	 
+	 }
 	
+
+	 @Test
+	 public void deveAbrirEABuscaAvancada() throws Exception {
 	
+		 goTo(paginaInicial);
 	
-	
+		 paginaInicial.abreBuscaAvancada();
+
+	 }
 }
