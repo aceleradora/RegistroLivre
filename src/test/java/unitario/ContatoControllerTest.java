@@ -37,17 +37,6 @@ public class ContatoControllerTest {
 		controller = new ContatoController(result);
 
 	}
-
-	@Ignore
-	@Test
-	public void quandoUsuarioNaoPreencheNomeDeveRetornarMensagemDeErro() {
-		formDeEmail = new Email(null, remetente, assunto, mensagem);
-		
-		controller.enviar(formDeEmail);
-		
-		verify(emissorDeEmail).enviar(formDeEmail);
-		verify(result).include("erro", "Por favor preencha todos os campos!");
-	}
 	
 	@Test
 	public void quandoUsuarioPreencheTodosOsCamposCorretamenteRetornaTrue() throws Exception {

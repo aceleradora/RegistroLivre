@@ -83,7 +83,7 @@ public class EmpresaTest {
 		empresa.setNomeFantasia(nomeFantasia);
 		boolean antigo = true;
 		
-		String esperado = "Data do Registro Antigo: " + empresa.getDataRegistro() + 
+		String esperado = "Data do Registro Antigo: " + empresa.formataDataRegistro() + 
 								"\nCNPJ: " + cnpj + "\nNome Fantasia: " + nomeFantasia ; 
 		String result = empresa.trazDadosDaEmpresa(antigo);
 	

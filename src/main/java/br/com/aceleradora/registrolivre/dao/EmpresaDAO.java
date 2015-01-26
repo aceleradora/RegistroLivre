@@ -250,4 +250,9 @@ public class EmpresaDAO implements IEmpresaDAO{
 		Query pesquisa = montarPesquisaAvancada(empresa, OperadoresSQL.OR);
 		return pesquisa.list();
 	}
+
+	@Override
+	public void limpaSessao(){
+		this.sessao.clear();
+	}
 }

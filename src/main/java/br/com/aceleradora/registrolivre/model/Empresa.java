@@ -1,5 +1,6 @@
 package br.com.aceleradora.registrolivre.model;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -183,38 +184,67 @@ public class Empresa {
 
 	public String trazDadosDaEmpresa(boolean antigo) {
 		String dados = "";
-		if(antigo)
-			dados += "Data do Registro Antigo: " + this.dataRegistro;
-		else
-			dados += "Data do Registro Novo: " + this.dataRegistro;
+		
+		String data = formataDataRegistro();
+		
+		if(antigo){
+			dados += "Data do Registro Antigo: " + data + "\n";
+		} else {
+			dados += "Data do Registro Novo: " + data + "\n";
+		}
 		
 		dados += "\nCNPJ: " + this.cnpj;
 		dados += "\nNome Fantasia: " + this.nomeFantasia;
-		if(this.razaoSocial != null)
-			dados += "\nRazão Social: " + this.razaoSocial;
-		if(this.dataCriacao != null)
+		
+		if(this.razaoSocial != null){
+			dados += "\nRazão Social: " + this.razaoSocial; 
+		}
+		if(this.dataCriacao != null){
 			dados += "\nData Criação: " + this.dataCriacao;
-		if(this.dataEmissaoDocumento != null)
+		}
+		if(this.dataEmissaoDocumento != null){
 			dados += "\nData Emissão do Documento: " + this.dataEmissaoDocumento;
-		if(this.dataEmissaoDocumento != null)
+		}
+		if(this.dataEmissaoDocumento != null){
 			dados += "\nData Emissão do Documento: " + this.dataEmissaoDocumento;
-		if(this.url != null)
+		}
+		if(this.url != null){
 			dados += "\nNome do Documento: " + this.url.substring(61);
+		}
 		if(this.endereco != null){
-			if(this.endereco.getLogradouro() != null)
+			if(this.endereco.getLogradouro() != null){
 				dados += "\nLogradouro: " + this.endereco.getLogradouro();
-			if(this.endereco.getComplemento() != null)
+			}
+			if(this.endereco.getComplemento() != null){
 				dados += "\nComplemento: " + this.endereco.getComplemento();
-			if(this.endereco.getNumero() != null)
+			}
+			if(this.endereco.getNumero() != null){
 				dados += "\nNumero: " + this.endereco.getNumero();
-			if(this.endereco.getCep() != null)
+			}
+			if(this.endereco.getCep() != null){
 				dados += "\nCEP: " + this.endereco.getCep();
-			if(this.endereco.getUf() != null)
+			}
+			if(this.endereco.getUf() != null){
 				dados += "\nEstado: " + this.endereco.getUf();
-			if(this.endereco.getCidade() != null)
+			}
+			if(this.endereco.getCidade() != null){
 				dados += "\nCidade: " + this.endereco.getCidade();
-			
+			}
+		}
+		if (socios.size() > 0) {
+			for (Socio socio : socios) {
+				if (socio.getCpf() != null || socio.getNome() != null) {
+					dados += "\nNome do Sócio: " + socio.getNome() + 
+								"\tCPF: " + socio.getCpf();				
+					}
+			}
 		}
 		return dados;
+	}
+
+	public String formataDataRegistro() {
+		SimpleDateFormat formatacaoDataETempo = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+		String data = formatacaoDataETempo.format(this.dataRegistro.getTime());
+		return data;
 	}
 }

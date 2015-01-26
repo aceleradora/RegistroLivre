@@ -2,12 +2,15 @@ package br.com.aceleradora.registrolivre.controller;
 
 import java.util.List;
 
+import br.com.aceleradora.registrolivre.dao.EmpresaDAO;
 import br.com.aceleradora.registrolivre.dao.IEmpresaDAO;
+import br.com.aceleradora.registrolivre.model.Email;
 import br.com.aceleradora.registrolivre.model.Empresa;
 import br.com.aceleradora.registrolivre.util.Arquivo;
 import br.com.aceleradora.registrolivre.util.CalendarTransformador;
 import br.com.aceleradora.registrolivre.util.ClienteCloudinary;
 import br.com.aceleradora.registrolivre.util.DataOrdenadaTransformador;
+import br.com.aceleradora.registrolivre.util.EmissorDeEmail;
 import br.com.aceleradora.registrolivre.util.EnderecoTransformador;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
@@ -138,7 +141,7 @@ public class EmpresaController {
 	}
 
 	private void salvar(Empresa empresa, UploadedFile arquivo, boolean alteracao) {
-
+		
 		empresa.retiraPontosTracosBarrasCnpjECpf();
 		if (empresa.cnpjJaExistente(daoEmpresa.getTodosCNPJ()) && !alteracao) {
 			result.include("erro",
@@ -146,7 +149,9 @@ public class EmpresaController {
 			result.include(empresa);
 			result.redirectTo(this).cadastro();
 		} else {
-
+			if(alteracao){
+				enviaMensagemDeAlteracao(empresa);
+			}
 			if (arquivo != null) {
 
 				ClienteCloudinary clienteCloudinary = criaSessaoCloudnary(
@@ -166,6 +171,24 @@ public class EmpresaController {
 			result.include("mensagem", mensagem);
 			result.redirectTo(this).visualizacao(empresa);
 		}
+	}
+
+	private void enviaMensagemDeAlteracao(Empresa empresa) {
+		Empresa antigaEmpresa = daoEmpresa.getById(empresa.getId());
+		Empresa novaEmpresa = empresa;
+		String mensagemAlterecaoDeEmpresa = "";
+		mensagemAlterecaoDeEmpresa += antigaEmpresa.trazDadosDaEmpresa(true) +
+									  "\n\n\n" + novaEmpresa.trazDadosDaEmpresa(false);
+		
+		daoEmpresa.limpaSessao();
+		
+		Email email = new Email("Registro Livre", 
+								"registrolivreaceleradora@gmail.com", 
+								"Alteração da Empresa " + empresa.getId(), 
+								mensagemAlterecaoDeEmpresa);
+
+		EmissorDeEmail emissor = new EmissorDeEmail(); 
+		emissor.enviar(email);
 	}
 
 	private ClienteCloudinary criaSessaoCloudnary(final Empresa empresa,

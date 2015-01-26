@@ -25,5 +25,7 @@ public interface IEmpresaDAO {
 	public List<Empresa> pesquisaAvancadaEspecifica(Empresa empresa);
 
 	public List<Empresa> pesquisaAvancadaAproximada(Empresa empresa);
+	
+	public void limpaSessao();
 
 }
