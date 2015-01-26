@@ -1,3 +1,4 @@
+<hr class="novaHr">
 <div class="rodape text-center margin-15-0" role="navigation">
 <div class="container">
 		<a href="/sobre" class="margin-0-15"><span class="glyphicon glyphicon-user"></span>

@@ -105,5 +105,6 @@
 				</div> <!-- col -->
 			</div> <!-- row -->
 		</div> <!-- container -->
+		<jsp:include page="/WEB-INF/jsp/includes/rodape.jsp" />	
 	</body>
 </html>

@@ -176,8 +176,17 @@ a:hover, .cursor-pointer{
 	cursor: pointer;
 }
 
-.rodape {
+.rodape {	
 	position: relative;
 	bottom:0;
 	width:100%;
+}
+.novaHr {
+	align: center; 
+	width: 40; 
+	size: 5;
+	color: blue;
+}
+.ajustaRodape{
+	margin-top: 320px;	
 }

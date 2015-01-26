@@ -240,5 +240,6 @@
 				</div>
 			</div>
 		</div>
+		<jsp:include page="/WEB-INF/jsp/includes/rodape.jsp" />	
 </body>
 </html>
