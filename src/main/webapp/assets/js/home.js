@@ -49,7 +49,7 @@ function contaCamposPreenchidos(formulario) {
 	var contador = 0;
 	formulario.find("input[type='text']").each(function() {
 		if ($(this).val().length != 0 && $(this).val() != ' ') {
-
+			contador++;
 		}
 	});
 	return contador;
@@ -59,37 +59,34 @@ function alteraDisabled(botao, desabilitado) {
 	botao.prop("disabled", desabilitado);
 }
 
-function validarBuscaAvancada() {
+var testaCamposBuscaAvancada = function testaCamposBuscaAvancada(botao) {
+	estadoSelecionado = $("#estado").find(":selected");
+	
+	if ($(this).val().length == 0) {
+		if (contaCamposPreenchidos($("#pesquisa-avancada")) == 0 && estadoSelecionado.val() == '') {
+			alteraDisabled(botao, true);
+		} else {
+			alteraDisabled(botao, false);
+		}
+	} else {
+		alteraDisabled(botao, false);
+	}
+}
+
+var validarBuscaAvancada = function validarBuscaAvancada() {
 	var formulario = $("#pesquisa-avancada");
 	var camposDeTexto = formulario.find("input[type='text']");
 	var estados = $("#estado");
 	var estadoSelecionado = estados.find(":selected");
 	var botao = $("#botao-pesquisa-avancada");
 
-	camposDeTexto
-			.each(function() {
-				$(this)
-						.keyup(
-								function() {
-									estadoSelecionado = $("#estado").find(
-											":selected");
-									if ($(this).val().length == 0) {
-										if (contaCamposPreenchidos($("#pesquisa-avancada")) == 0
-												&& estadoSelecionado.val() == '') {
-											alteraDisabled(botao, true);
-										} else {
-											alteraDisabled(botao, false);
-										}
-									} else {
-										alteraDisabled(botao, false);
-									}
-								});
-			});
+	camposDeTexto.each(function() {
+		$(this).keyup(testaCamposBuscaAvancada.bind(this, botao));
+	});
 
 	estados.change(function() {
 		console.log("Change: " + $(this).find(":selected").val());
-		if (contaCamposPreenchidos(formulario) == 0
-				&& $(this).find(":selected").val() == '') {
+		if (contaCamposPreenchidos(formulario) == 0 && $(this).find(":selected").val() == '') {
 			alteraDisabled(botao, true);
 		} else {
 			alteraDisabled(botao, false);
