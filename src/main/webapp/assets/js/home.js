@@ -38,9 +38,9 @@ function eventoDesbloquearBotaoPesquisar() {
 	$("#campoPesquisado").keyup(function() {
 		var busca = $("#campoPesquisado").val();
 		if (busca.length >= 2) {
-			habilita($("#btn-submit"));
+			alteraDisabled($("#btn-submit"), false);
 		} else {
-			desabilita($("#btn-submit"));
+			alteraDisabled($("#btn-submit"), true);
 		}
 	});
 }
@@ -55,12 +55,8 @@ function contaCamposPreenchidos(formulario) {
 	return contador;
 }
 
-function habilita(botao) {
-	botao.prop("disabled", false);
-}
-
-function desabilita(botao) {
-	botao.prop("disabled", true);
+function alteraDisabled(botao, desabilitado) {
+	botao.prop("disabled", desabilitado);
 }
 
 function validarBuscaAvancada() {
@@ -80,12 +76,12 @@ function validarBuscaAvancada() {
 									if ($(this).val().length == 0) {
 										if (contaCamposPreenchidos($("#pesquisa-avancada")) == 0
 												&& estadoSelecionado.val() == '') {
-											desabilita(botao);
+											alteraDisabled(botao, true);
 										} else {
-											habilita(botao);
+											alteraDisabled(botao, false);
 										}
 									} else {
-										habilita(botao);
+										alteraDisabled(botao, false);
 									}
 								});
 			});
@@ -94,9 +90,9 @@ function validarBuscaAvancada() {
 		console.log("Change: " + $(this).find(":selected").val());
 		if (contaCamposPreenchidos(formulario) == 0
 				&& $(this).find(":selected").val() == '') {
-			desabilita(botao);
+			alteraDisabled(botao, true);
 		} else {
-			habilita(botao);
+			alteraDisabled(botao, false);
 		}
 	});
 }
