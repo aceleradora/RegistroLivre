@@ -7,12 +7,14 @@ $(document).ready(function() {
 });
 
 function associarEventos() {
-	$("#abrir-busca-avancada").on("click",function(e) {
-		e.preventDefault();
+	$("#abrir-busca-avancada").click(mostraBuscaAvancada);
 
-		mostraBuscaAvancada();
-		animacoes.rolaLinksAncoraDeFormaLenta($("#busca-avancada"));
-	});
+	$("#fechaBuscaAvancada").click(fechaBuscaAvancada);
+}
+
+var mostraBuscaAvancada = function mostraBuscaAvancada() {
+	$("#busca-avancada").fadeIn();
+	animacoes.rolaLinksAncoraDeFormaLenta($("#busca-avancada"));
 }
 
 function retiraCampoBuscaNavbar() {
@@ -26,11 +28,7 @@ function fechaAlertaNenhumRegistro() {
 	$(".alert").fadeOut();
 }
 
-function mostraBuscaAvancada() {
-	$("#busca-avancada").fadeIn();
-}
-
-function fechaBuscaAvancada() {
+var fechaBuscaAvancada = function fechaBuscaAvancada() {
 	$("#busca-avancada").fadeOut();
 }
 
