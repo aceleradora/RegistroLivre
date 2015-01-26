@@ -20,8 +20,8 @@ public class PaginaInicialTest extends FluentTest {
 	
 	static {
 		path = new File("").getAbsolutePath() + "/src/main/resources";
-//		System.setProperty("webdriver.chrome.driver", path + "/chromedriver");
-		System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
+		System.setProperty("webdriver.chrome.driver", path + "/chromedriver");
+//		System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
 	}
 
 	@Page
@@ -34,24 +34,29 @@ public class PaginaInicialTest extends FluentTest {
 		return driver;
 	}
 	
-	@Ignore
-	@Test
-	public void deveEntrarNaPagina() throws Exception {
-		goTo(paginaInicial);
-	}
-
-
-
+	
 	 @Test
-	 public void deveBuscarEmpresaExistente() throws Exception {
+	 public void quandoOInputDaBuscaEstiverVazioOBotaoDaBuscaDeveEstarDesativado() throws Exception {
 		goTo(paginaInicial);
-	 	paginaInicial.preencheEEnviaFormDeBusca("Larah");
+		String parametro = "";
 	 	
-	 	assertAt(paginaInicial);
+	 	boolean buttonIsEnabled = paginaInicial.naoPreencheInputDaBuscaEClicaEmBuscar("");
+	 	
+	 	assertEquals(buttonIsEnabled, false);
 	 
 	 }
-	
 
+	 @Ignore
+	 @Test
+	public void quandoOInputDaBuscaEstiverPreenchidoOBotaoDeveEstarAtivado() throws Exception {
+		goTo(paginaInicial);
+		String parametro = "Larah";
+		
+		boolean buttonIsEnabled = paginaInicial.preencheInputDaBuscaEClicaEmBuscar(parametro);
+		
+		assertEquals(buttonIsEnabled, false);
+	}
+	
 	 @Test
 	 public void deveAbrirEABuscaAvancada() throws Exception {
 	
