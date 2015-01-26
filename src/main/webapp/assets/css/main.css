@@ -175,3 +175,9 @@ h4 {
 a:hover, .cursor-pointer{
 	cursor: pointer;
 }
+
+.rodape {
+	position: relative;
+	bottom:0;
+	width:100%;
+}

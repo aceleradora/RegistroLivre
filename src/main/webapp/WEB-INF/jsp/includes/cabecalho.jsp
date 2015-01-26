@@ -15,9 +15,7 @@
 				<li><a href="/"><span class="glyphicon glyphicon-search"></span> Busca</a></li>
 				<li><a href="/cadastro"><span class="glyphicon glyphicon-cloud-upload"></span> Cadastrar Empresa</a></li>				
 				<li><a href="/listagem"><span class="glyphicon glyphicon-th-list"></span> Listar Empresas</a></li>				
-				<li><a href="/sobre"><span class="glyphicon glyphicon-user"></span> Quem somos</span></a>
-				<li><a href="/contato"><span class="glyphicon glyphicon-envelope"></span> Contato</a></li>
-			</ul>			
+			</ul>
 			<form id="inputaBuscaNavbar" class="form navbar-form navbar-right " role="search" name="pesquisa" action="/busca" method="GET">
 				<div class="form-group">
 					<input class="form-control" type="text" name="busca" id="campoPesquisadoNavbar" placeholder="Buscar empresa"/>

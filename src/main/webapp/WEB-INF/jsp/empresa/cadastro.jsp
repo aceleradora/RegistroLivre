@@ -201,6 +201,7 @@
 		
 	<script src="/assets/js/validacao-logica-cadastro.js"></script>		
 	<script src="/assets/js/validacao-visual-cadastro.js"></script>
-		
+	
+	<jsp:include page="/WEB-INF/jsp/includes/rodape.jsp" />			
 	</body>
 </html>
