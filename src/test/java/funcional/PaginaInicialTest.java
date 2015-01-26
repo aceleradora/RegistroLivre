@@ -20,8 +20,8 @@ public class PaginaInicialTest extends FluentTest {
 	
 	static {
 		path = new File("").getAbsolutePath() + "/src/main/resources";
-		System.setProperty("webdriver.chrome.driver", path + "/chromedriver");
-//		System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
+//		System.setProperty("webdriver.chrome.driver", path + "/chromedriver");
+		System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
 	}
 
 	@Page
@@ -40,23 +40,24 @@ public class PaginaInicialTest extends FluentTest {
 		goTo(paginaInicial);
 		String parametro = "";
 	 	
-	 	boolean buttonIsEnabled = paginaInicial.naoPreencheInputDaBuscaEClicaEmBuscar("");
+	 	boolean buttonIsEnabled = paginaInicial.preencheInputDaBusca("");
 	 	
 	 	assertEquals(buttonIsEnabled, false);
 	 
 	 }
 
-	 @Ignore
+	 
 	 @Test
-	public void quandoOInputDaBuscaEstiverPreenchidoOBotaoDeveEstarAtivado() throws Exception {
+	 public void quandoOInputDaBuscaEstiverPreenchidoOBotaoDeveEstarAtivado() throws Exception {
 		goTo(paginaInicial);
 		String parametro = "Larah";
 		
-		boolean buttonIsEnabled = paginaInicial.preencheInputDaBuscaEClicaEmBuscar(parametro);
+		boolean buttonIsEnabled = paginaInicial.preencheInputDaBusca(parametro);
 		
-		assertEquals(buttonIsEnabled, false);
-	}
+		assertEquals(buttonIsEnabled, true);
+	 }
 	
+	 
 	 @Test
 	 public void deveAbrirEABuscaAvancada() throws Exception {
 	
