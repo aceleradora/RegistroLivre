@@ -9,7 +9,9 @@ $(document).ready(function() {
 function associarEventos() {
 	$("#abrir-busca-avancada").click(mostraBuscaAvancada);
 
-	$("#fechaBuscaAvancada").click(fechaBuscaAvancada);
+	$("#fecha-busca-avancada").click(fechaBuscaAvancada);
+	
+	$("#adiciona-socios-busca-avancada").click(socios.adicionaBuscaAvancada)
 }
 
 var mostraBuscaAvancada = function mostraBuscaAvancada() {

@@ -70,7 +70,7 @@
 			<div id="busca-avancada" class="col-lg-6 col-lg-offset-3" style="display:none">
 				<div class="panel panel-default margin-30-0">
 					<div class="panel-heading centralize">
-						<h4>Busca Avançada <span id="fechaBuscaAvancada" class="pull-right cursor-pointer">&times;</span></h4>
+						<h4>Busca Avançada <span id="fecha-busca-avancada" class="pull-right cursor-pointer">&times;</span></h4>
 					</div>
 					<form class="form" id="pesquisa-avancada" name="pesquisaAvancada" action="buscaAvancada" method="POST" accept-charset="UTF-8,ISO-8859-1" >									
 						<div class="panel-body">
@@ -108,7 +108,7 @@
 															
 							</div>
 							<div class="form-group centralize">
-								<button type="button" class="btn btn-default margin-0-6" onclick="socios.adicionaBuscaAvancada()"><span class="glyphicon glyphicon-plus-sign"></span> Pesquisar Sócio</button>
+								<button type="button" class="btn btn-default margin-0-6" id="adiciona-socios-busca-avancada"><span class="glyphicon glyphicon-plus-sign"></span> Pesquisar Sócio</button>
 								<br>
 							</div>	
 						</div>
