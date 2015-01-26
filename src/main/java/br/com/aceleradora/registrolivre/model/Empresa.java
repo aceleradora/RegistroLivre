@@ -180,4 +180,41 @@ public class Empresa {
 	public boolean cnpjJaExistente(List<String> listaDeCnpj){
 		return listaDeCnpj.contains(getCnpj());
 	}
+
+	public String trazDadosDaEmpresa(boolean antigo) {
+		String dados = "";
+		if(antigo)
+			dados += "Data do Registro Antigo: " + this.dataRegistro;
+		else
+			dados += "Data do Registro Novo: " + this.dataRegistro;
+		
+		dados += "\nCNPJ: " + this.cnpj;
+		dados += "\nNome Fantasia: " + this.nomeFantasia;
+		if(this.razaoSocial != null)
+			dados += "\nRazão Social: " + this.razaoSocial;
+		if(this.dataCriacao != null)
+			dados += "\nData Criação: " + this.dataCriacao;
+		if(this.dataEmissaoDocumento != null)
+			dados += "\nData Emissão do Documento: " + this.dataEmissaoDocumento;
+		if(this.dataEmissaoDocumento != null)
+			dados += "\nData Emissão do Documento: " + this.dataEmissaoDocumento;
+		if(this.url != null)
+			dados += "\nNome do Documento: " + this.url.substring(61);
+		if(this.endereco != null){
+			if(this.endereco.getLogradouro() != null)
+				dados += "\nLogradouro: " + this.endereco.getLogradouro();
+			if(this.endereco.getComplemento() != null)
+				dados += "\nComplemento: " + this.endereco.getComplemento();
+			if(this.endereco.getNumero() != null)
+				dados += "\nNumero: " + this.endereco.getNumero();
+			if(this.endereco.getCep() != null)
+				dados += "\nCEP: " + this.endereco.getCep();
+			if(this.endereco.getUf() != null)
+				dados += "\nEstado: " + this.endereco.getUf();
+			if(this.endereco.getCidade() != null)
+				dados += "\nCidade: " + this.endereco.getCidade();
+			
+		}
+		return dados;
+	}
 }

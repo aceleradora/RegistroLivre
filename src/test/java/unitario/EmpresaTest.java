@@ -74,4 +74,19 @@ public class EmpresaTest {
 
 		assertThat(result, is(false));		
 	}
+	
+	@Test
+	public void quandoChamarOMetodoTrazDadosDaEmpresaRetornaUmaStringComTodosOsDadosNaoVaziosDela(){
+		String cnpj = "56863298000118";
+		empresa.setCnpj(cnpj);
+		String nomeFantasia = "Larah Instrumentos Musicais";
+		empresa.setNomeFantasia(nomeFantasia);
+		boolean antigo = true;
+		
+		String esperado = "Data do Registro Antigo: " + empresa.getDataRegistro() + 
+								"\nCNPJ: " + cnpj + "\nNome Fantasia: " + nomeFantasia ; 
+		String result = empresa.trazDadosDaEmpresa(antigo);
+	
+		assertThat(result, is(esperado));
+	}
 }
