@@ -19,7 +19,7 @@ public class PaginaInicialTest extends FluentTest {
 	protected static String path;
 	
 	static {
-		path = new File("").getAbsolutePath() + "/src/main/resources";
+//		path = new File("").getAbsolutePath() + "/src/main/resources";
 //		System.setProperty("webdriver.chrome.driver", path + "/chromedriver");
 		System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
 	}
@@ -56,7 +56,7 @@ public class PaginaInicialTest extends FluentTest {
 		assertEquals(buttonIsEnabled, true);
 	 }
 	
-	 
+	 @Ignore
 	 @Test
 	 public void deveAbrirEFecharOFormDeBuscaAvancada() throws Exception {
 		 goTo(paginaInicial);
