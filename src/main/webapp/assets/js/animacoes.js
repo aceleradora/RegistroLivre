@@ -4,7 +4,7 @@ RegistroLivre.Animacoes = function animacoes(){
 	
 	var rolaLinksAncoraDeFormaLenta = function rolaLinksAncoraDeFormaLenta(elemento){
 		$('html,body').animate({
-			scrollTop : elemento.offset().top		
+			scrollTop : elemento.offset().top - 80		
 		}, 800);
 		return false;
 	}
