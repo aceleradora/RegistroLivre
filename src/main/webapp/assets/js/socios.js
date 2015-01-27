@@ -69,6 +69,7 @@ RegistroLivre.Socios = function Socios(){
 	
 	var removeDaBuscaAvancada = function removeDaBuscaAvancada(botao) {
 		$(botao).parents(".socios-item-busca-avancada").remove();
+		$("#cnpj-busca-avancada").trigger("keyup");
 	}
 	
 	return {

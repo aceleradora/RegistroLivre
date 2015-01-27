@@ -28,12 +28,10 @@
 			<div class="col-lg-6 col-lg-offset-3">
 				<c:if test="${listaDeResultadosDeEmpresasVazia == true}">
 					<div class="alert alert-warning alert-dismissible" role="alert">
-						<button type="button" class="close" id="close" onclick="fechaAlertaNenhumRegistro()"
-							data-dismiss="alert">
+						<button type="button" class="close" id="close" data-dismiss="alert">
 							<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
 						</button>
-						<span id="error">Não há nenhum registro de empresa para a busca
-							efetuada.</span>
+						<span id="error">Não há nenhum registro de empresa para a busca	efetuada.</span>
 					</div>
 				</c:if>
 				
