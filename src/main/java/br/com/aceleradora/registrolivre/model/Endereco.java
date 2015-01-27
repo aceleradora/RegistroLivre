@@ -16,40 +16,40 @@ public class Endereco {
 	private String cep;
 	
 	public String getLogradouro() {
-		return logradouro;
+		return StringEscapeUtils.escapeHtml(logradouro);
 	}
 	public void setLogradouro(String logradouro) {
-		this.logradouro = StringEscapeUtils.escapeHtml(logradouro);
+		this.logradouro = logradouro;
 	}
 	public String getNumero() {
-		return numero;
+		return StringEscapeUtils.escapeHtml(numero);
 	}
 	public void setNumero(String numero) {
-		this.numero = StringEscapeUtils.escapeHtml(numero);
+		this.numero = numero;
 	}
 	public String getComplemento() {
-		return complemento;
+		return StringEscapeUtils.escapeHtml(complemento);
 	}
 	public void setComplemento(String complemento) {
-		this.complemento = StringEscapeUtils.escapeHtml(complemento);
+		this.complemento = complemento;
 	}
 	public String getCidade() {
-		return cidade;
+		return StringEscapeUtils.escapeHtml(cidade);
 	}
 	public void setCidade(String cidade) {
-		this.cidade = StringEscapeUtils.escapeHtml(cidade);
+		this.cidade = cidade;
 	}
 	public String getUf() {
-		return uf;
+		return StringEscapeUtils.escapeHtml(uf);
 	}
 	public void setUf(String uf) {
-		this.uf = StringEscapeUtils.escapeHtml(uf);
+		this.uf = uf;
 	}
 	public String getCep() {
-		return cep;
+		return StringEscapeUtils.escapeHtml(cep);
 	}
 	public void setCep(String cep) {
-		this.cep = StringEscapeUtils.escapeHtml(cep);
+		this.cep = cep;
 	}
 	
 	public boolean verificaCep(){

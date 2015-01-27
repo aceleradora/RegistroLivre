@@ -26,13 +26,13 @@ public class Socio{
 	}
 
 	public Socio(String nome, String cpf) {
-		this.nome = StringEscapeUtils.escapeHtml(nome);
-		this.cpf = StringEscapeUtils.escapeHtml(cpf);
+		this.nome = nome;
+		this.cpf = cpf;
 	}
 
 	public Socio(String nome, String cpf, boolean ativo) {
-		this.nome = StringEscapeUtils.escapeHtml(nome);
-		this.cpf = StringEscapeUtils.escapeHtml(cpf);
+		this.nome = nome;
+		this.cpf = cpf;
 		this.ativo = ativo;
 	}
 
@@ -45,15 +45,15 @@ public class Socio{
 	}
 
 	public String getNome() {
-		return nome;
+		return StringEscapeUtils.escapeHtml(this.nome);
 	}
 
 	public String getCpf() {
-		return cpf;
+		return StringEscapeUtils.escapeHtml(this.cpf);
 	}
 
 	public void setCpf(String cpf) {
-		this.cpf = StringEscapeUtils.escapeHtml(cpf);
+		this.cpf = cpf;
 	}
 
 	public boolean getAtivo() {
