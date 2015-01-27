@@ -7,8 +7,8 @@ import org.fluentlenium.core.FluentPage;
 public class PaginaInicial extends FluentPage{
 	
 	public String getUrl(){
-		return "http://localhost:8080";
-//		return "http://registro-livre-staging.herokuapp.com";
+//		return "http://localhost:8080";
+		return "http://registro-livre-staging.herokuapp.com";
 	}
 	
 	@Override
