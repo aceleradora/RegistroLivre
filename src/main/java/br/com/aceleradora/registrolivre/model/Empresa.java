@@ -168,85 +168,98 @@ public class Empresa {
 			}
 		}
 
-		if (temSocios 
-			|| cnpj != null 
-			|| nomeFantasia != null
-			|| razaoSocial != null 
-			|| (endereco != null 
-				&& (endereco.getUf() != null 
-				 || endereco.getCidade() != null 
-				 || endereco.getLogradouro() != null)
-				)
-			) {
-				return true;
-		}else{
+		if (temSocios
+				|| cnpj != null
+				|| nomeFantasia != null
+				|| razaoSocial != null
+				|| (endereco != null && (endereco.getUf() != null
+						|| endereco.getCidade() != null || endereco
+						.getLogradouro() != null))) {
+			return true;
+		} else {
 			return false;
 		}
 	}
-	
-	public boolean cnpjJaExistente(List<String> listaDeCnpj){
+
+	public boolean cnpjJaExistente(List<String> listaDeCnpj) {
 		return listaDeCnpj.contains(getCnpj());
 	}
 
 	public String trazDadosDaEmpresa(boolean antigo) {
 		String dados = "";
-		
+
 		String data = formataData(this.dataRegistro);
-		
-		if(antigo){
+
+		if (antigo) {
 			dados += "<b>Data do Registro Antigo:</b> " + data + "<br/>";
 		} else {
 			dados += "<br/><b>Data do Registro Novo:</b> " + data + "<br/>";
 		}
-		
+
 		dados += "<b>CNPJ:</b> " + this.cnpj + "<br/>";
 		dados += "<b>Nome Fantasia:</b> " + this.nomeFantasia + "<br/>";
-		
-		if(this.razaoSocial != null){
-			dados += "<b>Razão Social:</b> " + this.razaoSocial + "<br/>"; 
+
+		if (this.razaoSocial != null) {
+			dados += "<b>Razão Social:</b> " + this.razaoSocial + "<br/>";
 		}
-		if(this.dataCriacao != null){
-			dados += "<b>Data Criação:</b> " + formataData(this.dataCriacao) + "<br/>";
+		if (this.dataCriacao != null) {
+			dados += "<b>Data Criação:</b> " + formataData(this.dataCriacao)
+					+ "<br/>";
 		}
-		if(this.dataEmissaoDocumento != null){
-			dados += "<b>Data Emissão do Documento:</b> " + formataData(this.dataEmissaoDocumento) + "<br/>";
+		if (this.dataEmissaoDocumento != null) {
+			dados += "<b>Data Emissão do Documento:</b> "
+					+ formataData(this.dataEmissaoDocumento) + "<br/>";
 		}
-		if(this.url != null){
-			dados += "<b>Nome do Documento:</b> " + this.url.substring(61) + "<br/>";
+		if (this.url != null) {
+			dados += "<b>Nome do Documento:</b> " + this.url.substring(61)
+					+ "<br/>";
 		}
-		if(this.endereco != null){
-			if(this.endereco.getLogradouro() != null){
-				dados += "<b>Logradouro:</b> " + this.endereco.getLogradouro() + "<br/>";
+		if (this.endereco != null) {
+			if (this.endereco.getLogradouro() != null) {
+				dados += "<b>Logradouro:</b> " + this.endereco.getLogradouro()
+						+ "<br/>";
 			}
-			if(this.endereco.getComplemento() != null){
-				dados += "<b>Complemento:</b> " + this.endereco.getComplemento() + "<br/>";
+			if (this.endereco.getComplemento() != null) {
+				dados += "<b>Complemento:</b> "
+						+ this.endereco.getComplemento() + "<br/>";
 			}
-			if(this.endereco.getNumero() != null){
-				dados += "<b>Numero:</b> " + this.endereco.getNumero() + "<br/>";
+			if (this.endereco.getNumero() != null) {
+				dados += "<b>Numero:</b> " + this.endereco.getNumero()
+						+ "<br/>";
 			}
-			if(this.endereco.getCep() != null){
+			if (this.endereco.getCep() != null) {
 				dados += "<b>CEP:</b> " + this.endereco.getCep() + "<br/>";
 			}
-			if(this.endereco.getUf() != null){
+			if (this.endereco.getUf() != null) {
 				dados += "<b>Estado:</b> " + this.endereco.getUf() + "<br/>";
 			}
-			if(this.endereco.getCidade() != null){
-				dados += "<b>Cidade:</b> " + this.endereco.getCidade() + "<br/>";
+			if (this.endereco.getCidade() != null) {
+				dados += "<b>Cidade:</b> " + this.endereco.getCidade()
+						+ "<br/>";
+
 			}
 		}
 		if (socios.size() > 0) {
 			for (Socio socio : socios) {
 				if (socio.getCpf() != null || socio.getNome() != null) {
-					dados += "<b>Nome do Sócio:</b> " + socio.getNome() + "<br/>" + 
-								"<b>CPF:</b> " + socio.getCpf() + "<br/>";				
-					}
+					dados += "<b>Nome do Sócio:</b> " + socio.getNome()
+							+ "<br/>" + "<b>CPF:</b> " + socio.getCpf()
+							+ "<br/>";
+				}
+
+				if (socio.getAtivo()) {
+					dados += "\tAtivo";
+				} else {
+					dados += "\tInativo";
+				}
 			}
 		}
 		return dados;
 	}
 
 	public String formataData(Calendar data) {
-		SimpleDateFormat formatacaoDataETempo = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+		SimpleDateFormat formatacaoDataETempo = new SimpleDateFormat(
+				"dd-MM-yyyy HH:mm:ss");
 		String dataFormatada = formatacaoDataETempo.format(data.getTime());
 		return dataFormatada;
 	}

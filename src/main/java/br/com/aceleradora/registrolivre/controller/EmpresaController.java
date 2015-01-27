@@ -183,7 +183,7 @@ public class EmpresaController {
 								mensagemAlterecaoDeEmpresa);
 
 		EmissorDeEmail emissor = new EmissorDeEmail(); 
-		emissor.enviar(email);
+		emissor.enviar(email, "Alteração");
 	}
 
 	private ClienteCloudinary criaSessaoCloudnary(final Empresa empresa,

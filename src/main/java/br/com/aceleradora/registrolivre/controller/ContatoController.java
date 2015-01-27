@@ -25,7 +25,7 @@ public class ContatoController {
 	public void enviar(Email email) {
 		if (validaCamposFormulario(email)) {
 			EmissorDeEmail emissor = new EmissorDeEmail();
-			emissor.enviar(email);
+			emissor.enviar(email, "Contato");
 			result.include("enviar", "Mensagem enviada com sucesso!");
 			result.redirectTo(this).contato();
 		} else {
