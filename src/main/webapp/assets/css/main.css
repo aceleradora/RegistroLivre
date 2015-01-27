@@ -187,6 +187,15 @@ a:hover, .cursor-pointer{
 	size: 5;
 	color: blue;
 }
-.ajustaRodape{
+.ajustaRodapeHome{
 	margin-top: 320px;	
+}
+
+.ajustaRodapeColabore{
+	margin-top: 270px;	
+}
+
+.imagemGit{
+	width: 30px;
+	height: 30px;
 }

@@ -122,7 +122,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="ajustaRodape">
+	<div class="ajustaRodapeHome">
 		<jsp:include page="/WEB-INF/jsp/includes/rodape.jsp" />	
 	</div>	
 </body>

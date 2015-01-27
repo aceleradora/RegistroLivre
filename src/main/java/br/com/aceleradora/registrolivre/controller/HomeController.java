@@ -41,4 +41,8 @@ public class HomeController {
 	@Get("/sobre")
 	public void sobre(){
 	}
+	
+	@Get("/colabore")
+	public void colabore(){
+	}
 }
