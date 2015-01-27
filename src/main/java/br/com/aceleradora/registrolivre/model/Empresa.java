@@ -61,27 +61,27 @@ public class Empresa {
 	}
 
 	public String getCnpj() {
-		return cnpj;
+		return StringEscapeUtils.escapeHtml(this.cnpj);
 	}
 
 	public void setCnpj(String cnpj) {
-		this.cnpj = StringEscapeUtils.escapeHtml(cnpj);
+		this.cnpj = cnpj;
 	}
 
 	public String getRazaoSocial() {
-		return razaoSocial;
+		return StringEscapeUtils.escapeHtml(this.razaoSocial);
 	}
 
 	public void setRazaoSocial(String razaoSocial) {
-		this.razaoSocial = StringEscapeUtils.escapeHtml(razaoSocial);
+		this.razaoSocial = razaoSocial;
 	}
 
 	public String getNomeFantasia() {
-		return nomeFantasia;
+		return StringEscapeUtils.escapeHtml(this.nomeFantasia);
 	}
 
 	public void setNomeFantasia(String nomeFantasia) {
-		this.nomeFantasia = StringEscapeUtils.escapeHtml(nomeFantasia);
+		this.nomeFantasia = nomeFantasia;
 	}
 
 	public Calendar getDataCriacao() {
