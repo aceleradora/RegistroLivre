@@ -185,7 +185,7 @@ public class Empresa {
 	public String trazDadosDaEmpresa(boolean antigo) {
 		String dados = "";
 		
-		String data = formataDataRegistro();
+		String data = formataData(this.dataRegistro);
 		
 		if(antigo){
 			dados += "Data do Registro Antigo: " + data + "\n";
@@ -200,13 +200,10 @@ public class Empresa {
 			dados += "\nRazão Social: " + this.razaoSocial; 
 		}
 		if(this.dataCriacao != null){
-			dados += "\nData Criação: " + this.dataCriacao;
+			dados += "\nData Criação: " + formataData(this.dataCriacao);
 		}
 		if(this.dataEmissaoDocumento != null){
-			dados += "\nData Emissão do Documento: " + this.dataEmissaoDocumento;
-		}
-		if(this.dataEmissaoDocumento != null){
-			dados += "\nData Emissão do Documento: " + this.dataEmissaoDocumento;
+			dados += "\nData Emissão do Documento: " + formataData(this.dataEmissaoDocumento);
 		}
 		if(this.url != null){
 			dados += "\nNome do Documento: " + this.url.substring(61);
@@ -242,9 +239,9 @@ public class Empresa {
 		return dados;
 	}
 
-	public String formataDataRegistro() {
+	public String formataData(Calendar data) {
 		SimpleDateFormat formatacaoDataETempo = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
-		String data = formatacaoDataETempo.format(this.dataRegistro.getTime());
-		return data;
+		String dataFormatada = formatacaoDataETempo.format(data.getTime());
+		return dataFormatada;
 	}
 }
