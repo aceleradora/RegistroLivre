@@ -2,6 +2,8 @@ package unitario;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertFalse;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,12 +12,12 @@ import org.junit.Before;
 import org.junit.Test;
 
 import br.com.aceleradora.registrolivre.model.Empresa;
+import br.com.aceleradora.registrolivre.model.Endereco;
 import br.com.aceleradora.registrolivre.model.Socio;
 
 
 public class EmpresaTest {
-
-	Empresa empresa;
+	private Empresa empresa;
 	
 	@Before
 	public void setup() {
@@ -88,5 +90,90 @@ public class EmpresaTest {
 		String result = empresa.trazDadosDaEmpresa(antigo);
 	
 		assertThat(result, is(esperado));
+	}
+	
+	@Test
+	public void retornaTrueSeOCnpjEstiverPreenhido() throws Exception {
+		empresa.setCnpj("11111111");
+		
+		assertTrue(empresa.contemDados());
+	}
+	
+	@Test
+	public void retornaTrueSeONomeFantasiaEstiverPreenhido() throws Exception {
+		empresa.setNomeFantasia("Nome Fantasia");
+		
+		assertTrue(empresa.contemDados());
+	}
+	
+	@Test
+	public void retornaTrueSeORazaoSocialEstiverPreenhido() throws Exception {
+		empresa.setRazaoSocial("Razao Social");
+		
+		assertTrue(empresa.contemDados());
+	}
+	
+	@Test
+	public void retornaTrueSeAUfPreenhido() throws Exception {
+		Endereco endereco = new Endereco();
+		endereco.setUf("UF");
+		empresa.setEndereco(endereco);
+		
+		assertTrue(empresa.contemDados());
+	}
+	
+	@Test
+	public void retornaTrueSeACidadePreenhido() throws Exception {
+		Endereco endereco = new Endereco();
+		endereco.setCidade("Cidade");
+		empresa.setEndereco(endereco);
+		
+		assertTrue(empresa.contemDados());
+	}
+	
+	@Test
+	public void retornaTrueSeOLogradouroPreenhido() throws Exception {
+		Endereco endereco = new Endereco();
+		endereco.setLogradouro("Logradouro");
+		empresa.setEndereco(endereco);
+		
+		assertTrue(empresa.contemDados());
+	}
+	
+	@Test
+	public void retornaFalseSeAEmpresaNaoTiverNenhumDado() throws Exception {
+		assertFalse(empresa.contemDados());
+	}
+	
+	@Test
+	public void retornaFalseSeAEmpresaNaoTiverSociosNemDados() throws Exception {
+		List<Socio> socios = new ArrayList<Socio>();
+		
+		empresa.setSocios(socios);
+		
+		assertFalse(empresa.contemDados());
+	}
+	
+	@Test
+	public void retornaTrueSeAEmpresaTiverUmSocioComNomeECpf() throws Exception {
+		Socio socio = new Socio("Nome", "92795867699");
+		List<Socio> socios = new ArrayList<Socio>();
+		socios.add(socio);
+		
+		empresa.setSocios(socios);
+		
+		assertTrue(empresa.contemDados());
+	}
+	
+	@Test
+	public void retornaTrueSeAEmpresaTiverUmSocioComCpf() throws Exception {
+		Socio socio = new Socio();
+		socio.setCpf("92795867699");
+		List<Socio> socios = new ArrayList<Socio>();
+		socios.add(socio);
+		
+		empresa.setSocios(socios);
+		
+		assertTrue(empresa.contemDados());
 	}
 }

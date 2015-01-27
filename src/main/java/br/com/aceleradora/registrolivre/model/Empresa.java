@@ -168,14 +168,20 @@ public class Empresa {
 			}
 		}
 
-		if ((!temSocios) && cnpj == null && nomeFantasia == null
-				&& razaoSocial == null && endereco.getUf() == null
-				&& endereco.getCidade() == null
-				&& endereco.getLogradouro() == null) {
+		if (temSocios 
+			|| cnpj != null 
+			|| nomeFantasia != null
+			|| razaoSocial != null 
+			|| (endereco != null 
+				&& (endereco.getUf() != null 
+				 || endereco.getCidade() != null 
+				 || endereco.getLogradouro() != null)
+				)
+			) {
+				return true;
+		}else{
 			return false;
 		}
-
-		return true;
 	}
 	
 	public boolean cnpjJaExistente(List<String> listaDeCnpj){
