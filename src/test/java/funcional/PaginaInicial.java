@@ -7,7 +7,8 @@ import org.fluentlenium.core.FluentPage;
 public class PaginaInicial extends FluentPage{
 	
 	public String getUrl(){
-		return "http://registro-livre-staging.herokuapp.com";
+		return "http://localhost:8080";
+//		return "http://registro-livre-staging.herokuapp.com";
 	}
 	
 	@Override
@@ -29,5 +30,11 @@ public class PaginaInicial extends FluentPage{
 		return find("#btn-submit").first().isEnabled();
 	}
 	
+	
+	public void clicaNoBotaoPesquisaSocio() throws InterruptedException{
+		abreBuscaAvancada();
+		
+		click("#adiciona-socios-busca-avancada");
+	}
 
 }

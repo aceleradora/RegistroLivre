@@ -20,8 +20,8 @@ public class PaginaInicialTest extends FluentTest {
 	
 	static {
 		path = new File("").getAbsolutePath() + "/src/main/resources";
-//		System.setProperty("webdriver.chrome.driver", path + "/chromedriver");
-		System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
+		System.setProperty("webdriver.chrome.driver", path + "/chromedriver");
+//		System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
 	}
 
 	@Page
@@ -43,7 +43,6 @@ public class PaginaInicialTest extends FluentTest {
 	 	boolean buttonIsEnabled = paginaInicial.preencheInputDaBusca("");
 	 	
 	 	assertEquals(buttonIsEnabled, false);
-	 
 	 }
 
 	 
@@ -59,11 +58,19 @@ public class PaginaInicialTest extends FluentTest {
 	
 	 
 	 @Test
-	 public void deveAbrirEABuscaAvancada() throws Exception {
-	
+	 public void quandoClicaNoLinkBuscaAvancadaDeveAbrirUmNovoFormDeBusca() throws Exception {
 		 goTo(paginaInicial);
 	
 		 paginaInicial.abreBuscaAvancada();
-
+		 
+	 }
+	 
+	 @Test
+	 public void quandoOUsuarioClicarEmPesquisaSocioDeveAbrirUmNovoFormDeSocio() throws InterruptedException{
+		 goTo(paginaInicial);
+		 
+		 paginaInicial.clicaNoBotaoPesquisaSocio();
+		 
+		 assertTrue(pageSource().contains("Nome do sócio"));
 	 }
 }
