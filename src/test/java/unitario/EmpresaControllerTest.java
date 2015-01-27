@@ -12,10 +12,14 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import flexjson.JSONSerializer;
 import br.com.aceleradora.registrolivre.controller.EmpresaController;
 import br.com.aceleradora.registrolivre.controller.HomeController;
 import br.com.aceleradora.registrolivre.dao.EmpresaDAO;
 import br.com.aceleradora.registrolivre.model.Empresa;
+import br.com.aceleradora.registrolivre.util.CalendarTransformador;
+import br.com.aceleradora.registrolivre.util.DataOrdenadaTransformador;
+import br.com.aceleradora.registrolivre.util.EnderecoTransformador;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.Validator;
 
@@ -123,5 +127,46 @@ public class EmpresaControllerTest {
 		
 		verify(result).include("buscaAproximada", true);
 		verify(empresaDAO).pesquisaAvancadaAproximada(empresa);
+	}
+	
+	@Test
+	public void incluiVariavelQuandoListaVazia() {
+		HomeController homeControllerMock = Mockito.mock(HomeController.class);
+		when(result.redirectTo(HomeController.class)).thenReturn(homeControllerMock);
+		
+		empresaController.listagem(new ArrayList<Empresa>());
+		
+		verify(result).include("listaDeResultadosDeEmpresasVazia", true);
+	}
+	
+	@Test
+	public void incluiJsonQuandoListaTemDados() {
+		HomeController homeControllerMock = Mockito.mock(HomeController.class);
+		when(result.redirectTo(HomeController.class)).thenReturn(homeControllerMock);
+		ArrayList<Empresa> empresas = new ArrayList<Empresa>();
+		empresas.add(empresa);
+		
+		empresaController.listagem(empresas);
+		
+		verify(result).include("resultadoBusca", serializeEmpresas(empresas));
+	}
+	
+	private String serializeEmpresas(ArrayList<Empresa> listaDeEmpresas){
+		return new JSONSerializer()
+			.include("id")
+			.include("dataRegistro")
+			.include("nomeFantasia")
+			.include("endereco.logradouro")
+			.include("dataEmissaoDocumento")
+			.exclude("*")
+			.transform(new CalendarTransformador("yyyyMMdd"),
+					"dataRegistro")
+			.transform(
+					new DataOrdenadaTransformador(
+							"dataEmissaoOrdenada",
+							"dd/MM/yyyy", "yyyyMMdd"),
+					"dataEmissaoDocumento")
+			.transform(new EnderecoTransformador(), "endereco")
+			.serialize(listaDeEmpresas);
 	}
 }
