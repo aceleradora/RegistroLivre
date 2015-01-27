@@ -84,7 +84,7 @@ public class EmpresaTest {
 		boolean antigo = true;
 		
 		String esperado = "Data do Registro Antigo: " + empresa.formataDataRegistro() + 
-								"\nCNPJ: " + cnpj + "\nNome Fantasia: " + nomeFantasia ; 
+								"\n\nCNPJ: " + cnpj + "\nNome Fantasia: " + nomeFantasia ; 
 		String result = empresa.trazDadosDaEmpresa(antigo);
 	
 		assertThat(result, is(esperado));
