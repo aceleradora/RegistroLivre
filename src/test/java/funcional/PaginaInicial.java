@@ -17,10 +17,12 @@ public class PaginaInicial extends FluentPage{
 	}
 	
 
-	public void abreBuscaAvancada() throws InterruptedException {
+	public boolean abreBuscaAvancada() throws InterruptedException {
 		click("#abrir-busca-avancada");
-
+		
 		Thread.sleep(1000);
+
+		return find("#busca-avancada").first().isDisplayed(); 
 	}
 	
 	

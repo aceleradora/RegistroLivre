@@ -60,10 +60,12 @@ public class PaginaInicialTest extends FluentTest {
 	 @Test
 	 public void quandoClicaNoLinkBuscaAvancadaDeveAbrirUmNovoFormDeBusca() throws Exception {
 		 goTo(paginaInicial);
-	
-		 paginaInicial.abreBuscaAvancada();
 		 
+		 boolean buscaAvancadaIsDisplayed = paginaInicial.abreBuscaAvancada(); 
+		 
+		 assertEquals(buscaAvancadaIsDisplayed, true);
 	 }
+	 
 	 
 	 @Test
 	 public void quandoOUsuarioClicarEmPesquisaSocioDeveAbrirUmNovoFormDeSocio() throws InterruptedException{
