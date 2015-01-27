@@ -13,7 +13,6 @@ RegistroLivre.AutoCompletarSocio = function AutoCompletarSocio(){
 		    			"textoDigitado" : request.term
 		    		},
 				}).done(function(dados){
-					console.log(dados.list)
 					var matcher = new RegExp($.ui.autocomplete.escapeRegex(request.term), "i");
 		    	    response($.grep(dados.list, function(value) {
 		    	    	value = value.label || value.value || value;

@@ -11,12 +11,38 @@ function associarEventos() {
 
 	$("#fecha-busca-avancada").click(fechaBuscaAvancada);
 	
-	$("#adiciona-socios-busca-avancada").click(socios.adicionaBuscaAvancada)
+	$("#adiciona-socios-busca-avancada").click(criaEventoSocio)
+	
 }
 
 var mostraBuscaAvancada = function mostraBuscaAvancada() {
 	$("#busca-avancada").fadeIn();
 	animacoes.rolaLinksAncoraDeFormaLenta($("#busca-avancada"));
+	criaEventoEstado();
+}
+
+function criaEventoSocio(){
+	socios.adicionaBuscaAvancada();
+	var botao = $("#botao-pesquisa-avancada");
+	$("input[name='empresa.socios[].nome']").each(function() {
+		$(this).keyup(testaCamposBuscaAvancada.bind(this, botao));
+	});
+	$("input[name='empresa.socios[].cpf']").each(function() {
+		$(this).keyup(testaCamposBuscaAvancada.bind(this, botao));
+	});
+}
+
+
+function criaEventoEstado(){
+	var botao = $("#botao-pesquisa-avancada");
+		
+	$("#estado").change(function() {
+		if (contaCamposPreenchidos($("#pesquisa-avancada")) == 0 && $(this).find(":selected").val() == '') {
+			alteraDisabled(botao, true);
+		} else {
+			alteraDisabled(botao, false);
+		}
+	});
 }
 
 function retiraCampoBuscaNavbar() {
@@ -76,20 +102,11 @@ var testaCamposBuscaAvancada = function testaCamposBuscaAvancada(botao) {
 var validarBuscaAvancada = function validarBuscaAvancada() {
 	var formulario = $("#pesquisa-avancada");
 	var camposDeTexto = formulario.find("input[type='text']");
-	var estados = $("#estado");
-	var estadoSelecionado = estados.find(":selected");
 	var botao = $("#botao-pesquisa-avancada");
 
 	camposDeTexto.each(function() {
 		$(this).keyup(testaCamposBuscaAvancada.bind(this, botao));
 	});
 
-	estados.change(function() {
-		console.log("Change: " + $(this).find(":selected").val());
-		if (contaCamposPreenchidos(formulario) == 0 && $(this).find(":selected").val() == '') {
-			alteraDisabled(botao, true);
-		} else {
-			alteraDisabled(botao, false);
-		}
-	});
+	
 }
