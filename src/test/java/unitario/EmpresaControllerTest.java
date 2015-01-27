@@ -88,4 +88,40 @@ public class EmpresaControllerTest {
 		
 		verify(empresaDAO).pesquisa(parametro);
 	}
+	
+	@Test
+	public void incluiVariavelNoReultadoSeAEmpresaDaBuscaAvancadaForVazia() throws Exception {
+		HomeController homeControllerMock = Mockito.mock(HomeController.class);
+		when(result.redirectTo(HomeController.class)).thenReturn(homeControllerMock);
+		when(result.include("buscaVazia", true)).thenReturn(result);
+		
+		empresaController.buscaAvancada(empresa);
+
+		verify(result).include("buscaVazia", true);
+	}
+	
+	@Test
+	public void executaBuscaAvancadaEspecificaSeEmpresaTiverDados() throws Exception {
+		EmpresaController empresaControllerMock = Mockito.mock(EmpresaController.class);
+		empresa.setCnpj("123456789");
+		when(result.redirectTo(empresaController)).thenReturn(empresaControllerMock);
+		when(empresaDAO.pesquisaAvancadaEspecifica(empresa)).thenReturn(new ArrayList<Empresa>());
+		
+		empresaController.buscaAvancada(empresa);
+		
+		verify(empresaDAO).pesquisaAvancadaEspecifica(empresa);
+	}
+	
+	@Test
+	public void executaBuscaAvancadaAproximadadSeABuscaAvancadaEspecificaNaoRetornarEmpresas() throws Exception {
+		EmpresaController empresaControllerMock = Mockito.mock(EmpresaController.class);
+		empresa.setCnpj("123456789");
+		when(result.redirectTo(empresaController)).thenReturn(empresaControllerMock);
+		when(empresaDAO.pesquisaAvancadaEspecifica(empresa)).thenReturn(new ArrayList<Empresa>());
+		
+		empresaController.buscaAvancada(empresa);
+		
+		verify(result).include("buscaAproximada", true);
+		verify(empresaDAO).pesquisaAvancadaAproximada(empresa);
+	}
 }

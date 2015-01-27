@@ -137,7 +137,6 @@ public class EmpresaController {
 	}
 
 	private void salvar(Empresa empresa, UploadedFile arquivo, boolean alteracao) {
-		
 		empresa.retiraPontosTracosBarrasCnpjECpf();
 		if (empresa.cnpjJaExistente(daoEmpresa.getTodosCNPJ()) && !alteracao) {
 			result.include("erro",
@@ -219,14 +218,14 @@ public class EmpresaController {
 		}
 	}
 
-	@Get()
+	@Get
 	public void autoCompletar(String textoDigitado) {
 		List<String> empresas = daoEmpresa.getParaAutoCompletar(textoDigitado);
 
 		result.use(Results.json()).from(empresas).serialize();
 	}
 
-	@Get()
+	@Get
 	public void autoCompletarSocio(String textoDigitado) {
 		List<String> socios = daoEmpresa
 				.getParaAutoCompletarSocio(textoDigitado);
