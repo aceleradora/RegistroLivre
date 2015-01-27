@@ -15,13 +15,13 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class PaginaInicialTest extends FluentTest {
-//	private static final String URL_PAGE = "http://localhost:8080";
+	
 	protected static String path;
 	
 	static {
 		path = new File("").getAbsolutePath() + "/src/main/resources";
-		System.setProperty("webdriver.chrome.driver", path + "/chromedriver");
-//		System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
+//		System.setProperty("webdriver.chrome.driver", path + "/chromedriver");
+		System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
 	}
 
 	@Page
