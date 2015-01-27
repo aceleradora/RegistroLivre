@@ -20,8 +20,8 @@ public class PaginaInicialTest extends FluentTest {
 	
 	static {
 		path = new File("").getAbsolutePath() + "/src/main/resources";
-//		System.setProperty("webdriver.chrome.driver", path + "/chromedriver");
-		System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
+		System.setProperty("webdriver.chrome.driver", path + "/chromedriver");
+//		System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
 	}
 
 	@Page
@@ -58,14 +58,18 @@ public class PaginaInicialTest extends FluentTest {
 	
 	 
 	 @Test
-	 public void quandoClicaNoLinkBuscaAvancadaDeveAbrirUmNovoFormDeBusca() throws Exception {
+	 public void deveAbrirEFecharOFormDeBuscaAvancada() throws Exception {
 		 goTo(paginaInicial);
 		 
-		 boolean buscaAvancadaIsDisplayed = paginaInicial.abreBuscaAvancada(); 
+		 boolean buscaAvancadaIsDisplayed = paginaInicial.abreBuscaAvancada();
+		 boolean buscaAvancadaIsHidden = paginaInicial.fechaBuscaAvancada();
 		 
 		 assertEquals(buscaAvancadaIsDisplayed, true);
+		 assertEquals(buscaAvancadaIsHidden, false);
 	 }
 	 
+
+ 
 	 
 	 @Test
 	 public void quandoOUsuarioClicarEmPesquisaSocioDeveAbrirUmNovoFormDeSocio() throws InterruptedException{

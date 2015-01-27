@@ -7,8 +7,8 @@ import org.fluentlenium.core.FluentPage;
 public class PaginaInicial extends FluentPage{
 	
 	public String getUrl(){
-//		return "http://localhost:8080";
-		return "http://registro-livre-staging.herokuapp.com";
+		return "http://localhost:8080";
+//		return "http://registro-livre-staging.herokuapp.com";
 	}
 	
 	@Override
@@ -23,6 +23,16 @@ public class PaginaInicial extends FluentPage{
 		Thread.sleep(1000);
 
 		return find("#busca-avancada").first().isDisplayed(); 
+	}
+	
+	public boolean fechaBuscaAvancada() throws InterruptedException{
+
+		click("#fecha-busca-avancada");
+		
+		Thread.sleep(1000);
+		
+		return find("#busca-avancada").first().isDisplayed();				
+				
 	}
 	
 	
