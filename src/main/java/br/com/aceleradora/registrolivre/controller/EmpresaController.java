@@ -2,7 +2,6 @@ package br.com.aceleradora.registrolivre.controller;
 
 import java.util.List;
 
-import br.com.aceleradora.registrolivre.dao.EmpresaDAO;
 import br.com.aceleradora.registrolivre.dao.IEmpresaDAO;
 import br.com.aceleradora.registrolivre.model.Email;
 import br.com.aceleradora.registrolivre.model.Empresa;
@@ -80,8 +79,7 @@ public class EmpresaController {
 	@Get("/busca")
 	public void busca(String busca) {
 		if (busca != null) {
-			List<Empresa> listaDeResultadosDeEmpresas = daoEmpresa
-					.pesquisa(busca);
+			List<Empresa> listaDeResultadosDeEmpresas = daoEmpresa.pesquisa(busca);
 			result.forwardTo(this).listagem(listaDeResultadosDeEmpresas);
 		} else {
 			result.include("buscaVazia", true);
@@ -95,13 +93,11 @@ public class EmpresaController {
 			result.include("buscaVazia", true);
 			result.redirectTo(HomeController.class).home();
 		} else {
-			List<Empresa> listaDeResultadosDeEmpresas = daoEmpresa
-					.pesquisaAvancadaEspecifica(empresa);
+			List<Empresa> listaDeResultadosDeEmpresas = daoEmpresa.pesquisaAvancadaEspecifica(empresa);
 
 			if (listaDeResultadosDeEmpresas.size() == 0) {
 				result.include("buscaAproximada", true);
-				listaDeResultadosDeEmpresas = daoEmpresa
-						.pesquisaAvancadaAproximada(empresa);
+				listaDeResultadosDeEmpresas = daoEmpresa.pesquisaAvancadaAproximada(empresa);
 			}
 
 			result.redirectTo(this).listagem(listaDeResultadosDeEmpresas);

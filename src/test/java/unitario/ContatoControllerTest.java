@@ -1,9 +1,9 @@
 package unitario;
 
-import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -13,8 +13,6 @@ import br.com.aceleradora.registrolivre.controller.ContatoController;
 import br.com.aceleradora.registrolivre.model.Email;
 import br.com.aceleradora.registrolivre.util.EmissorDeEmail;
 import br.com.caelum.vraptor.Result;
-import static org.mockito.Mockito.*;
-import static org.hamcrest.CoreMatchers.*;
 
 @RunWith(MockitoJUnitRunner.class)
 public class ContatoControllerTest {
