@@ -39,200 +39,225 @@
 					<div class="col-md-2 avatar">
 						<img src="../assets/img/alejAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
 						<div>
-							<h4 class="nome">Alejandro Olchik</h4>
-							<p class="tipo">Scrum Master</p>
+							<div class="nome">Alejandro</div>
+							<div class="sobrenome">Olchik</div>
+							<div class="papel">Scrum Master</div>							
 						</div>			
 					</div>
 					
 					<div class="col-md-2 avatar">
 						<img src="../assets/img/xandiAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
 						<div>
-							<h4 class="nome">Alexandre Morales</h4>
-							<p class="tipo">Desenvolvedor</p>
+							<div class="nome">Alexandre</div>
+							<div class="sobrenome">Morales</div>
+							<div class="papel">Desenvolvedor</div>							
 						</div>			
 					</div>
 
 					<div class="col-md-2 avatar">
 						<img src="../assets/img/anaAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
 						<div>
-							<h4 class="nome">Ana Daros</h4>
-							<p class="tipo">Desenvolvedora</p>
+							<div class="nome">Ana Paula</div>
+							<div class="sobrenome">Daros</div>
+							<div class="papel">Desenvolvedora</div>							
 						</div>
 					</div>
 					
 					<div class="col-md-2 avatar">
 						<img src="../assets/img/bernardoAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
 						<div>
-							<h4 class="nome">Bernardo Estácio</h4>
-							<p class="tipo">Mentor</p>
+							<div class="nome">Bernardo</div>
+							<div class="sobrenome">Estácio</div>
+							<div class="papel">Mentor</div>							
 						</div>			
 					</div>		
 	
 					<div class="col-md-2 avatar">
 						<img src="../assets/img/carisaAjustado.jpg" class="img-responsive img-circle imagemAjustado" />
 						<div>
-							<h4 class="nome">Carisa Rubim</h4>
-							<p class="tipo">Desenvolvedora</p>
-						</div>
+							<div class="nome">Carisa</div>
+							<div class="sobrenome">Rubim</div>
+							<div class="papel">Desenvolvedora</div>							
+						</div>						
 					</div>
 
 					<div class="col-md-2 avatar">
 						<img src="../assets/img/evertonAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
 						<div>
-							<h4 class="nome">Everton Goulart</h4>
-							<p class="tipo">Desenvolvedor</p>
-						</div>
+							<div class="nome">Everton</div>
+							<div class="sobrenome">Goulart</div>
+							<div class="papel">Desenvolvedor</div>							
+						</div>						
 					</div>
 				
 					<div class="col-md-2 avatar">
-						<img src="../assets/img/henriqueAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
+						<img src="../assets/img/henriqueAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>						
 						<div>
-							<h4 class="nome">Henrique Braga</h4>
-							<p class="tipo">Desenvolvedor</p>
+							<div class="nome">Henrique</div>
+							<div class="sobrenome">Braga</div>
+							<div class="papel">Desenvolvedor</div>							
 						</div>			
 					</div>
 					
 					<div class="col-md-2 avatar">
 						<img src="../assets/img/user.png" class="img-responsive img-circle imagemAjustado"/>
 						<div>
-							<h4 class="nome">Jefferson Stachelski</h4>
-							<p class="tipo">Mentor</p>
+							<div class="nome">Jefferson</div>
+							<div class="sobrenome">Stachelski</div>
+							<div class="papel">mentor</div>							
 						</div>			
 					</div>
 					
 					<div class="col-md-2 avatar">
 						<img src="../assets/img/joaoAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
 						<div>
-							<h4 class="nome">João H. S. Pinto</h4>
-							<p class="tipo">Mentor</p>
+							<div class="nome">João</div>
+							<div class="sobrenome">H.S. Pinto</div>
+							<div class="papel">Mentor</div>							
 						</div>			
 					</div>		
 					
 					<div class="col-md-2 avatar">
 						<img src="../assets/img/johnAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
 						<div>
-							<h4 class="nome">Jonatas Salgado</h4>
-							<p class="tipo">Desenvolvedor</p>
+							<div class="nome">Jonatas</div>
+							<div class="sobrenome">Salgado</div>
+							<div class="papel">Desenvolvedor</div>							
 						</div>			
 					</div>
 					
 					<div class="col-md-2 avatar">
 						<img src="../assets/img/user.png" class="img-responsive img-circle imagemAjustado"/>
 						<div>
-							<h4 class="nome">José Zimermann</h4>
-							<p class="tipo">Mentor</p>
+							<div class="nome">José</div>
+							<div class="sobrenome">Zimermann</div>
+							<div class="papel">Mentor</div>							
 						</div>			
 					</div>
 					
 					<div class="col-md-2 avatar">
 						<img src="../assets/img/josiAjustada.jpg" class="img-responsive img-circle imagemAjustado"/>
 						<div>
-							<h4 class="nome">Joseane Wichrowski</h4>
-							<p class="tipo">Desenvolvedora</p>
+							<div class="nome">Joseane</div>
+							<div class="sobrenome">Wichrowski</div>
+							<div class="papel">Desenvolvedora</div>							
 						</div>			
 					</div>
 					
 					<div class="col-md-2 avatar">
 						<img src="../assets/img/julioAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
 						<div>
-							<h4 class="nome">Julio Farah</h4>
-							<p class="tipo">Mentor</p>
-						</div>			
+							<div class="nome">Julio</div>
+							<div class="sobrenome">Farah</div>
+							<div class="papel">Mentor</div>							
+						</div>		
 					</div>
 					
 					<div class="col-md-2 avatar">
 						<img src="../assets/img/amigoDoPOAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
 						<div>
-							<h4 class="nome">Leandro Demori</h4>
-							<p class="tipo">Coordenador</p>
+							<div class="nome">Leandro</div>
+							<div class="sobrenome">Demori</div>
+							<div class="papel">Coordenador</div>							
 						</div>			
 					</div>	
 					
 					<div class="col-md-2 avatar">
 						<img src="../assets/img/lucasAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
 						<div>
-							<h4 class="nome">Lucas Beier</h4>
-							<p class="tipo">Mentor</p>
+							<div class="nome">Lucas</div>
+							<div class="sobrenome">Beier</div>
+							<div class="papel">Mentor</div>							
 						</div>			
 					</div>
 								
 					<div class="col-md-2 avatar">
 						<img src="../assets/img/jordaniAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
 						<div>
-							<h4 class="nome">Lucas Jordani</h4>
-							<p class="tipo">Desenvolvedor</p>
+							<div class="nome">Lucas</div>
+							<div class="sobrenome">Jordani</div>
+							<div class="papel">Desenvolvedor</div>							
 						</div>			
 					</div>						
 					
 					<div class="col-md-2 avatar">
 						<img src="../assets/img/rangelAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
 						<div>
-							<h4 class="nome">Lucas Rangel</h4>
-							<p class="tipo">Desenvolvedor</p>
+							<div class="nome">Lucas</div>
+							<div class="sobrenome">Rangel</div>
+							<div class="papel">Desenvolvedor</div>							
 						</div>			
 					</div>
 					
 					<div class="col-md-2 avatar">
 						<img src="../assets/img/violaAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
 						<div>
-							<h4 class="nome">Lucas Viola</h4>
-							<p class="tipo">Desenvolvedor</p>
+							<div class="nome">Lucas</div>
+							<div class="sobrenome">Viola</div>
+							<div class="papel">Desenvolvedor</div>							
 						</div>			
 					</div>
 					
 					<div class="col-md-2 avatar">
 						<img src="../assets/img/marceloAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
 						<div>
-							<h4 class="nome">Marcelo Träsel</h4>
-							<p class="tipo">Coordenador</p>
+							<div class="nome">Marcelo</div>
+							<div class="sobrenome">Träsel</div>
+							<div class="papel">Coordenador</div>							
 						</div>			
 					</div>
 
 					<div class="col-md-2 avatar">
 						<img src="../assets/img/marcusAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
 						<div>
-							<h4 class="nome">Marcus Rodrigues</h4>
-							<p class="tipo">Desenvolvedor</p>
+							<div class="nome">Marcus</div>
+							<div class="sobrenome">Rodrigues</div>
+							<div class="papel">Desenvolvedor</div>							
 						</div>			
 					</div>
 					
 					<div class="col-md-2 avatar">
 						<img src="../assets/img/patiAjustada.jpg" class="img-responsive img-circle imagemAjustado"/>
 						<div>
-							<h4 class="nome">Patricia Durand</h4>
-							<p class="tipo">Mentora</p>
+							<div class="nome">Patricia</div>
+							<div class="sobrenome">Durand</div>
+							<div class="papel">Mentora</div>							
 						</div>			
 					</div>
 					
 					<div class="col-md-2 avatar">
 						<img src="../assets/img/samanthaAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
 						<div>
-							<h4 class="nome">Samantha Rosa</h4>
-							<p class="tipo">Mentora</p>
+							<div class="nome">Samantha</div>
+							<div class="sobrenome">Rosa</div>
+							<div class="papel">Mentora</div>							
 						</div>			
 					</div>
 					
 					<div class="col-md-2 avatar">
 						<img src="../assets/img/taniaAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
 						<div>
-							<h4 class="nome">Tania Silva</h4>
-							<p class="tipo">Mentora</p>
+							<div class="nome">Tânia</div>
+							<div class="sobrenome">Silva</div>
+							<div class="papel">Mentora</div>							
 						</div>			
 					</div>
 					
 					<div class="col-md-2 avatar">
 						<img src="../assets/img/thiagoAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
 						<div>
-							<h4 class="nome">Thiago Xavier</h4>
-							<p class="tipo">Mentor</p>
+							<div class="nome">Thiago</div>
+							<div class="sobrenome">Xavier</div>
+							<div class="papel">Mentor</div>							
 						</div>			
 					</div>
 					
 					<div class="col-md-2 avatar">
 						<img src="../assets/img/yasserAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
 						<div>
-							<h4 class="nome">Yasser Rachid</h4>
-							<p class="tipo">Desenvolvedor</p>
+							<div class="nome">Yasser</div>
+							<div class="sobrenome">Rachid</div>
+							<div class="papel">Desenvolvedor</div>							
 						</div>			
 					</div>		
 															
