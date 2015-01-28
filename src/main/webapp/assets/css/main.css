@@ -227,3 +227,27 @@ a:hover, .cursor-pointer{
 	width: 30px;
 	height: 30px;
 }
+
+.bg_video{
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+	z-index: -1000;
+	background: url(../assets/img/xandiAjustado.jpg) no-repeat;
+	background-size: cover;
+}
+
+.error-font-size{
+	text-align: center;
+	font-size: 90px;
+	color: #FFFFFF;
+	text-shadow: 0px 1px 16px rgba(0,0,0,1.0);
+}
+
+#error-texto{
+	padding-top: 800px;	
+}

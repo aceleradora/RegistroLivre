@@ -7,23 +7,22 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="pt-br">
 <head>
-	<title>Colabore</title>
+	<title>Error 404</title>
 	<jsp:include page="/WEB-INF/jsp/includes/assets.jsp" />	
 </head>
-<body>	
-		<div class="content">
-			<div class="row">
-				<div class="col-lg-8 col-md-4 col-lg-offset-2 col-md-offset-3">
+<body>
+
+
+					<h1 class="centralize error-font-size">Error 404</h1>
 					
-					<h1 class="centralize font-size-40 title"> ERRO 404</h1>
+					<video autoplay loop poster="../assets/img/xandiAjustado.jpg" class="bg_video">
+						<source src="../assets/video/Aceleradora.webm" type="video/webm">
+						<source src="../assets/video/Aceleradora.mp4" type="video/mp4">
+					</video>	
 					
 
-					<p class="text-justify font-size-19">###</p>
-								
-				</div>
-			</div>
-			
-		</div>
+					<p class="error-font-size" id="error-testo">Não se preocupe já estamos trabalhando para corrigir este erro!!!</p>
+
 		<div class="ajustaRodapeColabore">
 		<div class="rodape text-center margin-15-0" role="navigation">
 			<a href="/">Home</a>
