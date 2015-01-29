@@ -15,7 +15,7 @@
 
 					
 					
-		<video autoplay loop poster="../assets/img/xandiAjustado.jpg" class="bg_video">
+		<video autoplay loop poster="../assets/img/ci.jpg" class="bg_video">
 			<source src="../assets/video/Aceleradora.webm" type="video/webm">
 			<source src="../assets/video/Aceleradora.mp4" type="video/mp4">
 		</video>	
