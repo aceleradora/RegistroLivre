@@ -241,13 +241,35 @@ a:hover, .cursor-pointer{
 	background-size: cover;
 }
 
-.error-font-size{
-	text-align: center;
-	font-size: 90px;
-	color: #FFFFFF;
-	text-shadow: 0px 1px 16px rgba(0,0,0,1.0);
+.erro{
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.25);
+    font-weight: bold;
+    height: 500px;
+    left: 50%;
+    line-height: 5.2em;
+    margin-left: -406px;
+    margin-top: -250px;
+    padding: 15px;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    width: 800px;
 }
 
-#error-texto{
-	padding-top: 800px;	
+.erro-botao{
+	margin: 35px 0 0 0;
+	padding: 20px;
+}
+
+.erro-texto{
+	text-align: center;
+	font-size: 60px;
+	font-weight:bold;
+	color: #FFFFFF;
+	text-shadow: 0px 1px 16px rgba(0,0,0,0.5);
+}
+
+.erro-titulo{
+	font-size: 80px !important;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }

@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=iso-8859-1"
-    pageEncoding="iso-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ page isErrorPage="true" %>
 <%@ page isELIgnored="false"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -13,20 +13,22 @@
 <body>
 
 
-					<h1 class="centralize error-font-size">Error 404</h1>
 					
-					<video autoplay loop poster="../assets/img/xandiAjustado.jpg" class="bg_video">
-						<source src="../assets/video/Aceleradora.webm" type="video/webm">
-						<source src="../assets/video/Aceleradora.mp4" type="video/mp4">
-					</video>	
 					
+		<video autoplay loop poster="../assets/img/xandiAjustado.jpg" class="bg_video">
+			<source src="../assets/video/Aceleradora.webm" type="video/webm">
+			<source src="../assets/video/Aceleradora.mp4" type="video/mp4">
+		</video>	
+		
+		<div class="erro">
+			<h1 class="centralize erro-titulo erro-texto">404</h1>
+			<span class="erro-texto">Não se preocupe já estamos trabalhando para corrigir este erro!!!</span>
 
-					<p class="error-font-size" id="error-testo">Não se preocupe já estamos trabalhando para corrigir este erro!!!</p>
+			<div>
+				<a href="/" class="btn btn-lg btn-default erro-botao" role="button">Voltar para o início</a>
+			</div>		
+		</div>
 
-		<div class="ajustaRodapeColabore">
-		<div class="rodape text-center margin-15-0" role="navigation">
-			<a href="/">Home</a>
-		</div>		
-	</div>	
+	
 </body>
 </html>
