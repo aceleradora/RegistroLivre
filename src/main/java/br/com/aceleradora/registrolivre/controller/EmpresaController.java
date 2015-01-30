@@ -239,4 +239,9 @@ public class EmpresaController {
 			System.out.println(i);
 		}
 	}
+
+	@Get
+	public void cnpjUnico(String cnpjDigitado) {
+		result.use(Results.json()).from(!daoEmpresa.getTodosCNPJ().contains(cnpjDigitado)).serialize();
+	}
 }
