@@ -1,3 +1,13 @@
+.datatableSelecao input:checked {
+    /*background: url("link_to_another_image");*/
+}
+
+.datatableSelecao{
+	transform: scale(2);
+	-webkit-transform: scale(2);
+	/*background: url("link_to_image");*/
+}
+
 *{
 	font-family:"Montserrat-Light";
 }

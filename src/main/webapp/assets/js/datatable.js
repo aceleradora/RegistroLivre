@@ -2,10 +2,15 @@ var RegistroLivre = RegistroLivre || {};
 
 RegistroLivre.DataTable = function DataTable(){ 
 	function cria(dados){
+		var dataEmissaoOrdenada = 4;
+		var dataRegistro = 5;
+		var id = 6;
+		
 		var tabela = $('#tabelaListagem').dataTable({
 			data : dados,
 			stateSave: true,
-			columns : [ { data : 'nomeFantasia'	}, 
+			columns : [ {},
+			            { data : 'nomeFantasia'	}, 
 			            { data : 'endereco.logradouro' },
 			            { data : 'dataEmissaoDocumento' },
 	 		            { data : 'dataEmissaoOrdenada' },
@@ -14,21 +19,26 @@ RegistroLivre.DataTable = function DataTable(){
 			          ],
 	        "aoColumnDefs" : [ {
 				"iDataSort" : 3,
-				"aTargets" : [2]
+				"aTargets" : [2]			
 				
 			},{
-				"aTargets" : [3],
+				"render" : function(data, type, row){
+					return '<input type="checkbox" class="datatableSelecao">'; 
+				},
+				"targets" : 0 
+			},{
+				"aTargets" : [dataEmissaoOrdenada],
 				"visible" : false,
 			} ,{
-				"aTargets" : [4],
+				"aTargets" : [dataRegistro],
 				"visible" : false,
 			} ,{
-				"aTargets" : [5],
+				"aTargets" : [id],
 				"visible" : false,
 			} ],
-			"order": [[ 4, "desc" ]],
+			"order": [[ dataRegistro, "desc" ]],
 			"rowCallback": function(row, data){
-				$("td", row).on('click', function(){
+				$("td:gt(0)", row).on('click', function(){
 					window.location.href = '/visualizacao/' + data.id;
 				});
 			},
@@ -46,8 +56,22 @@ RegistroLivre.DataTable = function DataTable(){
 	            }
 	        }
 		});
-	}
+		
+		criaMultiselecao();
+	};
 
+	var criaMultiselecao = function criaMultiselecao(){
+		$('.datatableSelecao').click(function(){			
+			$(this).parents('tr').toggleClass('selected');		
+			
+			if($("#btn-download").length === 0){
+				var $botaoDownload = $('<button id="btn-download" style="margin-left:60px" class="btn btn-success">Download</button>');
+				$("#tabelaListagem_length").append($botaoDownload);
+			}
+			
+		});
+	};
+	
 	return {
 		cria : cria
 	}

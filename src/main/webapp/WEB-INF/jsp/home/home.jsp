@@ -74,7 +74,7 @@
 						<div class="panel-body">
 							<div class="form-group">
 								<label>CNPJ</label>
-								<input type="text" id="cnpj-busca-avancada" class="form-control" name="empresa.cnpj" placeholder="ex: 00.000.000/0000-00"/>
+								<input type="text" id="cnpj-busca-avancada" class="form-control cnpj" name="empresa.cnpj" placeholder="ex: 00.000.000/0000-00"/>
 							</div>
 							<div class="form-group">
 								<label>Nome Fantasia</label>
