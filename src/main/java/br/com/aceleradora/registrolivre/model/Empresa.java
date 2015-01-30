@@ -194,51 +194,51 @@ public class Empresa {
 		String data = formataData(this.dataRegistro);
 		
 		if(antigo){
-			dados += "Data do Registro Antigo: " + data + "\n";
+			dados += "<b>Data do Registro Antigo:</b> " + data + "<br/>";
 		} else {
-			dados += "Data do Registro Novo: " + data + "\n";
+			dados += "<br/><b>Data do Registro Novo:</b> " + data + "<br/>";
 		}
 		
-		dados += "\nCNPJ: " + this.cnpj;
-		dados += "\nNome Fantasia: " + this.nomeFantasia;
+		dados += "<b>CNPJ:</b> " + this.cnpj + "<br/>";
+		dados += "<b>Nome Fantasia:</b> " + this.nomeFantasia + "<br/>";
 		
 		if(this.razaoSocial != null){
-			dados += "\nRazão Social: " + this.razaoSocial; 
+			dados += "<b>Razão Social:</b> " + this.razaoSocial + "<br/>"; 
 		}
 		if(this.dataCriacao != null){
-			dados += "\nData Criação: " + formataData(this.dataCriacao);
+			dados += "<b>Data Criação:</b> " + formataData(this.dataCriacao) + "<br/>";
 		}
 		if(this.dataEmissaoDocumento != null){
-			dados += "\nData Emissão do Documento: " + formataData(this.dataEmissaoDocumento);
+			dados += "<b>Data Emissão do Documento:</b> " + formataData(this.dataEmissaoDocumento) + "<br/>";
 		}
 		if(this.url != null){
-			dados += "\nNome do Documento: " + this.url.substring(61);
+			dados += "<b>Nome do Documento:</b> " + this.url.substring(61) + "<br/>";
 		}
 		if(this.endereco != null){
 			if(this.endereco.getLogradouro() != null){
-				dados += "\nLogradouro: " + this.endereco.getLogradouro();
+				dados += "<b>Logradouro:</b> " + this.endereco.getLogradouro() + "<br/>";
 			}
 			if(this.endereco.getComplemento() != null){
-				dados += "\nComplemento: " + this.endereco.getComplemento();
+				dados += "<b>Complemento:</b> " + this.endereco.getComplemento() + "<br/>";
 			}
 			if(this.endereco.getNumero() != null){
-				dados += "\nNumero: " + this.endereco.getNumero();
+				dados += "<b>Numero:</b> " + this.endereco.getNumero() + "<br/>";
 			}
 			if(this.endereco.getCep() != null){
-				dados += "\nCEP: " + this.endereco.getCep();
+				dados += "<b>CEP:</b> " + this.endereco.getCep() + "<br/>";
 			}
 			if(this.endereco.getUf() != null){
-				dados += "\nEstado: " + this.endereco.getUf();
+				dados += "<b>Estado:</b> " + this.endereco.getUf() + "<br/>";
 			}
 			if(this.endereco.getCidade() != null){
-				dados += "\nCidade: " + this.endereco.getCidade();
+				dados += "<b>Cidade:</b> " + this.endereco.getCidade() + "<br/>";
 			}
 		}
 		if (socios.size() > 0) {
 			for (Socio socio : socios) {
 				if (socio.getCpf() != null || socio.getNome() != null) {
-					dados += "\nNome do Sócio: " + socio.getNome() + 
-								"\tCPF: " + socio.getCpf();				
+					dados += "<b>Nome do Sócio:</b> " + socio.getNome() + "<br/>" + 
+								"<b>CPF:</b> " + socio.getCpf() + "<br/>";				
 					}
 			}
 		}

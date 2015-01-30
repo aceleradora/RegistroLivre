@@ -54,7 +54,7 @@ public class EmissorDeEmail {
 
 			mensagemMime.setRecipients(Message.RecipientType.TO, destinatario);
 			mensagemMime.setSubject("[Contato] " + email.getNome() + ": " + email.getAssunto());
-			mensagemMime.setText("Enviado de " + email.getRemetente() + ":\n\n" + email.getMensagem());
+			mensagemMime.setContent(email.getMensagem(),"text/html" );
 			
 			Transport.send(mensagemMime);
 
