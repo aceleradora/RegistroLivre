@@ -232,5 +232,11 @@ public class EmpresaController {
 
 		result.use(Results.json()).from(socios).serialize();
 	}
-
+	
+	@Get
+	public void download(int...ids){
+		for (int i : ids) {
+			System.out.println(i);
+		}
+	}
 }

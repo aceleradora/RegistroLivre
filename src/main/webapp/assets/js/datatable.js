@@ -1,4 +1,5 @@
 var RegistroLivre = RegistroLivre || {};
+var tabelaGlobal;
 
 RegistroLivre.DataTable = function DataTable(){ 
 	function cria(dados){
@@ -6,7 +7,7 @@ RegistroLivre.DataTable = function DataTable(){
 		var dataRegistro = 5;
 		var id = 6;
 		
-		var tabela = $('#tabelaListagem').dataTable({
+		var tabela = $('#tabelaListagem').DataTable({
 			data : dados,
 			stateSave: true,
 			columns : [ {},
@@ -58,17 +59,29 @@ RegistroLivre.DataTable = function DataTable(){
 		});
 		
 		criaMultiselecao();
+		tabelaGlobal = tabela;
 	};
 
 	var criaMultiselecao = function criaMultiselecao(){
 		$('.datatableSelecao').click(function(){			
 			$(this).parents('tr').toggleClass('selected');		
 			
-			if($("#btn-download").length === 0){
-				var $botaoDownload = $('<button id="btn-download" style="margin-left:60px" class="btn btn-success">Download</button>');
+			if($("#btn-multi-download").length === 0){
+				var $botaoDownload = $('<button id="btn-multi-download" style="margin-left:60px" class="btn btn-success">Download</button>');
 				$("#tabelaListagem_length").append($botaoDownload);
+				baixaArquivos();
 			}
-			
+		});
+	};
+	
+	var baixaArquivos = function baixaArquivos(){
+		$('#btn-multi-download').click(function(){
+			console.log(tabelaGlobal.rows('.selected').data());
+			var get = 'download?';
+			tabelaGlobal.rows('.selected').data().each(function(data){
+				get += 'ids=' + data.id + '&'; 
+			});
+			window.location.href = 'http://localhost:8080/empresa/' + get;
 		});
 	};
 	
