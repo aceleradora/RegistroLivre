@@ -50,9 +50,21 @@ h1, h2, h3, h4, h5, h6{
 	font-size:20px;		
 }
 
-.papel{
-	
+.titulo{
+	font-family:"Montserrat-Bold";
+	text-transform:uppercase;
 }
+
+.imagemAjustado{
+	width:119px;
+	transition:0.5s;
+	box-shadow: 1px 1px 10px #C92D2D;
+}
+
+/*.imagemAjustado:hover{
+	border-color:#C92D2D;
+}*/
+
 
 #campoPesquisadoNavbar:focus{
 	width: 300px;

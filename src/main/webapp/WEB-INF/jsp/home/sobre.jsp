@@ -8,6 +8,23 @@
 <head>
 	<title>Sobre</title>
 	<jsp:include page="/WEB-INF/jsp/includes/assets.jsp" />	
+	
+	<script type="text/javascript">
+		var setaCorDaBorda = function setaCorDaBorda(elemento){
+			var randomColor;
+			randomColor = Math.floor(Math.random()*16777215).toString(16);
+			elemento.css("border-color", "#" + randomColor);
+			elemento.css("box-shadow", "1px 1px 10px #" + randomColor);			
+			console.log("Shazam!");
+		}
+	
+		$(document).ready(function(){			
+			$(".imagemAjustado").each(function(){				
+				setaCorDaBorda($(this));		
+				$(this).hover(function(){setaCorDaBorda($(this))});
+			});				
+		});		
+	</script>	
 </head>
 <body>
 	<jsp:include page="/WEB-INF/jsp/includes/cabecalho.jsp" />
@@ -15,7 +32,7 @@
 			<div class="row">
 				<div class="col-lg-8 col-md-4 col-lg-offset-2 col-md-offset-3">
 					
-					<h1 class="centralize font-size-40 title"> Quem Somos</h1>
+					<h1 class="centralize font-size-40 title titulo"> Quem Somos</h1>
 					
 
 					<p class="text-justify font-size-19">O <b>Registro Livre</b> é uma plataforma de dados abertos cujo objetivo principal é colocar à
@@ -46,7 +63,7 @@
 					</div>
 					
 					<div class="col-md-2 avatar">
-						<img src="../assets/img/xandiAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
+						<img src="../assets/img/xandiAjustado.jpg" class="img-responsive img-circle imagemAjustado circulo-de-fogo"/>
 						<div>
 							<div class="nome">Alexandre</div>
 							<div class="sobrenome">Morales</div>
