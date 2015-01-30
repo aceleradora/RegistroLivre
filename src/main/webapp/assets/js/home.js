@@ -4,7 +4,13 @@ $(document).ready(function() {
 	retiraCampoBuscaNavbar();
 	eventoDesbloquearBotaoPesquisar();
 	validarBuscaAvancada();	
+	mascararCampos();
 });
+
+function mascararCampos(){
+	mascaras.mascararCpf($('.cpf'));
+	mascaras.mascararCnpj($('.cnpj'));
+}
 
 function associarEventos() {
 	$("#abrir-busca-avancada").click(mostraBuscaAvancada);
