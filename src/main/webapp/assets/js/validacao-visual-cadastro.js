@@ -2,7 +2,7 @@ var cnpjGroup = $("#cnpj-group");
 var cnpjGroupIcon = $("#cnpj-group span");
 var nomeFantasiaGroup = $("#nomeFantasia-group");
 var nomeFantasiaIcon = $("#nomeFantasia-group span");
-var nomeFantasia = $('#nomeFantasia'); 
+var nomeFantasia = $('#nomeFantasia');
 
 var validarCNPJTempoReal = function(cnpj) {
 	if (validarCNPJ(cnpj)) {
@@ -14,10 +14,29 @@ var validarCNPJTempoReal = function(cnpj) {
 
 var validarCNPJVazio = function() {
 	$('#cnpj').focusout(function() {
-		if ($('#cnpj').val() == '') {
+		cnpjDigitado = $('#cnpj').val();
+		if (cnpjDigitado == '') {
 			input.invalidado(cnpjGroup, cnpjGroupIcon);
 		}
+		if (cnpjDigitado.length == '00.000.000/0000-00'.length) {
+			if (!validarCnpjUnico(cnpjDigitado)) {
+				input.invalidado(cnpjGroup, cnpjGroupIcon);
+				criaPopoverCNPJ();
+				$('#cnpj').popover('show');
+			} else {
+				validarCNPJTempoReal(cnpjDigitado);
+				$('#cnpj').popover('destroy');
+			}
+		}
 	});
+}
+
+var criaPopoverCNPJ = function() {
+	$('#cnpj').popover({
+		animation : "true",
+		content : "O CNPJ digitado já está cadastrado!",
+		placement : 'bottom'
+	})
 }
 
 var validarNomeFantasiaVazio = function() {
@@ -40,22 +59,30 @@ var validarNomeFantasiaVazio = function() {
 }
 
 var validarCPFTempoReal = function() {
-	$('#divSocios').on('focusout', '.cpf', function() {
-		var cpf = $(this);
-		var cpfGroup = cpf.parents('.cpf-group');
-		var cpfGroupIcon = cpf.parents('.cpf-group').find('span');
-		var nomeSocio = cpf.parents('.socio-group').find('.nome-socio');
+	$('#divSocios')
+			.on(
+					'focusout',
+					'.cpf',
+					function() {
+						var cpf = $(this);
+						var cpfGroup = cpf.parents('.cpf-group');
+						var cpfGroupIcon = cpf.parents('.cpf-group').find(
+								'span');
+						var nomeSocio = cpf.parents('.socio-group').find(
+								'.nome-socio');
 
-		if (validarCpf(cpf.val()) && (nomeSocio.val().length > 0)) {
-			input.validado(cpfGroup, cpfGroupIcon);
+						if (validarCpf(cpf.val())
+								&& (nomeSocio.val().length > 0)) {
+							input.validado(cpfGroup, cpfGroupIcon);
 
-			verificaCPFTodosSocios() ? botaoSubmit.habilitar() : botaoSubmit.desabilitar();
-			
-		} else {
-			botaoSubmit.desabilitar();
-			input.invalidado(cpfGroup, cpfGroupIcon);
-		}
-	});
+							verificaCPFTodosSocios() ? botaoSubmit.habilitar()
+									: botaoSubmit.desabilitar();
+
+						} else {
+							botaoSubmit.desabilitar();
+							input.invalidado(cpfGroup, cpfGroupIcon);
+						}
+					});
 }
 
 var validarNomeSocioTempoReal = function() {
@@ -101,11 +128,15 @@ var colocarMascaraDatas = function() {
 }
 
 var removeSocio = function() {
-	$('#divSocios').on('click', '.close', function() {
-		$(this).parents('.list-group-item').remove();
-		
-		verificaCPFTodosSocios() ? botaoSubmit.habilitar() : botaoSubmit.desabilitar();  
-	});
+	$('#divSocios').on(
+			'click',
+			'.close',
+			function() {
+				$(this).parents('.list-group-item').remove();
+
+				verificaCPFTodosSocios() ? botaoSubmit.habilitar()
+						: botaoSubmit.desabilitar();
+			});
 }
 
 var botaoSubmit = {
@@ -150,8 +181,8 @@ var validarTamanhoPdf = function() {
 }
 
 $(document).ready(function() {
-	validarCNPJVazio();
 	validarNomeFantasiaVazio();
+	validarCNPJVazio();
 	colocaMascaraCNPJ();
 	colocaMascaraCPF();
 	colocaMascaraCEP();

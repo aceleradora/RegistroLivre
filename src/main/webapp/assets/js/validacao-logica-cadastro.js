@@ -4,6 +4,10 @@ function validarCadastro(editar) {
 		alert("Preencha o CNPJ corretamente.");
 		formulario.cnpj.focus();
 		return false;
+	} else if (!validarCnpjUnico(formulario.cnpj.value)) {
+		alert("O CNPJ preenchido já existe.");
+		formulario.cnpj.focus();
+		return false;
 	}
 
 	if (formulario.nomeFantasia.value == "") {
@@ -19,7 +23,8 @@ function validarCadastro(editar) {
 		}
 	}
 
-	if (validarExistePdf(formulario.file) && !validarExtensaoPdf(formulario.file)) {
+	if (validarExistePdf(formulario.file)
+			&& !validarExtensaoPdf(formulario.file)) {
 		alert("Arquivo com a extensão inválida. (Somente PDF's são permitidos.)");
 		return false;
 	}
@@ -51,13 +56,13 @@ function validarExtensaoPdf(objFileControl) {
 	return ext.toUpperCase() == ".PDF";
 }
 
-function todosCaracteresSaoIguais(palavra){
-	for (i = 0; i < palavra.length -1; i++){
-		if (palavra.charAt(i) != palavra.charAt(i+1)){
+function todosCaracteresSaoIguais(palavra) {
+	for (i = 0; i < palavra.length - 1; i++) {
+		if (palavra.charAt(i) != palavra.charAt(i + 1)) {
 			return false;
 		}
-	}	
-	
+	}
+
 	return true;
 }
 
@@ -66,10 +71,10 @@ function validarCpf(cpfDigitado) {
 	var cpf = cpfDigitado.replace(/[.\-]/g, '');
 
 	erro = new String;
-	
+
 	if (todosCaracteresSaoIguais(cpf))
 		return false;
-	
+
 	var digitosCpf = cpf.split('');
 	var acumuladorDigitos = 0;
 	var peso = 11;
@@ -114,7 +119,7 @@ function validarCNPJ(cnpjDigitado) {
 
 	if (todosCaracteresSaoIguais(cnpj))
 		return false;
-	
+
 	tamanho = cnpj.length - 2
 	numeros = cnpj.substring(0, tamanho);
 	digitos = cnpj.substring(tamanho);
@@ -143,6 +148,23 @@ function validarCNPJ(cnpjDigitado) {
 		return false;
 
 	return true;
+}
+
+function validarCnpjUnico(cnpjDigitado) {
+	cnpj = cnpjDigitado.replace(/[^\d]+/g, '');
+	var resultado;
+	$.ajax({
+		dataType : "json",
+		async : false,
+		url : "/empresa/cnpjUnico",
+		type : "GET",
+		data : {
+			"cnpjDigitado" : cnpj
+		}
+	}).success(function(dados) {
+		resultado = dados.boolean;
+	});
+	return resultado;
 }
 
 function verificaCPFTodosSocios() {
