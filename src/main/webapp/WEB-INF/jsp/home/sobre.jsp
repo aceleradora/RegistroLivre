@@ -32,7 +32,7 @@
 			<div class="row">
 				<div class="col-lg-8 col-md-4 col-lg-offset-2 col-md-offset-3">
 					
-					<h1 class="centralize font-size-40 title titulo"> Quem Somos</h1>
+					<h1 class="centralize font-size-40 title"> Quem Somos</h1>
 					
 
 					<p class="text-justify font-size-19">O <b>Registro Livre</b> é uma plataforma de dados abertos cujo objetivo principal é colocar à
