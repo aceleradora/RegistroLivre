@@ -234,8 +234,11 @@ public class EmpresaController {
 	}
 	
 	@Get
-	public void download(int...ids){
-		for (int i : ids) {
+	public void download(List<Long> ids){
+
+		List<String> teste = daoEmpresa.getLinksDocumentos(ids);
+		
+		for (String i : teste) {
 			System.out.println(i);
 		}
 	}
