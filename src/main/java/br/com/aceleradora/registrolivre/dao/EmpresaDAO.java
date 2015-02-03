@@ -4,6 +4,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collection;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -257,10 +258,10 @@ public class EmpresaDAO implements IEmpresaDAO{
 	}
 
 	@Override
-	public List<String> getLinksDocumentos(List<Long> ids) {
+	public List<String> getLinksDocumentos(Collection<Long> ids) {
 		Query pesquisa = sessao.createQuery("SELECT empresa.url "
-									   + " FROM Empresa as empresa"
-									   + " WHERE empresa.id IN (:ids)");
+									      + " FROM Empresa as empresa"
+									      + " WHERE empresa.id IN (:ids)");
 		
 		pesquisa.setParameterList("ids", ids);
 		return pesquisa.list();

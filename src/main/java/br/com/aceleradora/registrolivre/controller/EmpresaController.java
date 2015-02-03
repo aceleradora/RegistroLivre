@@ -1,5 +1,7 @@
 package br.com.aceleradora.registrolivre.controller;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import br.com.aceleradora.registrolivre.dao.IEmpresaDAO;
@@ -234,13 +236,17 @@ public class EmpresaController {
 	}
 	
 	@Get
-	public void download(List<Long> ids){
-
-		List<String> teste = daoEmpresa.getLinksDocumentos(ids);
+	public void download(long... ids){
 		
-		for (String i : teste) {
-			System.out.println(i);
-		}
+		Collection<Long> idDaUrl = new ArrayList<Long>();
+		
+//		for (Long id : ids) {
+//			teste.add(id);
+//			System.out.println(id);
+//		}
+		List<String> urlDocumentos = daoEmpresa.getLinksDocumentos(idDaUrl);
+		
+		
 	}
 
 	@Get

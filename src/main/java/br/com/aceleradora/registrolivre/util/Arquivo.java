@@ -11,7 +11,6 @@ import java.util.regex.Pattern;
 
 import br.com.aceleradora.registrolivre.model.Empresa;
 
-
 public class Arquivo {
 
 	private File arquivo;

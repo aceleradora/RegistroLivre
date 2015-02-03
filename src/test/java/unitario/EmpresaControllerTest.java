@@ -12,7 +12,6 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import flexjson.JSONSerializer;
 import br.com.aceleradora.registrolivre.controller.EmpresaController;
 import br.com.aceleradora.registrolivre.controller.HomeController;
 import br.com.aceleradora.registrolivre.dao.EmpresaDAO;
@@ -22,6 +21,7 @@ import br.com.aceleradora.registrolivre.util.DataOrdenadaTransformador;
 import br.com.aceleradora.registrolivre.util.EnderecoTransformador;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.Validator;
+import flexjson.JSONSerializer;
 
 @RunWith(MockitoJUnitRunner.class)
 public class EmpresaControllerTest {

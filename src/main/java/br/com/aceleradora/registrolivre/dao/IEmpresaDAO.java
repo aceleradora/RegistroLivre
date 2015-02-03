@@ -1,5 +1,6 @@
 package br.com.aceleradora.registrolivre.dao;
 
+import java.util.Collection;
 import java.util.List;
 
 import br.com.aceleradora.registrolivre.model.Empresa;
@@ -28,5 +29,5 @@ public interface IEmpresaDAO {
 	
 	public void limpaSessao();
 	
-	public List<String> getLinksDocumentos(List<Long> ids);
+	public List<String> getLinksDocumentos(Collection<Long> ids);
 }

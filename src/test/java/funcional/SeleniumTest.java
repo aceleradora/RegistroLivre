@@ -8,7 +8,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
 public class SeleniumTest extends FluentTest {
-	private static final String URL_PAGE = "http://registro-livre-staging.herokuapp.com";
+//	private static final String URL_PAGE = "http://registro-livre-staging.herokuapp.com";
+	private static final String URL_PAGE = "http://localhost:8080";
 	
 	protected static String path;
 	
