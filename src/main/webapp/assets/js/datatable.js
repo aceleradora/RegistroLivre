@@ -20,9 +20,13 @@ RegistroLivre.DataTable = function DataTable(){
 			          ],
 	        "aoColumnDefs" : [ {
 				"iDataSort" : 3,
-				"aTargets" : [2]			
-				
-			},{
+				"aTargets" : [2]
+			},
+			{ 
+				'orderable': false,
+				'aTargets': [0] 
+			},
+			{
 				"render" : function(data, type, row){
 					return '<input type="checkbox" class="datatableSelecao">'; 
 				},
@@ -58,25 +62,32 @@ RegistroLivre.DataTable = function DataTable(){
 	        }
 		});
 		
+		criaBotaoDownloadMultiplo();
 		criaMultiselecao();
 		tabelaGlobal = tabela;
 	};
 
+	var criaBotaoDownloadMultiplo = function criaBotaoDownloadMultiplo(){
+		var $botaoDownload = $('<button id="btn-multi-download" style="display: none; margin-left:60px" class="btn btn-success">Download</button>');
+		$("#tabelaListagem_length").append($botaoDownload);
+		eventoBotaoMultiDownload();
+	} 
+	
 	var criaMultiselecao = function criaMultiselecao(){
-		$('.datatableSelecao').click(function(){			
-			$(this).parents('tr').toggleClass('selected');		
-			
-			if($("#btn-multi-download").length === 0){
-				var $botaoDownload = $('<button id="btn-multi-download" style="margin-left:60px" class="btn btn-success">Download</button>');
-				$("#tabelaListagem_length").append($botaoDownload);
-				baixaArquivos();
+		$('.datatableSelecao').click(function(){
+			$(this).parents('tr').toggleClass('selected');
+			var $botaoDownload = $('#btn-multi-download');
+
+			if(tabelaGlobal.rows('.selected')[0].length === 0){
+				$botaoDownload.hide();
+			}else{
+				$botaoDownload.show();
 			}
 		});
 	};
 	
-	var baixaArquivos = function baixaArquivos(){
+	var eventoBotaoMultiDownload = function eventoBotaoMultiDownload(){
 		$('#btn-multi-download').click(function(){
-			console.log(tabelaGlobal.rows('.selected').data());
 			var get = '/empresa/download?';
 			tabelaGlobal.rows('.selected').data().each(function(data){
 				get += 'ids=' + data.id + '&'; 
