@@ -240,10 +240,10 @@ public class EmpresaController {
 		
 		Collection<Long> idDaUrl = new ArrayList<Long>();
 		
-//		for (Long id : ids) {
-//			teste.add(id);
-//			System.out.println(id);
-//		}
+		for (Long id : ids) {
+			idDaUrl.add(id);
+		}
+		
 		List<String> urlDocumentos = daoEmpresa.getLinksDocumentos(idDaUrl);
 		
 		
