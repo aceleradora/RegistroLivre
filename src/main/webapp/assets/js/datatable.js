@@ -77,11 +77,11 @@ RegistroLivre.DataTable = function DataTable(){
 	var baixaArquivos = function baixaArquivos(){
 		$('#btn-multi-download').click(function(){
 			console.log(tabelaGlobal.rows('.selected').data());
-			var get = 'download?';
+			var get = '/empresa/download?';
 			tabelaGlobal.rows('.selected').data().each(function(data){
 				get += 'ids=' + data.id + '&'; 
 			});
-			window.location.href = 'http://localhost:8080/empresa/' + get;
+			window.location.href = get;
 		});
 	};
 	
