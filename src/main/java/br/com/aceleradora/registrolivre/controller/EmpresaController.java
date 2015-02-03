@@ -237,7 +237,6 @@ public class EmpresaController {
 	
 	@Get
 	public void download(long... ids){
-		
 		Collection<Long> idDaUrl = new ArrayList<Long>();
 		
 		for (Long id : ids) {
@@ -245,7 +244,6 @@ public class EmpresaController {
 		}
 		
 		List<String> urlDocumentos = daoEmpresa.getLinksDocumentos(idDaUrl);
-		
 		
 	}
 
