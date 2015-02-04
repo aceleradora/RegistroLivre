@@ -18,6 +18,44 @@
 	<script src="/assets/js/validacao-logica-cadastro.js"></script>		
 	<script src="/assets/js/validacao-visual-cadastro.js"></script>
 	<script src="/assets/js/cidadeEstado.js"></script>
+	
+	<style>
+	
+		body{
+			background-image:url(../assets/img/fundo-home.png);
+			-webkit-background-size: cover;
+  			-moz-background-size: cover;
+  			-o-background-size: cover;
+  			background-size: cover;		
+  			background-repeat:no-repeat;
+  			background-attachment: fixed;
+		}		
+		
+		.home{
+			background-color:transparent;
+			border:0;
+		}
+		
+		.descricao{
+			color:#fff;
+			text-shadow: 1px 1px 4px #000, 2px 2px 4px #000 ;
+			line-height:30px;
+		}
+		
+		.panel-default > .panel-heading {
+			background-color:transparent;
+			border:0;
+		}
+		
+		#registrolivre{
+			color:#fff;
+			font-size:60px;
+			font-family:"Montserrat-Hairline";
+			text-shadow: 1px 1px 4px #000, 2px 2px 4px #000 ;					
+		}		
+	
+	</style>
+	
 </head>
 
 <body>
@@ -45,26 +83,33 @@
 					</div>
 				</c:if>
 				
-				<div class="panel panel-default margin-100-0-0-0 transparente">
+				<div class="panel panel-default margin-100-0-0-0 home">
 
-					<div class="panel-heading centralize">
+					<div class="panel-heading centralize home">
 						<h1 id="registrolivre">Registro Livre</h1>
+						<h4 class="descricao">Um site colaborativo para cadastrar e pesquisar registros públicos de empresas brasileiras.</h4>
 					</div>
 					<div class="panel-body">
+						
 						<form class="form" id="form-busca" name="pesquisa" action="/busca" method="GET">
-							<div class="form-group ui-widget">
-								<input class="form-control" type="text" name="busca" id="campoPesquisado" placeholder="Busque por uma empresa aqui" />
+							<div class="input-group">
+								<input type="text" class="form-control" name="busca" id="campoPesquisado" placeholder="Busque por uma empresa aqui"> <span
+									class="input-group-btn">
+									<button class="btn btn-default botao-busca" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+								</span>
 							</div>
+							
 							<div class="pull-left padding-30-0-0-0">
 								<i class="padding-0-6"><a href="#busca-avancada" id="abrir-busca-avancada">Busca Avançada</a></i>
 							</div>
-							<div class="form-group">
-								<input type="submit" id="btn-submit" class="btn btn-lg btn-primary pull-right margin-0-6" value="Buscar" disabled="true"/>
-							</div>
 						</form>
+
 					</div>
 				</div>
 			</div>
+			
+			
+			
 			<div id="busca-avancada" class="col-lg-6 col-lg-offset-3" style="display:none">
 				<div class="panel panel-default margin-30-0">
 					<div class="panel-heading centralize">
@@ -85,16 +130,20 @@
 								<input type="text" id="razao-social-busca-avancada" class="form-control" name="empresa.razaoSocial"/>
 							</div>
 							<div class="row">
-								<div class="col-lg-4">
-									<div class="form-group">
+								<div class="col-lg-6">
+									<div class="form-group">										
 										<label>Estado</label>
-										<input type="text" id="estado" class="form-control" name="empresa.endereco.uf"/>
+										<div class="select" style="width:230px;">
+											<input type="text" id="estado" class="form-control" name="empresa.endereco.uf" style="width: 250px;"/>
+										</div>
 									</div>
 								</div>
-								<div class="col-lg-8">
+								<div class="col-lg-6">
 									<div class="form-group">
 										<label>Cidade</label>
-										<input type="text" id="cidade" class="form-control" name="empresa.endereco.cidade"/>
+										<div class="select select-cidade" style="width:280px;">
+											<input type="text" id="cidade" class="form-control" name="empresa.endereco.cidade" style="width:300px;"/>
+										</div>
 									</div>
 								</div>
 							</div>
