@@ -49,7 +49,7 @@ public class DownloadMultiploArquivo {
 		return CAMINHO_ARQUIVO_FINAL;
 	}
 	
-	public void download(String url) throws IOException {
+	private void download(String url) throws IOException {
 		String nomeArquivo = url.substring(61);
 		URL link = new URL(url);
 
@@ -73,12 +73,12 @@ public class DownloadMultiploArquivo {
 		caminhoArquivosBaixados.add(nomeArquivo);
 	}
 
-	public void delete(String fileName) {
+	private void delete(String fileName) {
 		File file = new File(fileName);
 		file.delete();
 	}
 	
-	public void adicionaNoZip(String nomeArquivo, ZipOutputStream zipOutputStream) throws IOException{
+	private void adicionaNoZip(String nomeArquivo, ZipOutputStream zipOutputStream) throws IOException{
 		File arquivo = new File(nomeArquivo);
 		FileInputStream fileInputStream = new FileInputStream(arquivo);
 		ZipEntry zipEntry = new ZipEntry(nomeArquivo);
