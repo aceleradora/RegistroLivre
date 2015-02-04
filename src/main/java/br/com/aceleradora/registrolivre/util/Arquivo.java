@@ -15,11 +15,6 @@ public class Arquivo {
 
 	private File arquivo;
 	private String urlArquivo;
-	private String nomeArquivo;
-
-	public void setNomeArquivo(String nomeArquivo) {
-		this.nomeArquivo = nomeArquivo;
-	}
 
 	public Arquivo(InputStream inputStream, Empresa empresa) {
 		String nomeArquivo = formataNomeArquivo(empresa);
@@ -31,10 +26,8 @@ public class Arquivo {
 
 		String data = formatacaoDataETempo.format(empresa.getDataRegistro().getTime());
 
-		String nomeArquivo = empresa.getNomeFantasia().replace(' ', '_') + "_"
-				+ data;
-		this.setNomeArquivo(nomeArquivo);
-		
+		String nomeArquivo = empresa.getNomeFantasia().replace(' ', '_') + "_" + data;
+
 		return nomeArquivo;
 	}
 
