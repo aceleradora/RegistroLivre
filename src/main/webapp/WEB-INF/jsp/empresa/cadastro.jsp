@@ -20,7 +20,7 @@
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
 	<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 
-	<script src="/assets/js/cidades-estados-1.2-utf8.js"></script>
+	<script src="/assets/js/cidades-estados-1.2-utf8.js" charset="utf-8"></script>
 	<script src="/assets/js/bootstrap/bootstrap-filestyle.js"></script>
 	<script src="/assets/js/bootstrap/bootstrap.js"></script>
 	<script src="/assets/js/cadastro.js"></script>
