@@ -16,13 +16,14 @@
 				<li><a href="/cadastro"><span class="glyphicon glyphicon-cloud-upload"></span> Cadastrar Empresa</a></li>				
 				<li><a href="/listagem"><span class="glyphicon glyphicon-th-list"></span> Listar Empresas</a></li>				
 			</ul>
+			
+			
 			<form id="inputaBuscaNavbar" class="form navbar-form navbar-right " role="search" name="pesquisa" action="/busca" method="GET">
-				<div class="form-group">
-					<input class="form-control" type="text" name="busca" id="campoPesquisadoNavbar" placeholder="Buscar empresa"/>
-				</div>
-				<div class="form-group">
-					<input type="submit" id="btn-submit-cabecalho" class="btn btn-sm btn-primary pull-right margin-0-6" value="Buscar"/>
-				</div>
+			
+				<div class="input-group">
+					<input type="text" class="form-control" name="busca" id="campoPesquisadoNavbar" placeholder="Buscar" />
+					<span><button type="submit" class="btn btn-default botao-busca-navbar"><span class="glyphicon glyphicon-search"></span></button></span>
+				</div>								
 			</form>			
 		</div>
 	</div>
