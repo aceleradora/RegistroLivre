@@ -95,7 +95,7 @@
 							<div class="input-group">
 								<input type="text" class="form-control" name="busca" id="campoPesquisado" placeholder="Busque por uma empresa aqui"> <span
 									class="input-group-btn">
-									<button class="btn btn-default botao-busca" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+									<button id="btn-submit" class="btn btn-default botao-busca" type="submit" disabled=""><span class="glyphicon glyphicon-search"></span></button>
 								</span>
 							</div>
 							
