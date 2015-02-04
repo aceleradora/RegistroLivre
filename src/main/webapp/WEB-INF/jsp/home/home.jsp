@@ -110,7 +110,7 @@
 			
 			
 			
-			<div id="busca-avancada" class="col-lg-6 col-lg-offset-3" style="display:none">
+			<div id="busca-avancada" class="col-lg-6 col-md-8 col-sm-10 col-lg-offset-3 col-md-offset-2 col-sm-offset-1" style="display:none">
 				<div class="panel panel-default margin-30-0">
 					<div class="panel-heading centralize">
 						<h4>Busca Avançada <span id="fecha-busca-avancada" class="pull-right cursor-pointer">&times;</span></h4>
