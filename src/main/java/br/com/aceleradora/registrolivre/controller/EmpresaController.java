@@ -1,5 +1,7 @@
 package br.com.aceleradora.registrolivre.controller;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -11,6 +13,7 @@ import br.com.aceleradora.registrolivre.util.Arquivo;
 import br.com.aceleradora.registrolivre.util.CalendarTransformador;
 import br.com.aceleradora.registrolivre.util.ClienteCloudinary;
 import br.com.aceleradora.registrolivre.util.DataOrdenadaTransformador;
+import br.com.aceleradora.registrolivre.util.DownloadMultiploArquivo;
 import br.com.aceleradora.registrolivre.util.EmissorDeEmail;
 import br.com.aceleradora.registrolivre.util.EnderecoTransformador;
 import br.com.caelum.vraptor.Get;
@@ -18,6 +21,8 @@ import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.Validator;
+import br.com.caelum.vraptor.interceptor.download.Download;
+import br.com.caelum.vraptor.interceptor.download.FileDownload;
 import br.com.caelum.vraptor.interceptor.multipart.UploadedFile;
 import br.com.caelum.vraptor.view.Results;
 import flexjson.JSONSerializer;
@@ -81,7 +86,8 @@ public class EmpresaController {
 	@Get("/busca")
 	public void busca(String busca) {
 		if (busca != null) {
-			List<Empresa> listaDeResultadosDeEmpresas = daoEmpresa.pesquisa(busca);
+			List<Empresa> listaDeResultadosDeEmpresas = daoEmpresa
+					.pesquisa(busca);
 			result.forwardTo(this).listagem(listaDeResultadosDeEmpresas);
 		} else {
 			result.include("buscaVazia", true);
@@ -95,11 +101,13 @@ public class EmpresaController {
 			result.include("buscaVazia", true);
 			result.redirectTo(HomeController.class).home();
 		} else {
-			List<Empresa> listaDeResultadosDeEmpresas = daoEmpresa.pesquisaAvancadaEspecifica(empresa);
+			List<Empresa> listaDeResultadosDeEmpresas = daoEmpresa
+					.pesquisaAvancadaEspecifica(empresa);
 
 			if (listaDeResultadosDeEmpresas.size() == 0) {
 				result.include("buscaAproximada", true);
-				listaDeResultadosDeEmpresas = daoEmpresa.pesquisaAvancadaAproximada(empresa);
+				listaDeResultadosDeEmpresas = daoEmpresa
+						.pesquisaAvancadaAproximada(empresa);
 			}
 
 			result.redirectTo(this).listagem(listaDeResultadosDeEmpresas);
@@ -141,12 +149,11 @@ public class EmpresaController {
 	private void salvar(Empresa empresa, UploadedFile arquivo, boolean alteracao) {
 		empresa.retiraPontosTracosBarrasCnpjECpf();
 		if (empresa.cnpjJaExistente(daoEmpresa.getTodosCNPJ()) && !alteracao) {
-			result.include("erro",
-					"CNPJ Já Existente!");
+			result.include("erro", "CNPJ Já Existente!");
 			result.include(empresa);
 			result.redirectTo(this).cadastro();
 		} else {
-			if(alteracao){
+			if (alteracao) {
 				enviaMensagemDeAlteracao(empresa);
 			}
 			if (arquivo != null) {
@@ -174,17 +181,16 @@ public class EmpresaController {
 		Empresa antigaEmpresa = daoEmpresa.getById(empresa.getId());
 		Empresa novaEmpresa = empresa;
 		String mensagemAlterecaoDeEmpresa = "";
-		mensagemAlterecaoDeEmpresa += antigaEmpresa.trazDadosDaEmpresa(true) +
-									  "\n\n\n" + novaEmpresa.trazDadosDaEmpresa(false);
-		
-		daoEmpresa.limpaSessao();
-		
-		Email email = new Email("Registro Livre", 
-								"registrolivreaceleradora@gmail.com", 
-								"Alteração da Empresa " + empresa.getId(), 
-								mensagemAlterecaoDeEmpresa);
+		mensagemAlterecaoDeEmpresa += antigaEmpresa.trazDadosDaEmpresa(true)
+				+ "\n\n\n" + novaEmpresa.trazDadosDaEmpresa(false);
 
-		EmissorDeEmail emissor = new EmissorDeEmail(); 
+		daoEmpresa.limpaSessao();
+
+		Email email = new Email("Registro Livre",
+				"registrolivreaceleradora@gmail.com", "Alteração da Empresa "
+						+ empresa.getId(), mensagemAlterecaoDeEmpresa);
+
+		EmissorDeEmail emissor = new EmissorDeEmail();
 		emissor.enviar(email, "Alteração");
 	}
 
@@ -234,21 +240,35 @@ public class EmpresaController {
 
 		result.use(Results.json()).from(socios).serialize();
 	}
-	
+
 	@Get
-	public void download(long... ids){
+	public Download download(long... ids) throws IOException {
 		Collection<Long> idDaUrl = new ArrayList<Long>();
-		
+
 		for (Long id : ids) {
 			idDaUrl.add(id);
 		}
-		
+
 		List<String> urlDocumentos = daoEmpresa.getLinksDocumentos(idDaUrl);
 		
+		DownloadMultiploArquivo download = new DownloadMultiploArquivo(urlDocumentos);
+		
+		String caminhoZip = download.geraZips();
+		File arquivo = new File(caminhoZip);
+		String contentType = "application/zip";
+		String nomeArquivo = "empresas.zip";
+		
+		FileDownload teste = new FileDownload(arquivo, contentType, nomeArquivo);
+		
+		arquivo.delete();
+		
+		return teste;
 	}
 
 	@Get
 	public void cnpjUnico(String cnpjDigitado) {
-		result.use(Results.json()).from(!daoEmpresa.getTodosCNPJ().contains(cnpjDigitado)).serialize();
+		result.use(Results.json())
+				.from(!daoEmpresa.getTodosCNPJ().contains(cnpjDigitado))
+				.serialize();
 	}
 }
