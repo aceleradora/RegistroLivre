@@ -9,7 +9,7 @@ RegistroLivre.DataTable = function DataTable(){
 		
 		var tabela = $('#tabelaListagem').DataTable({
 			data : dados,
-			stateSave: true,
+			stateSave: true,			
 			columns : [ {},
 			            { data : 'nomeFantasia'	}, 
 			            { data : 'endereco.logradouro' },
@@ -59,7 +59,8 @@ RegistroLivre.DataTable = function DataTable(){
 	                "next":       "Próximo",
 	                "previous":   "Anterior"
 	            }
-	        }
+	        },
+	        "autoWidth": false
 		});
 		
 		criaBotaoDownloadMultiplo();

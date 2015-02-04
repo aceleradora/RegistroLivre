@@ -32,7 +32,7 @@
 	<jsp:include page="/WEB-INF/jsp/includes/cabecalho.jsp" />
 		<div class="container content">
 			<div class="row">
-				<div class="col-lg-6 col-md-6 col-lg-offset-3 col-md-offset-3">
+				<div class="col-lg-6 col-md-8 col-sm-10 col-lg-offset-3 col-md-offset-2 col-sm-offset-1">
 				
 				<c:forEach items="${errors}" var="error">
 	    			<div class="alert alert-danger alert-dismissible" role="alert">

@@ -25,7 +25,7 @@
 	<jsp:include page="/WEB-INF/jsp/includes/cabecalho.jsp" />
 	<div class="container content">
 		<div class="row">
-			<div class="col-lg-8 col-lg-offset-2">
+			<div class="col-lg-8 col-md-10 col-sm-12 col-lg-offset-2 col-md-offset-1">
 				<c:if test="${buscaAproximada == true}">
 					<div class="alert alert-info alert-dismissible" id="info-busca-aproximada" role="alert">
 						<button type="button" class="close" id="close-info-busca-aproximada" data-dismiss="alert">
