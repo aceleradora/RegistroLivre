@@ -68,19 +68,21 @@
 									<input class="form-control" type="email" name="email.rementente" value="${email.remetente}" id=""  placeholder="ex: fulano123@email.com" required/>
 									<span class="glyphicon form-control-feedback"></span>
 								</div>
-							
-								<div class="form-group">
-									<label class="control-label">Assunto <abbr class="cor-vermelha" title="Preenchimento obrigatório">*</abbr> </label>
-									<select name="email.assunto" class="form-control" required id="" >
-										<option value="" selected>Escolha uma opção </option>
-										<option value="duvida">Dúvida</option>
-										<option value="reclamacao">Reclamação</option>										
-										<option value="sugestao">Sugestão</option>								
-										<option value="outro">Outro</option>
-									</select>
-								</div>
-															
-								<div class="row">
+
+							<div class="form-group">
+								<label class="control-label">Assunto <abbr class="cor-vermelha" title="Preenchimento obrigatório">*</abbr> </label>
+									<div class="select" style="width: 585px;">
+										<select name="email.assunto" class="form-control" required id="" style="width: 600px;">
+											<option value="" selected>Escolha uma opção </option>
+											<option value="duvida">Dúvida</option>
+											<option value="reclamacao">Reclamação</option>										
+											<option value="sugestao">Sugestão</option>								
+											<option value="outro">Outro</option>
+										</select>
+									</div>
+							</div>
+
+							<div class="row">
 									<div class="col-lg-12">
 										<div class="form-group">
 											<label class="control-label">Sua mensagem  <abbr class="cor-vermelha" title="Preenchimento obrigatório">*</abbr> </label> 
