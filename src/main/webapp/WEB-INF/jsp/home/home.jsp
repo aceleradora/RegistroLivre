@@ -59,9 +59,9 @@
 </head>
 
 <body>
-	<jsp:include page="/WEB-INF/jsp/includes/cabecalho.jsp" />	
-	<div class="container content">
+	<jsp:include page="/WEB-INF/jsp/includes/cabecalho.jsp" />
 		
+	<div class="container content">		
 		<div class="row">
 			<div class="col-lg-6 col-lg-offset-3">
 				<c:if test="${listaDeResultadosDeEmpresasVazia == true}">
@@ -169,8 +169,8 @@
 			</div>
 		</div>
 	</div>
-	<div class="ajustaRodapeHome">
-		<jsp:include page="/WEB-INF/jsp/includes/rodape.jsp" />	
-	</div>	
+	
+	<jsp:include page="/WEB-INF/jsp/includes/rodape.jsp" />	
+		
 </body>
 </html>
