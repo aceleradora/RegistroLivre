@@ -258,11 +258,11 @@ public class EmpresaController {
 		String contentType = "application/zip";
 		String nomeArquivo = "empresas.zip";
 		
-		FileDownload teste = new FileDownload(arquivo, contentType, nomeArquivo);
+		FileDownload arquivoDownload = new FileDownload(arquivo, contentType, nomeArquivo);
 		
 		arquivo.delete();
 		
-		return teste;
+		return arquivoDownload;
 	}
 
 	@Get
