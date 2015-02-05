@@ -1,7 +1,8 @@
 @CHARSET "UTF-8";
 
 body {
-	background-image: url(../img/fundo-home.jpg);
+	/*background-image: url(../img/fundo-home.jpg);*/
+	background-color:#E1E1E1;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -16,8 +17,7 @@ body {
 }
 
 .descricao {
-	color: #fff;
-	text-shadow: 1px 1px 4px #000, 2px 2px 4px #000;
+	color: #2c3e50;	
 	line-height: 30px;
 }
 
@@ -27,8 +27,12 @@ body {
 }
 
 #registrolivre {
-	color: #fff;
+	color: #2c3e50;
 	font-size: 60px;
-	font-family: "Montserrat-Hairline";
-	text-shadow: 1px 1px 4px #000, 2px 2px 4px #000;
+	font-family: "Montserrat-Hairline";	
+}
+
+.logo{
+	width:200px;
+	height:230px;
 }

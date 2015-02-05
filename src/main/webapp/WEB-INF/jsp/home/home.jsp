@@ -48,8 +48,8 @@
 				<div class="panel panel-default margin-100-0-0-0 home">
 
 					<div class="panel-heading centralize home">
-						<h1 id="registrolivre">Registro Livre</h1>
-						<h4 class="descricao">Um site colaborativo para cadastrar e pesquisar registros públicos de empresas brasileiras.</h4>
+						<img src="../assets/img/loguinho.png"  class="logo">						
+						<h4 class="descricao">Publicando registros públicos.</h4>
 					</div>
 					<div class="panel-body">
 						
@@ -57,7 +57,7 @@
 							<div class="input-group">
 								<input type="text" class="form-control" name="busca" id="campo-pesquisado" placeholder="Busque por uma empresa aqui"> <span
 									class="input-group-btn">
-									<button id="btn-submit" class="btn btn-default botao-busca" type="submit" disabled=""><span class="glyphicon glyphicon-search"></span></button>
+									<button id="btn-submit" class="btn btn-primary botao-busca" type="submit" disabled=""><span class="glyphicon glyphicon-search"></span></button>
 								</span>
 							</div>
 							

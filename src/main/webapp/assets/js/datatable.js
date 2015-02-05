@@ -28,7 +28,7 @@ RegistroLivre.DataTable = function DataTable(){
 			},
 			{
 				"render" : function(data, type, row){
-					return '<input type="checkbox" class="datatableSelecao">'; 
+					return '<input type="checkbox" class="datatable-selecao">'; 
 				},
 				"targets" : 0 
 			},{
@@ -75,7 +75,7 @@ RegistroLivre.DataTable = function DataTable(){
 	} 
 	
 	var criaMultiselecao = function criaMultiselecao(){
-		$('.datatableSelecao').click(function(){
+		$('.datatable-selecao').click(function(){
 			$(this).parents('tr').toggleClass('selected');
 			var $botaoDownload = $('#btn-multi-download');
 

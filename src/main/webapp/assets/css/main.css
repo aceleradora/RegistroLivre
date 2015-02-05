@@ -1,11 +1,5 @@
-.datatableSelecao input:checked {
-    /*background: url("link_to_another_image");*/
-}
-
-.datatableSelecao{
-	transform: scale(2);
-	-webkit-transform: scale(2);
-	/*background: url("link_to_image");*/
+.datatable-selecao{
+	background-color:red;
 }
 
 *{
@@ -32,15 +26,6 @@ body{
 
 .panel-default>.panel-heading{
 	background-color:#F3F4F4;
-}
-
-#registrolivre{
-	color:#252D40;
-}
-
-#abrir-busca-avancada{
-	color:#e67e22;
-	text-shadow: 1px 1px 2px #000, 1px 1px 4px #000, 2px 2px 4px #000, 3px 3px 4px #000 ;
 }
 
 .btn, .btn-primary, {
@@ -93,46 +78,6 @@ ul li{
 	color: #F1EEF5;
 }
 
-.form-control{	
-	border-radius:0;	
-	transition: all 0.2s ease-in 0s;
-	box-shadow:1px 1px 5px transparent;
-}
-
-.form-control:focus{
-	box-shadow:1px 1px 5px #e67e22;
-	border-color:#e67e22;
-}
-
-
-.rodape .container a{	
-	color: #e67e22;
-	text-shadow: 1px 1px 2px #000, 1px 1px 4px #000, 2px 2px 4px #000;	
-}
-
-p{
-	color:#F1EEF5;
-}
-
-
-h1, h2, h3, h4, h5, h6{ 
-	font-family:"Montserrat-HairLine";	
-}
-
-@font-face{
-	font-family:"Montserrat-HairLine";
-	src:url("../fonts/Montserrat-Hairline.otf");
-}
-
-@font-face{
-	font-family:"Montserrat-Light";
-	src:url("../fonts/Montserrat-Light.otf");
-}
-
-@font-face{
-	font-family:"Montserrat-Bold";
-	src:url("../fonts/Montserrat-Bold.otf");
-}
 
 .select select{
 	background:transparent;	

@@ -19,6 +19,16 @@
 	font-family:"Montserrat-Light";	
 }
 
+h1, h2, h3, h4, h5, h6{ 
+	font-family:"Montserrat-HairLine";	
+}
+
+.nome, .sobrenome, .papel{	
+	font-family:"Montserrat-Light";
+	color: #F1EEF5;
+}
+
+
 body{
 	background-color:#2c3e50;
 }
@@ -36,8 +46,7 @@ body{
 }
 
 #abrir-busca-avancada{
-	color:#e67e22;
-	text-shadow: 1px 1px 2px #000, 1px 1px 4px #000, 2px 2px 4px #000, 3px 3px 4px #000 ;
+	color:#2c3e50;	
 }
 
 .btn, .btn-primary {
@@ -47,16 +56,22 @@ body{
 	border:0;	
 }
 
-.btn-primary, .btn-primary[disabled]{
+.btn-primary{
 	background-color: #2c3e50;
 	color: #e67e22;
 	border-radius:0;
 	border:0;
 	
 }
-.btn-primary:hover{
-	background-color:#34495e;	
-}
+
+	.btn-primary[disabled]{	 
+		color:#2c3e50;
+		background-color: rgba(0,0,0,0.5);
+	}
+	
+	.btn-primary:hover{
+		background-color:#34495e;	
+	}
 
 .btn-default{
 	background-color:#404141;
@@ -66,19 +81,26 @@ body{
 	border:0;	
 }
 
-.btn-default:hover{
-	background-color:#404141;
-	color:#F1EEF5;
-	border-color:#364475;
-	box-shadow:1px 1px 5px #364475;
-}
+	.btn-default:hover{
+		background-color:#404141;
+		color:#F1EEF5;
+		border-color:#364475;
+		box-shadow:1px 1px 5px #364475;
+	}
+	
+	.btn-default:focus{
+		background-color:#404141;
+		color:#e67e22;
+		box-shadow:1px 1px 5px #e67e22;;
+		 
+	}
 
 .navbar{	
 	border:0;
 }
 
 .navbar-nav > li > a{
-	color:#e67e22 !important;		
+	color:#2c3e50 !important;		
 }
 
 .ui-menu-item{
@@ -89,37 +111,29 @@ ul li{
 	color: #F1EEF5;	
 }
 
-.nome, .sobrenome, .papel{	
-	font-family:"Montserrat-Light";
-	color: #F1EEF5;
-}
-
 .form-control{	
 	border-radius:0;	
 	transition: all 0.2s ease-in 0s;
-	box-shadow:1px 1px 5px transparent;
+	box-shadow:1px 1px 5px transparent;	
 }
 
 .form-control:focus{
-	box-shadow:1px 1px 5px #e67e22;
-	border-color:#e67e22;
+	box-shadow:1px 1px 5px #2c3e50;
+	border-color:#2c3e50;	
+	
 }
 
+.rodape{
+	background-color: #FFF;
+}
 
 .rodape .container a{	
-	color: #e67e22;
-	text-shadow: 1px 1px 2px #000, 1px 1px 4px #000, 2px 2px 4px #000;		
+	color: #2c3e50;			
 }
 
 p{
 	color:#F1EEF5;
 }
-
-
-h1, h2, h3, h4, h5, h6{ 
-	font-family:"Montserrat-HairLine";	
-}
-
 
 .select-wrapper select{
 	background:transparent;
