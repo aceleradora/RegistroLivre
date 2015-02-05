@@ -1,0 +1,64 @@
+
+/* Celulares */
+
+@media(max-width:767px){
+
+	.avatar{
+		height:230px;
+	}
+	
+	.avatar .imagem{
+		width: 145px;
+		height:145px;
+	}	
+	
+}
+
+
+/* Tablets */
+
+@media(min-width:768px){
+
+	.avatar{
+		height:230px;
+	}
+	
+	.avatar .imagem{
+		width: 145px;
+		height:145px;
+	}	
+	
+}
+
+
+
+/* Desktops Antigos */
+
+@media(min-width:992px){
+	
+	.avatar{
+		height:230px;
+	}
+	
+	.avatar .imagem{
+		width: 145px;
+		height:145px;
+	}	
+	
+}
+
+
+/* Desktop Widescreen */
+
+@media(min-width:1200px){
+	
+	.avatar{
+		height:200px;
+	}
+	
+	.avatar .imagem{
+		width: 125px;
+		height:125px;
+	}
+	
+}

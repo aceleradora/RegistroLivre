@@ -19,7 +19,7 @@
 		}
 	
 		$(document).ready(function(){			
-			$(".imagemAjustado").each(function(){				
+			$(".avatar .imagem").each(function(){				
 				setaCorDaBorda($(this));		
 				$(this).hover(function(){setaCorDaBorda($(this))});
 			});				
@@ -30,7 +30,7 @@
 	<jsp:include page="/WEB-INF/jsp/includes/cabecalho.jsp" />
 		<div class="content">
 			<div class="row">
-				<div class="col-lg-8 col-md-4 col-lg-offset-2 col-md-offset-3">
+				<div class="col-lg-8 col-md-8 col-sm-10 col-xs-12 col-lg-offset-2 col-md-offset-2 col-sm-offset-1">
 					
 					<h1 class="centralize font-size-40 title"> Quem Somos</h1>
 					
@@ -53,8 +53,8 @@
 					<h1 class="centralize font-size-40 title">Equipe</h1>
 					
 					
-					<div class="col-md-2 avatar">
-						<img src="../assets/img/alejAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
+					<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 avatar">
+						<img src="../assets/img/alejAjustado.jpg" class="img-ponsive img-circle imagem"/>
 						<div>
 							<div class="nome">Alejandro</div>
 							<div class="sobrenome">Olchik</div>
@@ -62,8 +62,8 @@
 						</div>			
 					</div>
 					
-					<div class="col-md-2 avatar">
-						<img src="../assets/img/xandiAjustado.jpg" class="img-responsive img-circle imagemAjustado circulo-de-fogo"/>
+					<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 avatar">
+						<img src="../assets/img/xandiAjustado.jpg" class=" img-circle imagem circulo-de-fogo"/>
 						<div>
 							<div class="nome">Alexandre</div>
 							<div class="sobrenome">Morales</div>
@@ -71,8 +71,8 @@
 						</div>			
 					</div>
 
-					<div class="col-md-2 avatar">
-						<img src="../assets/img/anaAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
+					<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 avatar">
+						<img src="../assets/img/anaAjustado.jpg" class=" img-circle imagem"/>
 						<div>
 							<div class="nome">Ana Paula</div>
 							<div class="sobrenome">Daros</div>
@@ -80,8 +80,8 @@
 						</div>
 					</div>
 					
-					<div class="col-md-2 avatar">
-						<img src="../assets/img/bernardoAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
+					<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 avatar">
+						<img src="../assets/img/bernardoAjustado.jpg" class=" img-circle imagem"/>
 						<div>
 							<div class="nome">Bernardo</div>
 							<div class="sobrenome">Estácio</div>
@@ -89,8 +89,8 @@
 						</div>			
 					</div>		
 	
-					<div class="col-md-2 avatar">
-						<img src="../assets/img/carisaAjustado.jpg" class="img-responsive img-circle imagemAjustado" />
+					<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 avatar">
+						<img src="../assets/img/carisaAjustado.jpg" class=" img-circle imagem" />
 						<div>
 							<div class="nome">Carisa</div>
 							<div class="sobrenome">Rubim</div>
@@ -98,8 +98,8 @@
 						</div>						
 					</div>
 
-					<div class="col-md-2 avatar">
-						<img src="../assets/img/evertonAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
+					<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 avatar">
+						<img src="../assets/img/evertonAjustado.jpg" class=" img-circle imagem"/>
 						<div>
 							<div class="nome">Everton</div>
 							<div class="sobrenome">Goulart</div>
@@ -107,8 +107,8 @@
 						</div>						
 					</div>
 				
-					<div class="col-md-2 avatar">
-						<img src="../assets/img/henriqueAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>						
+					<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 avatar">
+						<img src="../assets/img/henriqueAjustado.jpg" class=" img-circle imagem"/>						
 						<div>
 							<div class="nome">Henrique</div>
 							<div class="sobrenome">Braga</div>
@@ -116,8 +116,8 @@
 						</div>			
 					</div>
 					
-					<div class="col-md-2 avatar">
-						<img src="../assets/img/user.png" class="img-responsive img-circle imagemAjustado"/>
+					<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 avatar">
+						<img src="../assets/img/user.png" class=" img-circle imagem"/>
 						<div>
 							<div class="nome">Jefferson</div>
 							<div class="sobrenome">Stachelski</div>
@@ -125,8 +125,8 @@
 						</div>			
 					</div>
 					
-					<div class="col-md-2 avatar">
-						<img src="../assets/img/joaoAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
+					<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 avatar">
+						<img src="../assets/img/joaoAjustado.jpg" class=" img-circle imagem"/>
 						<div>
 							<div class="nome">João</div>
 							<div class="sobrenome">H.S. Pinto</div>
@@ -134,8 +134,8 @@
 						</div>			
 					</div>		
 					
-					<div class="col-md-2 avatar">
-						<img src="../assets/img/johnAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
+					<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 avatar">
+						<img src="../assets/img/johnAjustado.jpg" class=" img-circle imagem"/>
 						<div>
 							<div class="nome">Jonatas</div>
 							<div class="sobrenome">Salgado</div>
@@ -143,8 +143,8 @@
 						</div>			
 					</div>
 					
-					<div class="col-md-2 avatar">
-						<img src="../assets/img/user.png" class="img-responsive img-circle imagemAjustado"/>
+					<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 avatar">
+						<img src="../assets/img/user.png" class=" img-circle imagem"/>
 						<div>
 							<div class="nome">José</div>
 							<div class="sobrenome">Zimermann</div>
@@ -152,8 +152,8 @@
 						</div>			
 					</div>
 					
-					<div class="col-md-2 avatar">
-						<img src="../assets/img/josiAjustada.jpg" class="img-responsive img-circle imagemAjustado"/>
+					<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 avatar">
+						<img src="../assets/img/josiAjustada.jpg" class=" img-circle imagem"/>
 						<div>
 							<div class="nome">Joseane</div>
 							<div class="sobrenome">Wichrowski</div>
@@ -161,8 +161,8 @@
 						</div>			
 					</div>
 					
-					<div class="col-md-2 avatar">
-						<img src="../assets/img/julioAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
+					<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 avatar">
+						<img src="../assets/img/julioAjustado.jpg" class=" img-circle imagem"/>
 						<div>
 							<div class="nome">Julio</div>
 							<div class="sobrenome">Farah</div>
@@ -170,8 +170,8 @@
 						</div>		
 					</div>
 					
-					<div class="col-md-2 avatar">
-						<img src="../assets/img/amigoDoPOAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
+					<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 avatar">
+						<img src="../assets/img/amigoDoPOAjustado.jpg" class=" img-circle imagem"/>
 						<div>
 							<div class="nome">Leandro</div>
 							<div class="sobrenome">Demori</div>
@@ -179,8 +179,8 @@
 						</div>			
 					</div>	
 					
-					<div class="col-md-2 avatar">
-						<img src="../assets/img/lucasAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
+					<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 avatar">
+						<img src="../assets/img/lucasAjustado.jpg" class=" img-circle imagem"/>
 						<div>
 							<div class="nome">Lucas</div>
 							<div class="sobrenome">Beier</div>
@@ -188,8 +188,8 @@
 						</div>			
 					</div>
 								
-					<div class="col-md-2 avatar">
-						<img src="../assets/img/jordaniAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
+					<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 avatar">
+						<img src="../assets/img/jordaniAjustado.jpg" class=" img-circle imagem"/>
 						<div>
 							<div class="nome">Lucas</div>
 							<div class="sobrenome">Jordani</div>
@@ -197,8 +197,8 @@
 						</div>			
 					</div>						
 					
-					<div class="col-md-2 avatar">
-						<img src="../assets/img/rangelAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
+					<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 avatar">
+						<img src="../assets/img/rangelAjustado.jpg" class=" img-circle imagem"/>
 						<div>
 							<div class="nome">Lucas</div>
 							<div class="sobrenome">Rangel</div>
@@ -206,8 +206,8 @@
 						</div>			
 					</div>
 					
-					<div class="col-md-2 avatar">
-						<img src="../assets/img/violaAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
+					<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 avatar">
+						<img src="../assets/img/violaAjustado.jpg" class=" img-circle imagem"/>
 						<div>
 							<div class="nome">Lucas</div>
 							<div class="sobrenome">Viola</div>
@@ -215,8 +215,8 @@
 						</div>			
 					</div>
 					
-					<div class="col-md-2 avatar">
-						<img src="../assets/img/marceloAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
+					<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 avatar">
+						<img src="../assets/img/marceloAjustado.jpg" class=" img-circle imagem"/>
 						<div>
 							<div class="nome">Marcelo</div>
 							<div class="sobrenome">Träsel</div>
@@ -224,8 +224,8 @@
 						</div>			
 					</div>
 
-					<div class="col-md-2 avatar">
-						<img src="../assets/img/marcusAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
+					<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 avatar">
+						<img src="../assets/img/marcusAjustado.jpg" class=" img-circle imagem"/>
 						<div>
 							<div class="nome">Marcus</div>
 							<div class="sobrenome">Rodrigues</div>
@@ -233,8 +233,8 @@
 						</div>			
 					</div>
 					
-					<div class="col-md-2 avatar">
-						<img src="../assets/img/patiAjustada.jpg" class="img-responsive img-circle imagemAjustado"/>
+					<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 avatar">
+						<img src="../assets/img/patiAjustada.jpg" class=" img-circle imagem"/>
 						<div>
 							<div class="nome">Patricia</div>
 							<div class="sobrenome">Durand</div>
@@ -242,8 +242,8 @@
 						</div>			
 					</div>
 					
-					<div class="col-md-2 avatar">
-						<img src="../assets/img/samanthaAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
+					<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 avatar">
+						<img src="../assets/img/samanthaAjustado.jpg" class=" img-circle imagem"/>
 						<div>
 							<div class="nome">Samantha</div>
 							<div class="sobrenome">Rosa</div>
@@ -251,8 +251,8 @@
 						</div>			
 					</div>
 					
-					<div class="col-md-2 avatar">
-						<img src="../assets/img/taniaAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
+					<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 avatar">
+						<img src="../assets/img/taniaAjustado.jpg" class=" img-circle imagem"/>
 						<div>
 							<div class="nome">Tânia</div>
 							<div class="sobrenome">Silva</div>
@@ -260,8 +260,8 @@
 						</div>			
 					</div>
 					
-					<div class="col-md-2 avatar">
-						<img src="../assets/img/thiagoAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
+					<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 avatar">
+						<img src="../assets/img/thiagoAjustado.jpg" class=" img-circle imagem"/>
 						<div>
 							<div class="nome">Thiago</div>
 							<div class="sobrenome">Xavier</div>
@@ -269,8 +269,8 @@
 						</div>			
 					</div>
 					
-					<div class="col-md-2 avatar">
-						<img src="../assets/img/yasserAjustado.jpg" class="img-responsive img-circle imagemAjustado"/>
+					<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 avatar">
+						<img src="../assets/img/yasserAjustado.jpg" class=" img-circle imagem"/>
 						<div>
 							<div class="nome">Yasser</div>
 							<div class="sobrenome">Rachid</div>
