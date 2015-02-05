@@ -8,7 +8,7 @@ var valorInicialDosCampos = function(){
 };
 
 var temCampoMudado = function(){	
-	var valorCNPJ = $("#cnpj").val().replace(/[^\d]+/g, '');
+	var valorCNPJ = $("#cnpj").val();
 	var valorNomeFantasia = $("#nomeFantasia").val();
 	
 	if(valorCNPJ != valorInicialCNPJ)
