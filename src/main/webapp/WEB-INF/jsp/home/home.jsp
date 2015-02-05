@@ -5,7 +5,7 @@
 <html lang="pt-br">
 <head>	
 	<jsp:include page="/WEB-INF/jsp/includes/assets.jsp" />
-	<title>Registro Livre - A verdade está lá fora!</title>	
+	<title>Registro Livre - Publicando registros públicos</title>	
 	<meta charset="iso-8859-1" />
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
 	<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
