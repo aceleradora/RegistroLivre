@@ -17,7 +17,7 @@ public class EmissorDeEmail {
 	private static final String HOST = "mx1.hostinger.com.br";
 	private static final String EMAIL_HOST = "contato@registrolivre.hol.es";
 	private static final String PORTA_HOST = "2525";
-	private static final String DESTINATARIO = "registrolivreaceleradora@gmail.com";
+	private static final String DESTINATARIO = "registrolivreaceleradora@gmail.com, contato@registrolivre.inf.br";
 
 	private Session sessao;
 
