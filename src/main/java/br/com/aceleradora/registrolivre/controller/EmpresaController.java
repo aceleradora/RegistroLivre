@@ -2,7 +2,9 @@ package br.com.aceleradora.registrolivre.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collection;
 import java.util.List;
 
@@ -252,11 +254,14 @@ public class EmpresaController {
 		List<String> urlDocumentos = daoEmpresa.getLinksDocumentos(idDaUrl);
 		
 		DownloadMultiploArquivo download = new DownloadMultiploArquivo(urlDocumentos);
+		SimpleDateFormat formatacaoDataETempo = new SimpleDateFormat("dd_MM_yyyy_HH:mm:ss");
 		
 		String caminhoZip = download.geraZips();
 		File arquivo = new File(caminhoZip);
 		String contentType = "application/zip";
-		String nomeArquivo = "empresas.zip";
+		String nomeArquivo = "Registro_Livre_-_" +
+				formatacaoDataETempo.format(Calendar.getInstance().getTime()) +
+				".zip";
 		
 		FileDownload arquivoDownload = new FileDownload(arquivo, contentType, nomeArquivo);
 		
