@@ -2,15 +2,14 @@
 	<div class="container">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle collapsed"
-				data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				data-toggle="collapse" data-target=".navbar-collapse" >
 				<span class="sr-only">Toggle navigation</span> 
 				<span class="icon-bar"></span> <span class="icon-bar"></span> 
 				<span class="icon-bar"></span>
 			</button>
 			
 		</div>
-		<div class="collapse navbar-collapse"
-			id="bs-example-navbar-collapse-1">
+		<div class="collapse navbar-mobile">
 			<ul class="nav navbar-nav btn-borders-navbar">
 				<li><a href="/"><span class="glyphicon glyphicon-search"></span> Busca</a></li>
 				<li><a href="/cadastro"><span class="glyphicon glyphicon-cloud-upload"></span> Cadastrar Empresa</a></li>				

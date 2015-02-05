@@ -1,11 +1,11 @@
 $(document).ready(function() {
 	associarEventos();
-	
 	retiraCampoBuscaNavbar();
 	eventoDesbloquearBotaoPesquisar();
 	validarBuscaAvancada();	
 	mascararCampos();
 });
+
 
 function mascararCampos(){
 	mascaras.mascararCpf($('.cpf'));
