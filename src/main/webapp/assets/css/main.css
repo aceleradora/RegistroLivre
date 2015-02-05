@@ -85,8 +85,7 @@ body{
 }
 
 ul li{
-	/*color: #F1EEF5;*/
-	color:#000;
+	color: #F1EEF5;	
 }
 
 .nome, .sobrenome, .papel{	
@@ -136,8 +135,7 @@ h1, h2, h3, h4, h5, h6{
 }
 
 .select select{
-	background:transparent;
-	/* width:605px; */
+	background:transparent;	
 	padding:5px;
 	font-size:16px;
 	line-height:1;
@@ -147,8 +145,7 @@ h1, h2, h3, h4, h5, h6{
 	-webkit-appearance:none;
 }
 
-.select{
-	/* width:585px; */
+.select{	
 	height:34px;
 	overflow:hidden;
 	background:url('../img/select.jpg') no-repeat right #fff;
@@ -159,16 +156,8 @@ h1, h2, h3, h4, h5, h6{
 	width:207px;	
 }
 
-.select-estado select{
-	/* width:225px; */
-}
-
-.select-cidade{
-	/* width:280px; */
-}
-
-.select-cidade select{
-	/* width:300px; */
+#busca-avancada{
+	display:none;
 }
 
 .content{
