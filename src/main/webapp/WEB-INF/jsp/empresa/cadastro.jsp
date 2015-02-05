@@ -23,7 +23,6 @@
 	<script src="/assets/js/cidades-estados-1.2-utf8.js" charset="utf-8"></script>
 	<script src="/assets/js/bootstrap/bootstrap-filestyle.js"></script>
 	<script src="/assets/js/bootstrap/bootstrap.js"></script>
-	<script src="/assets/js/cadastro.js"></script>
 	<script src="/assets/js/socios.js" charset="utf-8"></script>
 	<script src="/assets/js/cidadeEstado.js"></script>
 	<script src="/assets/js/autocompletarsocio.js"></script>
@@ -202,6 +201,7 @@
 		
 	<script src="/assets/js/validacao-logica-cadastro.js" charset="utf-8"></script>		
 	<script src="/assets/js/validacao-visual-cadastro.js" charset="utf-8"></script>
+	<script src="/assets/js/cadastro.js" charset="utf-8"></script>
 	
 	<jsp:include page="/WEB-INF/jsp/includes/rodape.jsp" />			
 	</body>

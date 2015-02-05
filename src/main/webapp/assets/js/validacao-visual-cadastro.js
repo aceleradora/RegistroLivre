@@ -19,7 +19,7 @@ var validarCNPJVazio = function() {
 			input.invalidado(cnpjGroup, cnpjGroupIcon);
 		}
 		if (cnpjDigitado.length == '00.000.000/0000-00'.length) {
-			if (!validarCnpjUnico(cnpjDigitado)) {
+			if (verificaCnpjMudado() && !validarCnpjUnico(cnpjDigitado)) {
 				input.invalidado(cnpjGroup, cnpjGroupIcon);
 				criaPopoverCNPJ();
 				$('#cnpj').popover('show');
@@ -179,6 +179,15 @@ var validarTamanhoPdf = function() {
 		}
 	});
 }
+
+var verificaCnpjMudado = function(){	
+	var valorCNPJ = $("#cnpj").val();
+	
+	if(valorCNPJ != valorInicialCNPJ)
+		return true;
+	
+	return false;
+};
 
 $(document).ready(function() {
 	validarNomeFantasiaVazio();

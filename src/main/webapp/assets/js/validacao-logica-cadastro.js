@@ -4,7 +4,7 @@ function validarCadastro(editar) {
 		alert("Preencha o CNPJ corretamente.");
 		formulario.cnpj.focus();
 		return false;
-	} else if (!validarCnpjUnico(formulario.cnpj.value)) {
+	} else if (verificaCnpjMudado() && !validarCnpjUnico(formulario.cnpj.value)) {
 		alert("O CNPJ preenchido já existe.");
 		formulario.cnpj.focus();
 		return false;
@@ -181,3 +181,12 @@ function verificaCPFTodosSocios() {
 		return false;
 	}
 }
+
+function verificaCnpjMudado(){	
+	var valorCNPJ = $("#cnpj").val();
+	
+	if(valorCNPJ != valorInicialCNPJ)
+		return true;
+	
+	return false;
+};
