@@ -53,8 +53,9 @@ RegistroLivre.Socios = function Socios(){
 			autocompletarsocio.cria();
 		}
 	}
-		
+	
 	var adicionaComDados = function adicionaComDados(nome, cpf, ativo){
+		nome = $('<textarea />').html(nome).text();
 		var $template = $(template);
 		$template.find("input[name='empresa.socios[].nome']").val(nome);
 		$template.find("input[name='empresa.socios[].cpf']").val(cpf);
