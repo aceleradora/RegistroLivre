@@ -129,14 +129,18 @@
 								<div class="row">
 									<div class="col-lg-3">
 										<div class="form-group">
-											<label class="control-label">Estado</label>			
-											<input id="estado" class="form-control" name="empresa.endereco.uf" value="${empresa.endereco.uf}" />
+											<label class="control-label">Estado</label>		
+											<div class="select-wrapper">
+												<input id="estado" class="form-control" name="empresa.endereco.uf" value="${empresa.endereco.uf}" />
+											</div>
 										</div>
 									</div>
 									<div class="col-lg-6">
 										<div class="form-group">
 											<label class="control-label">Cidade</label>
-											<input id="cidade" class="form-control" name="empresa.endereco.cidade" value="${empresa.endereco.cidade}" />
+											<div class="select-wrapper">
+												<input id="cidade" class="form-control" name="empresa.endereco.cidade" value="${empresa.endereco.cidade}" />
+											</div>
 										</div>
 									</div>
 									<div class="col-lg-3">

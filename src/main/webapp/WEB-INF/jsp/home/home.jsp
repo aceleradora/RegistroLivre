@@ -10,52 +10,14 @@
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
 	<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 	
+	<link href="/assets/css/home.css" rel="stylesheet">
+	
 	<% //Manter charset utf-8 para funcionar a acentuação no auto completar %>
 	<script src="/assets/js/home.js" charset="utf-8"></script>
 	<script src="/assets/js/autocompletar.js" charset="utf-8"></script>
 	<script src="/assets/js/socios.js" charset="utf-8"></script>
-	<script src="/assets/js/cidades-estados-1.2-utf8.js" charset="utf-8"></script>
-	<script src="/assets/js/validacao-logica-cadastro.js" charset="utf-8"></script>		
-	<script src="/assets/js/validacao-visual-cadastro.js" charset="utf-8"></script>
 	<script src="/assets/js/cidadeEstado.js" charset="utf-8"></script>
-	
-	<style>
-	
-		body{
-			background-image:url(../assets/img/fundo-home.png);
-			-webkit-background-size: cover;
-  			-moz-background-size: cover;
-  			-o-background-size: cover;
-  			background-size: cover;		
-  			background-repeat:no-repeat;
-  			background-attachment: fixed;
-		}		
-		
-		.home{
-			background-color:transparent;
-			border:0;
-		}
-		
-		.descricao{
-			color:#fff;
-			text-shadow: 1px 1px 4px #000, 2px 2px 4px #000 ;
-			line-height:30px;
-		}
-		
-		.panel-default > .panel-heading {
-			background-color:transparent;
-			border:0;
-		}
-		
-		#registrolivre{
-			color:#fff;
-			font-size:60px;
-			font-family:"Montserrat-Hairline";
-			text-shadow: 1px 1px 4px #000, 2px 2px 4px #000 ;					
-		}		
-	
-	</style>
-	
+	<script src="/assets/js/cidades-estados-1.2-utf8.js" charset="utf-8"></script>		
 </head>
 
 <body>
@@ -133,7 +95,7 @@
 								<div class="col-lg-6">
 									<div class="form-group">										
 										<label>Estado</label>
-										<div class="select" style="width:230px;">
+										<div class="select-wrapper" style="width:230px;">
 											<input type="text" id="estado" class="form-control" name="empresa.endereco.uf" style="width: 250px;"/>
 										</div>
 									</div>
@@ -141,7 +103,7 @@
 								<div class="col-lg-6">
 									<div class="form-group">
 										<label>Cidade</label>
-										<div class="select select-cidade" style="width:280px;">
+										<div class="select-wrapper" style="width:280px;">
 											<input type="text" id="cidade" class="form-control" name="empresa.endereco.cidade" style="width:300px;"/>
 										</div>
 									</div>
