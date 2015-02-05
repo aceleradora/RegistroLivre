@@ -197,7 +197,7 @@ h1, h2, h3, h4, h5, h6{
 	height:45px;
 }
 
-#campoPesquisado{
+#campo-pesquisado{
 	height:45px;	
 }
 
@@ -213,13 +213,13 @@ h1, h2, h3, h4, h5, h6{
 	margin: 35px auto 12px;
 }
 
-#campoPesquisadoNavbar{
+#campo-pesquisado-navbar{
 	width:200px;
 	transition:0.4s ease-in;
 }
 
 
-#campoPesquisadoNavbar:focus{
+#campo-pesquisado-navbar:focus{
 	width: 300px;
 }
 

@@ -2,7 +2,7 @@ var RegistroLivre = RegistroLivre || {};
 
 RegistroLivre.AutoCompletar = function AutoCompletar(){
 	var cria = function cria(){
-		$("#campoPesquisado").autocomplete({
+		$("#campo-pesquisado").autocomplete({
 			minLength: 2,
 			source: function(request, response) {
 				$.ajax({

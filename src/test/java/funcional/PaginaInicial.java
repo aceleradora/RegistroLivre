@@ -37,7 +37,7 @@ public class PaginaInicial extends FluentPage{
 	
 	
 	public boolean preencheInputDaBusca(String parametro) throws InterruptedException {
-		fill("#campoPesquisado").with(parametro);
+		fill("#campo-pesquisado").with(parametro);
 		
 		return find("#btn-submit").first().isEnabled();
 	}

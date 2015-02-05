@@ -11,11 +11,10 @@
 	
 	<script type="text/javascript">
 		var setaCorDaBorda = function setaCorDaBorda(elemento){
-			var randomColor;
-			randomColor = Math.floor(Math.random()*16777215).toString(16);
-			elemento.css("border-color", "#" + randomColor);
-			elemento.css("box-shadow", "1px 1px 10px #" + randomColor);			
-			console.log("Shazam!");
+			var corAleatoria;
+			corAleatoria = Math.floor(Math.random()*16777215).toString(16);
+			elemento.css("border-color", "#" + corAleatoria);
+			elemento.css("box-shadow", "1px 1px 10px #" + corAleatoria);			
 		}
 	
 		$(document).ready(function(){			
@@ -61,7 +60,7 @@
 							<div class="papel">Scrum Master</div>							
 						</div>			
 					</div>
-					
+
 					<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 avatar">
 						<img src="../assets/img/xandiAjustado.jpg" class=" img-circle imagem circulo-de-fogo"/>
 						<div>

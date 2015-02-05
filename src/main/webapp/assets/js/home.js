@@ -53,8 +53,8 @@ var fechaBuscaAvancada = function fechaBuscaAvancada() {
 }
 
 function eventoDesbloquearBotaoPesquisar() {
-	$("#campoPesquisado").keyup(function() {
-		var busca = $("#campoPesquisado").val();
+	$("#campo-pesquisado").keyup(function() {
+		var busca = $("#campo-pesquisado").val();
 		if (busca.length >= 2) {
 			alteraDisabled($("#btn-submit"), false);
 		} else {
