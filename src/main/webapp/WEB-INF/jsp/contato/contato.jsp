@@ -14,7 +14,7 @@
 	<jsp:include page="/WEB-INF/jsp/includes/cabecalho.jsp" />
 		<div class="container content">
 			<div class="row">
-				<div class="col-lg-6 col-md-6 col-lg-offset-3 col-md-offset-3">
+				<div class="col-lg-6 col-md-6 col-sm-8 col-lg-offset-3 col-md-offset-3 col-sm-offset-2">
 				
 				<c:forEach items="${errors}" var="error">
 	    			<div class="alert alert-danger alert-dismissible" role="alert">
@@ -71,8 +71,8 @@
 
 							<div class="form-group">
 								<label class="control-label">Assunto <abbr class="cor-vermelha" title="Preenchimento obrigatório">*</abbr> </label>
-									<div class="select-wrapper" style="width: 585px;">
-										<select name="email.assunto" class="form-control" required id="" style="width: 600px;">
+									<div class="select-wrapper">
+										<select name="email.assunto" class="form-control" required>
 											<option value="" selected>Escolha uma opção </option>
 											<option value="duvida">Dúvida</option>
 											<option value="reclamacao">Reclamação</option>										

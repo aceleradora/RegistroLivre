@@ -13,7 +13,7 @@
 	<jsp:include page="/WEB-INF/jsp/includes/cabecalho.jsp" />
 		<div class="content">
 			<div class="row">
-				<div class="col-lg-8 col-md-4 col-lg-offset-2 col-md-offset-3">
+				<div class="col-lg-8 col-md-8 col-sm-10 col-xs-12 col-lg-offset-2 col-md-offset-2 col-sm-offset-1">
 					
 					<h1 class="centralize font-size-40 title"> Colabore</h1>
 					
