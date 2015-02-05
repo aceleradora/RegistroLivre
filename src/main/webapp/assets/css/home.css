@@ -1,0 +1,34 @@
+@CHARSET "UTF-8";
+
+body {
+	background-image: url(../img/fundo-home.png);
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+
+.home {
+	background-color: transparent;
+	border: 0 !important;
+}
+
+.descricao {
+	color: #fff;
+	text-shadow: 1px 1px 4px #000, 2px 2px 4px #000;
+	line-height: 30px;
+}
+
+.panel-default>.panel-heading {
+	background-color: transparent;
+	border: 0;
+}
+
+#registrolivre {
+	color: #fff;
+	font-size: 60px;
+	font-family: "Montserrat-Hairline";
+	text-shadow: 1px 1px 4px #000, 2px 2px 4px #000;
+}
