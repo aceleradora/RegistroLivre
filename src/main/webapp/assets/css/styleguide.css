@@ -39,7 +39,7 @@ body{
 }
 
 .panel, .socio-group{
-	background-color:#F1EEF5;	
+	background-color:#fff;	
 }
 
 .panel-default>.panel-heading{
@@ -87,7 +87,7 @@ body{
 
 .btn-default{
 	background-color:#404141;
-	color:#e67e22;
+	color:#E1E1E1;
 	border-radius:0;
 	border:0;	
 }
@@ -100,9 +100,12 @@ body{
 	
 	.btn-default:focus{
 		background-color:#404141;
-		color:#e67e22;
+		color:#E1E1E1;
 	}
 	
+.botao-busca-navbar{
+	color: #e67e22;
+}
 
 .navbar{	
 	border:0;
