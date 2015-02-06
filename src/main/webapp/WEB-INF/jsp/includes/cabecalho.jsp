@@ -1,4 +1,5 @@
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<div class="container">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle collapsed"
