@@ -75,8 +75,9 @@
 										<select name="email.assunto" class="form-control" required>
 											<option value="" selected>Escolha uma opção </option>
 											<option value="duvida">Dúvida</option>
-											<option value="reclamacao">Reclamação</option>										
-											<option value="sugestao">Sugestão</option>								
+											<option value="reclamacao">Reclamação</option>
+											<option value="elogio">Elogio</option>
+											<option value="sugestao">Sugestão</option>
 											<option value="outro">Outro</option>
 										</select>
 									</div>
