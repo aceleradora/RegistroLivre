@@ -22,5 +22,8 @@
 				'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" >
 				<img src="../assets/img/social19.png" height="16"></img>
 			</a>
+			<a href="https://github.com/aceleradora6-tw/RegistroLivre" target="_blank">
+				<img src="../assets/img/iconeGit.png" height="24"></img>
+			</a>
 	</div>
 </div>
