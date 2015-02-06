@@ -240,8 +240,13 @@ a:hover, .cursor-pointer{
 	cursor: pointer;
 }
 
+.rodape-home{
+	position: fixed !important;
+	width:100%;
+	bottom:0;
+}
 .rodape {	
-	position: fixed;
+	position: relative;
 	bottom:0;
 	width:100%;	
 	height:60px;

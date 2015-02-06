@@ -133,8 +133,8 @@
 			</div>
 		</div>
 	</div>
-	
-	<jsp:include page="/WEB-INF/jsp/includes/rodape.jsp" />	
-		
+	<div class="rodape-home">
+		<jsp:include page="/WEB-INF/jsp/includes/rodape.jsp" />	
+	</div>	
 </body>
 </html>
