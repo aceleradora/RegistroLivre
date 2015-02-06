@@ -25,5 +25,6 @@
 			<a href="https://github.com/aceleradora6-tw/RegistroLivre" target="_blank" class="margin-0-6">
 				<img src="../assets/img/iconeGit.png" height="24"></img>
 			</a>
+			
 	</div>
 </div>
