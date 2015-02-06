@@ -51,22 +51,18 @@
 						<img src="../assets/img/registro_livre.svg"  class="logo" id="registrolivre" alt="Registro Livre">						
 						<h4 class="descricao">Publicando registros públicos.</h4>
 					</div>
-					<div class="panel-body">
 						
-						<form class="form" id="form-busca" name="pesquisa" action="/busca" method="GET">
-							<div class="input-group">
-								<input type="text" class="form-control" name="busca" id="campo-pesquisado" placeholder="Busque por uma empresa aqui"> <span
-									class="input-group-btn">
-									<button id="btn-submit" class="btn btn-primary botao-busca" type="submit" disabled=""><span class="glyphicon glyphicon-search"></span></button>
-								</span>
-							</div>
-							
-							<div class="pull-left padding-30-0-0-0">
-								<i class="padding-0-6"><a href="#busca-avancada" id="abrir-busca-avancada">Busca Avançada</a></i>
-							</div>
-						</form>
-
-					</div>
+					<form class="form" id="form-busca" name="pesquisa" action="/busca" method="GET">
+						<div class="input-group">
+							<input type="text" class="form-control" name="busca" id="campo-pesquisado" placeholder="Busque por uma empresa aqui"> <span class="input-group-btn">
+								<button id="btn-submit" class="btn btn-primary botao-busca" type="submit" disabled=""><span class="glyphicon glyphicon-search"></span></button>
+							</span>
+						</div>
+						
+						<div class="pull-left padding-30-0-0-0">
+							<i class="padding-0-6"><a href="#busca-avancada" id="abrir-busca-avancada">Busca Avançada</a></i>
+						</div>
+					</form>
 				</div>
 			</div>
 			

@@ -3,6 +3,19 @@
 
 @media(max-width:767px){
 
+	h4{
+		font-size: 14px;
+	}
+	
+	.nav > li {
+		border-top: 1px solid rgba(0,0,0,0.1);
+	}
+	
+	.logo{
+		width: 119px !important;
+		height: 136.85px !important;
+	}
+	
 	.avatar{
 		height:230px;
 	}
@@ -11,6 +24,10 @@
 		width: 145px;
 		height:145px;
 	}	
+	
+	.margin-100-0-0-0{
+		margin: 25px 0 0 0;
+	}
 	
 }
 

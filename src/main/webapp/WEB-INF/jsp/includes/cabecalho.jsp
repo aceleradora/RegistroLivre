@@ -16,6 +16,11 @@
 				<li><a href="/"><span class="glyphicon glyphicon-search"></span> Busca</a></li>
 				<li><a href="/cadastro"><span class="glyphicon glyphicon-cloud-upload"></span> Cadastrar Empresa</a></li>				
 				<li><a href="/listagem"><span class="glyphicon glyphicon-th-list"></span> Listar Empresas</a></li>				
+				<li><a href="/sobre" class="visible-xs"><span class="glyphicon glyphicon-user"></span> Quem somos</a></li>
+				<li><a href="/colabore" class="visible-xs"><span class="glyphicon glyphicon-export"></span> Colabore</a></li>
+				<li><a href="/contato" class="visible-xs"><span class="glyphicon glyphicon-envelope"></span> Contato</a></li>
+				<li><a href="https://www.facebook.com/sharer/sharer.php?u=http://registro-livre-aceleradora.herokuapp.com/" class="visible-xs" onclick="window.open(this.href, 'mywin', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" ><img src="../assets/img/facebook55.png" height="16"></img></a></li>
+				<li><a href="https://twitter.com/home?status=http://registro-livre-aceleradora.herokuapp.com/" class="visible-xs" onclick="window.open(this.href, 'mywin', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" ><img src="../assets/img/social19.png" height="16"></img></a></li>			
 			</ul>
 			
 			
