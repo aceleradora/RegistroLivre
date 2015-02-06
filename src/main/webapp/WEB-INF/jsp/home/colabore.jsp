@@ -43,7 +43,7 @@
 					
 					<h2 class="centralize font-size-30 title">Cientistas da informação, engenheiros de computação, hackers e programadores em geral</h2>
 					<p class="text-justify font-size-19">O Registro Livre é um projeto de software livre. Portanto, você pode obter nosso código-fonte no 
-					<a href="https://github.com/aceleradora6-tw/RegistroLivre.git" target="_blank"><img class="imagemGit" src="/assets/img/iconeGit.png">Github</a> e aplicar
+					<a href="https://github.com/aceleradora6-tw/RegistroLivre.git" target="_blank">Github</a> e aplicar
 					 em seus próprios projetos. Melhor ainda, você pode nos ajudar a aprimorá-lo! Também adoraríamos ver os dados disponíveis 
 					aqui servindo como base para análises e estudos, ou sugestões de novas funcionalidades.</p>
 					
@@ -59,13 +59,22 @@
 						<li>Se você puder oferecer algumas dezenas de reais, procure a Junta Comercial de seu Estado e adquira para nós os contratos sociais 
 						de empresas que você julgue importantes (concessionárias de serviços públicos, por exemplo).</li>
 						<li>Se você conhece pessoas que detêm arquivos de contratos sociais, fale com elas e as incentive a contribuir com o Registro Livre.</li>
-						<li>Divulgue o Registro Livre em redes sociais como <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://registro-livre-aceleradora.herokuapp.com/" data-lang="pt" data-count="none" data-hashtags="registrolivre" data-dnt="true">Tweetar</a>
- e <div class="fb-share-button" data-href="http://registro-livre-aceleradora.herokuapp.com/" data-layout="button"></div></li>
-					</ul>					
+						<li>Divulgue o Registro Livre em redes sociais como
+						<a href="https://twitter.com/home?status=http://registro-livre-aceleradora.herokuapp.com/" onclick="window.open(this.href, 'mywin',
+							'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" >
+							Twitter
+						</a>  e 
+ 					<a href="https://www.facebook.com/sharer/sharer.php?u=http://registro-livre-aceleradora.herokuapp.com/" onclick="window.open(this.href, 'mywin',
+						'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;">
+						Facebook
+					</a>										
+					</li>
+					</ul>	
+				</div>
+				
 				</div>
 			</div>
 			
-		</div>		
 		<jsp:include page="/WEB-INF/jsp/includes/rodape.jsp" />		
 </body>
 </html>

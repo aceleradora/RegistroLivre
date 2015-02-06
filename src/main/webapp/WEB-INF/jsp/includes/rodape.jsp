@@ -13,13 +13,16 @@
 			<span class="glyphicon glyphicon-envelope"></span>
 			Contato
 		</a>			
-		<a href="https://www.facebook.com/sharer/sharer.php?u=http://registro-livre-aceleradora.herokuapp.com/" onclick="window.open(this.href, 'mywin',
+		<a href="https://www.facebook.com/sharer/sharer.php?u=http://registro-livre-aceleradora.herokuapp.com/" class="margin-0-6" onclick="window.open(this.href, 'mywin',
 			'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" >
 			<img src="../assets/img/facebook55.png" height="16"></img>
 		</a>
-		<a href="https://twitter.com/home?status=http://registro-livre-aceleradora.herokuapp.com/" onclick="window.open(this.href, 'mywin',
+		<a href="https://twitter.com/home?status=http://registro-livre-aceleradora.herokuapp.com/" class="margin-0-6" onclick="window.open(this.href, 'mywin',
 			'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" >
 			<img src="../assets/img/social19.png" height="16"></img>
+		</a>
+		<a href="https://github.com/aceleradora6-tw/RegistroLivre.git" class="margin-0-6" target="_blank">
+			<img src="../assets/img/iconeGit.png" height="26"></img>
 		</a>
 </div>
 </div>
