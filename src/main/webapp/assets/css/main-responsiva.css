@@ -3,6 +3,14 @@
 
 @media(max-width:767px){
 
+	body, .select-wrapper select, .form-control{
+		font-size: 12px;
+	}
+	
+	h2{
+		font-size: 22px;
+	}
+	
 	h4{
 		font-size: 14px;
 	}
@@ -28,6 +36,7 @@
 	.margin-100-0-0-0{
 		margin: 25px 0 0 0;
 	}
+	
 	
 }
 
