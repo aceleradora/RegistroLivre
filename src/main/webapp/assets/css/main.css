@@ -306,3 +306,8 @@ a:hover, .cursor-pointer{
 	font-size: 80px !important;
 	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
+
+.logo-navbar{
+	height: 50px;
+	width: 50px;
+}
