@@ -59,43 +59,58 @@
 							<dt>Endereço:</dt> 
 							<dd>${empresa.endereco.logradouro}</dd>
 						</dl>
-						<dl>
-							<dt>Número:</dt>
-							<dd>${empresa.endereco.numero}</dd>
-						</dl>
-						<dl>
-							<dt>Complemento:</dt>
-							<dd>${empresa.endereco.complemento}</dd>
-						</dl>
-
-						<dl>
-							<dt>Cidade:</dt>
-							<dd>${empresa.endereco.cidade}</dd>
-						</dl>
-						<dl>
-							<dt>Estado:</dt> 
-							<dd>${empresa.endereco.uf}</dd>
-						</dl>
-
-						<dl>
-							<dt>CEP:</dt>
-							<dd>${empresa.endereco.cep}</dd>
-						</dl>
-
-						<dl>
-							<dt>Data de abertura:</dt>
-							<dd>
-								<fmt:formatDate value="${empresa.dataCriacao.time}" pattern="dd/MM/yyyy"  />
-							</dd>							
-						</dl>
-
-						<dl>
-							<dt>Emissão de documento:</dt>						
-							<dd>
-								<fmt:formatDate value="${empresa.dataEmissaoDocumento.time}" pattern="dd/MM/yyyy"  />
-							</dd>
-						</dl>					
-					
+						<div class="row">
+							<div class="col-xs-4">
+								<dl>
+									<dt>Número:</dt>
+									<dd>${empresa.endereco.numero}</dd>
+								</dl>
+							</div>
+							<div class="col-xs-8">
+								<dl class=" pull-right">
+									<dt>Complemento:</dt>
+									<dd>${empresa.endereco.complemento}</dd>
+								</dl>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-7">
+								<dl>
+									<dt>Cidade:</dt>
+									<dd>${empresa.endereco.cidade}</dd>
+								</dl>
+							</div>
+							<div class="col-xs-2">
+								<dl>
+									<dt>UF:</dt> 
+									<dd>${empresa.endereco.uf}</dd>
+								</dl>
+							</div>
+							<div class="col-xs-3">
+								<dl class="pull-right">
+									<dt>CEP:</dt>
+									<dd>${empresa.endereco.cep}</dd>
+								</dl>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-6">
+								<dl>
+									<dt>Data de abertura:</dt>
+									<dd>
+										<fmt:formatDate value="${empresa.dataCriacao.time}" pattern="dd/MM/yyyy"  />
+									</dd>							
+								</dl>
+							</div>
+							<div class="col-xs-6">
+								<dl class="pull-right">
+									<dt>Emissão de documento:</dt>						
+									<dd>
+										<fmt:formatDate value="${empresa.dataEmissaoDocumento.time}" pattern="dd/MM/yyyy"  />
+									</dd>
+								</dl>					
+							</div>
+						</div>
 						<h4 class="centralize panel-divider padding-6-0 margin-30-0">Estrutura Societária</h4>
 					
 
