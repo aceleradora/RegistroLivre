@@ -1,5 +1,7 @@
 function validarCadastro(editar) {
 
+	ajustaEstadoSocio();
+	
 	if (!validarCNPJ(formulario.cnpj.value)) {
 		alert("Preencha o CNPJ corretamente.");
 		formulario.cnpj.focus();
@@ -38,6 +40,16 @@ function validarCadastro(editar) {
 		}
 	}
 
+}
+
+function ajustaEstadoSocio(){
+	var $estadoSocio = $(".estado-socio");
+	$estadoSocio.each(function(){
+		if ($(this).prop('checked') == false) {
+			$(this).val(false);
+			$(this).prop('checked', true);
+		}
+	});
 }
 
 function validarExistePdf(objFileControl) {

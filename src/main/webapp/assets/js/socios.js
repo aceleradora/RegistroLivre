@@ -22,7 +22,7 @@ RegistroLivre.Socios = function Socios(){
 			'</div>' +
 			'<div class="form-group">' +
 				'<label>' + 
-					'<input type="checkbox" name="empresa.socios[].ativo" checked> Ativo' +
+					'<input class="estado-socio" type="checkbox" name="empresa.socios[].ativo" checked> Ativo' +
 				'</label>' + 
 			'</div>' +
 		'</li>';
