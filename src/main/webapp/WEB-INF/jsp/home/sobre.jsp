@@ -116,11 +116,11 @@
 					</div>
 					
 					<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 avatar">
-						<img src="../assets/img/user.png" class=" img-circle imagem"/>
+						<img src="../assets/img/jefferson.png" class="img-circle imagem"/>
 						<div>
 							<div class="nome">Jefferson</div>
 							<div class="sobrenome">Stachelski</div>
-							<div class="papel">mentor</div>							
+							<div class="papel">Mentor</div>							
 						</div>			
 					</div>
 					
