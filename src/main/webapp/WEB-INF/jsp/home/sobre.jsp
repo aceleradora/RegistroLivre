@@ -7,23 +7,8 @@
 <html lang="pt-br">
 <head>
 	<title>Sobre</title>
-	<jsp:include page="/WEB-INF/jsp/includes/assets.jsp" />	
-	
-	<script type="text/javascript">
-		var setaCorDaBorda = function setaCorDaBorda(elemento){
-			var corAleatoria;
-			corAleatoria = Math.floor(Math.random()*16777215).toString(16);
-			elemento.css("border-color", "#" + corAleatoria);
-			elemento.css("box-shadow", "1px 1px 10px #" + corAleatoria);			
-		}
-	
-		$(document).ready(function(){			
-			$(".avatar .imagem").each(function(){				
-				setaCorDaBorda($(this));		
-				$(this).hover(function(){setaCorDaBorda($(this))});
-			});				
-		});		
-	</script>	
+	<jsp:include page="/WEB-INF/jsp/includes/assets.jsp" />
+		
 </head>
 <body>
 	<jsp:include page="/WEB-INF/jsp/includes/cabecalho.jsp" />
@@ -62,7 +47,7 @@
 					</div>
 
 					<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 avatar">
-						<img src="../assets/img/xandiAjustado.jpg" class=" img-circle imagem circulo-de-fogo"/>
+						<img src="../assets/img/xandiAjustado.jpg" class=" img-circle imagem"/>
 						<div>
 							<div class="nome">Alexandre</div>
 							<div class="sobrenome">Morales</div>

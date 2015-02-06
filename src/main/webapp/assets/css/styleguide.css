@@ -164,7 +164,7 @@ p{
 }
 
 .title{
-	color: #e67e22;
+	color: #2c3e50;
 }
 
 .navbar-nav > li > a{
@@ -178,4 +178,9 @@ ul li{
 .nome, .sobrenome, .papel{	
 	font-family:"Montserrat-Light";
 	color: #2c3e50;
+}
+
+.imagem{
+	border:solid 1px;
+	border-color:#2c3e50;
 }
