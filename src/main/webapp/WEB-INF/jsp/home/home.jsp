@@ -47,7 +47,7 @@
 					</div>
 				</c:if>
 				
-				<div class="panel panel-default margin-100-0-0-0 home">
+				<div class="margin-100-0-0-0 home">
 
 					<div class="panel-heading centralize home">
 						<img src="../assets/img/registro_livre.svg"  class="logo" id="registrolivre" alt="Registro Livre">						
