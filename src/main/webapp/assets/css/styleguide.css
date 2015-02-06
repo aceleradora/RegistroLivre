@@ -115,6 +115,10 @@ body{
 	color:#2c3e50 !important;		
 }
 
+.navbar-nav > li > a:hover{
+	background: rgba(0,0,0,0.02) !important;
+}
+
 .ui-menu-item{
 	color:#000;
 }

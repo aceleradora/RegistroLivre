@@ -12,7 +12,7 @@
 		</div>
 		<div class="collapse navbar-mobile">
 			<ul class="nav navbar-nav btn-borders-navbar">
-				<li><img class="logo-navbar" alt="Registro Livre" src="/assets/img/logo_navbar.svg"/></li>
+				<li><a href="/" class="logo-link"><img class="logo-navbar" alt="Registro Livre" src="/assets/img/logo_navbar.svg"/></a></li>
 				<li><a href="/"><span class="glyphicon glyphicon-search"></span> Busca</a></li>
 				<li><a href="/cadastro"><span class="glyphicon glyphicon-cloud-upload"></span> Cadastrar Empresa</a></li>				
 				<li><a href="/listagem"><span class="glyphicon glyphicon-th-list"></span> Listar Empresas</a></li>				

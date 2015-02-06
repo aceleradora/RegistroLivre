@@ -51,10 +51,11 @@ function ajustaTamanhoDaPagina(){
 
 
 function ajustaTamanhoDaPaginaConformeConteudo(windowHeight){
+	var marginsDoBlocoDeConteudo = 130;
 	
 	if($(".rodape").length){
 		if($(".rodape").offset().top < windowHeight){
-			$(".content").css({"min-height": (windowHeight - $(".rodape").height()) - 130})
+			$(".content").css({"min-height": (windowHeight - $(".rodape").height()) - marginsDoBlocoDeConteudo})
 		}	
 	}		
 }

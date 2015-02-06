@@ -200,13 +200,6 @@ h4 {
 	font-weight: bold;
 }
 
-.btn-borders-navbar li {
-	border-right: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.btn-borders-navbar li:first-child {
-	border-left: 1px solid rgba(0, 0, 0, 0.1);
-}
 
 .img-140 {
 	height: 100px;
@@ -310,4 +303,8 @@ a:hover, .cursor-pointer{
 .logo-navbar{
 	height: 50px;
 	width: 40px;
+}
+
+.logo-link{
+	padding: 0 5px 0 6px !important;
 }
