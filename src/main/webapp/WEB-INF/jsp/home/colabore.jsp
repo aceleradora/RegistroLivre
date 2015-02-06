@@ -43,7 +43,7 @@
 					
 					<h2 class="centralize font-size-30 title">Cientistas da informação, engenheiros de computação, hackers e programadores em geral</h2>
 					<p class="text-justify font-size-19">O Registro Livre é um projeto de software livre. Portanto, você pode obter nosso código-fonte no 
-					<a href="https://github.com/aceleradora6-tw/RegistroLivre.git"><img class="imagemGit" src="/assets/img/iconeGit.png">Github</a> e aplicar
+					<a href="https://github.com/aceleradora6-tw/RegistroLivre.git" target="_blank"><img class="imagemGit" src="/assets/img/iconeGit.png">Github</a> e aplicar
 					 em seus próprios projetos. Melhor ainda, você pode nos ajudar a aprimorá-lo! Também adoraríamos ver os dados disponíveis 
 					aqui servindo como base para análises e estudos, ou sugestões de novas funcionalidades.</p>
 					
