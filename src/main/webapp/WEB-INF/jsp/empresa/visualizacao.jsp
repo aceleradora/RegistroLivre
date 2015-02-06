@@ -41,7 +41,7 @@
 								</dl>
 								<dl>
 									<dt>Razão Social:</dt> 
-									<dd>${empresa.razaoSocial}</dd>
+									<dd> ${empresa.razaoSocial}</dd>
 								</dl>
 							</div>
 
@@ -107,20 +107,23 @@
 							
 							<c:otherwise>
 								<c:forEach items="${empresa.socios}" var="socio">
-									<dl>
-										<dd>Nome: </dd>
-										<dd>${socio.nome}</dd>
-										<dd>CPF:</dd>
-										<span class="cpf">${socio.cpf}</span>
-										<dd>
-											<c:if test="${socio.ativo == true}">
-												<span class="label label-success">Ativo</span>
-											</c:if>
-											<c:if test="${socio.ativo == false}">
-												<span class="label label-danger">Inativo</span>
-											</c:if>
-										</dd>
-									</dl>
+									<div class="socio">
+										<dl>
+											<dt>Nome: </dt>
+											<dd>${socio.nome}</dd>
+										</dl>
+										<dl>
+											<dt>CPF: </dt>
+											<dd class="cpf">${socio.cpf}</dd>								
+										</dl>
+										
+										<c:if test="${socio.ativo == true}">
+											<span class="label label-success">Ativo</span>
+										</c:if>
+										<c:if test="${socio.ativo == false}">
+											<span class="label label-danger">Inativo</span>
+										</c:if>
+									</div>
 								</c:forEach>
 							</c:otherwise>
 							

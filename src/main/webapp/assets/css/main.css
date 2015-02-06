@@ -308,3 +308,20 @@ a:hover, .cursor-pointer{
 .logo-link{
 	padding: 0 5px 0 6px !important;
 }
+
+dl {
+	display: flex;
+	font-size: 16px;
+}
+
+dt {
+	margin-right: 5px;
+}
+
+.socio dl{
+	margin: 0;
+}
+
+.socio{
+	margin-bottom: 12px;
+}
