@@ -19,7 +19,7 @@
 					<h1 class="centralize font-size-40 title"> Quem Somos</h1>
 					
 
-					<p class="text-justify font-size-19">O <b>Registro Livre</b> é uma plataforma de dados abertos cujo objetivo principal é colocar à
+					<p class="font-size-19">O <b>Registro Livre</b> é uma plataforma de dados abertos cujo objetivo principal é colocar à
 					disposição do público informações sobre empresas, imóveis e outros tipos de bens e atividades
 					sujeitos a registro público no Brasil. Embora os dados disponíveis em cartórios e juntas
 					comerciais sejam públicos, eles raramente são publicados. O cidadão que deseja ter acesso a
@@ -28,7 +28,7 @@
 					estes dados numa plataforma aberta, para a qual todo cidadão poderá contribuir. Desta forma,
 					os registros públicos serão acessíveis a todos e tornados públicos de fato.</p>
 					
-					<p class="text-justify font-size-19">A <b>Aceleradora Ágil</b> é um programa inovador com participantes de diversas insituições que tem por objetivo, 
+					<p class="font-size-19">A <b>Aceleradora Ágil</b> é um programa inovador com participantes de diversas insituições que tem por objetivo, 
 					com auxílio de profissionais experientes, incentiva-los a desenvolver competências técnicas, comportamentais, 
 					de negócios e de governança necessárias para atuar em equipes de alto desempenho de desenvolvimento de software. 
 					A Aceleradora é uma parceria ThoughtWorks, PUCRS e Centro de Inovação Microsoft.</p>
