@@ -89,11 +89,18 @@ RegistroLivre.DataTable = function DataTable(){
 	
 	var eventoBotaoMultiDownload = function eventoBotaoMultiDownload(){
 		$('#btn-multi-download').click(function(){
+			var nomeEmpresas = "Você está baixando o arquivo das empresas: ";			
 			var get = '/empresa/download?';
 			tabelaGlobal.rows('.selected').data().each(function(data){
 				get += 'ids=' + data.id + '&'; 
+				nomeEmpresas += data.nomeFantasia + ", ";
 			});
-			window.location.href = get;
+			
+			nomeEmpresas = nomeEmpresas.substring(0, nomeEmpresas.length-2) + ".";
+			
+			if(confirm($('<textarea />').html(nomeEmpresas).text())){
+				window.location.href = get;
+			}
 		});
 	};
 	
