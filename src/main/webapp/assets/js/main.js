@@ -1,12 +1,16 @@
 $(document).ready(function() {
 	var windowWidth = $(window).width();
+	var windowHeight = $(window).height();
 	
 	ajustaNavbarParaMobileAoIniciarPagina(windowWidth);
 	ajustaTamanhoDoNavbar();
-	esconderCollapseNavbar();
+	escondeOMenuParaMobile();
+	ajustaTamanhoDaPaginaConformeConteudo(windowHeight);
+	ajustaTamanhoDaPagina();
 });
 
-function esconderCollapseNavbar(){
+
+function escondeOMenuParaMobile(){
 	$(".navbar-toggle").click(function() {
 		if($(".navbar-mobile.in").length){
 			$(".navbar-mobile").removeClass("in");
@@ -18,7 +22,6 @@ function esconderCollapseNavbar(){
 }
 
 
-
 function ajustaNavbarParaMobileAoIniciarPagina(windowWidth){
 	if(windowWidth > 765){
 		$(".navbar-mobile").addClass("in");
@@ -28,10 +31,28 @@ function ajustaNavbarParaMobileAoIniciarPagina(windowWidth){
 	}
 }
 
+
 function ajustaTamanhoDoNavbar(){
 	$(window).resize(function(){
 		var windowWidth = $(window).width();
 		
 		ajustaNavbarParaMobileAoIniciarPagina(windowWidth);
 	})
+}
+
+
+function ajustaTamanhoDaPagina(){
+	$(window).resize(function(){
+		var windowHeight = $(window).height();
+		
+		ajustaTamanhoDaPaginaConformeConteudo(windowHeight);
+	})
+}
+
+
+function ajustaTamanhoDaPaginaConformeConteudo(windowHeight){
+	if($(".rodape").offset().top < windowHeight){
+		$(".content").css({"min-height": (windowHeight - $(".rodape").height()) - 130})
+	}
+		
 }
