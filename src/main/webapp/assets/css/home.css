@@ -1,7 +1,6 @@
 @CHARSET "UTF-8";
 
-body {
-	/*background-image: url(../img/fundo-home.jpg);*/
+body {	
 	background-color:#E1E1E1;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;

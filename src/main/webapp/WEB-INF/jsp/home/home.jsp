@@ -10,6 +10,8 @@
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
 	<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
 	<link href="/assets/css/home.css" rel="stylesheet">
 	
 	<% //Manter charset utf-8 para funcionar a acentuação no auto completar %>

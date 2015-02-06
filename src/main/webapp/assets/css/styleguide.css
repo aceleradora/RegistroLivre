@@ -30,10 +30,11 @@ h1, h2, h3, h4, h5, h6{
 
 
 body{
-	background-color:#2c3e50;
+	background-color:#E1E1E1;
 }
 
 .panel{
+	background-color:#F1EEF5;
 	border-radius:0;	
 }
 
@@ -132,7 +133,8 @@ ul li{
 }
 
 p{
-	color:#F1EEF5;
+	color: #2c3e50;
+	text-align: left !important;
 }
 
 .select-wrapper select{
@@ -153,3 +155,19 @@ p{
 	border: solid 1px #ccc;
 }
 
+.title{
+	color: #e67e22;
+}
+
+.navbar-nav > li > a{
+	color:#2c3e50 !important;	
+}
+
+ul li{
+	color: #2c3e50;	
+}
+
+.nome, .sobrenome, .papel{	
+	font-family:"Montserrat-Light";
+	color: #2c3e50;
+}
