@@ -23,7 +23,7 @@
 		cl.setSpeed(4); // default is 2
 		cl.setFPS(27);
 		cl.show();
-	</script>>
+	</script>
 	
 	
 	

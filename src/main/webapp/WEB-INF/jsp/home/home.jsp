@@ -18,19 +18,7 @@
 	<script src="/assets/js/socios.js" charset="utf-8"></script>
 	<script src="/assets/js/cidadeEstado.js" charset="utf-8"></script>
 	<script src="/assets/js/cidades-estados-1.2-utf8.js" charset="utf-8"></script>
-		<style type="text/css">
-		body, html {
-			margin:0;
-			padding:0;
-			overflow:hidden;
-			background-color:#ffffff;
-		}
-		.wrapper {
-			position:absolute;
-			top:50%;
-			left:50%;
-		}
-	</style>		
+	
 </head>
 
 <body>
