@@ -1,4 +1,7 @@
 	<meta charset="iso-8859-1" />
+	<meta name="description" content="O Registro Livre é um projeto sem fins lucrativos, defensor da liberdade de informação e voltado a oferecer subsídios e especial para jornalistas produzirem reportagens investigativas.
+Aceitamos e incentivamos a contribuição de cada qual dentro de suas possibilidades.">
+	<meta name="keywords" content="Registro, Livre, Registro Livre, Junta Comercial, Cadastro, Empresas, Jornalismo, Investigativo, Liberdade, Informação, Documentos, Contrato, Social, Politica, Bens">
 	<link rel="icon" href="../assets/img/favicon.ico" />
 	
 	
