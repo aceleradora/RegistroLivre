@@ -41,9 +41,13 @@
 	text-transform:uppercase;
 }
 
-.botao-busca{
+.botao-busca-home{
 	width:60px;
 	height:45px;
+}
+
+.botao-busca-navbar{
+	height:34px;
 }
 
 #campo-pesquisado{
