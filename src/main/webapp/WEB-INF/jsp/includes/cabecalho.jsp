@@ -14,7 +14,7 @@
 			<ul class="nav navbar-nav btn-borders-navbar">
 				<li><a href="/" class="logo-link"><img class="logo-navbar" alt="Registro Livre" src="/assets/img/logo_navbar.svg"/></a></li>
 				<li><a href="/"><span class="glyphicon glyphicon-search"></span> Busca</a></li>
-				<li><a href="/cadastro"><span class="glyphicon glyphicon-save"></span> Cadastrar Empresa</a></li>				
+				<li><a href="/cadastro"><span class="glyphicon glyphicon-export"></span> Cadastrar Empresa</a></li>				
 				<li><a href="/listagem"><span class="glyphicon glyphicon-list-alt"></span> Listar Empresas</a></li>				
 				<li><a href="/sobre" class="visible-xs"><span class="glyphicon glyphicon-user"></span> Quem somos</a></li>
 				<li><a href="/colabore" class="visible-xs"><span class="glyphicon glyphicon-thumbs-up"></span> Colabore</a></li>
