@@ -1,5 +1,12 @@
 @CHARSET "UTF-8";
 
+/*
+	Laranja -> #e67e22
+	Azul 	-> #2c3e50
+	Cinza  	-> #e1e1e1
+	Chumbo 	-> #404141
+*/
+
 @font-face{
 	font-family:"Montserrat-HairLine";
 	src:url("../fonts/Montserrat-Hairline.otf");
@@ -50,9 +57,7 @@ body{
 	color:#2c3e50;	
 }
 
-.btn, .btn-primary {
-	background-color:#2c3e50;
-	color: #e67e22;
+.btn{
 	border-radius:0;
 	border:0;	
 	transition:0.2s ease-in;
@@ -61,50 +66,48 @@ body{
 	.btn:hover{
 		box-shadow:1px 1px 5px #364475;
 	}
-	
+		
 	.btn:focus{
-		box-shadow:1px 1px 5px #e67e22;
+		box-shadow:1px 1px 5px #e1e1e1;
 	}
 
-
-.btn-primary{
-	background-color: #2c3e50;
-	color: #e67e22;
-	border-radius:0;
-	border:0;
-	
+.btn-primary {
+	background-color:#2c3e50;
+	color: #E1E1E1;	
 }
 
 	.btn-primary[disabled]{	 
-		color:#2c3e50;
-		background-color: rgba(0,0,0,0.4);
+			color:#2c3e50;
+			background-color: rgba(0,0,0,0.4);
 	}
 	
 	.btn-primary:hover{
-		background-color:#34495e;	
+		background-color:#34495e;
+	}
+	
+	.btn-primary:focus{
+		background-color: #2c3e50;
 	}
 
-
 .btn-default{
-	background-color:#404141;
-	color:#E1E1E1;
-	border-radius:0;
-	border:0;	
+	background-color:#2c3e50;
+	color: #E1E1E1;	
 }
 
 	.btn-default:hover{
-		background-color:#404141;
-		color:#F1EEF5;
+		background-color:#2c3e50;
+		color:#E1E1E1;
 		border-color:#364475;
 	}
 	
 	.btn-default:focus{
-		background-color:#404141;
+		background-color:#2c3e50;
 		color:#E1E1E1;
 	}
 	
-.botao-busca-navbar{
-	color: #e67e22;
+.botao-busca{
+	background-color: #2C3E50;
+	color: #E67E22;
 }
 
 .navbar{	
