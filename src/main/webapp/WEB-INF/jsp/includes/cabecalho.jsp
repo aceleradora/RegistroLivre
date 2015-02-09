@@ -1,5 +1,4 @@
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">	
 	<div class="container">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle collapsed"
@@ -28,7 +27,7 @@
 			
 				<div class="input-group">
 					<input type="text" class="form-control" name="busca" id="campo-pesquisado-navbar" placeholder="Buscar" />
-					<span><button type="submit" class="btn btn-default botao-busca-navbar"><span class="glyphicon glyphicon-search"></span></button></span>
+					<span><button type="submit" class="btn btn-default botao-busca botao-busca-navbar"><span class="glyphicon glyphicon-search"></span></button></span>
 				</div>								
 			</form>			
 		</div>
