@@ -7,7 +7,7 @@
 			</a>
 			
 			<a href="/colabore" class="margin-0-15">
-				<span class="glyphicon glyphicon-export"></span>
+				<span class="glyphicon glyphicon-thumbs-up"></span>
 				Colabore
 			</a>
 			<a href="/contato" class="margin-0-15">
