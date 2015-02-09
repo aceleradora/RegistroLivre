@@ -191,7 +191,7 @@
 							<div class="panel-footer">									
 								<span class="pull-left msg-alert color-red margin-15-0" id="form-alert">Preencha os campos corretamente para enviar.</span>
 								<input type="submit" id="btn-submit" class="btn btn-lg btn-primary pull-right margin-0-6" value="Enviar"/>
-								<input type="reset" value="Limpar" class="btn btn-default btn-lg pull-right margin-0-6"/>
+								<input type="reset" value="Limpar" class="btn btn-default btn-lg pull-left margin-0-6"/>
 								<div style="clear:both;"></div>
 							</div>	
 									
