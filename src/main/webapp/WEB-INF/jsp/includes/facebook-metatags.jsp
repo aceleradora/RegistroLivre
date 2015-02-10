@@ -1,5 +1,5 @@
 <meta property="og:locale" content="pt_BR">  
-<meta property="og:url" content="http://http://registro-livre-staging.herokuapp.com/">
+<meta property="og:url" content="http://registro-livre-aceleradora.herokuapp.com/">
 <meta property="og:title" content="Registro Livre - Publicando registros públicos">
 <meta property="og:site_name" content="Registro Livre">	 
 <meta property="og:description" content="O Registro Livre é uma plataforma de dados abertos cujo objetivo principal 
