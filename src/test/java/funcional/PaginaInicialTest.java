@@ -21,7 +21,10 @@ public class PaginaInicialTest extends FluentTest {
 	static {
 //		path = new File("").getAbsolutePath() + "/src/main/resources";
 //		System.setProperty("webdriver.chrome.driver", path + "/chromedriver");
-		System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
+//		System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
+		System.setProperty("webdriver.chrome.driver", System.getenv("WEBDRIVER_PATH"));
+		System.out.println(System.getenv("URL_ENV_TESTE"));
+		System.out.println(System.getenv("WEBDRIVER_PATH"));
 	}
 
 	@Page
