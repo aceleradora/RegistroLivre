@@ -1,5 +1,7 @@
 @CHARSET "UTF-8";
 
+@import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900);
+
 @font-face{
 	font-family:"Montserrat-HairLine";
 	src:url("../fonts/Montserrat-Hairline.otf");
@@ -16,7 +18,7 @@
 }
 
 *{
-	font-family:"Montserrat-Light";	
+	font-family: Lato;
 }
 
 body{
@@ -25,6 +27,10 @@ body{
 
 h1, h2, h3, h4, h5, h6{ 
 	font-family:"Montserrat-HairLine";	
+}
+
+h4 {
+	font-size: 22px;
 }
 
 p{
@@ -115,6 +121,13 @@ ul li{
 .panel{
 	background-color:#F1EEF5;
 	border-radius:0;	
+}
+
+.navbar-nav > li > a {
+	color: #2c3e50 !important;	
+	font-family: Lato;	
+	font-size: 14px;
+	text-transform: uppercase;
 }
 
 .panel, .socio-group{
