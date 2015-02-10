@@ -4,6 +4,7 @@
 
 a:hover, .cursor-pointer{
 	cursor: pointer;
+	text-decoration: none;
 }
 
 dl {
@@ -284,7 +285,29 @@ dt {
 	text-transform:uppercase;
 }
 
-.title{
+.title {
+	font-family: Lato;
+	font-weight: 500;
+	font-size: 100px;
+	color: #2C3E52;
+	margin: 50px 0px 30px 0px; 
+}
+
+.subtitle {
+	font-family: Lato;
+	font-weight: 300;
+	font-size: 48px;
+	color: #2C3E52;
+	margin: 60px 0px 30px 0px; 
+}
+
+.text {
+	font-family: Lato;
+	font-weight: 300;
+	font-size: 18px;
+	line-height: 33px;
+	text-align: center !important;
+	color: #2C3E52;
 	margin: 50px 0px 30px 0px; 
 }
 
