@@ -8,11 +8,8 @@ public class PaginaInicial extends FluentPage{
 	
 	@Override
 	public String getUrl(){
-		
 		final String url = System.getenv("URL_ENV_TESTE");
 		return url;
-//		return "http://localhost:8080";
-//		return "http://registro-livre-staging.herokuapp.com";
 	}
 	
 	@Override
