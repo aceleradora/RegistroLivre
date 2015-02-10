@@ -14,8 +14,8 @@ RegistroLivre.DataTable = function DataTable(){
 			
 			columns : [ {},
 			            { data : 'nomeFantasia'	}, 
-			            { data : 'endereco.logradouro', className:"none" },
-			            { data : 'dataEmissaoDocumento', clasName:"none"},
+			            { data : 'endereco.logradouro', className:"desktop"},
+			            { data : 'dataEmissaoDocumento', className:"desktop"},
 	 		            { data : 'dataEmissaoOrdenada', className:"never"},
 			            { data : 'dataRegistro', className:"never"},
 			            { data : 'id', className:"never"}
@@ -42,7 +42,7 @@ RegistroLivre.DataTable = function DataTable(){
 			} ,{
 				"aTargets" : [id],
 				"visible" : false,
-			} ],
+			}],
 			"order": [[ dataRegistro, "desc" ]],
 			"rowCallback": function(row, data){
 				$("td:gt(0)", row).on('click', function(){
