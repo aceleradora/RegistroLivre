@@ -59,7 +59,7 @@
 					<form class="form" id="form-busca" name="pesquisa" action="/busca" method="GET">
 						<div class="input-group">
 							<input type="text" class="form-control" name="busca" id="campo-pesquisado" placeholder="Busque por uma empresa aqui"> <span class="input-group-btn">
-								<button id="btn-submit" class="btn btn-primary botao-busca botao-busca-home" type="submit" disabled=""><span class="glyphicon glyphicon-search"></span></button>
+								<button id="btn-submit" class="btn botao-busca botao-busca-home" type="submit" disabled=""><span class="glyphicon glyphicon-search"></span></button>
 							</span>
 						</div>
 						
