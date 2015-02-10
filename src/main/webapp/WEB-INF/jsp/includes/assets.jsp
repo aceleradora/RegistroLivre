@@ -15,7 +15,6 @@ Aceitamos e incentivamos a contribuição de cada qual dentro de suas possibilidad
 	<script src="/assets/js/main.js"></script>
 	<script src="/assets/js/jquery.mask.min.js"></script>
 	<script src="/assets/js/animacoes.js"></script>
-<<<<<<< HEAD
 	<script src="/assets/js/mascaras.js"></script>
 	
 	<script>
@@ -30,8 +29,4 @@ Aceitamos e incentivamos a contribuição de cada qual dentro de suas possibilidad
 		cl.show();
 	</script>
 	
-	
-	
-=======
-	<script src="/assets/js/mascaras.js"></script>		
->>>>>>> #18: <Henrique, Yasser> - meta Tag de viewport removida do cabecalho e adicionada aos assets
+	<script src="/assets/js/mascaras.js"></script>
