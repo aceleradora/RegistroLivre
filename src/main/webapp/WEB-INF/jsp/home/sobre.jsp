@@ -71,7 +71,7 @@
 					</div>
 					
 					<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 avatar">
-						<a href="#" target="_blank">
+						<a href="https://www.linkedin.com/pub/bernardo-est%C3%A1cio/20/2a7/7aa" target="_blank">
 							<img src="../assets/img/bernardoAjustado.jpg" class=" img-circle imagem"/>
 							<div>
 								<div class="nome">Bernardo</div>
