@@ -20,6 +20,7 @@
 				<li><a href="/contato" class="visible-xs"><span class="glyphicon glyphicon-envelope hidden-xs"></span> Contato</a></li>
 				<li><a href="https://www.facebook.com/sharer/sharer.php?u=http://registro-livre-aceleradora.herokuapp.com/" class="visible-xs" onclick="window.open(this.href, 'mywin', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" >Facebook</a></li>
 				<li><a href="https://twitter.com/home?status=http://registro-livre-aceleradora.herokuapp.com/" class="visible-xs" onclick="window.open(this.href, 'mywin', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" >Twitter</a></li>			
+				<li><a href="https://github.com/aceleradora6-tw/RegistroLivre" class="visible-xs">Github</a></li>
 			</ul>
 			
 			
