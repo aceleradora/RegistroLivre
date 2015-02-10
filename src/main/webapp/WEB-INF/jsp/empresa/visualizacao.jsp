@@ -29,8 +29,6 @@
 					</div>
 					<div class="panel-body">
 
-						<div class="row">
-							<div class="col-lg-8 col-md-8 col-sm-9 col-xs-9">
 								<dl>
 									<dt>CNPJ:</dt>
 									<span id="cnpj" >${empresa.cnpj}</span>
@@ -43,17 +41,6 @@
 									<dt>Razão Social:</dt> 
 									<dd> ${empresa.razaoSocial}</dd>
 								</dl>
-							</div>
-
-							  
-							<div class="col-lg-4 col-md-4 col-sm-2 col-xs-3">
-								<a href="${empresa.url}" download>
-									<img style="float:right; margin-right:12%; width:50%;" src="../assets/img/PDF_icon.png" />
-									<label style="float: right; font-size:95%;">Download de PDF</label>
-								</a>
-							</div>
-
-						</div>
 
 						<dl>
 							<dt>Endereço:</dt> 
@@ -111,6 +98,13 @@
 								</dl>					
 							</div>
 						</div>
+						
+						<a class="btn btn-default btn-download" href="${empresa.url}" download>
+							<img style="width:12%; float:left;" src="../assets/img/PDF_icon.png" />
+							<label>Download de PDF</label>
+						</a>
+						
+						
 						<h3 class="centralize panel-divider padding-6-0 margin-30-0">Estrutura Societária</h3>
 					
 

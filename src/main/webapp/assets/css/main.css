@@ -20,6 +20,16 @@ dt {
 	margin-right: 5px;
 }
 
+.btn-download {
+	display: block;
+	border: 1px none;
+	width: 200px;
+	height: 40px;
+	border-radius: 5px !important;
+	cursor: default;
+	margin-left: 196px;
+}
+
 #busca-avancada{
 	display:none;
 }
