@@ -49,7 +49,7 @@ RegistroLivre.DataTable = function DataTable(){
 				
 				$(".datatable-selecao", row).on("click", function(){
 					criaBotaoDownloadMultiplo();
-					criaMultiselecao($(this).parents('tr'), $(this).prop("checked"));
+					selecionarLinha($(this).parents('tr'), $(this).prop("checked"));
 				});
 			},
 			"language": {
@@ -69,6 +69,7 @@ RegistroLivre.DataTable = function DataTable(){
 	        "autoWidth": false
 		});
 
+		eventoSelecionaTodos();
 		tabelaGlobal = tabela;
 	};
 
@@ -80,8 +81,8 @@ RegistroLivre.DataTable = function DataTable(){
 		}		
 	} 
 	
-	var criaMultiselecao = function criaMultiselecao(tr, checked){			
-			(checked)? tr.addClass('selected') : tr.removeClass('selected');			
+	var selecionarLinha = function selecionarLinha(tr, checked){			
+			(checked)? tr.addClass('selected') : tr.removeClass('selected');	 		
 
 			var $botaoDownload = $('#btn-multi-download');
 			(tabelaGlobal.rows('.selected')[0].length === 0)? $botaoDownload.hide(): $botaoDownload.show();					
@@ -103,6 +104,17 @@ RegistroLivre.DataTable = function DataTable(){
 			}
 		});
 	};
+	
+	var eventoSelecionaTodos = function eventoSelecionaTodos(){		
+		$selecionaTodos = $('#seleciona-todos');
+		$selecionaTodos.on("click", function(){			
+			$("tr").each(function(){		
+				criaBotaoDownloadMultiplo();
+				$(this).find(".datatable-selecao").prop("checked",$selecionaTodos.prop("checked"));
+				selecionarLinha($(this), $(this).find(".datatable-selecao").prop("checked"));
+			});
+		});
+	}
 	
 	return {
 		cria : cria
