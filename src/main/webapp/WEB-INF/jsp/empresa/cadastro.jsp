@@ -80,13 +80,13 @@
 								</div>
 							
 								<div class="form-group has-feedback" id="nomeFantasia-group">
-									<label class="control-label">Nome fantasia  <abbr class="cor-vermelha" title="Preenchimento obrigatÃ³rio">*</abbr> </label>
+									<label class="control-label">Nome fantasia  <abbr class="cor-vermelha" title="Preenchimento obrigatório">*</abbr> </label>
 									<input class="form-control" type="text" name="empresa.nomeFantasia" id="nomeFantasia" value="${empresa.nomeFantasia}" placeholder="ex: Larah Instrumentos Musicais" required/>
 									<span class="glyphicon form-control-feedback"></span>
 								</div>
 								
 								<div class="form-group">
-									<label class="control-label">Upload de arquivo <abbr class="cor-vermelha" title="Preenchimento obrigatÃ³rio">*</abbr></label>
+									<label class="control-label">Upload de arquivo <abbr class="cor-vermelha" title="Preenchimento obrigatório">*</abbr></label>
 									<c:choose>
 										<c:when test="${editar != null}">
 											<input name="empresa.url" type="text" value="${empresa.url}" hidden/>
@@ -189,7 +189,7 @@
 							</div> <!-- panel-body -->
 							
 							<div class="panel-footer">									
-								<span class="pull-left msg-alert color-red margin-15-0" id="form-alert">Preencha os campos corretamente para enviar.</span>
+								<span class="centralize msg-alert color-red margin-15-0" id="form-alert">Preencha os campos corretamente para enviar.</span>
 								<input type="submit" id="btn-submit" class="btn btn-lg btn-primary pull-right margin-0-6" value="Enviar"/>
 								<input type="reset" value="Limpar" class="btn btn-default btn-lg pull-left margin-0-6"/>
 								<div style="clear:both;"></div>
