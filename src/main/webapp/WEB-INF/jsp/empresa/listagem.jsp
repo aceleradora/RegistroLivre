@@ -36,7 +36,7 @@
 				</c:if>
 				<div class="panel panel-default margin-35-0">
 					<div class="panel-heading centralize">
-						<h1>Lista de Empresas Cadastradas</h1>
+						<h2>Lista de Empresas Cadastradas</h2>
 					</div>
 					<div class="panel-body">	
 						<table id="tabelaListagem" class="table-striped table-hover">

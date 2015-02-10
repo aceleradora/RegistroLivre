@@ -49,8 +49,9 @@
 				
 				<div class="margin-100-0-0-0 home">
 
-					<div class="panel-heading centralize home">
-						<img src="../assets/img/registro_livre.svg"  class="logo" id="registrolivre" alt="Registro Livre">						
+					<div class="panel-heading centralize home margin-35-0">
+						<h1>REGISTRO LIVRE</h1>
+						<!-- <img src="../assets/img/registro_livre.svg"  class="logo" id="registrolivre" alt="Registro Livre">  -->						
 						<h4 class="descricao">Publicando registros públicos.</h4>
 					</div>
 						

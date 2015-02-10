@@ -1,5 +1,7 @@
 @CHARSET "UTF-8";
 
+@import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900);
+
 body {	
 	background-color:#E1E1E1;
 	-webkit-background-size: cover;
@@ -18,6 +20,8 @@ body {
 .descricao {
 	color: #2c3e50;	
 	line-height: 30px;
+	font-family: Lato;
+	font-weight: 300;
 }
 
 .panel-default>.panel-heading {

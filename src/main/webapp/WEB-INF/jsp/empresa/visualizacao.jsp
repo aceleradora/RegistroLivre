@@ -25,7 +25,7 @@
 	    		</c:if>
 				<div class="panel panel-default margin-35-0">
 					<div class="panel-heading centralize">
-						<h4>${empresa.nomeFantasia}</h4>
+						<h2>${empresa.nomeFantasia}</h2>
 					</div>
 					<div class="panel-body">
 
@@ -111,7 +111,7 @@
 								</dl>					
 							</div>
 						</div>
-						<h4 class="centralize panel-divider padding-6-0 margin-30-0">Estrutura Societária</h4>
+						<h3 class="centralize panel-divider padding-6-0 margin-30-0">Estrutura Societária</h3>
 					
 
 						<c:choose>

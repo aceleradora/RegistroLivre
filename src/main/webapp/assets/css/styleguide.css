@@ -25,12 +25,27 @@ body{
 	background-color:#E1E1E1;
 }
 
-h1, h2, h3, h4, h5, h6{ 
+h1, h3, h5, h6{ 
 	font-family:"Montserrat-HairLine";	
 }
 
+h1 {
+	font-size: 64px;
+}
+
+h2 {
+	font-family:"Montserrat-Light";	
+	font-size: 30px;
+}
+
+h3 {
+	font-family:"Montserrat-Light";	
+	font-size: 20px;
+}
+
 h4 {
-	font-size: 22px;
+	font-family:"Montserrat-Hairline";	
+	font-size: 24px;
 }
 
 p{
