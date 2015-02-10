@@ -11,10 +11,9 @@ Aceitamos e incentivamos a contribuição de cada qual dentro de suas possibilidad
 <link href="/assets/css/styleguide.css" rel="stylesheet">		
 <link href="/assets/css/main-responsiva.css" rel="stylesheet">
 <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script src="assets/js/canvasloader-min.js"></script>		
 <script src="/assets/js/main.js"></script>
 <script src="/assets/js/jquery.mask.min.js"></script>
 <script src="/assets/js/animacoes.js"></script>
 <script src="/assets/js/mascaras.js"></script>
-	
+
 <jsp:include page="/WEB-INF/jsp/includes/facebook-metatags.jsp" />

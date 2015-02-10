@@ -50,7 +50,7 @@ RegistroLivre.Socios = function Socios(){
 		$("#divSocios").append($template);
 		var temAutocomplete = $template.find("input[name='empresa.socios[].ativo']").length > 0;
 		if(temAutocomplete){
-			autocompletarsocio.cria();
+			autocompletar.criaSocio();
 		}
 	}
 	

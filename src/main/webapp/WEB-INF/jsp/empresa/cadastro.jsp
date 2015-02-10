@@ -25,7 +25,7 @@
 	<script src="/assets/js/bootstrap/bootstrap.js"></script>
 	<script src="/assets/js/socios.js" charset="utf-8"></script>
 	<script src="/assets/js/cidadeEstado.js"></script>
-	<script src="/assets/js/autocompletarsocio.js"></script>
+	<script src="/assets/js/autocompletar.js"></script>
 </head>
 <body>
 	<jsp:include page="/WEB-INF/jsp/includes/cabecalho.jsp" />
