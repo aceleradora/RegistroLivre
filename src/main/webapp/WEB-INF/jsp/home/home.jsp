@@ -12,8 +12,6 @@
 	
 	<link href="/assets/css/home.css" rel="stylesheet">
 	
-	<jsp:include page="/WEB-INF/jsp/includes/facebook-metatags.jsp" />
-	
 	<% //Manter charset utf-8 para funcionar a acentuação no auto completar %>
 	<script src="/assets/js/home.js" charset="utf-8"></script>
 	<script src="/assets/js/autocompletar.js" charset="utf-8"></script>
