@@ -1,7 +1,9 @@
 var RegistroLivre = RegistroLivre || {};
 var tabelaGlobal;
 
-RegistroLivre.DataTable = function DataTable(){ 
+
+RegistroLivre.DataTable = function DataTable(){
+	
 	function cria(dados){
 		var dataEmissaoOrdenada = 4;
 		var dataRegistro = 5;
@@ -12,10 +14,11 @@ RegistroLivre.DataTable = function DataTable(){
 			responsive: true,
 			stateSave: true,
 			
-			columns : [ {},
+			columns : [ {"render" :	function(data,type,row){return '<input type="checkbox" class="datatable-selecao">';},
+						className: "dt-body-center"},
 			            { data : 'nomeFantasia'	}, 
 			            { data : 'endereco.logradouro', className:"desktop"},
-			            { data : 'dataEmissaoDocumento', className:"desktop"},
+			            { data : 'dataEmissaoDocumento', className:"desktop dt-body-center"},
 	 		            { data : 'dataEmissaoOrdenada', className:"never"},
 			            { data : 'dataRegistro', className:"never"},
 			            { data : 'id', className:"never"}
@@ -29,11 +32,6 @@ RegistroLivre.DataTable = function DataTable(){
 				'aTargets': [0] 
 			},
 			{
-				"render" : function(data, type, row){
-					return '<input type="checkbox" class="datatable-selecao">'; 
-				},
-				"targets" : 0 
-			},{
 				"aTargets" : [dataEmissaoOrdenada],
 				"visible" : false,
 			} ,{
@@ -48,6 +46,11 @@ RegistroLivre.DataTable = function DataTable(){
 				$("td:gt(0)", row).on('click', function(){
 					window.location.href = '/visualizacao/' + data.id;
 				});
+				
+				$(".datatable-selecao", row).on("click", function(){
+					criaBotaoDownloadMultiplo();
+					criaMultiselecao($(this).parents('tr'), $(this).prop("checked"));
+				});
 			},
 			"language": {
 	            "lengthMenu": "Mostrar _MENU_ resultados por página",
@@ -61,33 +64,28 @@ RegistroLivre.DataTable = function DataTable(){
 	                "next":       "Próximo",
 	                "previous":   "Anterior"
 	            }
-	        },
+	        },       
+	        
 	        "autoWidth": false
 		});
-		
-		criaBotaoDownloadMultiplo();
-		criaMultiselecao();
+
 		tabelaGlobal = tabela;
 	};
 
 	var criaBotaoDownloadMultiplo = function criaBotaoDownloadMultiplo(){
-		var $botaoDownload = $('<button id="btn-multi-download" style="display: none; margin-left:60px" class="btn btn-success">Download</button>');
-		$("#tabelaListagem_length").append($botaoDownload);
-		eventoBotaoMultiDownload();
+		if($('#btn-multi-download').length === 0){
+			var $botaoDownload = $('<button id="btn-multi-download" style="display: none; margin-left:60px" class="btn btn-success">Download</button>');
+			$("#tabelaListagem_length").append($botaoDownload);
+			eventoBotaoMultiDownload();			
+		}		
 	} 
 	
-	var criaMultiselecao = function criaMultiselecao(){
-		$('.datatable-selecao').click(function(){
-			$(this).parents('tr').toggleClass('selected');
-			var $botaoDownload = $('#btn-multi-download');
+	var criaMultiselecao = function criaMultiselecao(tr, checked){			
+			(checked)? tr.addClass('selected') : tr.removeClass('selected');			
 
-			if(tabelaGlobal.rows('.selected')[0].length === 0){
-				$botaoDownload.hide();
-			}else{
-				$botaoDownload.show();
-			}
-		});
-	};
+			var $botaoDownload = $('#btn-multi-download');
+			(tabelaGlobal.rows('.selected')[0].length === 0)? $botaoDownload.hide(): $botaoDownload.show();					
+	}
 	
 	var eventoBotaoMultiDownload = function eventoBotaoMultiDownload(){
 		$('#btn-multi-download').click(function(){
