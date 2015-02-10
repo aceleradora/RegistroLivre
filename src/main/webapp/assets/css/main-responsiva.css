@@ -20,6 +20,14 @@
 		font-size: 16px;
 	}
 	
+	.subtitle{
+		font-size: 21px;
+	}
+
+		h2.subtitle{
+			font-size: 26px;
+		}
+	
 	.nav > li {
 		border-top: 1px solid rgba(0,0,0,0.1);
 		text-align: center;

@@ -34,7 +34,7 @@
 					A Aceleradora é uma parceria ThoughtWorks, PUCRS e Centro de Inovação Microsoft.</p>
 					
 					
-					<h1 class="centralize subtitle">Equipe</h1>
+					<h2 class="centralize subtitle">Equipe</h2>
 					
 					
 					<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 avatar">

@@ -25,7 +25,7 @@
 					<p class="text">Se você tem contratos sociais de empresas brasileiras para compartilhar conosco, faça o upload 
 					em nosso banco de dados, ou então os envie para o email contato@registrolivre.inf.br.</br>
 					
-					<h1 class="centralize subtitle"> Jornalistas</h1>
+					<h2 class="centralize subtitle"> Jornalistas</h2>
 					
 					<p class="text">Os repórteres são o público-alvo principal do Registro Livre, porque no desempenho de suas 
 					funções eles muitas vezes necessitam e adquirem os contratos sociais de empresas brasileiras nas Juntas Comerciais 
@@ -35,19 +35,19 @@
 					para o email contato@registrolivre.inf.br. Se não tiver arquivos, fale sobre o projeto com seus colegas e os incentive a contribuir.
 					</p>
 					
-					<h1 class="centralize subtitle"> Advogados, contadores, administradores e outros profissionais da área comercial. </h1>
+					<h2 class="centralize subtitle"> Advogados, contadores, administradores e outros profissionais da área comercial. </h1>
 					<p class="text">Assim como os jornalistas, advogados, contadores, administradores e outros profissionais da área 
 					comercial lidam cotidianamente com contratos sociais. Estes grupos poderão se beneficiar do Registro Livre e, mais importante, 
 					podem se tornar os principais colaboradores do nosso projeto. Se você trabalha num estabelecimento como estes, solicite autorização 
 					e nos envie contratos sociais.</p>
 					
-					<h1 class="centralize subtitle">Cientistas da informação, engenheiros de computação, hackers e programadores em geral</h1>
+					<h1 class="centralize subtitle">Cientistas da informação, engenheiros de computação, hackers e programadores em geral</h2>
 					<p class="text">O Registro Livre é um projeto de software livre. Portanto, você pode obter nosso código-fonte no 
 					<a href="https://github.com/aceleradora6-tw/RegistroLivre.git" target="_blank">Github</a> e aplicar
 					 em seus próprios projetos. Melhor ainda, você pode nos ajudar a aprimorá-lo! Também adoraríamos ver os dados disponíveis 
 					aqui servindo como base para análises e estudos, ou sugestões de novas funcionalidades.</p>
 					
-					<h1 class="centralize subtitle"> Todos os cidadãos</h1>
+					<h2 class="centralize subtitle"> Todos os cidadãos</h2>
 					<p class="text">Os contratos sociais são documentos públicos. Obter informações sobre a finalidade e estrutura 
 					societária de empresas nacionais é essencial para exercer a cidadania -- por exemplo, para fiscalizar a relação entre contribuições de 
 					campanha e desempenho de políticos. Esperamos que o Registro Livre seja muito útil para você e o convidamos a contribuir para aumentar 
