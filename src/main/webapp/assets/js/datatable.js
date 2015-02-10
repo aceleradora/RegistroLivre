@@ -9,15 +9,17 @@ RegistroLivre.DataTable = function DataTable(){
 		
 		var tabela = $('#tabelaListagem').DataTable({
 			data : dados,
-			stateSave: true,			
+			responsive: true,
+			stateSave: true,
+			
 			columns : [ {},
 			            { data : 'nomeFantasia'	}, 
-			            { data : 'endereco.logradouro' },
-			            { data : 'dataEmissaoDocumento' },
-	 		            { data : 'dataEmissaoOrdenada' },
-			            { data : 'dataRegistro'},
-			            { data : 'id'}
-			          ],
+			            { data : 'endereco.logradouro', className:"none" },
+			            { data : 'dataEmissaoDocumento', clasName:"none"},
+	 		            { data : 'dataEmissaoOrdenada', className:"never"},
+			            { data : 'dataRegistro', className:"never"},
+			            { data : 'id', className:"never"}
+			          ],		
 	        "aoColumnDefs" : [ {
 				"iDataSort" : 3,
 				"aTargets" : [2]
