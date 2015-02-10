@@ -2,6 +2,10 @@
 	font-family:"Montserrat-Light";	
 }
 
+a {
+	color: #2C3E52;
+}
+
 a:hover, .cursor-pointer{
 	cursor: pointer;
 	text-decoration: none;

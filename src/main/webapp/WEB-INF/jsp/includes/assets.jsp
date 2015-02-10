@@ -6,7 +6,7 @@ Aceitamos e incentivamos a contribuição de cada qual dentro de suas possibilidad
 	
 <link rel="icon" href="../assets/img/favicon.ico" />	
 	
-<link href="/assets/css/bootstrap/css/bootstrap.css" rel="stylesheet">	
+<link href="/assets/css/bootstrap/css/bootstrap.css" rel="stylesheet">
 <link href="/assets/css/main.css" rel="stylesheet">
 <link href="/assets/css/styleguide.css" rel="stylesheet">		
 <link href="/assets/css/main-responsiva.css" rel="stylesheet">

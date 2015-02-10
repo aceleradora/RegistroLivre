@@ -28,7 +28,7 @@
 					estes dados numa plataforma aberta, para a qual todo cidadão poderá contribuir. Desta forma,
 					os registros públicos serão acessíveis a todos e tornados públicos de fato.</p>
 					
-					<p class="text">A <b>Aceleradora Ágil</b> é um programa inovador com participantes de diversas insituições que tem por objetivo, 
+					<p class="text">A <b><a href="http://info.thoughtworks.com/Aceleradora.html">Aceleradora Ágil</a></b> é um programa inovador com participantes de diversas insituições que tem por objetivo, 
 					com auxílio de profissionais experientes, incentiva-los a desenvolver competências técnicas, comportamentais, 
 					de negócios e de governança necessárias para atuar em equipes de alto desempenho de desenvolvimento de software. 
 					A Aceleradora é uma parceria ThoughtWorks, PUCRS e Centro de Inovação Microsoft.</p>
