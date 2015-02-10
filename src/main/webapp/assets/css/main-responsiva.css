@@ -7,21 +7,31 @@
 		font-size: 12px;
 	}
 	
+	
+	h1{
+		font-size: 47px;
+	}
+	
 	h2{
 		font-size: 22px;
 	}
 	
 	h4{
-		font-size: 14px;
+		font-size: 16px;
 	}
 	
 	.nav > li {
 		border-top: 1px solid rgba(0,0,0,0.1);
+		text-align: center;
 	}
 	
 	.logo{
 		width: 119px !important;
 		height: 136.85px !important;
+	}
+	
+	.title{
+		font-size: 67px;
 	}
 	
 	.avatar{
@@ -31,10 +41,22 @@
 	.avatar .imagem{
 		width: 145px;
 		height:145px;
+	}
+	
+	.logo-navbar{
+		height: 50px;
+		width: 40px;
+		position: absolute;
+		left: 50%;
+		margin: 2px 0 0 -20px;	
 	}	
 	
 	.margin-100-0-0-0{
 		margin: 25px 0 0 0;
+	}
+	
+	.margin-35-0 {
+		margin: 15px 0;
 	}
 	
 	
@@ -52,7 +74,9 @@
 	.avatar .imagem{
 		width: 145px;
 		height:145px;
-	}	
+	}
+	
+	
 	
 }
 
