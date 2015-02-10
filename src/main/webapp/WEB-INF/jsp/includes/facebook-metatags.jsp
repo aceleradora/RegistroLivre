@@ -5,8 +5,8 @@
 <meta property="og:description" content="O Registro Livre é uma plataforma de dados abertos cujo objetivo principal 
 		é colocar à disposição do público informações sobre empresas, imóveis e outros tipos de bens e atividades sujeitos 
 		a registro público no Brasil.">	 
-<meta property="og:image" content="/assets/img/registro_livre.png">
-<meta property="og:image:type" content="image/svg">
+<meta property="og:image:url" content="/assets/img/registro_livre.png">
+<meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="800"> 
 <meta property="og:image:height" content="600">
 <meta property="og:type" content="website">
