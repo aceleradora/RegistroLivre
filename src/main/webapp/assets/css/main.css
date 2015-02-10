@@ -1,163 +1,52 @@
-.datatable-selecao{
-	background-color:red;
-}
-
 *{
-	font-family:"Montserrat-Light";
-	
+	font-family:"Montserrat-Light";	
 }
 
-.container{
-	position: relative;	
+a:hover, .cursor-pointer{
+	cursor: pointer;
 }
 
-.content{
-	 margin-bottom:60px;
+dl {
+	display: flex;
+	font-size: 15.5px;
 }
 
+dt {
+	margin-right: 5px;
+}
+
+h4 {
+	font-weight: bold;
+}
 
 #busca-avancada{
 	display:none;
-}
-
-.content{
-	margin: 0 auto;
-	margin-top:65px;
-	margin-bottom:65px;	
-	width: 95%;
-}
-
-.nome{
-	font-size:20px;
-	margin-bottom:-10px;	
-}
-
-.sobrenome{
-	font-size:20px;		
-}
-
-.titulo{
-	font-family:"Montserrat-Bold";
-	text-transform:uppercase;
-}
-
-.botao-busca-home{
-	width:60px;
-	height:45px;
-}
-
-.botao-busca-navbar{
-	height:34px;
 }
 
 #campo-pesquisado{
 	height:45px;	
 }
 
-.botao-busca-navbar{
-	width:40px;
-	height:34px;
-}
-
-.imagemAjustado{
-	width:119px;
-	transition:0.5s;
-	box-shadow: 1px 1px 10px #C92D2D;
-	margin: 35px auto 12px;
-}
-
 #campo-pesquisado-navbar{
 	width:200px;
 	transition:0.4s ease-in;
 }
-
-
-#campo-pesquisado-navbar:focus{
-	width: 300px;
-}
-
-#tabelaListagem tr:hover {
-	cursor: pointer;
-}
-
-.cor-vermelha {
-	color: red;
-	font-size: 20px;
-}
-
-#registrolivre {
-	font-size: 50px;
-}
-
+	#campo-pesquisado-navbar:focus{
+		width: 300px;
+	}
+	
 #divSocios .list-group-item {
 	border-radius: 0;
 	border-width: 1px 0 0;
 	margin: 0 -15px 20px;
 }
 
-.margin-100-0-0-0 {
-	margin: 100px 0 0 0;
+#registrolivre {
+	font-size: 50px;
 }
 
-.margin-0-30 {
-	margin: 0 30px;
-}
-
-.margin-0-20 {
-	margin: 0 20px;
-}
-
-.margin-0-15 {
-	margin: 0 15px;
-}
-
-.margin-0-6 {
-	margin: 0 6px;
-}
-
-.margin-6-0 {
-	margin: 6px 0;
-}
-
-.margin-15-0 {
-	margin: 15px 0;
-}
-
-
-.margin-30-0 {
-	margin: 30px 0;
-}
-
-.margin-35-0 {
-	margin: 35px 0;
-}
-
-.margin-250-0 {
-	margin: 250px 0;
-}
-
-.padding-15-0 {
-	padding: 15px 0;
-}
-
-.padding-6-0 {
-	padding: 6px 0;
-}
-
-.padding-0-6 {
-	padding: 0 6px;
-}
-
-.padding-30-0-0-0 {
-	padding: 30px 0 0 0;
-}
-
-.centralize {
-	text-align: center;
-}
-
-.width-100{
-	width:100%;
+#tabelaListagem tr:hover {
+	cursor: pointer;
 }
 
 .a-color-black {
@@ -167,51 +56,6 @@
 
 .a-color-black:hover {
 	text-decoration: none;
-}
-
-.small {
-	font-size: 11px
-}
-
-h4 {
-	font-weight: bold;
-}
-
-.title{
-	margin: 50px 0px 30px 0px; 
-}
-
-.panel-divider {
-	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.color-red {
-	color: #A94442;
-}
-
-.msg-alert {
-	display: none;
-}
-
-.transparente {
-	opacity: 0.7;
-}
-
-.img-background {
-	background-image: url("/assets/img/1.jpg");
-	background-size: 1500px 1000px;
-	background-repeat: no-repeat;
-	font-weight: bold;
-}
-
-
-.img-140 {
-	height: 100px;
-	width: 100px;
-}
-
-.font-size-40 {
-	font-size: 40px;
 }
 
 .avatar{
@@ -229,35 +73,7 @@ h4 {
 	font-size: 14px;
 }
 
-.avatar .imagem{
-	
-}
-
-a:hover, .cursor-pointer{
-	cursor: pointer;
-}
-
-.rodape-home{
-	position: fixed !important;
-	width:100%;
-	bottom:0;
-}
-.rodape {	
-	position: relative;
-	bottom:0;
-	width:100%;	
-	height:60px;
-	line-height: 60px;
-	margin-bottom:0;	
-	background-color: rgba(200,200,200, 0.7);
-}
-
-.imagemGit{
-	width: 30px;
-	height: 30px;
-}
-
-.bg_video{
+.bg-video{
 	position: fixed;
 	right: 0;
 	bottom: 0;
@@ -268,6 +84,48 @@ a:hover, .cursor-pointer{
 	z-index: -1000;
 	background: url(../assets/img/ci.jpg) no-repeat;
 	background-size: cover;
+}
+
+.botao-busca-home{
+	width:60px;
+	height:45px;
+}
+
+.botao-busca-navbar{
+	width:40px;
+	height:34px;
+}
+
+.centralize {
+	text-align: center;
+}
+
+.color-red {
+	color: #A94442;
+}
+
+.container{
+	position: relative;	
+}
+
+.content{
+	 margin-bottom:60px;
+}
+
+.content{
+	margin: 0 auto;
+	margin-top:65px;
+	margin-bottom:65px;	
+	width: 95%;
+}
+
+.cor-vermelha {
+	color: red;
+	font-size: 20px;
+}
+
+.datatable-selecao{
+	background-color:red;
 }
 
 .erro{
@@ -303,6 +161,15 @@ a:hover, .cursor-pointer{
 	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+.font-size-40 {
+	font-size: 40px;
+}
+
+.img-140 {
+	height: 100px;
+	width: 100px;
+}
+
 .logo-navbar{
 	height: 50px;
 	width: 40px;
@@ -312,13 +179,96 @@ a:hover, .cursor-pointer{
 	padding: 0 5px 0 6px !important;
 }
 
-dl {
-	display: flex;
-	font-size: 15.5px;
+.margin-100-0-0-0 {
+	margin: 100px 0 0 0;
 }
 
-dt {
-	margin-right: 5px;
+.margin-0-30 {
+	margin: 0 30px;
+}
+
+.margin-0-20 {
+	margin: 0 20px;
+}
+
+.margin-0-15 {
+	margin: 0 15px;
+}
+
+.margin-0-6 {
+	margin: 0 6px;
+}
+
+.margin-6-0 {
+	margin: 6px 0;
+}
+
+.margin-15-0 {
+	margin: 15px 0;
+}
+
+.margin-30-0 {
+	margin: 30px 0;
+}
+
+.margin-35-0 {
+	margin: 35px 0;
+}
+
+.margin-250-0 {
+	margin: 250px 0;
+}
+
+.msg-alert {
+	display: none;
+}
+
+.nome{
+	font-size:20px;
+	margin-bottom:-10px;	
+}
+
+.padding-15-0 {
+	padding: 15px 0;
+}
+
+.padding-6-0 {
+	padding: 6px 0;
+}
+
+.padding-0-6 {
+	padding: 0 6px;
+}
+
+.padding-30-0-0-0 {
+	padding: 30px 0 0 0;
+}
+
+.panel-divider {
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.rodape-home{
+	position: fixed !important;
+	width:100%;
+	bottom:0;
+}
+
+.rodape {	
+	position: relative;
+	bottom:0;
+	width:100%;	
+	height:60px;
+	line-height: 60px;
+	margin-bottom:0;	
+}
+
+.small {
+	font-size: 11px
+}
+
+.sobrenome{
+	font-size:20px;		
 }
 
 .socio dl{
@@ -327,4 +277,17 @@ dt {
 
 .socio{
 	margin-bottom: 12px;
+}
+
+.titulo{
+	font-family:"Montserrat-Bold";
+	text-transform:uppercase;
+}
+
+.title{
+	margin: 50px 0px 30px 0px; 
+}
+
+.width-100{
+	width:100%;
 }
