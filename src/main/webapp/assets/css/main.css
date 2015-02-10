@@ -125,8 +125,8 @@ dt {
 	font-size: 20px;
 }
 
-.datatable-selecao{
-	background-color:red;
+.datatable-selecao, #seleciona-todos{
+	transform: scale(2);    
 }
 
 .erro{

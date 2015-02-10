@@ -42,7 +42,7 @@
 						<table id="tabelaListagem" class="table-striped table-hover">
 							<thead>
 								<tr>
-									<th><input type="checkbox"></th>
+									<th class="centralize"><input type="checkbox" id="seleciona-todos"></th>
 									<th>Nome Fantasia</th>
 									<th>Endereço</th>
 									<th>Data Emissão Documento</th>
