@@ -1,12 +1,5 @@
 @CHARSET "UTF-8";
 
-/*
-	Laranja -> #e67e22
-	Azul 	-> #2c3e50
-	Cinza  	-> #e1e1e1
-	Chumbo 	-> #404141
-*/
-
 @font-face{
 	font-family:"Montserrat-HairLine";
 	src:url("../fonts/Montserrat-Hairline.otf");
@@ -26,18 +19,97 @@
 	font-family:"Montserrat-Light";	
 }
 
+body{
+	background-color:#E1E1E1;
+}
+
 h1, h2, h3, h4, h5, h6{ 
 	font-family:"Montserrat-HairLine";	
 }
 
-.nome, .sobrenome, .papel{	
-	font-family:"Montserrat-Light";
-	color: #F1EEF5;
+p{
+	color: #2c3e50;
+	text-align: left !important;
+}
+
+ul li{
+	color: #2c3e50;	
+}
+
+#abrir-busca-avancada{
+	color:#2c3e50;	
 }
 
 
-body{
-	background-color:#E1E1E1;
+.btn{
+	border-radius:0;
+	border:0;
+	transition:0.2s ease-in;
+}
+
+	.btn:hover{
+		box-shadow:1px 1px 5px #364475;
+	}
+	
+	.btn:focus{
+		box-shadow:1px 1px 5px #e67e22;
+	}
+
+.botao-busca{
+	background-color:#2c3e50;
+	color: #E67E22;
+}
+	.botao-busca[disabled]{
+		color:#2C3E50;		
+		background-color: rgba(0,0,0,0.4);
+	}
+
+.btn-default{
+	background-color:#2C3E50;
+	color:#E1E1E1;		
+}
+
+	.btn-default:hover{
+		background-color:#404141;
+		color:#E67E22;
+		border-color:#364475;
+	}
+	
+	.btn-default:focus{
+		background-color:#404141;
+		color:#E1E1E1;
+	}
+
+.btn-primary {
+	background-color:#2C3E50;
+	color: #E1E1E1;	
+}
+
+	.btn-primary[disabled]{	 
+		color:#2C3E50 !imporant;
+		background-color: rgba(0,0,0,0.4);
+	}
+	
+	.btn-primary:hover{
+		background-color:#34495E;
+		color:#E67E22;	
+	}
+	
+.form-control{	
+	border-radius:0;	
+	transition: all 0.2s ease-in 0s;
+	box-shadow:1px 1px 5px transparent;	
+}
+
+	.form-control:focus{
+		box-shadow:1px 1px 5px #2c3e50;
+		border-color:#2c3e50;	
+		
+	}
+	
+.imagem{
+	border:solid 1px;
+	border-color:#2c3e50;
 }
 
 .panel{
@@ -53,63 +125,6 @@ body{
 	background-color:#F3F4F4;
 }
 
-#abrir-busca-avancada{
-	color:#2c3e50;	
-}
-
-.btn{
-	border-radius:0;
-	border:0;	
-	transition:0.2s ease-in;
-}
-
-	.btn:hover{
-		box-shadow:1px 1px 5px #364475;
-	}
-		
-	.btn:focus{
-		box-shadow:1px 1px 5px #e1e1e1;
-	}
-
-.btn-primary {
-	background-color:#2c3e50;
-	color: #E1E1E1;	
-}
-
-	.btn-primary[disabled]{	 
-			color:#2c3e50;
-			background-color: rgba(0,0,0,0.4);
-	}
-	
-	.btn-primary:hover{
-		background-color:#34495e;
-	}
-	
-	.btn-primary:focus{
-		background-color: #2c3e50;
-	}
-
-.btn-default{
-	background-color:#2c3e50;
-	color: #E1E1E1;	
-}
-
-	.btn-default:hover{
-		background-color:#2c3e50;
-		color:#E1E1E1;
-		border-color:#364475;
-	}
-	
-	.btn-default:focus{
-		background-color:#2c3e50;
-		color:#E1E1E1;
-	}
-	
-.botao-busca{
-	background-color: #2C3E50;
-	color: #E67E22;
-}
-
 .navbar{	
 	border:0;
 }
@@ -118,28 +133,13 @@ body{
 	color:#2c3e50 !important;		
 }
 
-.navbar-nav > li > a:hover{
-	background: rgba(0,0,0,0.02) !important;
-}
+	.navbar-nav > li > a:hover{
+		background: rgba(0,0,0,0.02) !important;
+	}
 
-.ui-menu-item{
-	color:#000;
-}
-
-ul li{
-	color: #F1EEF5;	
-}
-
-.form-control{	
-	border-radius:0;	
-	transition: all 0.2s ease-in 0s;
-	box-shadow:1px 1px 5px transparent;	
-}
-
-.form-control:focus{
-	box-shadow:1px 1px 5px #2c3e50;
-	border-color:#2c3e50;	
-	
+.nome, .sobrenome, .papel{	
+	font-family:"Montserrat-Light";
+	color: #2c3e50;
 }
 
 .rodape{
@@ -150,22 +150,6 @@ ul li{
 	color: #2c3e50;			
 }
 
-p{
-	color: #2c3e50;
-	text-align: left !important;
-}
-
-.select-wrapper select{
-	background:transparent;
-	padding:5px;
-	font-size:16px;
-	line-height:1;
-	border:0;
-	border-radius:0;
-	height:34px;
-	-webkit-appearance:none;
-}
-
 .select-wrapper{
 	height:34px;
 	overflow:hidden;
@@ -173,24 +157,21 @@ p{
 	border: solid 1px #ccc;
 }
 
+	.select-wrapper select{
+		background:transparent;
+		padding:5px;
+		font-size:16px;
+		line-height:1;
+		border:0;
+		border-radius:0;
+		height:34px;
+		-webkit-appearance:none;
+	}
+
 .title{
 	color: #2c3e50;
 }
 
-.navbar-nav > li > a{
-	color:#2c3e50 !important;	
-}
-
-ul li{
-	color: #2c3e50;	
-}
-
-.nome, .sobrenome, .papel{	
-	font-family:"Montserrat-Light";
-	color: #2c3e50;
-}
-
-.imagem{
-	border:solid 1px;
-	border-color:#2c3e50;
+.ui-menu-item{
+	color:#000;
 }
