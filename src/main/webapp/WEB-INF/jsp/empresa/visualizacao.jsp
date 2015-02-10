@@ -47,41 +47,41 @@
 							<dd>${empresa.endereco.logradouro}</dd>
 						</dl>
 						<div class="row">
-							<div class="col-xs-4">
+							<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
 								<dl>
 									<dt>Número:</dt>
 									<dd>${empresa.endereco.numero}</dd>
 								</dl>
 							</div>
-							<div class="col-xs-8">
-								<dl class=" pull-right">
+							<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+								<dl class="pull-right-lg">
 									<dt>Complemento:</dt>
 									<dd>${empresa.endereco.complemento}</dd>
 								</dl>
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-xs-7">
+							<div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
 								<dl>
 									<dt>Cidade:</dt>
 									<dd>${empresa.endereco.cidade}</dd>
 								</dl>
 							</div>
-							<div class="col-xs-2">
+							<div class="col-lg-2 col-md-6 col-sm-6 col-xs-12">
 								<dl>
 									<dt>UF:</dt> 
 									<dd>${empresa.endereco.uf}</dd>
 								</dl>
 							</div>
-							<div class="col-xs-3">
-								<dl class="pull-right">
+							<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+								<dl class="pull-right-lg">
 									<dt>CEP:</dt>
 									<dd>${empresa.endereco.cep}</dd>
 								</dl>
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-xs-6">
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 								<dl>
 									<dt>Data de abertura:</dt>
 									<dd>
@@ -89,8 +89,8 @@
 									</dd>							
 								</dl>
 							</div>
-							<div class="col-xs-6">
-								<dl class="pull-right">
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+								<dl class="pull-right-lg">
 									<dt>Emissão de documento:</dt>						
 									<dd>
 										<fmt:formatDate value="${empresa.dataEmissaoDocumento.time}" pattern="dd/MM/yyyy"  />
@@ -99,7 +99,7 @@
 							</div>
 						</div>
 						
-						<a class="btn btn-default btn-download" href="${empresa.url}" download>
+						<a class="btn btn-default btn-download btn-download-pull-left" href="${empresa.url}" download>
 							<img style="width:12%; float:left;" src="../assets/img/PDF_icon.png" />
 							<label>Download de PDF</label>
 						</a>

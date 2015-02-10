@@ -55,8 +55,17 @@
 		margin: 25px 0 0 0;
 	}
 	
+
 	.margin-35-0 {
 		margin: 15px 0;
+	}
+	
+	.pull-right-lg{
+		float: none;
+	}
+	
+	.btn-download-pull-left {
+		margin-left: 0;
 	}
 	
 	
@@ -78,6 +87,10 @@
 	
 	
 	
+	.pull-right-lg{
+		float: right;
+	}	
+	
 }
 
 
@@ -95,6 +108,10 @@
 		height:145px;
 	}	
 	
+	.pull-right-lg{
+		float: right;
+	}
+	
 }
 
 
@@ -109,6 +126,10 @@
 	.avatar .imagem{
 		width: 125px;
 		height:125px;
+	}
+	
+	.pull-right-lg{
+		float: right;
 	}
 	
 }
