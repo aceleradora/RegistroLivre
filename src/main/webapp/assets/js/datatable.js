@@ -5,6 +5,8 @@ var tabelaGlobal;
 RegistroLivre.DataTable = function DataTable(){
 	
 	function cria(dados){
+		var checkbox = 0;
+		var dataEmissaoDocumento = 3;
 		var dataEmissaoOrdenada = 4;
 		var dataRegistro = 5;
 		var id = 6;
@@ -15,8 +17,8 @@ RegistroLivre.DataTable = function DataTable(){
 			stateSave: true,
 			
 			columns : [ {"render" :	function(data,type,row){return '<input type="checkbox" class="datatable-selecao">';},
-						className: "dt-body-center"},
-			            { data : 'nomeFantasia'	}, 
+							className: "dt-body-center"},
+						{ data : 'nomeFantasia'	}, 
 			            { data : 'endereco.logradouro', className:"desktop"},
 			            { data : 'dataEmissaoDocumento', className:"desktop dt-body-center"},
 	 		            { data : 'dataEmissaoOrdenada', className:"never"},
@@ -24,26 +26,22 @@ RegistroLivre.DataTable = function DataTable(){
 			            { data : 'id', className:"never"}
 			          ],		
 	        "aoColumnDefs" : [ {
-				"iDataSort" : 3,
-				"aTargets" : [2]
+				"iDataSort" : dataEmissaoOrdenada,
+				"aTargets" : [dataEmissaoDocumento]
 			},
 			{ 
-				'orderable': false,
-				'aTargets': [0] 
+				'aTargets': [checkbox],
+				'orderable': false
 			},
 			{
 				"aTargets" : [dataEmissaoOrdenada],
-				"visible" : false,
-			} ,{
-				"aTargets" : [dataRegistro],
-				"visible" : false,
-			} ,{
 				"aTargets" : [id],
+				"aTargets" : [dataRegistro],
 				"visible" : false,
 			}],
 			"order": [[ dataRegistro, "desc" ]],
 			"rowCallback": function(row, data){
-				$("td:gt(0)", row).on('click', function(){
+				$("td:gt("+checkbox+")", row).on('click', function(){					
 					window.location.href = '/visualizacao/' + data.id;
 				});
 				
