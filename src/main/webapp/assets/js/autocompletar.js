@@ -17,7 +17,7 @@ RegistroLivre.AutoCompletar = function AutoCompletar(){
 				})
 		    },
 		    select: function (event, ui) {
-			    var category = ui.item.value.split(' ').join('+');
+			    var category = normaliza(ui.item.value.split(' ').join('+'));
 			    var url = "/busca?busca=" + category;
 	
 			    event.preventDefault();
