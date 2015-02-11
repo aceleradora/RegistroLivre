@@ -71,6 +71,13 @@ Open [http://localhost:8080](http://localhost:8080)
 
 	$ mvn test
 	
+## Colabore
+
+Cientistas da informação, engenheiros de computação, hackers e programadores em geral
+
+O Registro Livre é um projeto de software livre. Portanto, você pode obter nosso código-fonte no Github e aplicar em seus próprios projetos. Melhor ainda, você pode nos ajudar a aprimorá-lo! Também adoraríamos ver os dados disponíveis aqui servindo como base para análises e estudos, ou sugestões de novas funcionalidades.
+
+Saiba mais sobre contribuir [aqui](http://registro-livre-staging.herokuapp.com/colabore).
 	
 ## Contribuidores
 
