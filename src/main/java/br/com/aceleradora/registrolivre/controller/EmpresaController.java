@@ -87,7 +87,7 @@ public class EmpresaController {
 
 	@Get("/busca")
 	public void busca(String busca) {
-		if (busca != null) {
+		if (busca != null) {			
 			List<Empresa> listaDeResultadosDeEmpresas = daoEmpresa
 					.pesquisa(busca);
 			result.forwardTo(this).listagem(listaDeResultadosDeEmpresas);
