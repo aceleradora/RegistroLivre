@@ -4,6 +4,7 @@ $(document).ready(function() {
 	eventoDesbloquearBotaoPesquisar();
 	validarBuscaAvancada();	
 	mascararCampos();
+	removerAcentosDaPesquisa();
 });
 
 
@@ -106,5 +107,12 @@ var validarBuscaAvancada = function validarBuscaAvancada() {
 	
 	$("input[name='empresa.socios[].cpf']").each(function() {
 		$(this).keyup(testaCamposBuscaAvancada.bind(this, botao));
+	});
+}
+
+var removerAcentosDaPesquisa = function removerAcentosDaPesquisa(){
+	$("#form-busca").submit(function(event){		
+		var $campo = $("#campo-pesquisado");		
+		$campo.val(util.normalizar($campo.val()));		
 	});
 }
