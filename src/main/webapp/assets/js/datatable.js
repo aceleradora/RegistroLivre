@@ -47,8 +47,7 @@ RegistroLivre.DataTable = function DataTable(){
 					window.location.href = '/visualizacao/' + data.id;
 				});
 				
-				$(".datatable-selecao", row).on("click", function(){
-					criaBotaoDownloadMultiplo();
+				$(".datatable-selecao", row).on("click", function(){					
 					selecionarLinha($(this).parents('tr'), $(this).prop("checked"));
 				});
 			},
@@ -68,14 +67,15 @@ RegistroLivre.DataTable = function DataTable(){
 	        
 	        "autoWidth": false
 		});
-
+		
+		criaBotaoDownloadMultiplo();		
 		eventoSelecionaTodos();
 		tabelaGlobal = tabela;
 	};
 
 	var criaBotaoDownloadMultiplo = function criaBotaoDownloadMultiplo(){
 		if($('#btn-multi-download').length === 0){
-			var $botaoDownload = $('<button id="btn-multi-download" style="display: none; margin-left:60px" class="btn btn-success">Download</button>');
+			var $botaoDownload = $('<button id="btn-multi-download" class="btn btn-success">Download</button>');
 			$("#tabelaListagem_length").append($botaoDownload);
 			eventoBotaoMultiDownload();			
 		}		
