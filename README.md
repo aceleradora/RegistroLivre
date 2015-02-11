@@ -13,6 +13,7 @@ O **Registro Livre** é uma plataforma de dados abertos cujo objetivo principal 
 * Hibernate
 * Jetty
 * Maven
+* Bootstrap
 
 ##### Testes
 * JUnit
@@ -30,13 +31,11 @@ O **Registro Livre** é uma plataforma de dados abertos cujo objetivo principal 
 *É indicado ter uma conta no Cloudinary para desenvolvimento local e gestão dos arquivos PDF. (A configuração padrão no ambiente de produção é no Cloudinary e está configurada no arquivo [db.sh](https://github.com/aceleradora6-tw/RegistroLivre/blob/master/db.sh))*
 
 
-## Para rodar execute o comando no terminal 
+## Rodando o projeto
 
-	$ mvn jetty:run
-	
-## Configurando o ambiente	
+#### Configurando o ambiente	
 
-### Mac
+##### Mac
 
 No mac, você precisa ter as seguintes tecnologias instaladas:
 
@@ -45,7 +44,7 @@ No mac, você precisa ter as seguintes tecnologias instaladas:
 
 Para fazer o projeto funcionar, você precisa rodar o arquivo 'dbMac.sh' para baixar e configurar o banco local postgresql e suas variaveis.
 
-### Debian/Ubuntu
+##### Debian/Ubuntu
 
 No Debian/Ubuntu, você precisa ter as seguintes tecnologias instaladas:
 
@@ -53,4 +52,26 @@ No Debian/Ubuntu, você precisa ter as seguintes tecnologias instaladas:
 
 Para fazer o projeto funcionar, você precisa rodar o arquivo 'db.sh' para baixar e configurar o banco local postgresql e suas variaveis.
 
-Para usar o projeto em alguma IDE importe-o como um projeto Maven para o seu workspace.
+
+#### Clonando o projeto
+
+1. Faça um clone para sua máquina via GIT: `$ git clone https://github.com/aceleradora6-tw/RegistroLivre.git`
+2. Enter project folder: `$ cd RegistroLivre`
+3. Para usar o projeto em alguma IDE importe-o como um projeto Maven para o seu workspace.
+
+Se tudo der certo, você poderá rodar o projeto!
+
+#### Rodando o projeto localmente
+
+	$ mvn jetty:run
+
+Open [http://localhost:8080](http://localhost:8080)
+
+#### Rodando os testes do projeto localmente
+
+	$ mvn test
+	
+	
+## Contribuidores
+
+[http://registro-livre-staging.herokuapp.com/sobre](http://registro-livre-staging.herokuapp.com/sobre)
