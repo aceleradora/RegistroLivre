@@ -13,7 +13,8 @@
 	<link href="/assets/css/home.css" rel="stylesheet">
 	
 	<% //Manter charset utf-8 para funcionar a acentuação no auto completar %>
-	<script src="/assets/js/home.js" charset="utf-8"></script>
+	<script src="/assets/js/util.js" charset="utf-8"></script>
+	<script src="/assets/js/home.js" charset="utf-8"></script>	
 	<script src="/assets/js/autocompletar.js" charset="utf-8"></script>
 	<script src="/assets/js/socios.js" charset="utf-8"></script>
 	<script src="/assets/js/cidadeEstado.js" charset="utf-8"></script>
