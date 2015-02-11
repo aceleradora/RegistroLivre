@@ -28,7 +28,7 @@
 			
 				<div class="input-group">
 					<input type="text" class="form-control" name="busca" id="campo-pesquisado-navbar" placeholder="Buscar" />
-					<span><button type="submit" class="btn btn-default botao-busca-navbar"><span class="glyphicon glyphicon-search"></span></button></span>
+					<span><button type="submit" class="btn botao-busca botao-busca-navbar"><span class="glyphicon glyphicon-search"></span></button></span>
 				</div>								
 			</form>			
 		</div>
