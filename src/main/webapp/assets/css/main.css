@@ -24,11 +24,14 @@ dt {
 	display: block;
 	border: 1px none;
 	width: 200px;
-	height: 40px;
-	border-radius: 5px !important;
-	cursor: default;
+	height: 40px;	
+	border-radius: 5px !important;	
 	margin-left: 193px;
 }
+
+	.btn-download label{
+		cursor:pointer;		
+	}
 
 #busca-avancada{
 	display:none;
