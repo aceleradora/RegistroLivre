@@ -13,7 +13,7 @@ O **Registro Livre** é uma plataforma de dados abertos cujo objetivo principal 
 * Hibernate
 * Jetty
 * Maven
-* Bootstrap
+* [Bootstrap3](http://getbootstrap.com/)
 
 ##### Testes
 * JUnit
@@ -73,9 +73,17 @@ Open [http://localhost:8080](http://localhost:8080)
 	
 ## Colabore
 
-Cientistas da informação, engenheiros de computação, hackers e programadores em geral
-
 O Registro Livre é um projeto de software livre. Portanto, você pode obter nosso código-fonte no Github e aplicar em seus próprios projetos. Melhor ainda, você pode nos ajudar a aprimorá-lo! Também adoraríamos ver os dados disponíveis aqui servindo como base para análises e estudos, ou sugestões de novas funcionalidades.
+
+Para **contribuir no aplicativo pelo Github** (após clonar e configurar o ambiente), crie um branch: 
+
+	$ git branch funcionalidade-nome
+
+acesse o branch criando: 
+	
+	$ git checkout funcionalidade-nome
+	
+e após feitas as alterações que deseja, envie um [*pull request*](https://help.github.com/articles/using-pull-requests/) para juntarmos a esta versão.
 
 Saiba mais sobre contribuir [aqui](http://registro-livre-staging.herokuapp.com/colabore).
 	
