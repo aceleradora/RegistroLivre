@@ -7,7 +7,7 @@
 <head>
 	<jsp:include page="/WEB-INF/jsp/includes/assets.jsp" />
 	<script src="/assets/js/visualizacao.js"></script>
-	<title>Visualizar Empresa</title>
+	<title>Registro Livre - Visualizar Empresa</title>
 </head>
 <body>
 	<jsp:include page="/WEB-INF/jsp/includes/cabecalho.jsp" />

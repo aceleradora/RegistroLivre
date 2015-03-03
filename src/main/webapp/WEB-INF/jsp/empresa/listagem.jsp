@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>	
-	<title>Listar Empresas</title>
+	<title>Registro Livre - Listar Empresas</title>
 	<jsp:include page="/WEB-INF/jsp/includes/assets.jsp" />
 	
 	<jsp:include page="/WEB-INF/jsp/includes/datatable.jsp" />

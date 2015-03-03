@@ -9,10 +9,10 @@
 
 	<c:choose>
 		<c:when test="${editar != null}">
-			<title>Ediçao de Empresa</title>
+			<title>Registro Livre - Ediçao de Empresa</title>
 		</c:when>
 		<c:otherwise>
-			<title>Cadastro de Empresa</title>
+			<title>Registro Livre - Cadastro de Empresa</title>
 		</c:otherwise>
 	</c:choose>
 
