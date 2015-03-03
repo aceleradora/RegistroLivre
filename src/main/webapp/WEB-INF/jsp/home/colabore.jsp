@@ -18,7 +18,7 @@
 					<h1 class="centralize title">Colabore</h1>
 					
 
-					<p class="centralize text">O <b>Registro Livre</b> é um projeto sem fins lucrativos, defensor da liberdade de informação 
+					<p class="text">O <b>Registro Livre</b> é um projeto sem fins lucrativos, defensor da liberdade de informação 
 					e voltado a oferecer subsídios e especial para jornalistas produzirem reportagens investigativas.</br> 
 					Aceitamos e incentivamos a contribuição de cada qual dentro de suas possibilidades.</p>
 					
@@ -66,7 +66,7 @@
 						</a>  e 
  					<a href="https://www.facebook.com/sharer/sharer.php?u=http://registro-livre-aceleradora.herokuapp.com/" onclick="window.open(this.href, 'mywin',
 						'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;">
-						Facebook
+						Facebook.
 					</a>										
 					</li>
 					</ul>	
